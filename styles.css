@@ -285,6 +285,7 @@ label {
 
 .interest-saved {
   color: #117a39;
+  font-weight: 800;
 }
 
 .benefit-note {
@@ -364,6 +365,7 @@ label {
   color: var(--muted);
 }
 
+.ad-container,
 .ad-space {
   border: 1px dashed #c4d8cb;
   background: linear-gradient(120deg, #f7faf8, #eef6f1);
@@ -377,6 +379,7 @@ label {
   margin: 18px 0;
   text-align: center;
   padding: 8px;
+  width: 100%;
 }
 
 .content-block {

@@ -31,6 +31,34 @@
     });
   }
 
+  function optimizePageAssets() {
+    document.querySelectorAll("img").forEach(function (img) {
+      if (!img.getAttribute("loading")) {
+        img.setAttribute("loading", "lazy");
+      }
+      if (!img.getAttribute("decoding")) {
+        img.setAttribute("decoding", "async");
+      }
+    });
+  }
+
+  function setupAfterResultAds() {
+    var copyButtons = document.querySelectorAll(".copy-btn");
+    copyButtons.forEach(function (button) {
+      var next = button.nextElementSibling;
+      if (next && next.classList && next.classList.contains("ad-container")) {
+        return;
+      }
+
+      var ad = document.createElement("div");
+      ad.className = "ad-container";
+      ad.textContent = "Ad Space";
+      ad.setAttribute("aria-label", "Advertisement placeholder");
+      ad.style.marginTop = "14px";
+      button.insertAdjacentElement("afterend", ad);
+    });
+  }
+
   function initGSTCalculator() {
     var amountEl = byId("gstAmount");
     if (!amountEl) {
@@ -1301,6 +1329,8 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     bindActiveNav();
+    optimizePageAssets();
+    setupAfterResultAds();
     initGSTCalculator();
     initEMICalculator();
     initPercentageCalculator();
