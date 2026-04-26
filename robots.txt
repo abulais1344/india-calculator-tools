@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Crawl delays (optional, adjust if needed)
+Crawl-delay: 1

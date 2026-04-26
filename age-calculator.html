@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator India (DOB to Years, Months, Days)</title>
+  <meta name="description" content="Calculate your exact age from date of birth instantly. Perfect for forms, applications, and age verification with years, months, and days breakdown.">
+  <meta name="keywords" content="age calculator, age calculator india, calculate age online, date of birth calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is age calculated accurately?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Age is calculated by subtracting the date of birth from the reference date (today or a chosen date), accounting for leap years and the number of days in each month to get exact years, months, and days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do I need an exact age calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exact age is needed for school admissions, job applications, insurance policies, passport applications, eligibility checks for competitions, and official forms where approximate age is not acceptable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate age as of a past or future date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our calculator lets you optionally enter an 'as of' date. If you leave it blank, it automatically uses today's date. This is useful for retroactive age verification or planning purposes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the total months and total days information?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Total months shows the exact number of months lived (e.g., 250 months). Total days converts the entire age into days. This is useful for medical records, precise eligibility calculations, and detailed age analysis."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Age Calculator Online</h1>
+        <p>Calculate your exact age in years, months, and days from your date of birth in seconds.</p>
+      </section>
+
+      <div class="ad-space">Top Ad</div>
+
+      <section class="card">
+        <h2>Calculate Your Age</h2>
+
+        <div class="field inline-row">
+          <div>
+            <label for="dob">Date of Birth</label>
+            <input id="dob" type="date" max="9999-12-31">
+          </div>
+          <div>
+            <label for="asOfDate">Calculate Age As Of (Optional)</label>
+            <input id="asOfDate" type="date" max="9999-12-31">
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="calculateAgeBtn" type="button">Calculate Age</button>
+        </div>
+
+        <p id="ageError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div id="ageResult" class="result-value">Your Age: -</div>
+          <div class="steps" id="ageExtra">Total months: - | Total days: -</div>
+        </div>
+        <button id="copyAgeResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How Age Is Calculated</h3>
+          <p><strong>Exact Age Calculation:</strong> We subtract your birth date from the reference date (today or your chosen date), accounting for month lengths and leap years to get precise years, months, and days.</p>
+          <p><strong>Why Total Months Matter:</strong> Doctors, insurers, and schools sometimes need exact months (e.g., 250 months instead of 20 years 10 months) for eligibility checks, insurance premiums, and milestone tracking.</p>
+          <p><strong>Example:</strong> If you were born on January 15, 2000, and today is April 10, 2026, your exact age would be 26 years, 2 months, and 26 days (316 total months, 9,537 total days).</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About Age</h2>
+        <div class="faq-item">
+          <h4>Why do I need an exact age calculator instead of just counting years?</h4>
+          <p>Schools, colleges, insurance companies, and government agencies often require exact age in months or days for eligibility checks, premium calculations, and compliance. Manual counting is error-prone; a calculator ensures accuracy.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I calculate age as of a different date?</h4>
+          <p>Yes! Use the "Calculate Age As Of" field to enter any past or future date. This is useful for retroactive eligibility checks, planning age-based events, or verifying age at a specific milestone date.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the difference between age in years and age in months?</h4>
+          <p>Age in years shows whole years (e.g., 25 years). Age in months shows the total months including fractional years (e.g., 305 months = 25 years 5 months). Insurance and medical applications often use months for precision.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How are leap years handled in age calculation?</h4>
+          <p>Leap years add an extra day (February 29) every 4 years. Our calculator accounts for this when computing the exact number of days lived. If you were born on February 29, the calculator treats it as March 1 in non-leap years.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <section class="card content-block">
+        <h2>What Is an Age Calculator and How It Works</h2>
+        <p>An age calculator helps you find your exact age using your date of birth and a selected reference date. Instead of manually counting years and months, this tool computes the difference accurately in years, months, and days by handling month lengths and calendar adjustments correctly. To use this age calculator, enter your birth date, optionally choose an "as of" date, and click calculate. If you do not pick an "as of" date, it automatically uses today. This makes it useful for school forms, job applications, insurance, passport documentation, and eligibility checks where precise age matters. Our calculate age online tool is fast, mobile-friendly, and runs directly in your browser without heavy scripts. If you need exact timeline values, it also shows total months and total days. This exact age calculator is part of our free India Utility Calculator suite.</p>
+      </section>
+
+      <div class="ad-space">Bottom Ad</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

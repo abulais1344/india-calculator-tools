@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Eligibility Calculator India – Check Loan Amount</title>
+  <meta name="description" content="Check your loan eligibility based on income and existing EMIs. Calculate maximum home loan, car loan, or personal loan amount you can avail.">
+  <meta name="keywords" content="loan eligibility calculator, home loan calculator, personal loan eligibility, loan amount calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is loan eligibility calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Banks typically allow a maximum EMI of 50% of your monthly income. Your eligible EMI = (Monthly Income × 0.5) - Existing EMIs. Using this EMI and chosen interest rate/tenure, we calculate the maximum loan amount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What factors affect my loan eligibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Income, existing EMIs, credit score, employment type, and repayment history are key factors. Higher income and lower existing EMIs increase eligibility. Banks may approve more or less based on your credit profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I include spouse's income for higher eligibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, if applying jointly. Most banks consider combined income of both spouses. This can significantly increase your loan eligibility. Mention this when applying for the loan."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Loan Eligibility Calculator India</h1>
+        <p>Check your loan eligibility based on income and existing EMIs.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Check Your Loan Eligibility</h2>
+        
+        <div class="field">
+          <label for="monthlyIncome">Monthly Income (₹)</label>
+          <input id="monthlyIncome" type="number" min="0" step="1000" placeholder="Example: 50000">
+          <div class="range-wrap">
+            <input id="monthlyIncomeRange" type="range" min="0" max="5000000" step="5000" value="50000">
+            <div class="range-meta"><span>₹0</span><span>₹50L</span></div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="existingEmi">Existing Monthly EMIs (₹)</label>
+            <input id="existingEmi" type="number" min="0" step="1000" placeholder="Example: 10000">
+            <div class="range-wrap">
+              <input id="existingEmiRange" type="range" min="0" max="1000000" step="1000" value="10000">
+              <div class="range-meta"><span>₹0</span><span>₹10L</span></div>
+            </div>
+          </div>
+          <div>
+            <label for="loanRate2">Interest Rate (% per year)</label>
+            <input id="loanRate2" type="number" min="0" step="0.01" placeholder="Example: 8.5">
+            <div class="range-wrap">
+              <input id="loanRate2Range" type="range" min="0" max="15" step="0.1" value="8.5">
+              <div class="range-meta"><span>0%</span><span>15%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="loanTenure2">Loan Tenure (Years)</label>
+          <input id="loanTenure2" type="number" min="1" step="1" placeholder="Example: 20">
+          <div class="range-wrap">
+            <input id="loanTenure2Range" type="range" min="1" max="30" step="1" value="20">
+            <div class="range-meta"><span>1Y</span><span>30Y</span></div>
+          </div>
+        </div>
+
+        <p id="loanEligError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Eligible Monthly EMI</span><span class="result-value" id="eligibleEmi" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Maximum Loan Amount</span><span class="result-value" id="maxLoanAmount" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+        </div>
+
+        <button id="copyLoanEligResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How Loan Eligibility Is Calculated</h3>
+          <p><strong>Step 1:</strong> Maximum EMI allowed = Monthly Income × 50% = (₹50,000 × 0.5) = ₹25,000.</p>
+          <p><strong>Step 2:</strong> Eligible EMI = Maximum EMI - Existing EMIs = ₹25,000 - ₹10,000 = ₹15,000.</p>
+          <p><strong>Step 3:</strong> Using EMI formula, we calculate the loan amount: P = EMI × [((1+r)^n - 1) / (r × (1+r)^n)].</p>
+          <p><strong>Example:</strong> With ₹15,000 eligible EMI at 8.5% for 20 years, maximum loan = ₹18.5 lakhs.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About Loan Eligibility</h2>
+        <div class="faq-item">
+          <h4>Why can't I get the full loan amount I'm eligible for?</h4>
+          <p>Besides EMI capacity, banks consider your age, job stability, credit score, down payment amount, and property value. Eligibility here is based on EMI capacity alone. Your final loan amount may be lower.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How does existing debt affect my eligibility?</h4>
+          <p>Every existing EMI (car loan, personal loan, credit card EMI) reduces your available EMI capacity. Clearing existing loans before applying for a new loan improves your eligibility significantly.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is this calculator accurate for all banks?</h4>
+          <p>This calculator uses the standard 50% income rule, which most banks follow. However, individual banks have different policies. Check with your specific bank for exact eligibility criteria.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

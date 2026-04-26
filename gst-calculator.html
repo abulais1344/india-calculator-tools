@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Calculator India 5% 12% 18% 28% | Inclusive & Exclusive</title>
+  <meta name="description" content="Calculate GST for all slabs in India (5%, 12%, 18%, 28%). Instant inclusive and exclusive GST calculations for invoices, bills, and business.">
+  <meta name="keywords" content="gst calculator, gst calculator india, inclusive gst, exclusive gst, tax calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is GST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST (Goods and Services Tax) is a unified tax system in India applied on the supply of goods and services. It replaced multiple indirect taxes and is categorized into four slabs: 5%, 12%, 18%, and 28%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between inclusive and exclusive GST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inclusive GST means the tax is already included in the price shown. Exclusive GST means the tax is added on top of the base price. Our calculator handles both modes instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate GST for my invoice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your base amount, select the GST rate applicable to your product or service, and choose exclusive mode. The calculator will show the GST amount and total with tax included."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which GST slab applies to my business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST slabs depend on the category of goods or services. Essential items are mostly 5%, mid-range products 12%, luxury items 18%, and harmful items 28%. Check official GST council guidelines for your specific product."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>GST Calculator India</h1>
+        <p>Calculate GST online for inclusive and exclusive amounts using common Indian GST slabs: 5%, 12%, 18%, and 28%.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Calculate GST</h2>
+        <div class="field">
+          <label for="gstAmount">Amount (₹)</label>
+          <input id="gstAmount" type="number" min="0" step="0.01" placeholder="Enter amount">
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="gstRate">GST Rate</label>
+            <select id="gstRate">
+              <option value="5">5%</option>
+              <option value="12">12%</option>
+              <option value="18" selected>18%</option>
+              <option value="28">28%</option>
+            </select>
+          </div>
+          <div>
+            <label>Quick Presets</label>
+            <div class="preset-group">
+              <button type="button" class="secondary" data-gst-rate="5">GST 5%</button>
+              <button type="button" class="secondary" data-gst-rate="12">GST 12%</button>
+              <button type="button" class="secondary" data-gst-rate="18">GST 18%</button>
+              <button type="button" class="secondary" data-gst-rate="28">GST 28%</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>GST Type</label>
+          <div class="toggle-group">
+            <label><input type="radio" name="gstMode" value="inclusive"> Inclusive GST</label>
+            <label><input type="radio" name="gstMode" value="exclusive" checked> Exclusive GST</label>
+          </div>
+        </div>
+
+        <p id="gstError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Taxable Amount</span><span class="result-value" id="gstTaxable">-</span></div>
+          <div class="result-item"><span>GST Amount</span><span class="result-value" id="gstValue">-</span></div>
+          <div class="result-item"><span>Total Amount</span><span class="result-value" id="gstTotal">-</span></div>
+        </div>
+
+        <div class="steps" id="gstSteps">Enter values to see GST calculation steps.</div>
+        <button id="copyGstResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How GST Is Calculated</h3>
+          <p><strong>In Exclusive Mode:</strong> GST Amount = Taxable Amount × (GST Rate / 100). For example, if you have ₹2500 with 18% GST: GST = 2500 × 0.18 = ₹450. Total = ₹2500 + ₹450 = ₹2950.</p>
+          <p><strong>In Inclusive Mode:</strong> The total amount you provide already includes GST. We extract the base by dividing by (1 + GST Rate / 100). For ₹2950 at 18% GST: Base = 2950 / 1.18 = ₹2500. GST = ₹450.</p>
+          <p><strong>Why This Matters:</strong> Understanding GST calculation helps you verify invoices, check if discounts are applied before or after tax, and plan your business pricing correctly.</p>
+        </section>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About GST</h2>
+        <div class="faq-item">
+          <h4>What items fall under each GST slab?</h4>
+          <p>5% GST applies to essential items like food, medications, and basic goods. 12% covers mid-range products like clothing and electronics. 18% applies to luxury items, restaurants, and services. 28% is for "sin goods" like alcohol and tobacco. Check your product category in official GST guidelines.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I know if a price is inclusive or exclusive of GST?</h4>
+          <p>Online retailers and marketplaces show prices inclusive of GST. B2B invoices often show exclusive prices with GST added separately. If unsure, ask the seller or check the invoice breakdown for a separate "GST" line item.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I claim GST as input credit in my business?</h4>
+          <p>If you are registered as a GST taxpayer, you can claim GST paid on business purchases as Input Tax Credit (ITC) to reduce your output GST liability. This applies only to genuine business transactions, not personal purchases.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is GST applicable on all services?</h4>
+          <p>Most services are taxable under GST. However, certain services like transport of goods via railways, education in schools, and agricultural products have exemptions or lower rates. Consult GST council guidance for specific services.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card content-block">
+        <h2>How To Use This GST Calculator</h2>
+        <p>This GST calculator helps you find tax values in seconds for everyday billing and purchase decisions in India. Start by entering the amount, then choose the GST slab based on the product or service category. If your amount does not include GST, choose Exclusive mode. The tool will calculate GST separately and add it to show the final invoice total. If your price already includes GST, choose Inclusive mode. In that case, the calculator extracts the taxable base and GST part from the final amount. This is useful when reviewing supplier bills, marketplace prices, or customer receipts. Quick preset buttons let you switch rates instantly, especially for common slabs like 18%. You can use this calculator for business invoices, bookkeeping, tax prep checks, or educational practice. For complete planning, also check the <a href="emi-calculator.html">EMI Calculator</a> and <a href="percentage-calculator.html">Percentage Calculator</a> to compare costs, margins, and monthly impacts.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

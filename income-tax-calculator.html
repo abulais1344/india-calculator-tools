@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator India (Old vs New Regime)</title>
+  <meta name="description" content="Calculate income tax for FY 2025-26 using old or new regime. Compare tax liability and find the best regime for your income.">
+  <meta name="keywords" content="income tax calculator india, tax calculator, income tax new regime, income tax old regime, income tax slab">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the current income tax slab for new regime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For FY 2025-26 (new regime): 0-2.5L: Nil, 2.5-5L: 5%, 5-7.5L: 10%, 7.5-10L: 15%, 10-12.5L: 20%, 12.5-15L: 25%, Above 15L: 30%. Plus applicable surcharge and education cess."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which regime should I choose?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most salaried employees, use this calculator to compare both regimes. Choose the one that gives lower tax. Generally, new regime benefits higher income earners, but compare for your specific situation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is education cess always applicable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Education Cess (EC) of 3% is always added on top of income tax and surcharge. This brings the effective tax rate slightly higher. It's included in this calculator."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Income Tax Calculator India</h1>
+        <p>Calculate income tax for FY 2025-26. Compare old and new regime to find which is better for you.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Calculate Your Income Tax</h2>
+        
+        <div class="field">
+          <label for="taxableIncome">Annual Taxable Income (₹)</label>
+          <input id="taxableIncome" type="number" min="0" step="50000" placeholder="Example: 8000000">
+          <div class="range-wrap">
+            <input id="taxableIncomeRange" type="range" min="0" max="100000000" step="100000" value="8000000">
+            <div class="range-meta"><span>₹0</span><span>₹10Cr</span></div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="section80cDeduction">Section 80C Deduction (₹) <span class="optional-tag">Old Regime Only</span></label>
+            <input id="section80cDeduction" type="number" min="0" step="10000" placeholder="Example: 150000">
+            <div class="range-wrap">
+              <input id="section80cDeductionRange" type="range" min="0" max="1500000" step="10000" value="150000">
+              <div class="range-meta"><span>₹0</span><span>₹15L</span></div>
+            </div>
+          </div>
+          <div>
+            <label for="section80dDeduction">Section 80D Deduction (₹) <span class="optional-tag">Old Regime Only</span></label>
+            <input id="section80dDeduction" type="number" min="0" step="5000" placeholder="Example: 25000">
+            <div class="range-wrap">
+              <input id="section80dDeductionRange" type="range" min="0" max="500000" step="5000" value="25000">
+              <div class="range-meta"><span>₹0</span><span>₹5L</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Select Tax Regime</label>
+          <div class="toggle-group">
+            <label><input type="radio" name="taxRegime2" value="new" checked> New Regime (Recommended)</label>
+            <label><input type="radio" name="taxRegime2" value="old"> Old Regime (with deductions)</label>
+          </div>
+        </div>
+
+        <p id="taxError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Income Tax</span><span class="result-value" id="incomeTax" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Surcharge</span><span class="result-value" id="surcharge">-</span></div>
+          <div class="result-item"><span>Education Cess (3%)</span><span class="result-value" id="educationCess">-</span></div>
+          <div class="result-item"><span>Total Tax Payable</span><span class="result-value" id="totalTaxPayable" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Net Income (After Tax)</span><span class="result-value" id="netIncome" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Effective Tax Rate</span><span class="result-value" id="effectiveTaxRate">-</span></div>
+        </div>
+
+        <button id="copyTaxResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How Income Tax Is Calculated</h3>
+          <p><strong>New Regime:</strong> Apply tax slabs directly on income (no deductions). Tax brackets: 0-2.5L (0%), 2.5-5L (5%), 5-7.5L (10%), etc. Plus 3% Education Cess on total tax.</p>
+          <p><strong>Old Regime:</strong> Deduct Section 80C (max ₹1.5L), 80D (max ₹25K), etc., from income first. Then apply slabs. Allows more deductions but higher tax rates.</p>
+          <p><strong>Surcharge:</strong> Applied on tax if income exceeds certain limits (currently 1 Cr for individuals). Ranges from 10% to 37% based on income brackets.</p>
+          <p><strong>Example:</strong> Income ₹80L → New Regime tax ≈ ₹10.5L. Old Regime with ₹1.5L deduction → Taxable ₹78.5L → Tax ≈ ₹10.3L.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About Income Tax</h2>
+        <div class="faq-item">
+          <h4>What does Section 80C, 80D mean?</h4>
+          <p>These are deduction sections under the Income Tax Act. 80C allows deductions for life insurance, PPF, ELSS up to ₹1.5L. 80D covers health insurance premiums up to ₹25K (individuals) or ₹50K (families).</p>
+        </div>
+        <div class="faq-item">
+          <h4>When should I choose old regime?</h4>
+          <p>Old regime is better if you have significant deductions (₹2L+ from 80C, 80D, 80E, etc., combined). For most salaried employees with basic deductions, new regime is beneficial. Always compare both.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the standard deduction in new regime?</h4>
+          <p>New regime provides a Standard Deduction of ₹50,000 (FY 2024-25 onwards) for salaried employees. This reduces your taxable income by ₹50K directly, simplifying tax calculation.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

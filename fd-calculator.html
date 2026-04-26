@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FD Calculator India – Fixed Deposit Interest Calculator</title>
+  <meta name="description" content="Calculate fixed deposit maturity amount and interest earned. Compare FD returns with different rates, tenure, and compounding frequencies.">
+  <meta name="keywords" content="fd calculator, fixed deposit calculator, compound interest calculator, bank fd calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Fixed Deposit (FD)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Fixed Deposit is a savings instrument where you deposit money with a bank for a fixed period at a fixed interest rate. The money is locked until maturity, giving you guaranteed returns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between quarterly and yearly compounding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quarterly compounding calculates and adds interest 4 times per year, earning 'interest on interest'. Yearly compounding does this once annually. Quarterly compounding yields higher returns due to more frequent compounding periods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is FD interest taxable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, FD interest is fully taxable as per your income slab. For example, if you earn ₹50,000 in FD interest, it's added to your salary income and taxed accordingly. Banks deduct TDS (Tax Deducted at Source) if interest exceeds ₹40,000 per year (or ₹50,000 for seniors)."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>FD Calculator India</h1>
+        <p>Calculate fixed deposit maturity amount and interest earned with compound interest.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Calculate Your FD Maturity</h2>
+        
+        <div class="field">
+          <label for="fdAmount">Deposit Amount (₹)</label>
+          <input id="fdAmount" type="number" min="0" step="1000" placeholder="Example: 100000">
+          <div class="range-wrap">
+            <input id="fdAmountRange" type="range" min="0" max="10000000" step="10000" value="100000">
+            <div class="range-meta"><span>₹0</span><span>₹1Cr</span></div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="fdRate">Interest Rate (% per year)</label>
+            <input id="fdRate" type="number" min="0" step="0.01" placeholder="Example: 6.5">
+            <div class="range-wrap">
+              <input id="fdRateRange" type="range" min="0" max="15" step="0.1" value="6.5">
+              <div class="range-meta"><span>0%</span><span>15%</span></div>
+            </div>
+          </div>
+          <div>
+            <label for="fdYears">Time Period (Years)</label>
+            <input id="fdYears" type="number" min="0.25" step="0.25" placeholder="Example: 5">
+            <div class="range-wrap">
+              <input id="fdYearsRange" type="range" min="0.25" max="10" step="0.25" value="5">
+              <div class="range-meta"><span>3M</span><span>10Y</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Compounding Frequency</label>
+          <div class="toggle-group">
+            <label><input type="radio" name="fdCompounding" value="quarterly" checked> Quarterly</label>
+            <label><input type="radio" name="fdCompounding" value="yearly"> Yearly</label>
+          </div>
+        </div>
+
+        <p id="fdError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Principal Amount</span><span class="result-value" id="fdPrincipal">-</span></div>
+          <div class="result-item"><span>Interest Earned</span><span class="result-value" id="fdInterest" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Maturity Amount</span><span class="result-value" id="fdMaturity" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+        </div>
+
+        <button id="copyFdResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How FD Interest Is Calculated</h3>
+          <p><strong>Formula:</strong> A = P(1 + r/n)^(nt), where P is principal, r is annual rate, n is compounding frequency per year, and t is time in years.</p>
+          <p><strong>Example:</strong> ₹1 lakh at 6.5% for 5 years with quarterly compounding = ₹1,35,914 maturity (interest earned: ₹35,914).</p>
+          <p><strong>Key Insight:</strong> Quarterly compounding earns about 0.3-0.5% more than yearly compounding due to more frequent interest credits.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About FD</h2>
+        <div class="faq-item">
+          <h4>Can I withdraw FD money before maturity?</h4>
+          <p>Yes, most banks allow premature withdrawal, but with a penalty. The penalty typically reduces your interest rate by 1-2%. Check your bank's specific penalty terms before opening an FD.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the safest FD amount to invest?</h4>
+          <p>Bank deposits up to ₹5 lakhs per depositor per bank are protected by DICGC (Deposit Insurance and Credit Guarantee Corporation). Spreading deposits across banks is safer for large amounts.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should I choose FD over SIP?</h4>
+          <p>FDs offer guaranteed returns but lower growth. SIPs offer higher potential returns but with market risk. For conservative investors, FDs are safer. For long-term wealth building, SIPs are better.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

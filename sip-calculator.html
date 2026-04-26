@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIP Calculator India – Calculate Returns & Investment Growth</title>
+  <meta name="description" content="Calculate SIP returns and mutual fund investment growth with compounding. See your investment grow over time with realistic return projections.">
+  <meta name="keywords" content="sip calculator, mutual fund calculator, investment calculator india, sip returns calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is SIP and why should I invest through SIP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly (monthly) in mutual funds. It helps reduce market timing risk, enforces disciplined investing, and benefits from rupee cost averaging and compound growth."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is this SIP calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator assumes a constant return rate and monthly investment. Real returns vary based on market conditions. Use this as an estimate only. Actual returns may differ significantly depending on fund performance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a reasonable expected return rate for SIP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For equity mutual funds, expect 10-15% annual returns in the long term. For debt funds, expect 5-7%. Conservative estimates are safer for planning. Past performance does not guarantee future returns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does compound interest boost SIP returns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compound interest is 'interest on interest'. As your SIP investment grows, the returns are reinvested, generating additional returns. Over 20-30 years, this compounding effect multiplies your wealth significantly."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>SIP Calculator India</h1>
+        <p>Calculate SIP returns and see how your monthly investment grows over time with compound interest.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Calculate Your SIP Returns</h2>
+        
+        <div class="field">
+          <label for="sipMonthly">Monthly Investment (₹)</label>
+          <input id="sipMonthly" type="number" min="0" step="500" placeholder="Example: 5000">
+          <div class="range-wrap">
+            <input id="sipMonthlyRange" type="range" min="0" max="1000000" step="500" value="5000">
+            <div class="range-meta"><span>₹0</span><span>₹10L</span></div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="sipRate">Expected Annual Return (%) <span class="optional-tag">Estimate</span></label>
+            <input id="sipRate" type="number" min="0" step="0.1" placeholder="Example: 12">
+            <div class="range-wrap">
+              <input id="sipRateRange" type="range" min="0" max="30" step="0.5" value="12">
+              <div class="range-meta"><span>0%</span><span>30%</span></div>
+            </div>
+          </div>
+          <div>
+            <label for="sipYears">Investment Period (Years)</label>
+            <input id="sipYears" type="number" min="1" step="1" placeholder="Example: 20">
+            <div class="range-wrap">
+              <input id="sipYearsRange" type="range" min="1" max="50" step="1" value="20">
+              <div class="range-meta"><span>1Y</span><span>50Y</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p id="sipError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Total Invested</span><span class="result-value" id="sipInvested">-</span></div>
+          <div class="result-item"><span>Estimated Returns</span><span class="result-value" id="sipReturns" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Final Value</span><span class="result-value" id="sipFinal" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+        </div>
+
+        <button id="copySipResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How SIP Returns Are Calculated</h3>
+          <p><strong>Formula:</strong> FV = P × [((1+r)^n - 1) / r] × (1+r), where P is monthly investment, r is monthly return rate, and n is total months.</p>
+          <p><strong>Example:</strong> ₹5,000/month at 12% annual return for 20 years = ₹17.31 lakhs invested + ₹39.15 lakhs returns = ₹56.46 lakhs final value.</p>
+          <p><strong>Key Insight:</strong> The longer you invest, the more compound interest works in your favor. Doubling your investment period can triple your returns due to compounding.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About SIP</h2>
+        <div class="faq-item">
+          <h4>What is the minimum SIP amount I can invest?</h4>
+          <p>Most mutual funds allow SIPs starting from ₹500 to ₹1,000 per month. Some premium funds may require higher minimums. Check your fund house's rules before investing.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Should I stop SIP during market crash?</h4>
+          <p>No! Market crashes are ideal for SIP investors. Your fixed monthly amount buys more units at lower prices. Continuing SIP during downturns actually maximizes long-term returns (rupee cost averaging benefit).</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the tax on SIP returns?</h4>
+          <p>Tax depends on fund type and holding period. Equity funds held for 1+ year (long-term) enjoy 10% tax on gains over ₹1 lakh. Short-term gains are taxed as per your income slab. Use tax calculator for estimates.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

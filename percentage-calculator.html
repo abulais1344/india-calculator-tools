@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator India | Increase, Decrease, X% of Y</title>
+  <meta name="description" content="Quickly calculate percentages, increase, and decrease. Perfect for marks, discounts, profits, and business analysis with instant results.">
+  <meta name="keywords" content="percentage calculator, percentage increase, percentage decrease, discount calculator, profit calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate X% of Y?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To find X% of Y, multiply Y by X and divide by 100. For example, 18% of 2500 = (2500 × 18) / 100 = 450. Our tool does this instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is percentage increase and how do I calculate it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentage increase shows how much a value has grown. Formula: ((New Value - Old Value) / Old Value) × 100. For example, if price goes from 800 to 1000, the increase is 25%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is percentage decrease different from percentage increase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentage decrease shows how much a value has fallen. The formula is the same, but if the new value is lower than the old value, the result is negative or shown as a decrease percentage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When do I use percentage calculations in real life?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentages are used for discounts during shopping, calculating exam score changes, tracking salary hikes, analyzing profit margins, computing GST amounts, and comparing growth rates in sales or investments."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Percentage Calculator</h1>
+        <p>Find percentages instantly and calculate percentage increase or decrease for marks, prices, profits, and everyday comparisons.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>What Is X% of Y?</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="percentX">X (%)</label>
+            <input id="percentX" type="number" step="0.01" placeholder="Example: 18">
+          </div>
+          <div>
+            <label for="percentY">Y (Value)</label>
+            <input id="percentY" type="number" step="0.01" placeholder="Example: 2500">
+          </div>
+        </div>
+        <div class="result-box">
+          <div class="result-item"><span>Result</span><span class="result-value" id="percentResult">-</span></div>
+        </div>
+        <button id="copyPercentResultBtn" type="button" class="secondary copy-btn" style="margin-top: 0.5rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <p><strong>Formula:</strong> Result = (X ÷ 100) × Y</p>
+          <p><strong>Example:</strong> 18% of ₹2500 = (18 ÷ 100) × 2500 = 0.18 × 2500 = ₹450. Useful for GST approximation, discounts, and commission calculations.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card">
+        <h2>Percentage Increase / Decrease</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="oldValue">Old Value</label>
+            <input id="oldValue" type="number" step="0.01" placeholder="Example: 800">
+          </div>
+          <div>
+            <label for="newValue">New Value</label>
+            <input id="newValue" type="number" step="0.01" placeholder="Example: 1000">
+        <button id="copyChangeResultBtn" type="button" class="secondary copy-btn" style="margin-top: 0.5rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <p><strong>Formula:</strong> Percentage Change = ((New - Old) ÷ Old) × 100</p>
+          <p><strong>Example:</strong> Old = ₹800, New = ₹1000. Change = ((1000 - 800) ÷ 800) × 100 = (200 ÷ 800) × 100 = 25% increase. Useful for salary hikes, sales growth, stock movement, and inflation tracking.</p>
+        </section>
+          </div>
+        </div>
+        <div class="result-box">
+          <div class="result-item"><span>Type</span><span class="result-value" id="changeType">-</span></div>
+          <div class="result-item"><span>Percentage Change</span><span class="result-value" id="changeResult">-</span></div>
+        </div>
+      </section>
+section class="card faq-section">
+        <h2>Frequently Asked Questions About Percentages</h2>
+        <div class="faq-item">
+          <h4>What is the easiest way to calculate a percentage mentally?</h4>
+          <p>For 10%, divide by 10. For 5%, take 10% and divide by 2. For 15%, add 10% and 5%. For 20%, divide by 5. Practice these shortcuts to calculate percentages quickly in your head without a calculator.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I calculate the original value if I know the percentage increase?</h4>
+          <p>If the new value is 125% of the original (25% increase), divide new value by 1.25 to get the original. Formula: Original = New ÷ (1 + Percentage Increase ÷ 100).</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can percentage increase and decrease be treated the same way?</h4>
+          <p>No. A 50% increase is NOT reversed by a 50% decrease. For example, ₹100 increased by 50% = ₹150. Then ₹150 decreased by 50% = ₹75, not ₹100. This is because the percentage is applied to different base values.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the practical use of this percentage calculator in daily life?</h4>
+          <p>Use it for discount calculations when shopping, figuring out tips at restaurants, tracking performance improvements at work, comparing salary increases, understanding tax deductions, and analyzing test score changes.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <section class="card content-block">
+        <h2>How To Use This Percentage Tool</h2>
+        <p>This percentage calculator is made for quick day-to-day calculations where speed matters. In the first section, enter any percentage value and a base amount to find the result instantly. It is useful for GST approximation, discounts during online shopping, commission checks, and exam score analysis. In the second section, enter old and new values to know whether the change is an increase or decrease, along with the exact percentage. This can help when comparing electricity bills, salary hikes, sales numbers, stock movement, and yearly growth. Results update as you type, so you can test multiple scenarios in seconds without clicking extra buttons. The tool is lightweight and works smoothly on mobile browsers. You can also use related tools on this site for complete calculations: visit the <a href="gst-calculator.html">GST Calculator</a> for tax values and the <a href="emi-calculator.html">EMI Calculator</a> for monthly loan planning.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

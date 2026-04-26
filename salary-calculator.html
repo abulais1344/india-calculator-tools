@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salary Calculator India – In Hand Salary & Deductions</title>
+  <meta name="description" content="Calculate your net in-hand salary from CTC. Deduct PF, tax, and other deductions to find your actual monthly take-home pay.">
+  <meta name="keywords" content="salary calculator india, ctc calculator, net salary calculator, take home pay calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between CTC and take-home salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CTC (Cost to Company) is the total cost of your employment including your salary, PF, health insurance, etc. Take-home salary (or net salary) is what you actually receive in your bank account after deducting PF and taxes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much PF contribution is deducted from my salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically, 12% of basic salary is deducted as Employee PF contribution. Your employer also contributes matching 12%. This money goes into your retirement account and is partially withdrawn on retirement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between old and new income tax regime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "New regime (since 2020) has lower tax slabs but no deductions like Standard Deduction, HRA, LTA, etc. Old regime allows various deductions but higher tax rates. Most people benefit from the new regime, but compare both for your income."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="fd-calculator.html">FD</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Salary Calculator India</h1>
+        <p>Calculate your in-hand salary from CTC after deducting PF, tax, and other deductions.</p>
+      </section>
+
+      <div class="ad-space">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Calculate Your In-Hand Salary</h2>
+        
+        <div class="field">
+          <label for="ctcSalary">Annual CTC (₹)</label>
+          <input id="ctcSalary" type="number" min="0" step="10000" placeholder="Example: 6000000">
+          <div class="range-wrap">
+            <input id="ctcSalaryRange" type="range" min="0" max="100000000" step="100000" value="6000000">
+            <div class="range-meta"><span>₹0</span><span>₹10Cr</span></div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="bonusSalary">Annual Bonus/Incentive (₹)</label>
+            <input id="bonusSalary" type="number" min="0" step="50000" placeholder="Example: 0">
+            <div class="range-wrap">
+              <input id="bonusSalaryRange" type="range" min="0" max="10000000" step="50000" value="0">
+              <div class="range-meta"><span>₹0</span><span>₹1Cr</span></div>
+            </div>
+          </div>
+          <div>
+            <label for="pfPercentage">PF Contribution (%)</label>
+            <input id="pfPercentage" type="number" min="0" max="100" step="0.1" placeholder="Example: 12">
+            <div class="range-wrap">
+              <input id="pfPercentageRange" type="range" min="0" max="15" step="0.1" value="12">
+              <div class="range-meta"><span>0%</span><span>15%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Income Tax Regime</label>
+          <div class="toggle-group">
+            <label><input type="radio" name="taxRegime" value="new" checked> New Regime (from 2020)</label>
+            <label><input type="radio" name="taxRegime" value="old"> Old Regime (with deductions)</label>
+          </div>
+        </div>
+
+        <p id="salaryError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Annual Take Home</span><span class="result-value" id="annualTakeHome" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Monthly In-Hand</span><span class="result-value" id="monthlyInHand" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+          <div class="result-item"><span>Total Deductions</span><span class="result-value" id="totalDeductions">-</span></div>
+        </div>
+
+        <button id="copySalaryResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <section class="explanation-section">
+          <h3>How In-Hand Salary Is Calculated</h3>
+          <p><strong>Step 1:</strong> Total Income = CTC + Bonus (if applicable).</p>
+          <p><strong>Step 2:</strong> PF Deduction = (Salary excluding allowances) × PF% = typically 12% of basic.</p>
+          <p><strong>Step 3:</strong> Taxable Income = Gross Salary - Deductions (varies by regime).</p>
+          <p><strong>Step 4:</strong> Income Tax = Applied as per slabs (new or old regime).</p>
+          <p><strong>Example:</strong> CTC ₹60L → Basic ₹4L/month → PF ₹48K → Tax deducted → Monthly take home ≈ ₹3.2-3.5L.</p>
+        </section>
+      </section>
+
+      <div class="ad-space">Ad Space - Middle</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions About Salary</h2>
+        <div class="faq-item">
+          <h4>What expenses are included in CTC?</h4>
+          <p>CTC includes: Basic salary, HRA (House Rent Allowance), DA (Dearness Allowance), Medical Insurance, PF contribution, Gratuity provision, and other benefits. These are costs your employer bears for you.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I claim tax deductions in the new regime?</h4>
+          <p>The new regime doesn't allow most deductions (HRA, LTA, 80C) but has lower tax rates. You get a standard deduction of ₹50,000. For most employees, new regime is beneficial, but compare for your specific situation.</p>
+        </div>
+        <div class="faq-item">
+          <h4>When do I get access to my PF amount?</h4>
+          <p>You can partially withdraw PF for education, marriage, or house purchase. Full withdrawal happens upon retirement or 2 months of unemployment. Interest earned on PF is also tax-free.</p>
+        </div>
+      </section>
+
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">Try GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">Try EMI Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Try Percentage Calculator</a>
+        <a class="btn secondary" href="age-calculator.html">Try Age Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">Try SIP Calculator</a>
+        <a class="btn secondary" href="fd-calculator.html">Try FD Calculator</a>
+        <a class="btn secondary" href="loan-eligibility-calculator.html">Try Loan Eligibility Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Try Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Try Income Tax Calculator</a>
+      </div>
+
+      <div class="ad-space">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
