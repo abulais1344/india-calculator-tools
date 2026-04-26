@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator India</title>
+  <meta name="description" content="Calculate discount amount and final payable price instantly using original price and discount percentage.">
+  <meta name="keywords" content="discount calculator india, india utility calculator, financial tools india">
+  <meta property="og:title" content="Discount Calculator India">
+  <meta property="og:description" content="Calculate discount amount and final payable price instantly using original price and discount percentage.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Discount Calculator India</h1>
+        <p>Find discount amount and final sale price in seconds for shopping and pricing checks.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card">
+        <h2>Calculate Discount</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="discountOriginal">Original Price (Rs)</label>
+            <input id="discountOriginal" type="number" min="0" step="0.01" placeholder="Example: 2499">
+          </div>
+          <div>
+            <label for="discountPercent">Discount (%)</label>
+            <input id="discountPercent" type="number" min="0" max="100" step="0.01" placeholder="Example: 35">
+          </div>
+        </div>
+
+        <p id="discountError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Discount Amount</span><span class="result-value" id="discountAmount">-</span></div>
+          <div class="result-item"><span>Final Price</span><span class="result-value" id="discountFinal" style="color:#1f7a4f;font-weight:700;">-</span></div>
+        </div>
+
+        <button id="copyDiscountResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">Copy Result</button>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

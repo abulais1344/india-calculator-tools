@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Calculator India</title>
+  <meta name="description" content="Calculate compound interest, maturity value, and interest growth with compounding frequency.">
+  <meta name="keywords" content="compound interest calculator india, india utility calculator, financial tools india">
+  <meta property="og:title" content="Compound Interest Calculator India">
+  <meta property="og:description" content="Calculate compound interest, maturity value, and interest growth with compounding frequency.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Compound Interest Calculator India</h1>
+        <p>Calculate maturity amount with annual, quarterly, monthly, or daily compounding.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card">
+        <h2>Calculate Compound Interest</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="ciPrincipal">Principal Amount (Rs)</label>
+            <input id="ciPrincipal" type="number" min="0" step="0.01" placeholder="Example: 100000">
+          </div>
+          <div>
+            <label for="ciRate">Annual Interest Rate (%)</label>
+            <input id="ciRate" type="number" min="0" step="0.01" placeholder="Example: 9.25">
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="ciYears">Time Period (Years)</label>
+            <input id="ciYears" type="number" min="0" step="0.01" placeholder="Example: 5">
+          </div>
+          <div>
+            <label for="ciCompounding">Compounding</label>
+            <select id="ciCompounding">
+              <option value="1">Yearly</option>
+              <option value="4">Quarterly</option>
+              <option value="12">Monthly</option>
+              <option value="365">Daily</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="ciError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Interest Earned</span><span class="result-value" id="ciInterest">-</span></div>
+          <div class="result-item"><span>Maturity Amount</span><span class="result-value" id="ciMaturity" style="color:#1f7a4f;font-weight:700;">-</span></div>
+        </div>
+
+        <button id="copyCompoundInterestResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">Copy Result</button>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

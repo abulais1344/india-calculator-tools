@@ -382,6 +382,10 @@ label {
   width: 100%;
 }
 
+.ad-container.auto-ad {
+  opacity: 0.95;
+}
+
 .content-block {
   margin-top: 16px;
 }
@@ -428,6 +432,60 @@ label {
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.trust-grid {
+  margin-top: 14px;
+}
+
+.trust-card {
+  background: linear-gradient(135deg, #f7fbf8, #edf7f1);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.trust-card h3 {
+  margin: 0 0 8px;
+}
+
+.trust-card p {
+  margin: 0;
+}
+
+.trust-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: #e4f4ea;
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.footer-trust-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .table-wrap {
@@ -585,6 +643,14 @@ label {
   transform: translateY(0);
 }
 
+.copy-feedback {
+  display: inline-block;
+  margin-left: 8px;
+  color: #117a39;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 @media (min-width: 760px) {
   .calculator-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -600,5 +666,14 @@ label {
 
   .compare-strip {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 759px) {
+  .ad-container,
+  .ad-space {
+    min-height: 64px;
+    margin: 14px 0;
+    font-size: 0.9rem;
   }
 }

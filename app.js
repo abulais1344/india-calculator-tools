@@ -31,6 +31,37 @@
     });
   }
 
+  function ensureGlobalNavLinks() {
+    var nav = document.querySelector(".site-nav");
+    if (!nav) {
+      return;
+    }
+
+    var homeLink = nav.querySelector('a[href="index.html"], a[href="../index.html"]');
+    var prefix = homeLink && homeLink.getAttribute("href") && homeLink.getAttribute("href").indexOf("../") === 0 ? "../" : "";
+
+    var linksToAdd = [
+      { href: prefix + "simple-interest-calculator.html", label: "Simple Interest" },
+      { href: prefix + "compound-interest-calculator.html", label: "Compound Interest" },
+      { href: prefix + "bmi-calculator.html", label: "BMI" },
+      { href: prefix + "discount-calculator.html", label: "Discount" },
+      { href: prefix + "break-even-calculator.html", label: "Break-Even" }
+    ];
+
+    linksToAdd.forEach(function (item) {
+      var exists = Array.prototype.some.call(nav.querySelectorAll("a"), function (a) {
+        return a.getAttribute("href") === item.href || a.textContent.trim() === item.label;
+      });
+
+      if (!exists) {
+        var a = document.createElement("a");
+        a.href = item.href;
+        a.textContent = item.label;
+        nav.appendChild(a);
+      }
+    });
+  }
+
   function optimizePageAssets() {
     document.querySelectorAll("img").forEach(function (img) {
       if (!img.getAttribute("loading")) {
@@ -42,21 +73,78 @@
     });
   }
 
-  function setupAfterResultAds() {
-    var copyButtons = document.querySelectorAll(".copy-btn");
-    copyButtons.forEach(function (button) {
-      var next = button.nextElementSibling;
-      if (next && next.classList && next.classList.contains("ad-container")) {
+  function setupGlobalAdContainers() {
+    var main = document.querySelector("main");
+    if (!main) {
+      return;
+    }
+
+    var primaryContainer = main.querySelector(".container") || main;
+
+    function findNextAdSibling(startEl, maxSteps) {
+      var cursor = startEl;
+      var steps = 0;
+      while (cursor && steps < maxSteps) {
+        cursor = cursor.nextElementSibling;
+        if (!cursor) {
+          return null;
+        }
+        if (cursor.classList && cursor.classList.contains("ad-container")) {
+          return cursor;
+        }
+        steps += 1;
+      }
+      return null;
+    }
+
+    function createAd(slot) {
+      var ad = document.createElement("div");
+      ad.className = "ad-container auto-ad";
+      ad.textContent = "Ad Space";
+      ad.setAttribute("aria-label", "Advertisement placeholder");
+      ad.setAttribute("data-ad-slot", slot);
+      return ad;
+    }
+
+    function claimOrInsert(slot, existingEl, insertTarget, mode) {
+      if (existingEl) {
+        existingEl.setAttribute("data-ad-slot", slot);
+        existingEl.classList.add("auto-ad");
         return;
       }
 
-      var ad = document.createElement("div");
-      ad.className = "ad-container";
-      ad.textContent = "Ad Space";
-      ad.setAttribute("aria-label", "Advertisement placeholder");
-      ad.style.marginTop = "14px";
-      button.insertAdjacentElement("afterend", ad);
-    });
+      if (!insertTarget || primaryContainer.querySelector('.ad-container[data-ad-slot="' + slot + '"]')) {
+        return;
+      }
+
+      var ad = createAd(slot);
+      if (mode === "after") {
+        insertTarget.insertAdjacentElement("afterend", ad);
+      } else if (mode === "before") {
+        insertTarget.insertAdjacentElement("beforebegin", ad);
+      } else {
+        insertTarget.appendChild(ad);
+      }
+    }
+
+    var hero = primaryContainer.querySelector(".hero");
+    var titleAd = hero ? findNextAdSibling(hero, 2) : primaryContainer.querySelector('.ad-container[data-ad-slot="below-title"]');
+    claimOrInsert("below-title", titleAd, hero || primaryContainer.firstElementChild, "after");
+
+    var resultBoxes = primaryContainer.querySelectorAll(".result-box");
+    var resultAnchor = resultBoxes.length ? resultBoxes[resultBoxes.length - 1] : null;
+    var resultAd = resultAnchor ? findNextAdSibling(resultAnchor, 2) : null;
+    claimOrInsert("after-result", resultAd, resultAnchor, "after");
+
+    var existingAds = Array.prototype.slice.call(primaryContainer.querySelectorAll(".ad-container"));
+    var middleExisting = existingAds.length >= 3 ? existingAds[Math.floor(existingAds.length / 2)] : null;
+    var sections = primaryContainer.querySelectorAll("section");
+    var middleAnchor = sections.length ? sections[Math.floor(sections.length / 2)] : null;
+    claimOrInsert("middle-content", middleExisting, middleAnchor || primaryContainer, middleAnchor ? "after" : "append");
+
+    var footer = document.querySelector("footer.site-footer");
+    var bottomExisting = existingAds.length ? existingAds[existingAds.length - 1] : null;
+    claimOrInsert("bottom-page", bottomExisting, footer || main, footer ? "before" : "append");
   }
 
   function initGSTCalculator() {
@@ -923,6 +1011,26 @@
       var fuelPerKm = byId("fuelPerKm").textContent;
       var fuelTripCost = byId("fuelTripCost").textContent;
       textToCopy = "Fuel Cost Estimate:\nFuel Needed: " + fuelNeeded + "\nCost Per Km: " + fuelPerKm + "\nTotal Fuel Cost: " + fuelTripCost;
+    } else if (buttonId === "copySimpleInterestResultBtn") {
+      var siInterest = byId("siInterest").textContent;
+      var siTotal = byId("siTotal").textContent;
+      textToCopy = "Simple Interest Results:\nInterest Earned: " + siInterest + "\nTotal Amount: " + siTotal;
+    } else if (buttonId === "copyCompoundInterestResultBtn") {
+      var ciInterest = byId("ciInterest").textContent;
+      var ciMaturity = byId("ciMaturity").textContent;
+      textToCopy = "Compound Interest Results:\nInterest Earned: " + ciInterest + "\nMaturity Amount: " + ciMaturity;
+    } else if (buttonId === "copyBmiResultBtn") {
+      var bmiValue = byId("bmiValue").textContent;
+      var bmiCategory = byId("bmiCategory").textContent;
+      textToCopy = "BMI Result:\nBMI: " + bmiValue + "\nCategory: " + bmiCategory;
+    } else if (buttonId === "copyDiscountResultBtn") {
+      var discountAmount = byId("discountAmount").textContent;
+      var discountFinal = byId("discountFinal").textContent;
+      textToCopy = "Discount Results:\nDiscount Amount: " + discountAmount + "\nFinal Price: " + discountFinal;
+    } else if (buttonId === "copyBreakEvenResultBtn") {
+      var beUnits = byId("beUnits").textContent;
+      var beRevenue = byId("beRevenue").textContent;
+      textToCopy = "Break-Even Results:\nBreak-Even Units: " + beUnits + "\nBreak-Even Revenue: " + beRevenue;
     }
 
     return textToCopy;
@@ -931,37 +1039,43 @@
   function setupCopyButtons() {
     var copyButtons = document.querySelectorAll(".copy-btn");
     copyButtons.forEach(function (btn) {
+      var feedbackEl = btn.parentElement.querySelector('.copy-feedback[data-for="' + btn.id + '"]');
+      if (!feedbackEl) {
+        feedbackEl = document.createElement("span");
+        feedbackEl.className = "copy-feedback";
+        feedbackEl.setAttribute("data-for", btn.id);
+        feedbackEl.setAttribute("aria-live", "polite");
+        feedbackEl.textContent = "";
+        btn.insertAdjacentElement("afterend", feedbackEl);
+      }
+
       btn.addEventListener("click", function () {
         var textToCopy = getResultTextByButtonId(btn.id);
 
-        if (textToCopy && navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(function () {
-            var originalText = btn.textContent;
-            btn.textContent = "✓ Copied!";
-            setTimeout(function () {
-              btn.textContent = originalText;
-            }, 2000);
-          }).catch(function (err) {
-            console.error("Failed to copy:", err);
-          });
-        } else if (textToCopy) {
-          // Fallback for older browsers
-          var textarea = document.createElement("textarea");
-          textarea.value = textToCopy;
-          document.body.appendChild(textarea);
-          textarea.select();
-          try {
-            document.execCommand("copy");
-            var originalText = btn.textContent;
-            btn.textContent = "✓ Copied!";
-            setTimeout(function () {
-              btn.textContent = originalText;
-            }, 2000);
-          } catch (err) {
-            console.error("Failed to copy:", err);
-          }
-          document.body.removeChild(textarea);
+        if (!textToCopy) {
+          return;
         }
+
+        if (!navigator.clipboard || !navigator.clipboard.writeText) {
+          feedbackEl.textContent = "Copy not supported in this browser";
+          setTimeout(function () {
+            feedbackEl.textContent = "";
+          }, 1800);
+          return;
+        }
+
+        navigator.clipboard.writeText(textToCopy).then(function () {
+          feedbackEl.textContent = "Copied successfully";
+          setTimeout(function () {
+            feedbackEl.textContent = "";
+          }, 1800);
+        }).catch(function (err) {
+          console.error("Failed to copy:", err);
+          feedbackEl.textContent = "Unable to copy";
+          setTimeout(function () {
+            feedbackEl.textContent = "";
+          }, 1800);
+        });
       });
     });
   }
@@ -1616,10 +1730,194 @@
     calculateTax();
   }
 
+  function initSimpleInterestCalculator() {
+    var principalEl = byId("siPrincipal");
+    if (!principalEl) return;
+
+    var rateEl = byId("siRate");
+    var yearsEl = byId("siYears");
+    var errorEl = byId("siError");
+
+    function calculate() {
+      var principal = parseFloat(principalEl.value);
+      var rate = parseFloat(rateEl.value);
+      var years = parseFloat(yearsEl.value);
+
+      if (!Number.isFinite(principal) || principal <= 0 || !Number.isFinite(rate) || rate < 0 || !Number.isFinite(years) || years <= 0) {
+        errorEl.textContent = "Enter valid principal, rate, and years.";
+        setText("siInterest", "-");
+        setText("siTotal", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var interest = principal * (rate / 100) * years;
+      var total = principal + interest;
+
+      setText("siInterest", "Rs " + formatINR(interest));
+      setText("siTotal", "Rs " + formatINR(total));
+    }
+
+    [principalEl, rateEl, yearsEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initCompoundInterestCalculator() {
+    var principalEl = byId("ciPrincipal");
+    if (!principalEl) return;
+
+    var rateEl = byId("ciRate");
+    var yearsEl = byId("ciYears");
+    var compoundingEl = byId("ciCompounding");
+    var errorEl = byId("ciError");
+
+    function calculate() {
+      var principal = parseFloat(principalEl.value);
+      var rate = parseFloat(rateEl.value);
+      var years = parseFloat(yearsEl.value);
+      var n = parseInt(compoundingEl.value, 10);
+
+      if (!Number.isFinite(principal) || principal <= 0 || !Number.isFinite(rate) || rate < 0 || !Number.isFinite(years) || years <= 0 || !Number.isFinite(n) || n <= 0) {
+        errorEl.textContent = "Enter valid principal, rate, years, and compounding.";
+        setText("ciInterest", "-");
+        setText("ciMaturity", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var maturity = principal * Math.pow(1 + (rate / 100) / n, n * years);
+      var interest = maturity - principal;
+
+      setText("ciInterest", "Rs " + formatINR(interest));
+      setText("ciMaturity", "Rs " + formatINR(maturity));
+    }
+
+    [principalEl, rateEl, yearsEl, compoundingEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+      el.addEventListener("change", calculate);
+    });
+    calculate();
+  }
+
+  function initBmiCalculator() {
+    var weightEl = byId("bmiWeight");
+    if (!weightEl) return;
+
+    var heightEl = byId("bmiHeight");
+    var errorEl = byId("bmiError");
+
+    function getCategory(bmi) {
+      if (bmi < 18.5) return "Underweight";
+      if (bmi < 25) return "Normal";
+      if (bmi < 30) return "Overweight";
+      return "Obese";
+    }
+
+    function calculate() {
+      var weight = parseFloat(weightEl.value);
+      var heightCm = parseFloat(heightEl.value);
+
+      if (!Number.isFinite(weight) || weight <= 0 || !Number.isFinite(heightCm) || heightCm <= 0) {
+        errorEl.textContent = "Enter valid weight and height values.";
+        setText("bmiValue", "-");
+        setText("bmiCategory", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var heightM = heightCm / 100;
+      var bmi = weight / (heightM * heightM);
+      setText("bmiValue", bmi.toFixed(2));
+      setText("bmiCategory", getCategory(bmi));
+    }
+
+    [weightEl, heightEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initDiscountCalculator() {
+    var originalEl = byId("discountOriginal");
+    if (!originalEl) return;
+
+    var percentEl = byId("discountPercent");
+    var errorEl = byId("discountError");
+
+    function calculate() {
+      var original = parseFloat(originalEl.value);
+      var percent = parseFloat(percentEl.value);
+
+      if (!Number.isFinite(original) || original < 0 || !Number.isFinite(percent) || percent < 0 || percent > 100) {
+        errorEl.textContent = "Enter valid price and discount (0 to 100).";
+        setText("discountAmount", "-");
+        setText("discountFinal", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var discount = original * (percent / 100);
+      var finalPrice = original - discount;
+
+      setText("discountAmount", "Rs " + formatINR(discount));
+      setText("discountFinal", "Rs " + formatINR(finalPrice));
+    }
+
+    [originalEl, percentEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initBreakEvenCalculator() {
+    var fixedCostEl = byId("beFixedCost");
+    if (!fixedCostEl) return;
+
+    var variableCostEl = byId("beVariableCost");
+    var sellingPriceEl = byId("beSellingPrice");
+    var errorEl = byId("beError");
+
+    function calculate() {
+      var fixed = parseFloat(fixedCostEl.value);
+      var variable = parseFloat(variableCostEl.value);
+      var selling = parseFloat(sellingPriceEl.value);
+
+      if (!Number.isFinite(fixed) || fixed < 0 || !Number.isFinite(variable) || variable < 0 || !Number.isFinite(selling) || selling <= 0) {
+        errorEl.textContent = "Enter valid fixed cost, variable cost, and selling price.";
+        setText("beUnits", "-");
+        setText("beRevenue", "-");
+        return;
+      }
+
+      var contribution = selling - variable;
+      if (contribution <= 0) {
+        errorEl.textContent = "Selling price must be greater than variable cost for break-even.";
+        setText("beUnits", "-");
+        setText("beRevenue", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var units = fixed / contribution;
+      var revenue = units * selling;
+
+      setText("beUnits", units.toFixed(2) + " units");
+      setText("beRevenue", "Rs " + formatINR(revenue));
+    }
+
+    [fixedCostEl, variableCostEl, sellingPriceEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    ensureGlobalNavLinks();
     bindActiveNav();
     optimizePageAssets();
-    setupAfterResultAds();
+    setupGlobalAdContainers();
     initGSTCalculator();
     initEMICalculator();
     initPercentageCalculator();
@@ -1634,6 +1932,11 @@
     initPpfCalculator();
     initRdCalculator();
     initGratuityCalculator();
+    initSimpleInterestCalculator();
+    initCompoundInterestCalculator();
+    initBmiCalculator();
+    initDiscountCalculator();
+    initBreakEvenCalculator();
     setupCopyButtons();
     setupShareButtons();
   });

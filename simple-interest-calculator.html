@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Interest Calculator India</title>
+  <meta name="description" content="Calculate simple interest, total interest earned, and maturity amount instantly for Indian users.">
+  <meta name="keywords" content="simple interest calculator india, india utility calculator, financial tools india">
+  <meta property="og:title" content="Simple Interest Calculator India">
+  <meta property="og:description" content="Calculate simple interest, total interest earned, and maturity amount instantly for Indian users.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Simple Interest Calculator India</h1>
+        <p>Estimate simple interest and total payout quickly using principal, annual rate, and time period.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card">
+        <h2>Calculate Simple Interest</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="siPrincipal">Principal Amount (Rs)</label>
+            <input id="siPrincipal" type="number" min="0" step="0.01" placeholder="Example: 100000">
+          </div>
+          <div>
+            <label for="siRate">Annual Interest Rate (%)</label>
+            <input id="siRate" type="number" min="0" step="0.01" placeholder="Example: 8.5">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="siYears">Time Period (Years)</label>
+          <input id="siYears" type="number" min="0" step="0.01" placeholder="Example: 3">
+        </div>
+
+        <p id="siError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Interest Earned</span><span class="result-value" id="siInterest">-</span></div>
+          <div class="result-item"><span>Total Amount</span><span class="result-value" id="siTotal" style="color:#1f7a4f;font-weight:700;">-</span></div>
+        </div>
+
+        <button id="copySimpleInterestResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">Copy Result</button>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
