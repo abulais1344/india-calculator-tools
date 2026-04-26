@@ -270,6 +270,48 @@
       setText("benefitSummary", "Add optional prepayment details to see potential benefits.");
       setText("strategyBadge", "Tip: Prepayment is optional");
       setText("strategyHint", "Choose a prepayment plan to see a recommended strategy.");
+      setText("amortizationRows", "");
+      var amortizationBody = byId("amortizationRows");
+      if (amortizationBody) {
+        amortizationBody.innerHTML = '<tr><td colspan="5">Enter values to view schedule.</td></tr>';
+      }
+    }
+
+    function renderAmortization(principal, monthlyRate, totalMonths, emi) {
+      var amortizationBody = byId("amortizationRows");
+      if (!amortizationBody) {
+        return;
+      }
+
+      var rows = [];
+      var balance = principal;
+      var maxMonths = Math.min(12, totalMonths);
+
+      for (var month = 1; month <= maxMonths; month += 1) {
+        var interest = balance * monthlyRate;
+        var principalPart = emi - interest;
+
+        if (principalPart < 0) {
+          principalPart = 0;
+        }
+        if (principalPart > balance) {
+          principalPart = balance;
+        }
+
+        balance -= principalPart;
+
+        rows.push(
+          "<tr>" +
+            "<td>" + month + "</td>" +
+            "<td>" + formatCurrency(emi) + "</td>" +
+            "<td>" + formatCurrency(principalPart) + "</td>" +
+            "<td>" + formatCurrency(interest) + "</td>" +
+            "<td>" + formatCurrency(Math.max(0, balance)) + "</td>" +
+          "</tr>"
+        );
+      }
+
+      amortizationBody.innerHTML = rows.join("");
     }
 
     function baseEmiFromInputs(principal, monthlyRate, months) {
@@ -522,6 +564,8 @@
       var savedInterest = Math.max(0, baseInterest - plan.paidInterest);
       var monthsSaved = Math.max(0, totalMonths - plan.monthsTaken);
       var emiReduction = Math.max(0, emi - plan.updatedEmi);
+
+      renderAmortization(loanAmount, monthlyRate, totalMonths, emi);
 
       setText("emiResult", formatCurrency(emi));
       setText("tenureResult", toTenureLabel(plan.monthsTaken));
@@ -874,6 +918,11 @@
     } else if (buttonId === "copyGratuityResultBtn") {
       var gratuityAmount = byId("gratuityAmount").textContent;
       textToCopy = "Gratuity Estimate: " + gratuityAmount;
+    } else if (buttonId === "copyFuelResultBtn") {
+      var fuelNeeded = byId("fuelNeeded").textContent;
+      var fuelPerKm = byId("fuelPerKm").textContent;
+      var fuelTripCost = byId("fuelTripCost").textContent;
+      textToCopy = "Fuel Cost Estimate:\nFuel Needed: " + fuelNeeded + "\nCost Per Km: " + fuelPerKm + "\nTotal Fuel Cost: " + fuelTripCost;
     }
 
     return textToCopy;
@@ -1094,6 +1143,44 @@
     [salaryEl, yearsEl].forEach(function (el) {
       el.addEventListener("input", calculate);
     });
+    calculate();
+  }
+
+  function initFuelCostCalculator() {
+    var distanceEl = byId("fuelDistance");
+    if (!distanceEl) return;
+
+    var mileageEl = byId("fuelMileage");
+    var priceEl = byId("fuelPrice");
+    var errorEl = byId("fuelError");
+
+    function calculate() {
+      var distance = parseFloat(distanceEl.value);
+      var mileage = parseFloat(mileageEl.value);
+      var price = parseFloat(priceEl.value);
+
+      if (!Number.isFinite(distance) || distance <= 0 || !Number.isFinite(mileage) || mileage <= 0 || !Number.isFinite(price) || price <= 0) {
+        errorEl.textContent = "Enter valid distance, mileage, and fuel price values.";
+        setText("fuelNeeded", "-");
+        setText("fuelPerKm", "-");
+        setText("fuelTripCost", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var litres = distance / mileage;
+      var totalCost = litres * price;
+      var perKm = totalCost / distance;
+
+      setText("fuelNeeded", litres.toFixed(2) + " L");
+      setText("fuelPerKm", "Rs " + formatINR(perKm));
+      setText("fuelTripCost", "Rs " + formatINR(totalCost));
+    }
+
+    [distanceEl, mileageEl, priceEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+
     calculate();
   }
 
@@ -1543,6 +1630,7 @@
     initSalaryCalculator();
     initIncomeTaxCalculator();
     initElectricityBillCalculator();
+    initFuelCostCalculator();
     initPpfCalculator();
     initRdCalculator();
     initGratuityCalculator();

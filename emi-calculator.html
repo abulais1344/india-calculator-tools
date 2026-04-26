@@ -69,6 +69,7 @@
         <a href="income-tax-calculator.html">Income Tax</a>
         <a href="salary-calculator.html">Salary</a>
         <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
         <a href="ppf-calculator.html">PPF</a>
         <a href="rd-calculator.html">RD</a>
         <a href="gratuity-calculator.html">Gratuity</a>
@@ -217,6 +218,26 @@
           </div>
         </div>
 
+        <h3>Amortization Schedule (First 12 Months)</h3>
+        <div class="table-wrap">
+          <table class="amortization-table" aria-label="First 12 Months Amortization">
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>EMI</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amortizationRows">
+              <tr>
+                <td colspan="5">Enter values to view schedule.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="steps" id="emiSteps">Provide valid values to see EMI formula steps.</div>
         <button id="copyEmiResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
 
@@ -252,11 +273,12 @@
         </div>
       </section>
 
-      <h3>Try Other Calculators</h3>
+      <h3>Related Calculators</h3>
       <div class="calc-link-row">
-        <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
         <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
         <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
         <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
       </div>
 
@@ -286,6 +308,12 @@
 
         <h2>Tips and Practical Use Cases</h2>
         <p>For home loans, compare at least three banks and test each interest rate in this calculator before finalizing. For car loans, check whether a shorter tenure saves enough interest to justify higher EMI. For personal loans, be more conservative because rates are often higher and prepayment planning becomes more important. Try this sequence: first calculate base EMI with no prepayment, then test monthly extra prepayment and one-time lump sum prepayment. If your goal is maximum interest savings, choose reducing tenure. If your goal is easier cash flow, choose reducing EMI. Also remember to keep a safety buffer in your monthly budget instead of selecting the highest possible EMI. In practice, many borrowers target a comfortable EMI-to-income ratio and keep emergency funds separate. Use this page together with the salary and tax calculators on this site for better end-to-end planning.</p>
+
+        <h2>How to Reduce EMI</h2>
+        <p>You can reduce EMI by increasing tenure, negotiating a better interest rate, paying a larger down payment, or making periodic prepayments. Each method has a different trade-off. Increasing tenure lowers EMI but raises total interest. Negotiating lower rate lowers both EMI and total interest. Higher down payment reduces principal from day one. Prepayment helps reduce outstanding balance faster, which can either reduce tenure or EMI depending on lender recast option.</p>
+
+        <h2>Should You Prepay?</h2>
+        <p>Prepayment is usually beneficial when your loan interest rate is higher than the return you expect from low-risk investments after tax. It is most effective in early years because interest component is high during initial tenure. If you choose to prepay, keep an emergency buffer and avoid compromising essential liquidity. In many cases, reducing tenure gives larger long-term savings, while reducing EMI gives immediate monthly relief. This page helps you compare both choices quickly so you can choose based on your financial objective.</p>
       </section>
 
       <div class="ad-container">Ad Space - Bottom</div>
@@ -295,6 +323,7 @@
   <footer class="site-footer">
     <div class="container footer-wrap">
       <small>© 2026 India Utility Calculator</small>
+      <p class="safe-private">Safe & Private: No login required. No personal data stored. Calculations run locally.</p>
       <div class="footer-links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>

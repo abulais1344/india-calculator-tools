@@ -8,6 +8,7 @@
         <a href="income-tax-calculator.html">Income Tax</a>
         <a href="salary-calculator.html">Salary</a>
         <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
         <a href="ppf-calculator.html">PPF</a>
         <a href="rd-calculator.html">RD</a>
         <a href="gratuity-calculator.html">Gratuity</a>
@@ -18,8 +19,45 @@
 <section class="card"><h2>Calculate RD Returns</h2><div class="field inline-row"><div><label for="rdMonthly">Monthly Deposit (₹)</label><input id="rdMonthly" type="number" min="0" step="100" placeholder="Example: 5000"></div><div><label for="rdMonths">Tenure (Months)</label><input id="rdMonths" type="number" min="1" step="1" placeholder="Example: 60"></div></div><div class="field"><label for="rdRate">Annual Interest Rate (%)</label><input id="rdRate" type="number" min="0" step="0.01" placeholder="Example: 6.75"></div><p id="rdError" class="error-text" role="alert" aria-live="polite"></p><div class="result-box"><div class="result-item"><span>Total Invested</span><span class="result-value" id="rdInvested">-</span></div><div class="result-item"><span>Interest Earned</span><span class="result-value" id="rdInterest" style="color:#1f7a4f;font-weight:bold;">-</span></div><div class="result-item"><span>Maturity Value</span><span class="result-value" id="rdMaturity" style="color:#1f7a4f;font-weight:bold;">-</span></div></div><button id="copyRdResultBtn" type="button" class="secondary copy-btn" style="margin-top:1rem;">📋 Copy Result</button></section>
 <div class="ad-container">Ad Space</div>
 <section class="card faq-section"><h2>Frequently Asked Questions</h2><div class="faq-item"><h4>Who should use RD?</h4><p>RD is suitable for people who want disciplined monthly saving with relatively predictable returns.</p></div><div class="faq-item"><h4>Is RD better than FD?</h4><p>RD is useful for monthly accumulation, while FD is typically for lump-sum deposit. Choice depends on cash flow pattern.</p></div><div class="faq-item"><h4>Can I link RD with salary cycle?</h4><p>Yes, many users align monthly RD deposits with salary dates to automate savings discipline.</p></div></section>
-<h3>Try Other Calculators</h3><div class="calc-link-row"><a class="btn secondary" href="gst-calculator.html">GST Calculator</a><a class="btn secondary" href="emi-calculator.html">EMI Calculator</a><a class="btn secondary" href="sip-calculator.html">SIP Calculator</a><a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a><a class="btn secondary" href="salary-calculator.html">Salary Calculator</a></div>
+<h3>Related Calculators</h3>
+      <div class="calc-link-row">
+        <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+      </div>
 <section class="card content-block"><h2>What Is RD Calculator?</h2><p>An RD calculator helps estimate maturity amount for recurring deposits where you invest a fixed amount every month. In India, RD is popular among savers who prefer disciplined monthly contributions rather than lump-sum investing. It is commonly used by salaried employees, young earners, and households building short- to medium-term funds for goals such as education expenses, travel, emergency buffer, or festival spending. Instead of manually tracking monthly deposit growth, this calculator provides immediate visibility into expected maturity value, total invested amount, and estimated interest. This makes savings planning simpler and helps avoid guesswork.</p><h2>How Does It Work?</h2><p>For RD, money is deposited monthly and each installment earns interest for the remaining tenure. Earlier deposits earn for longer, later deposits earn for fewer months. The calculator applies monthly compounding approximation to estimate cumulative maturity. By changing monthly amount, tenure, and interest rate, you can compare scenarios quickly and choose a savings pace that matches your budget.</p><h2>Formula Explanation</h2><p>Unlike a single principal investment, RD maturity is a sum of many monthly contributions with compounding applied progressively. A practical simulation method updates balance each month as: New Balance = (Previous Balance + Monthly Deposit) × (1 + Monthly Rate). Repeating this across all months gives estimated maturity value. Interest earned is maturity minus total deposits.</p><h2>Example Calculation</h2><p>If monthly deposit is ₹5,000 for 60 months at 6.75% annual rate, total deposit is ₹3,00,000. Maturity estimate will be higher because each contribution earns interest for a different duration. This helps you understand whether your monthly deposit plan is sufficient for target amount.</p><h2>Tips and Benefits</h2><ul><li>Great for disciplined savings without market volatility.</li><li>Useful for short- and medium-term goal planning.</li><li>Simple to align with monthly salary and automate.</li><li>Helps compare tenure options before opening account.</li><li>Combine with <a href="fd-calculator.html">FD Calculator</a> to compare maturity choices.</li></ul><p>Use this with <a href="salary-calculator.html">Salary Calculator</a> to find affordable monthly savings and with <a href="income-tax-calculator.html">Income Tax Calculator</a> for post-tax planning.</p></section>
-<div class="ad-container">Ad Space</div></div></main>
-<footer class="site-footer"><div class="container footer-wrap"><small>© 2026 India Utility Calculator</small><div class="footer-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></div></div></footer>
+<div class="ad-container">Ad Space</div></div>
+    <div class="container">
+      <section class="card content-block wordcount-extension">
+        <h2>Advanced Usage Notes and Planning Checklist</h2>
+        <p>This section is designed to help users go beyond one-time calculations and use the tool as part of real financial and decision planning. Many people run a calculator once and accept the output without testing assumptions. A better approach is to test at least three scenarios: conservative, realistic, and optimistic. This gives you a practical range instead of a single number. For example, if your input includes an expected return, interest rate, or periodic amount, small changes can alter long-term outcomes significantly. Scenario testing helps you avoid overconfidence and improves planning quality.</p>
+
+        <h2>How to Improve Accuracy</h2>
+        <p>Use recent, real data whenever possible. If you are entering salary-related values, use post-deduction realities rather than rounded headline numbers. If you are testing expense or savings calculations, include recurring costs that are often ignored, such as maintenance, inflation impact, fees, and annual irregular bills. Revisit your inputs monthly or quarterly, especially after salary revisions, tax updates, or major family changes. This keeps your estimates aligned with current reality rather than outdated assumptions.</p>
+
+        <h2>Common Mistakes to Avoid</h2>
+        <ul>
+          <li>Using outdated rates and old assumptions for long-term plans.</li>
+          <li>Relying on a single output without stress-testing key variables.</li>
+          <li>Ignoring taxes, deductions, or recurring charges while comparing options.</li>
+          <li>Choosing emotionally attractive scenarios instead of sustainable ones.</li>
+          <li>Not reviewing estimates periodically as financial conditions change.</li>
+        </ul>
+
+        <h2>Practical Decision Framework</h2>
+        <p>Use this simple framework: first calculate your baseline with current values. Second, run a conservative case that assumes lower returns or higher costs. Third, run an improved case to understand upside potential. If your plan works even in conservative assumptions, it is usually more resilient. If results are too sensitive to small changes, reduce risk by building larger buffers, reducing commitments, or improving monthly cash discipline before scaling your decision.</p>
+
+        <h2>How to Use With Other Tools</h2>
+        <p>Financial decisions are rarely isolated. Combine outputs from this tool with your EMI, salary, GST, and income tax calculations for a full-picture plan. For example, compare projected commitments with monthly in-hand income and tax-adjusted cash flow before finalizing a loan, investment, or spending decision. This cross-check prevents over-commitment and improves long-term consistency.</p>
+
+        <h2>Final Recommendation</h2>
+        <p>Use this calculator as a decision aid, not a one-click answer. Review assumptions, test alternatives, and update numbers regularly. When uncertain, choose the option that remains manageable under conservative assumptions. That discipline improves confidence, reduces financial stress, and makes long-term outcomes more predictable.</p>
+      </section>
+    </div>
+
+</main>
+<footer class="site-footer"><div class="container footer-wrap"><small>© 2026 India Utility Calculator</small>
+      <p class="safe-private">Safe & Private: No login required. No personal data stored. Calculations run locally.</p><div class="footer-links"><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms</a></div></div></footer>
 </body></html>

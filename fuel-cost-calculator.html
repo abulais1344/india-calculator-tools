@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuel Cost Calculator India | Petrol, Diesel Trip Expense</title>
+  <meta name="description" content="Estimate fuel needed, fuel cost, and cost per km for bike or car trips in India using distance, mileage, and fuel price.">
+  <meta name="keywords" content="fuel cost calculator india, petrol cost calculator, diesel trip cost, cost per km calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is fuel cost calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fuel cost is calculated as (distance divided by mileage) multiplied by fuel price per litre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this for petrol and diesel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, this calculator works for petrol, diesel, and CNG as long as you enter the correct mileage and fuel rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does actual fuel cost differ from estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real-world traffic, AC usage, driving style, road quality, and tyre pressure can change actual mileage and total fuel cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this for round trips?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Enter total round-trip distance to get a complete estimate."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="ppf-calculator.html">PPF</a>
+        <a href="rd-calculator.html">RD</a>
+        <a href="gratuity-calculator.html">Gratuity</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Fuel Cost Calculator India</h1>
+        <p>Calculate fuel needed, total trip cost, and cost per kilometre in seconds using your distance, mileage, and fuel price.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card">
+        <h2>Calculate Fuel Trip Cost</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="fuelDistance">Distance (km)</label>
+            <input id="fuelDistance" type="number" min="0" step="0.1" placeholder="Example: 320">
+          </div>
+          <div>
+            <label for="fuelMileage">Vehicle Mileage (km/l)</label>
+            <input id="fuelMileage" type="number" min="0" step="0.1" placeholder="Example: 18">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="fuelPrice">Fuel Price (Rs per litre)</label>
+          <input id="fuelPrice" type="number" min="0" step="0.01" placeholder="Example: 102.35">
+        </div>
+
+        <p id="fuelError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div class="result-item"><span>Fuel Needed</span><span class="result-value" id="fuelNeeded">-</span></div>
+          <div class="result-item"><span>Cost Per Km</span><span class="result-value" id="fuelPerKm">-</span></div>
+          <div class="result-item"><span>Total Fuel Cost</span><span class="result-value" id="fuelTripCost" style="color:#1f7a4f;font-weight:700;">-</span></div>
+        </div>
+
+        <button id="copyFuelResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">Copy Result</button>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>Should I use company mileage or real mileage?</h4>
+          <p>Use your real-world mileage for better accuracy. Manufacturer mileage is usually tested in controlled conditions.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I calculate monthly fuel budget?</h4>
+          <p>Estimate weekly driving distance, multiply by 4, and run this calculator with your average mileage and current fuel price.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can this help compare car and bike commute costs?</h4>
+          <p>Yes, run both mileage values with the same distance to compare total monthly and yearly fuel expense.</p>
+        </div>
+      </section>
+
+      <h3>Related Calculators</h3>
+      <div class="calc-link-row">
+        <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+      </div>
+
+      <section class="card content-block">
+        <h2>What Is Fuel Cost Calculator?</h2>
+        <p>A fuel cost calculator is a practical daily-use tool that helps Indian users estimate how much money they are likely to spend on fuel for a trip. Rising fuel prices make travel budgeting more important than ever, whether you are commuting to office, planning an intercity drive, or running a delivery business. Many people know their vehicle mileage in a rough sense but still struggle to estimate actual cost for a specific route. This tool solves that by converting three simple inputs into immediate estimates: distance, mileage, and fuel rate. Instead of guessing, you can calculate fuel litres required, cost per kilometre, and total trip cost in a few seconds.</p>
+
+        <h2>How It Works</h2>
+        <p>The logic is straightforward and transparent. First, the tool computes fuel required by dividing total distance by mileage. Then it multiplies fuel required by current fuel price per litre to estimate trip cost. Cost per kilometre is then derived by dividing total trip cost by distance. If your input values are valid, all three results are shown instantly. If an input is missing or invalid, the calculator clearly asks you to correct it. This makes it easy for all users, including first-time visitors and non-technical users.</p>
+
+        <h2>Formula Explanation</h2>
+        <p>The formula used is: Fuel Needed = Distance / Mileage. Total Fuel Cost = Fuel Needed x Fuel Price. Cost Per Km = Total Fuel Cost / Distance. For example, if your distance is 300 km, mileage is 15 km per litre, and fuel price is Rs 100 per litre, fuel needed is 20 litres. Total fuel cost becomes Rs 2,000. Cost per km is Rs 6.67. These formulas are simple, auditable, and commonly used for route planning and budget estimation.</p>
+
+        <h2>Example Calculation</h2>
+        <p>Suppose you are planning a 420 km weekend trip from one city to another and back. Your car gives around 17 km per litre in mixed highway and city conditions, and current petrol price is Rs 102.50 per litre. Fuel needed is 420 / 17 = about 24.71 litres. Estimated cost is 24.71 x 102.50 = about Rs 2,532. This number can be used to plan total trip budget with toll, food, and parking. If you rerun with improved mileage of 19 km per litre, cost drops significantly. This comparison helps you plan driving style, route, and stops more intelligently.</p>
+
+        <h2>Tips and Benefits</h2>
+        <ul>
+          <li>Use real mileage from your recent refuel records instead of brochure mileage.</li>
+          <li>For round trips, input total return distance to avoid underestimation.</li>
+          <li>Recalculate when fuel prices change to keep budgets realistic.</li>
+          <li>Compare multiple routes when one route has longer distance but better traffic flow.</li>
+          <li>Useful for bike riders, car owners, cab drivers, and delivery operations.</li>
+        </ul>
+
+        <h2>How to Reduce Fuel Expense</h2>
+        <p>Fuel savings are not only about finding cheaper pumps. Driving habits matter. Smooth acceleration, steady speed, timely gear shifts, and avoiding excessive idling can improve mileage. Tyre pressure also has a direct impact; under-inflated tyres increase rolling resistance and fuel burn. Periodic service, clean air filters, and proper engine tuning improve efficiency further. If your commute is fixed, consider weekly planning to combine errands in one route rather than multiple short trips. You can also compare cost of personal vehicle with monthly metro or bus pass to make practical decisions.</p>
+
+        <h2>Planning Monthly and Yearly Fuel Budget</h2>
+        <p>This calculator is especially useful for recurring budgeting. If you drive approximately 900 km monthly, run a monthly estimate once and then convert it to annual fuel budget by multiplying by 12. This allows better financial planning with salary inflows and other obligations like EMI, school fees, and investments. You can combine this with the Salary Calculator and Income Tax Calculator to check post-tax affordability and set realistic savings targets. If fuel cost is consuming a large share of monthly income, even small mileage improvements can produce meaningful annual savings.</p>
+
+        <h2>Use With Other Calculators</h2>
+        <p>Fuel planning becomes stronger when connected with other tools. Use EMI Calculator if you are comparing loan burden of a new vehicle. Use GST Calculator for invoice understanding if you manage transport billing. Use SIP Calculator to invest a part of monthly fuel savings toward long-term goals. Use Income Tax Calculator and Salary Calculator to build complete monthly cash flow discipline. This integrated method helps convert daily cost tracking into long-term financial control.</p>
+
+        <h2>Final Takeaway</h2>
+        <p>A fuel cost calculator is one of the most practical tools for everyday financial awareness. It prevents budgeting mistakes, reduces uncertainty, and supports better travel decisions. Whether you are planning a short commute or a long road trip, quick cost visibility helps you stay in control. Update mileage and fuel price regularly, compare scenarios, and make data-backed decisions to keep transport expense optimized.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <p class="safe-private">Safe & Private: No login required. No personal data stored. Calculations run locally.</p>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

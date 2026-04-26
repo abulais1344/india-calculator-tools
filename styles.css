@@ -423,6 +423,88 @@ label {
   margin-top: 14px;
 }
 
+.safe-private {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.amortization-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.amortization-table th,
+.amortization-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.amortization-table th {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.blog-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--surface-alt);
+}
+
+.summary-box {
+  margin: 12px 0;
+  padding: 12px;
+  border-left: 4px solid var(--brand);
+  border-radius: 10px;
+  background: #fff8f1;
+}
+
+.related-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.related-list a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.featured-badge {
+  background: #28a745;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
 /* Explanation and FAQ Sections */
 .explanation-section {
   background-color: var(--surface-alt);
