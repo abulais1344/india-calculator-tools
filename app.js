@@ -806,62 +806,84 @@
   }
 
   // Copy to Clipboard Handler
+  function getResultTextByButtonId(buttonId) {
+    var textToCopy = "";
+
+    if (buttonId === "copyGstResultBtn") {
+      var taxable = byId("gstTaxable").textContent;
+      var gst = byId("gstValue").textContent;
+      var total = byId("gstTotal").textContent;
+      textToCopy = "GST Calculation Results:\nTaxable Amount: " + taxable + "\nGST Amount: " + gst + "\nTotal Amount: " + total;
+    } else if (buttonId === "copyEmiResultBtn") {
+      var emi = byId("emiResult").textContent;
+      var interest = byId("emiInterest").textContent;
+      var payment = byId("emiTotal").textContent;
+      textToCopy = "EMI Calculation Results:\nMonthly EMI: " + emi + "\nTotal Interest: " + interest + "\nTotal Payment: " + payment;
+    } else if (buttonId === "copyPercentResultBtn") {
+      var percentResult = byId("percentResult").textContent;
+      textToCopy = "Percentage Result: " + percentResult;
+    } else if (buttonId === "copyChangeResultBtn") {
+      var changeType = byId("changeType").textContent;
+      var changeResult = byId("changeResult").textContent;
+      textToCopy = "Percentage Change:\nType: " + changeType + "\nPercentage: " + changeResult;
+    } else if (buttonId === "copyAgeResultBtn") {
+      var ageResult = byId("ageResult").textContent;
+      var ageExtra = byId("ageExtra").textContent;
+      textToCopy = ageResult + "\n" + ageExtra;
+    } else if (buttonId === "copySipResultBtn") {
+      var sipInvested = byId("sipInvested").textContent;
+      var sipReturns = byId("sipReturns").textContent;
+      var sipFinal = byId("sipFinal").textContent;
+      textToCopy = "SIP Results:\nTotal Invested: " + sipInvested + "\nEstimated Returns: " + sipReturns + "\nFinal Value: " + sipFinal;
+    } else if (buttonId === "copyFdResultBtn") {
+      var fdPrincipal = byId("fdPrincipal").textContent;
+      var fdInterest = byId("fdInterest").textContent;
+      var fdMaturity = byId("fdMaturity").textContent;
+      textToCopy = "FD Results:\nPrincipal: " + fdPrincipal + "\nInterest: " + fdInterest + "\nMaturity Amount: " + fdMaturity;
+    } else if (buttonId === "copyLoanEligResultBtn") {
+      var eligibleEmi = byId("eligibleEmi").textContent;
+      var maxLoanAmount = byId("maxLoanAmount").textContent;
+      textToCopy = "Loan Eligibility:\nEligible EMI: " + eligibleEmi + "\nMax Loan Amount: " + maxLoanAmount;
+    } else if (buttonId === "copySalaryResultBtn") {
+      var annualTakeHome = byId("annualTakeHome").textContent;
+      var monthlyInHand = byId("monthlyInHand").textContent;
+      var totalDeductions = byId("totalDeductions").textContent;
+      textToCopy = "Salary Details:\nAnnual Take Home: " + annualTakeHome + "\nMonthly In-Hand: " + monthlyInHand + "\nTotal Deductions: " + totalDeductions;
+    } else if (buttonId === "copyTaxResultBtn") {
+      var incomeTax = byId("incomeTax").textContent;
+      var surcharge = byId("surcharge").textContent;
+      var educationCess = byId("educationCess").textContent;
+      var totalTaxPayable = byId("totalTaxPayable").textContent;
+      var netIncome = byId("netIncome").textContent;
+      var effectiveTaxRate = byId("effectiveTaxRate").textContent;
+      textToCopy = "Tax Calculation:\nIncome Tax: " + incomeTax + "\nSurcharge: " + surcharge + "\nEducation Cess: " + educationCess + "\nTotal Tax: " + totalTaxPayable + "\nNet Income: " + netIncome + "\nEffective Tax Rate: " + effectiveTaxRate;
+    } else if (buttonId === "copyElectricityResultBtn") {
+      var elecEnergy = byId("elecEnergyCharge").textContent;
+      var elecTotal = byId("elecTotalBill").textContent;
+      textToCopy = "Electricity Bill:\nEnergy Charge: " + elecEnergy + "\nTotal Bill: " + elecTotal;
+    } else if (buttonId === "copyPpfResultBtn") {
+      var ppfInvested = byId("ppfInvested").textContent;
+      var ppfInterest = byId("ppfInterest").textContent;
+      var ppfMaturity = byId("ppfMaturity").textContent;
+      textToCopy = "PPF Results:\nTotal Invested: " + ppfInvested + "\nInterest Earned: " + ppfInterest + "\nMaturity Value: " + ppfMaturity;
+    } else if (buttonId === "copyRdResultBtn") {
+      var rdInvested = byId("rdInvested").textContent;
+      var rdInterest = byId("rdInterest").textContent;
+      var rdMaturity = byId("rdMaturity").textContent;
+      textToCopy = "RD Results:\nTotal Invested: " + rdInvested + "\nInterest Earned: " + rdInterest + "\nMaturity Value: " + rdMaturity;
+    } else if (buttonId === "copyGratuityResultBtn") {
+      var gratuityAmount = byId("gratuityAmount").textContent;
+      textToCopy = "Gratuity Estimate: " + gratuityAmount;
+    }
+
+    return textToCopy;
+  }
+
   function setupCopyButtons() {
     var copyButtons = document.querySelectorAll(".copy-btn");
     copyButtons.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var textToCopy = "";
-        var buttonId = btn.id;
-
-        if (buttonId === "copyGstResultBtn") {
-          var taxable = byId("gstTaxable").textContent;
-          var gst = byId("gstValue").textContent;
-          var total = byId("gstTotal").textContent;
-          textToCopy = "GST Calculation Results:\nTaxable Amount: " + taxable + "\nGST Amount: " + gst + "\nTotal Amount: " + total;
-        } else if (buttonId === "copyEmiResultBtn") {
-          var emi = byId("emiResult").textContent;
-          var interest = byId("emiInterest").textContent;
-          var payment = byId("emiTotal").textContent;
-          textToCopy = "EMI Calculation Results:\nMonthly EMI: " + emi + "\nTotal Interest: " + interest + "\nTotal Payment: " + payment;
-        } else if (buttonId === "copyPercentResultBtn") {
-          var percentResult = byId("percentResult").textContent;
-          textToCopy = "Percentage Result: " + percentResult;
-        } else if (buttonId === "copyChangeResultBtn") {
-          var changeType = byId("changeType").textContent;
-          var changeResult = byId("changeResult").textContent;
-          textToCopy = "Percentage Change:\nType: " + changeType + "\nPercentage: " + changeResult;
-        } else if (buttonId === "copyAgeResultBtn") {
-          var ageResult = byId("ageResult").textContent;
-          var ageExtra = byId("ageExtra").textContent;
-          textToCopy = ageResult + "\n" + ageExtra;
-        } else if (buttonId === "copySipResultBtn") {
-          var sipInvested = byId("sipInvested").textContent;
-          var sipReturns = byId("sipReturns").textContent;
-          var sipFinal = byId("sipFinal").textContent;
-          textToCopy = "SIP Results:\nTotal Invested: " + sipInvested + "\nEstimated Returns: " + sipReturns + "\nFinal Value: " + sipFinal;
-        } else if (buttonId === "copyFdResultBtn") {
-          var fdPrincipal = byId("fdPrincipal").textContent;
-          var fdInterest = byId("fdInterest").textContent;
-          var fdMaturity = byId("fdMaturity").textContent;
-          textToCopy = "FD Results:\nPrincipal: " + fdPrincipal + "\nInterest: " + fdInterest + "\nMaturity Amount: " + fdMaturity;
-        } else if (buttonId === "copyLoanEligResultBtn") {
-          var eligibleEmi = byId("eligibleEmi").textContent;
-          var maxLoanAmount = byId("maxLoanAmount").textContent;
-          textToCopy = "Loan Eligibility:\nEligible EMI: " + eligibleEmi + "\nMax Loan Amount: " + maxLoanAmount;
-        } else if (buttonId === "copySalaryResultBtn") {
-          var annualTakeHome = byId("annualTakeHome").textContent;
-          var monthlyInHand = byId("monthlyInHand").textContent;
-          var totalDeductions = byId("totalDeductions").textContent;
-          textToCopy = "Salary Details:\nAnnual Take Home: " + annualTakeHome + "\nMonthly In-Hand: " + monthlyInHand + "\nTotal Deductions: " + totalDeductions;
-        } else if (buttonId === "copyTaxResultBtn") {
-          var incomeTax = byId("incomeTax").textContent;
-          var surcharge = byId("surcharge").textContent;
-          var educationCess = byId("educationCess").textContent;
-          var totalTaxPayable = byId("totalTaxPayable").textContent;
-          var netIncome = byId("netIncome").textContent;
-          var effectiveTaxRate = byId("effectiveTaxRate").textContent;
-          textToCopy = "Tax Calculation:\nIncome Tax: " + incomeTax + "\nSurcharge: " + surcharge + "\nEducation Cess: " + educationCess + "\nTotal Tax: " + totalTaxPayable + "\nNet Income: " + netIncome + "\nEffective Tax Rate: " + effectiveTaxRate;
-        }
+        var textToCopy = getResultTextByButtonId(btn.id);
 
         if (textToCopy && navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(textToCopy).then(function () {
@@ -893,6 +915,186 @@
         }
       });
     });
+  }
+
+  function setupShareButtons() {
+    var copyButtons = document.querySelectorAll(".copy-btn");
+    copyButtons.forEach(function (copyBtn) {
+      var existingShare = copyBtn.parentElement.querySelector(".share-btn[data-for='" + copyBtn.id + "']");
+      if (existingShare) {
+        return;
+      }
+
+      var shareBtn = document.createElement("button");
+      shareBtn.type = "button";
+      shareBtn.className = "secondary share-btn";
+      shareBtn.setAttribute("data-for", copyBtn.id);
+      shareBtn.style.marginLeft = "8px";
+      shareBtn.textContent = "Share Result";
+
+      shareBtn.addEventListener("click", function () {
+        var textToShare = getResultTextByButtonId(copyBtn.id) || "Check this calculator: " + window.location.href;
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            text: textToShare,
+            url: window.location.href
+          }).catch(function () {
+            // ignore cancelled share
+          });
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToShare + "\n" + window.location.href).then(function () {
+            var originalText = shareBtn.textContent;
+            shareBtn.textContent = "✓ Shared";
+            setTimeout(function () {
+              shareBtn.textContent = originalText;
+            }, 2000);
+          });
+        }
+      });
+
+      copyBtn.insertAdjacentElement("afterend", shareBtn);
+    });
+  }
+
+  function initElectricityBillCalculator() {
+    var unitsEl = byId("elecUnits");
+    if (!unitsEl) return;
+
+    var rateEl = byId("elecRate");
+    var fixedEl = byId("elecFixed");
+    var errorEl = byId("elecError");
+
+    function calculate() {
+      var units = parseFloat(unitsEl.value);
+      var rate = parseFloat(rateEl.value);
+      var fixed = parseFloat(fixedEl.value);
+
+      if (!Number.isFinite(units) || units < 0 || !Number.isFinite(rate) || rate < 0 || !Number.isFinite(fixed) || fixed < 0) {
+        errorEl.textContent = "Enter valid values for units, rate, and fixed charges.";
+        setText("elecEnergyCharge", "-");
+        setText("elecTotalBill", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var energy = units * rate;
+      var total = energy + fixed;
+      setText("elecEnergyCharge", "₹ " + formatINR(energy));
+      setText("elecTotalBill", "₹ " + formatINR(total));
+    }
+
+    [unitsEl, rateEl, fixedEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initPpfCalculator() {
+    var annualEl = byId("ppfAnnual");
+    if (!annualEl) return;
+
+    var yearsEl = byId("ppfYears");
+    var rateEl = byId("ppfRate");
+    var errorEl = byId("ppfError");
+
+    function calculate() {
+      var annual = parseFloat(annualEl.value);
+      var years = parseInt(yearsEl.value, 10);
+      var rate = parseFloat(rateEl.value);
+
+      if (!Number.isFinite(annual) || annual <= 0 || !Number.isFinite(years) || years <= 0 || !Number.isFinite(rate) || rate < 0) {
+        errorEl.textContent = "Enter valid annual contribution, years, and rate.";
+        setText("ppfInvested", "-");
+        setText("ppfInterest", "-");
+        setText("ppfMaturity", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var r = rate / 100;
+      var maturity = r === 0 ? annual * years : annual * ((Math.pow(1 + r, years) - 1) / r);
+      var invested = annual * years;
+      var interest = maturity - invested;
+
+      setText("ppfInvested", "₹ " + formatINR(invested));
+      setText("ppfInterest", "₹ " + formatINR(interest));
+      setText("ppfMaturity", "₹ " + formatINR(maturity));
+    }
+
+    [annualEl, yearsEl, rateEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initRdCalculator() {
+    var monthlyEl = byId("rdMonthly");
+    if (!monthlyEl) return;
+
+    var monthsEl = byId("rdMonths");
+    var rateEl = byId("rdRate");
+    var errorEl = byId("rdError");
+
+    function calculate() {
+      var monthly = parseFloat(monthlyEl.value);
+      var months = parseInt(monthsEl.value, 10);
+      var rate = parseFloat(rateEl.value);
+
+      if (!Number.isFinite(monthly) || monthly <= 0 || !Number.isFinite(months) || months <= 0 || !Number.isFinite(rate) || rate < 0) {
+        errorEl.textContent = "Enter valid monthly amount, months, and rate.";
+        setText("rdInvested", "-");
+        setText("rdInterest", "-");
+        setText("rdMaturity", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var monthlyRate = rate / 1200;
+      var maturity = 0;
+      for (var i = 0; i < months; i += 1) {
+        maturity = (maturity + monthly) * (1 + monthlyRate);
+      }
+      var invested = monthly * months;
+      var interest = maturity - invested;
+
+      setText("rdInvested", "₹ " + formatINR(invested));
+      setText("rdInterest", "₹ " + formatINR(interest));
+      setText("rdMaturity", "₹ " + formatINR(maturity));
+    }
+
+    [monthlyEl, monthsEl, rateEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initGratuityCalculator() {
+    var salaryEl = byId("gratuitySalary");
+    if (!salaryEl) return;
+
+    var yearsEl = byId("gratuityYears");
+    var errorEl = byId("gratuityError");
+
+    function calculate() {
+      var salary = parseFloat(salaryEl.value);
+      var years = parseFloat(yearsEl.value);
+
+      if (!Number.isFinite(salary) || salary <= 0 || !Number.isFinite(years) || years <= 0) {
+        errorEl.textContent = "Enter valid last drawn salary and service years.";
+        setText("gratuityAmount", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var gratuity = (15 / 26) * salary * years;
+      setText("gratuityAmount", "₹ " + formatINR(gratuity));
+    }
+
+    [salaryEl, yearsEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
   }
 
   // SIP Calculator
@@ -1340,6 +1542,11 @@
     initLoanEligibilityCalculator();
     initSalaryCalculator();
     initIncomeTaxCalculator();
+    initElectricityBillCalculator();
+    initPpfCalculator();
+    initRdCalculator();
+    initGratuityCalculator();
     setupCopyButtons();
+    setupShareButtons();
   });
 })();

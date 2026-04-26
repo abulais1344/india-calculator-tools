@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Bill Calculator India</title>
+  <meta name="description" content="Estimate electricity bill in India with units consumed, per-unit tariff, and fixed charges.">
+  <meta name="keywords" content="electricity bill calculator india, power bill estimate, electricity unit calculator">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is electricity bill calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Electricity bill is typically calculated as units consumed multiplied by per-unit rate, plus fixed charges and applicable taxes or surcharges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this calculator include state taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This tool gives a planning estimate using your entered unit rate and fixed charge. State-specific taxes and slab adjustments may vary by DISCOM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why should I track monthly units?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tracking monthly units helps you control consumption, compare seasonal patterns, and avoid bill surprises."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="sip-calculator.html">SIP</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="ppf-calculator.html">PPF</a>
+        <a href="rd-calculator.html">RD</a>
+        <a href="gratuity-calculator.html">Gratuity</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Electricity Bill Calculator India</h1>
+        <p>Estimate your monthly electricity bill quickly with units consumed, tariff rate, and fixed charges.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card">
+        <h2>Calculate Electricity Bill</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="elecUnits">Units Consumed (kWh)</label>
+            <input id="elecUnits" type="number" min="0" step="1" placeholder="Example: 350">
+          </div>
+          <div>
+            <label for="elecRate">Rate Per Unit (₹)</label>
+            <input id="elecRate" type="number" min="0" step="0.01" placeholder="Example: 7.5">
+          </div>
+        </div>
+        <div class="field">
+          <label for="elecFixed">Fixed Charges (₹)</label>
+          <input id="elecFixed" type="number" min="0" step="0.01" placeholder="Example: 120">
+        </div>
+        <p id="elecError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div class="result-item"><span>Energy Charge</span><span class="result-value" id="elecEnergyCharge">-</span></div>
+          <div class="result-item"><span>Total Bill Estimate</span><span class="result-value" id="elecTotalBill" style="color: #1f7a4f; font-weight: bold;">-</span></div>
+        </div>
+        <button id="copyElectricityResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>Can this replace the official electricity bill?</h4><p>No. This is a planning tool. Your final bill may include slab rates, duties, or rebates specific to your local utility provider.</p></div>
+        <div class="faq-item"><h4>How can I reduce my bill?</h4><p>Use efficient appliances, reduce standby loads, shift heavy usage to lower-tariff periods if available, and monitor monthly unit trends.</p></div>
+        <div class="faq-item"><h4>Why does summer bill rise?</h4><p>Air conditioner and cooling usage can significantly increase monthly units, pushing total bill higher.</p></div>
+      </section>
+
+      <h3>Try Other Calculators</h3>
+      <div class="calc-link-row">
+        <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
+        <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+        <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+      </div>
+
+      <section class="card content-block">
+        <h2>What Is Electricity Bill Calculator?</h2>
+        <p>An electricity bill calculator is a practical utility tool that helps you estimate your monthly power cost before your actual bill arrives. In India, electricity billing can vary by state, utility provider, and tariff slab, which often makes manual estimation difficult for households and small businesses. This calculator simplifies the process by using three core inputs: total units consumed, per-unit tariff rate, and fixed monthly charges. It then estimates energy charge and final payable amount. This is useful for renters tracking monthly expenses, families planning seasonal budgets, and shop owners monitoring overhead costs. If you check bill patterns month by month, you can quickly identify when your usage has spiked and take corrective action. Over time, such visibility improves budget control and helps reduce avoidable wastage.</p>
+
+        <h2>How Does It Work?</h2>
+        <p>The core logic is simple: energy charge equals units multiplied by per-unit rate. Then fixed charges are added to estimate total bill. Some electricity boards also apply slab-specific rates, taxes, fuel surcharge adjustments, or delayed payment charges. This calculator is designed as a fast planning model, so you can run scenarios quickly instead of waiting for the final bill statement. For example, if your usage increases from 280 units to 410 units due to air conditioning, this tool can immediately show likely monthly impact. This helps you set realistic household budgets and decide if certain consumption patterns need adjustment.</p>
+
+        <h2>Formula Explanation</h2>
+        <p>Basic formula: Total Bill = (Units Consumed × Rate Per Unit) + Fixed Charges. If your utility applies additional components, you can include them manually in fixed charges for planning purposes. For example, with 350 units at ₹7.50 and fixed charges ₹120, energy charge is ₹2,625 and estimated total is ₹2,745. If you reduce usage by 40 units, you save around ₹300 in energy component alone. This makes unit tracking an actionable habit.</p>
+
+        <h2>Example Calculation</h2>
+        <p>Assume family usage is 420 units, unit rate is ₹8.10, and fixed charge is ₹160. Energy charge becomes ₹3,402. Add fixed charge and total estimate is ₹3,562. If the family replaces old appliances and reduces usage to 360 units, energy charge becomes ₹2,916 and total estimate is ₹3,076. Estimated monthly reduction is about ₹486. Over 12 months, this can cross ₹5,800 depending on seasonality.</p>
+
+        <h2>Tips and Benefits</h2>
+        <ul>
+          <li>Track monthly units to identify unusual spikes early.</li>
+          <li>Set monthly power budget targets based on occupancy and weather.</li>
+          <li>Use estimate before buying high-load appliances.</li>
+          <li>Plan summer usage with realistic cost expectations.</li>
+          <li>Support household savings by turning bill awareness into action.</li>
+        </ul>
+        <p>For complete monthly planning, combine this with <a href="salary-calculator.html">Salary Calculator</a> and <a href="income-tax-calculator.html">Income Tax Calculator</a> so utility costs are aligned with net take-home income.</p>
+      </section>
+
+      <div class="ad-container">Ad Space</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

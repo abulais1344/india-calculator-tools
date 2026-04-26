@@ -1,115 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-domain.vercel.app/index.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/index.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/gst-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/emi-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/emi-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/gst-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/percentage-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/sip-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/income-tax-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/salary-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/electricity-bill-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/ppf-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/rd-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/gratuity-calculator.html</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://india-calculator-tools.vercel.app/percentage-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/age-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/age-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/sip-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/fd-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/fd-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/loan-eligibility-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/loan-eligibility-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/home-loan-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/salary-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/car-loan-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/income-tax-calculator.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/personal-loan-calculator.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/home-loan-calculator.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://your-domain.vercel.app/car-loan-calculator.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://your-domain.vercel.app/personal-loan-calculator.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://your-domain.vercel.app/blog/index.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/blog/index.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/blog/how-to-calculate-emi.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/blog/emi-calculation-guide.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/blog/sip-vs-fd.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/blog/sip-vs-fd.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/blog/old-vs-new-tax-regime.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/blog/tax-saving-india.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/privacy-policy.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/privacy-policy.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://your-domain.vercel.app/terms.html</loc>
+    <loc>https://india-calculator-tools.vercel.app/terms.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
