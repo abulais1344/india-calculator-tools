@@ -141,12 +141,6 @@
   </url>
 
   <url>
-    <loc>https://india-calculator-tools.vercel.app/blog/emi-calculation-guide.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://india-calculator-tools.vercel.app/blog/how-to-calculate-emi.html</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -160,12 +154,6 @@
   </url>
   <url>
     <loc>https://india-calculator-tools.vercel.app/blog/sip-vs-fd.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://india-calculator-tools.vercel.app/blog/tax-saving-india.html</loc>
     <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

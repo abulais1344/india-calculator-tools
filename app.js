@@ -31,35 +31,91 @@
     });
   }
 
-  function ensureGlobalNavLinks() {
+  function buildHeaderNavigation() {
     var nav = document.querySelector(".site-nav");
     if (!nav) {
       return;
     }
 
-    var homeLink = nav.querySelector('a[href="index.html"], a[href="../index.html"]');
-    var prefix = homeLink && homeLink.getAttribute("href") && homeLink.getAttribute("href").indexOf("../") === 0 ? "../" : "";
+    var onBlogPage = window.location.pathname.indexOf("/blog/") !== -1;
+    var prefix = onBlogPage ? "../" : "";
 
-    var linksToAdd = [
-      { href: prefix + "simple-interest-calculator.html", label: "Simple Interest" },
-      { href: prefix + "compound-interest-calculator.html", label: "Compound Interest" },
-      { href: prefix + "bmi-calculator.html", label: "BMI" },
-      { href: prefix + "discount-calculator.html", label: "Discount" },
-      { href: prefix + "break-even-calculator.html", label: "Break-Even" }
+    var loanCalculators = [
+      { href: "emi-calculator.html", label: "EMI Calculator" },
+      { href: "home-loan-calculator.html", label: "Home Loan Calculator" },
+      { href: "car-loan-calculator.html", label: "Car Loan Calculator" },
+      { href: "personal-loan-calculator.html", label: "Personal Loan Calculator" }
     ];
 
-    linksToAdd.forEach(function (item) {
-      var exists = Array.prototype.some.call(nav.querySelectorAll("a"), function (a) {
-        return a.getAttribute("href") === item.href || a.textContent.trim() === item.label;
+    var investmentCalculators = [
+      { href: "sip-calculator.html", label: "SIP Calculator" },
+      { href: "fd-calculator.html", label: "FD Calculator" },
+      { href: "rd-calculator.html", label: "RD Calculator" },
+      { href: "ppf-calculator.html", label: "PPF Calculator" }
+    ];
+
+    var taxCalculators = [
+      { href: "gst-calculator.html", label: "GST Calculator" },
+      { href: "income-tax-calculator.html", label: "Income Tax Calculator" }
+    ];
+
+    var utilityCalculators = [
+      { href: "age-calculator.html", label: "Age Calculator" },
+      { href: "bmi-calculator.html", label: "BMI Calculator" },
+      { href: "percentage-calculator.html", label: "Percentage Calculator" },
+      { href: "discount-calculator.html", label: "Discount Calculator" },
+      { href: "break-even-calculator.html", label: "Break-Even Calculator" }
+    ];
+
+    var moreCalculators = [
+      { href: "loan-eligibility-calculator.html", label: "Loan Eligibility Calculator" },
+      { href: "salary-calculator.html", label: "Salary Calculator" },
+      { href: "electricity-bill-calculator.html", label: "Electricity Bill Calculator" },
+      { href: "fuel-cost-calculator.html", label: "Fuel Cost Calculator" },
+      { href: "gratuity-calculator.html", label: "Gratuity Calculator" },
+      { href: "simple-interest-calculator.html", label: "Simple Interest Calculator" },
+      { href: "compound-interest-calculator.html", label: "Compound Interest Calculator" }
+    ];
+
+    function createTopLink(item) {
+      var link = document.createElement("a");
+      link.href = prefix + item.href;
+      link.textContent = item.label;
+      return link;
+    }
+
+    function createDropdown(label, items) {
+      var wrapper = document.createElement("div");
+      wrapper.className = "nav-dropdown";
+
+      var toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "nav-dropdown-toggle";
+      toggle.setAttribute("aria-haspopup", "true");
+      toggle.textContent = label;
+
+      var menu = document.createElement("div");
+      menu.className = "nav-dropdown-menu";
+      items.forEach(function (item) {
+        var link = document.createElement("a");
+        link.href = prefix + item.href;
+        link.textContent = item.label;
+        menu.appendChild(link);
       });
 
-      if (!exists) {
-        var a = document.createElement("a");
-        a.href = item.href;
-        a.textContent = item.label;
-        nav.appendChild(a);
-      }
-    });
+      wrapper.appendChild(toggle);
+      wrapper.appendChild(menu);
+      return wrapper;
+    }
+
+    nav.innerHTML = "";
+    nav.appendChild(createTopLink({ href: "index.html", label: "Home" }));
+    nav.appendChild(createDropdown("Loan", loanCalculators));
+    nav.appendChild(createDropdown("Investment", investmentCalculators));
+    nav.appendChild(createDropdown("Tax", taxCalculators));
+    nav.appendChild(createDropdown("Utility", utilityCalculators));
+    nav.appendChild(createDropdown("More", moreCalculators));
+    nav.appendChild(createTopLink({ href: "blog/index.html", label: "Blog" }));
   }
 
   function optimizePageAssets() {
@@ -1914,7 +1970,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    ensureGlobalNavLinks();
+    buildHeaderNavigation();
     bindActiveNav();
     optimizePageAssets();
     setupGlobalAdContainers();

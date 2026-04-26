@@ -66,6 +66,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
 }
 
 .site-nav a {
@@ -81,6 +82,64 @@ body {
 .site-nav a.active {
   border-color: var(--border);
   background: var(--surface-alt);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  padding: 8px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.nav-dropdown-toggle::after {
+  content: " ▾";
+  font-size: 0.75rem;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle {
+  border-color: var(--border);
+  background: var(--surface-alt);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 235px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 6px;
+  z-index: 40;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  border-radius: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  border-color: var(--border);
+  background: var(--surface-alt);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
 }
 
 main {
@@ -109,6 +168,13 @@ main {
 .hero p {
   margin: 0;
   color: var(--muted);
+}
+
+.hero-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .grid {
@@ -427,6 +493,25 @@ label {
   margin-top: 14px;
 }
 
+.goal-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.goal-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: var(--surface-alt);
+  font-weight: 700;
+}
+
 .safe-private {
   margin: 4px 0;
   color: var(--muted);
@@ -656,6 +741,10 @@ label {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .calculator-grid > .card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+
   .inline-row {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -675,5 +764,20 @@ label {
     min-height: 64px;
     margin: 14px 0;
     font-size: 0.9rem;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    min-width: 100%;
+    margin-top: 6px;
   }
 }
