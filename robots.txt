@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://india-calculator-tools.vercel.app/sitemap.xml
+
+Sitemap: https://calcverse.in/sitemap.xml

@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "india-calculator-tools.vercel.app"
+        }
+      ],
+      "destination": "https://calcverse.in/$1",
+      "permanent": true
+    }
+  ]
+}
