@@ -262,11 +262,15 @@
     function createDropdown(label, items) {
       var wrapper = document.createElement("div");
       wrapper.className = "nav-dropdown";
+      if (label === "More") {
+        wrapper.classList.add("nav-dropdown--panel");
+      }
 
       var toggle = document.createElement("button");
       toggle.type = "button";
       toggle.className = "nav-dropdown-toggle";
       toggle.setAttribute("aria-haspopup", "true");
+      toggle.setAttribute("aria-expanded", "false");
       toggle.textContent = label;
 
       var menu = document.createElement("div");
@@ -288,6 +292,59 @@
       nav.appendChild(createTopLink(item));
     });
     nav.appendChild(createDropdown("More", moreLinks));
+  }
+
+  function setupHeaderDropdowns() {
+    var dropdowns = document.querySelectorAll(".nav-dropdown");
+    if (!dropdowns.length) {
+      return;
+    }
+
+    function closeDropdowns() {
+      dropdowns.forEach(function (dropdown) {
+        dropdown.classList.remove("is-open");
+        var toggle = dropdown.querySelector(".nav-dropdown-toggle");
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    dropdowns.forEach(function (dropdown) {
+      var toggle = dropdown.querySelector(".nav-dropdown-toggle");
+      if (!toggle) {
+        return;
+      }
+
+      toggle.addEventListener("click", function (event) {
+        if (!window.matchMedia("(max-width: 759px)").matches) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        var shouldOpen = !dropdown.classList.contains("is-open");
+        closeDropdowns();
+
+        if (shouldOpen) {
+          dropdown.classList.add("is-open");
+          toggle.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".nav-dropdown")) {
+        closeDropdowns();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (!window.matchMedia("(max-width: 759px)").matches) {
+        closeDropdowns();
+      }
+    });
   }
 
   function optimizePageAssets() {
@@ -2477,6 +2534,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     buildHeaderNavigation();
+    setupHeaderDropdowns();
     bindActiveNav();
     optimizePageAssets();
     enhanceFooterLinks();
