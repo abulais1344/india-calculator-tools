@@ -317,7 +317,7 @@
       }
 
       toggle.addEventListener("click", function (event) {
-        if (!window.matchMedia("(max-width: 759px)").matches) {
+        if (!dropdown.classList.contains("nav-dropdown--panel")) {
           return;
         }
 
@@ -336,12 +336,6 @@
 
     document.addEventListener("click", function (event) {
       if (!event.target.closest(".nav-dropdown")) {
-        closeDropdowns();
-      }
-    });
-
-    window.addEventListener("resize", function () {
-      if (!window.matchMedia("(max-width: 759px)").matches) {
         closeDropdowns();
       }
     });
