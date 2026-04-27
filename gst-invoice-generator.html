@@ -517,6 +517,17 @@
         document.getElementById('downloadInvoiceBtn').classList.remove('is-hidden');
         document.getElementById('printInvoiceBtn').classList.remove('is-hidden');
 
+        function openPrintWindow() {
+          var win = window.open('', '_blank', 'width=900,height=700');
+          if (!win) { window.print(); return; }
+          win.document.write('<!DOCTYPE html><html><head><title>GST Invoice</title><style>body{font-family:Arial,sans-serif;margin:32px;}@media print{body{margin:0;padding:16px;}}</style></head><body>' + invoiceHtml + '</body></html>');
+          win.document.close();
+          win.focus();
+          win.print();
+        }
+        document.getElementById('downloadInvoiceBtn').onclick = openPrintWindow;
+        document.getElementById('printInvoiceBtn').onclick = openPrintWindow;
+
         // Store data for download/print
         window.currentInvoiceData = {
           title: 'GST Invoice',

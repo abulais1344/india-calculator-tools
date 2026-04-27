@@ -436,6 +436,17 @@
         document.getElementById('downloadReceiptBtn').classList.remove('is-hidden');
         document.getElementById('printReceiptBtn').classList.remove('is-hidden');
 
+        function openPrintWindow() {
+          var win = window.open('', '_blank', 'width=900,height=700');
+          if (!win) { window.print(); return; }
+          win.document.write('<!DOCTYPE html><html><head><title>Rent Receipt</title><style>body{font-family:Arial,sans-serif;margin:32px;}@media print{body{margin:0;padding:16px;}}</style></head><body>' + receiptHtml + '</body></html>');
+          win.document.close();
+          win.focus();
+          win.print();
+        }
+        document.getElementById('downloadReceiptBtn').onclick = openPrintWindow;
+        document.getElementById('printReceiptBtn').onclick = openPrintWindow;
+
         // Store data for download/print
         window.currentReceiptData = {
           title: 'Rent Receipt',
