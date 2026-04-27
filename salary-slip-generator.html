@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salary Slip Generator India – Download Payslip PDF Free</title>
+  <meta name="description" content="Generate professional salary slips free with automatic gross and net salary calculation. Create payslips for HR records and employee documentation instantly online.">
+  <meta name="keywords" content="salary slip generator, salary slip format india, free salary generator, payroll slip">
+  
+  <meta property="og:title" content="Salary Slip Generator | Free Professional Slips">
+  <meta property="og:description" content="Generate professional salary slips with automatic gross/net calculation and PDF download.">
+  <meta property="og:type" content="website">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Salary Slip Generator",
+    "description": "Generate professional salary slips with automatic gross and net salary calculation for HR and employee records",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "platform": "Web",
+    "operatingSystem": "Any"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is HRA calculated as a fixed amount or percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HRA can be either fixed or percentage-based depending on company policy. Many companies use 40%-50% of basic salary. Our generator accepts any amount—enter your company's specific HRA policy amount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between gross salary and net salary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gross salary = Basic + All Allowances (total before any deductions). Net salary (take-home) = Gross Salary - All Deductions. Net salary is what actually gets deposited into your bank account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this salary slip for loan applications?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, if your HR department authorizes and signs the slip. Most banks accept computer-generated slips that are officially signed. For best results, provide the last 3-6 months of slips from your actual employer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What percentage of basic salary goes to PF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically 12% of the basic salary is deducted as employee PF contribution, plus the employer contributes another 12% (not shown in deduction). For high earners (basic > ₹50,000), EPF coverage is ₹5,000 per month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize what categories appear on the slip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This generator shows standard categories (basic, HRA, DA, allowances, PF, tax, insurance, other deductions). You can leave categories zero if not applicable—they'll automatically hide from the preview."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Generators", "item": "https://calcverse.in/index.html#generator-tools"},
+      {"@type": "ListItem", "position": 3, "name": "Salary Slip Generator", "item": "https://calcverse.in/salary-slip-generator.html"}
+    ]
+  }
+  </script>
+  
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Salary Slip Generator India</h1>
+        <p>Create professional salary slips instantly with automatic gross and net salary calculation. Download PDF or print directly.</p>
+      </section>
+
+      <div class="ad-container">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Generate Salary Slip</h2>
+        
+        <div class="field inline-row">
+          <div>
+            <label for="employeeName">Employee Name *</label>
+            <input id="employeeName" type="text" placeholder="Full name" required>
+            <p class="helper-text">Employee's full name.</p>
+          </div>
+          <div>
+            <label for="employeeID">Employee ID *</label>
+            <input id="employeeID" type="text" placeholder="EMP-001" required>
+            <p class="helper-text">Unique employee identification.</p>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="companyName">Company Name *</label>
+            <input id="companyName" type="text" placeholder="Company Ltd." required>
+            <p class="helper-text">Organization name.</p>
+          </div>
+          <div>
+            <label for="designation">Designation *</label>
+            <input id="designation" type="text" placeholder="Software Engineer" required>
+            <p class="helper-text">Job title or position.</p>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="salaryMonth">Salary Month *</label>
+            <select id="salaryMonth" required>
+              <option value="">Select Month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <p class="helper-text">Month of salary payment.</p>
+          </div>
+          <div>
+            <label for="salaryYear">Year *</label>
+            <input id="salaryYear" type="number" min="2020" max="2100" placeholder="2026" value="2026" required>
+            <p class="helper-text">Year of salary payment.</p>
+          </div>
+        </div>
+
+        <div style="border-top: 2px solid #e37a14; padding-top: 1rem; margin-top: 1rem;">
+          <h3 style="margin-top: 0;">Earnings (₹)</h3>
+          
+          <div class="field inline-row">
+            <div>
+              <label for="basicSalary">Basic Salary *</label>
+              <input id="basicSalary" type="number" min="0" step="1" placeholder="50000" value="50000" required>
+              <p class="helper-text">Base monthly salary.</p>
+            </div>
+            <div>
+              <label for="hra">HRA (House Rent Allowance)</label>
+              <input id="hra" type="number" min="0" step="1" placeholder="10000">
+              <p class="helper-text">Percentage or fixed amount.</p>
+            </div>
+          </div>
+
+          <div class="field inline-row">
+            <div>
+              <label for="da">DA (Dearness Allowance)</label>
+              <input id="da" type="number" min="0" step="1" placeholder="5000">
+              <p class="helper-text">Dearness allowance amount.</p>
+            </div>
+            <div>
+              <label for="otherAllowances">Other Allowances</label>
+              <input id="otherAllowances" type="number" min="0" step="1" placeholder="2000">
+              <p class="helper-text">Transport, medical, etc.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top: 2px solid #e37a14; padding-top: 1rem; margin-top: 1rem;">
+          <h3 style="margin-top: 0;">Deductions (₹)</h3>
+          
+          <div class="field inline-row">
+            <div>
+              <label for="pf">PF (Provident Fund)</label>
+              <input id="pf" type="number" min="0" step="1" placeholder="5000">
+              <p class="helper-text">Provident fund contribution.</p>
+            </div>
+            <div>
+              <label for="insurance">Insurance / LIC</label>
+              <input id="insurance" type="number" min="0" step="1" placeholder="1000">
+              <p class="helper-text">Life or health insurance.</p>
+            </div>
+          </div>
+
+          <div class="field inline-row">
+            <div>
+              <label for="tax">Income Tax (TDS)</label>
+              <input id="tax" type="number" min="0" step="1" placeholder="3000">
+              <p class="helper-text">Tax deducted at source.</p>
+            </div>
+            <div>
+              <label for="otherDeductions">Other Deductions</label>
+              <input id="otherDeductions" type="number" min="0" step="1" placeholder="500">
+              <p class="helper-text">Loan EMI, advances, etc.</p>
+            </div>
+          </div>
+        </div>
+
+        <p id="salaryError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="generator-actions">
+          <button id="generateSalaryPreviewBtn" type="button" class="btn">📄 Generate Preview</button>
+          <button id="downloadSalaryBtn" type="button" class="btn secondary is-hidden">⬇️ Download PDF</button>
+          <button id="printSalaryBtn" type="button" class="btn secondary is-hidden">🖨️ Print</button>
+        </div>
+
+        <div id="salaryPreviewContainer" style="display: none; margin-top: 2rem;">
+          <p class="preview-note">👇 Preview below. Click Download or Print after reviewing.</p>
+          <div id="salaryPreview" class="document-preview"></div>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Middle</div>
+
+      <section class="card content-block">
+        <h2>What is a Salary Slip?</h2>
+        <p>A salary slip is an official document issued by an employer to an employee detailing their monthly compensation. It shows the breakdown of earnings (basic salary, allowances) and deductions (PF, tax, insurance), resulting in the net salary received. Salary slips serve as proof of income for loan applications, rental agreements, tax filing, and other official purposes.</p>
+
+        <h2>Key Components of a Salary Slip</h2>
+        <ul>
+          <li><strong>Employee Information:</strong> Name, ID, designation, department.</li>
+          <li><strong>Company Details:</strong> Name, address, contact.</li>
+          <li><strong>Salary Period:</strong> Month and year covered.</li>
+          <li><strong>Earnings:</strong> Basic salary, HRA (House Rent Allowance), DA (Dearness Allowance), other allowances.</li>
+          <li><strong>Deductions:</strong> PF (Provident Fund), Income Tax (TDS), insurance, other deductions.</li>
+          <li><strong>Gross Salary:</strong> Total earnings before deductions.</li>
+          <li><strong>Net Salary:</strong> Amount paid = Gross Salary - Total Deductions.</li>
+        </ul>
+
+        <h2>How to Use This Salary Slip Generator?</h2>
+        <ol>
+          <li>Enter employee and company details.</li>
+          <li>Input the salary month and year.</li>
+          <li>Fill in earnings: basic salary, allowances (HRA, DA, others).</li>
+          <li>Fill in deductions: PF, insurance, tax, and other deductions.</li>
+          <li>Click <strong>"Generate Preview"</strong> to see the formatted salary slip.</li>
+          <li>Review the calculations and accuracy.</li>
+          <li>Click <strong>"Download PDF"</strong> to save or <strong>"Print"</strong> to print the slip.</li>
+          <li>Both employee and employer can keep a copy for records.</li>
+        </ol>
+
+        <h2>Common Salary Components</h2>
+        <p><strong>Earnings:</strong> Basic salary is the core compensation, usually 40-50% of total salary. HRA is typically 40% of basic and covers accommodation expenses. DA adjusts for inflation and varies with announcements. Other allowances include transportation, medical benefits, allowances, and performance bonuses.</p>
+        <p><strong>Deductions:</strong> PF (Provident Fund) is a retirement benefit—12% of basic salary from employee and employer each. Income Tax is calculated based on annual salary slabs. Insurance and other deductions depend on workplace policies and employee choices.</p>
+
+        <h2>Calculating Gross and Net Salary</h2>
+        <ul>
+          <li><strong>Gross Salary:</strong> Basic + HRA + DA + All Allowances = Total Earnings</li>
+          <li><strong>Total Deductions:</strong> PF + Tax + Insurance + Others</li>
+          <li><strong>Net Salary (Take-Home):</strong> Gross Salary - Total Deductions</li>
+        </ul>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Tools</h2>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="rent-receipt-generator.html">Rent Receipt Generator</a>
+          <a class="btn secondary" href="gst-invoice-generator.html">GST Invoice Generator</a>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h2>What is a Salary Slip?</h2>
+        <p>A salary slip (also called payslip or pay stub) is an official document issued by an employer to an employee detailing their monthly compensation. It shows the complete breakdown of earnings (basic salary, allowances), deductions (PF, tax, insurance), and the net salary to be received. Salary slips serve as proof of income for loan applications, rental agreements, visa purposes, and official documentation. They're essential records for both employee financial planning and employer tax compliance.</p>
+
+        <h2>Why Salary Slips Are Important in India</h2>
+        <ul>
+          <li><strong>Proof of Income:</strong> Banks, financial institutions, and landlords require salary slips to verify employment and income stability.</li>
+          <li><strong>Loan Applications:</strong> Home loan, car loan, and personal loan applications require 3-6 months salary slips as income documentation.</li>
+          <li><strong>Visa and Immigration:</strong> International travel, student visas, and work permits require salary slip history as financial proof.</li>
+          <li><strong>Rental Agreements:</strong> Landlords often request salary slips to verify tenant employment and ability to pay rent.</li>
+          <li><strong>Tax Compliance:</strong> Salary slips document tax deductions (income tax, PF) and are essential for ITR (Income Tax Return) filing.</li>
+          <li><strong>Employee Records:</strong> Valuable for employees to track compensation, deductions, and verify correct salary payments.</li>
+          <li><strong>Dispute Resolution:</strong> In case of salary disputes or discrepancies, salary slips provide documented proof of agreed compensation.</li>
+          <li><strong>Insurance and Benefits:</strong> Insurance claims and benefit applications often require salary slips as supporting documents.</li>
+        </ul>
+
+        <h2>How to Generate a Professional Salary Slip Using Our Tool</h2>
+        <ol>
+          <li><strong>Enter Employee Information:</strong> Full name, unique employee ID, and job designation (required).</li>
+          <li><strong>Add Company Details:</strong> Official company name where payslips are issued from (required).</li>
+          <li><strong>Set Salary Period:</strong> Select the month and year for the salary slip (e.g., April 2026).</li>
+          <li><strong>Input Basic Salary:</strong> The foundational salary component (typically 40-50% of total compensation).</li>
+          <li><strong>Add Allowances:</strong> HRA (House Rent Allowance), DA (Dearness Allowance), transportation, and other monthly allowances.</li>
+          <li><strong>Enter Deductions:</strong> PF (Provident Fund ~12% of basic), income tax (TDS), insurance, loan EMI, or other deductions.</li>
+          <li><strong>System Automatically Calculates:</strong> Gross salary (basic + allowances), total deductions, and net salary (take-home).</li>
+          <li><strong>Generate Preview:</strong> Review the formatted slip for accuracy before downloading.</li>
+          <li><strong>Download PDF or Print:</strong> Save as PDF for archiving or print directly and get authorized.</li>
+          <li><strong>Authorize Slip:</strong> Have HR manager or authorized officer sign for official validity.</li>
+        </ol>
+
+        <h2>Real-World Example: Salary Slip</h2>
+        <p><strong>Scenario:</strong> Rajesh Kumar is a software engineer earning ₹80,000 monthly at TechCorp India. Here's his April 2026 salary slip:</p>
+        <ul>
+          <li><strong>Basic Salary:</strong> ₹50,000</li>
+          <li><strong>HRA (40%):</strong> ₹20,000</li>
+          <li><strong>DA (5%):</strong> ₹2,500</li>
+          <li><strong>Other Allowances:</strong> ₹3,000</li>
+          <li><strong>Gross Salary:</strong> ₹75,500</li>
+          <li><strong>Deductions:</strong></li>
+          <li>— PF (12%):</li>
+          <li>— Income Tax (TDS):</li>
+          <li>— Insurance:</li>
+          <li><strong>Total Deductions:</strong> ₹12,000</li>
+          <li><strong>Net Salary (Take-Home):</strong> ₹63,500</li>
+        </ul>
+        <p>Rajesh can use this slip for his home loan application to prove stable income, as bank will see consistent monthly salary over multiple months.</p>
+
+        <h2>Key Benefits of Using Our Salary Slip Generator</h2>
+        <ul>
+          <li><strong>Instant Generation:</strong> Create professional payslips in seconds without HR software subscription.</li>
+          <li><strong>Automatic Calculations:</strong> Gross salary, deductions, and net salary calculated automatically and accurately.</li>
+          <li><strong>Professional Format:</strong> Slips follow standard HR format recognized by banks and financial institutions.</li>
+          <li><strong>PDF Download:</strong> Save slips in universal PDF format for email distribution or archiving.</li>
+          <li><strong>Multi-Employee Support:</strong> Easily create slips for different employees by changing inputs.</li>
+          <li><strong>Flexible Deductions:</strong> Support for PF, tax, insurance, loans, and custom deductions.</li>
+          <li><strong>No Software Cost:</strong> Free tool eliminates need for expensive HR or payroll management software.</li>
+          <li><strong>Privacy Assured:</strong> All processing happens in your browser—no employee data stored on servers.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions About Salary Slips</h2>
+        <div class="faq-item">
+          <h4>Is HRA calculated as a fixed amount or percentage?</h4>
+          <p>HRA can be either fixed or percentage-based depending on company policy. Many companies use 40%-50% of basic salary. Our generator accepts any amount—enter your company's specific HRA policy amount.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the difference between gross salary and net salary?</h4>
+          <p>Gross salary = Basic + All Allowances (total before any deductions). Net salary (take-home) = Gross Salary - All Deductions. Net salary is what actually gets deposited into your bank account.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I use this salary slip for loan applications?</h4>
+          <p>Yes, if your HR department authorizes and signs the slip. Most banks accept computer-generated slips that are officially signed. For best results, provide the last 3-6 months of slips from your actual employer.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What percentage of basic salary goes to PF?</h4>
+          <p>Typically 12% of the basic salary is deducted as employee PF contribution, plus the employer contributes another 12% (not shown in deduction). For high earners (basic > ₹50,000), EPF coverage is ₹5,000 per month.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I customize what categories appear on the slip?</h4>
+          <p>This generator shows standard categories (basic, HRA, DA, allowances, PF, tax, insurance, other deductions). You can leave categories zero if not applicable—they'll automatically hide from the preview.</p>
+        </div>
+
+        <h2>Salary Slip Best Practices for HR Professionals</h2>
+        <ul>
+          <li>Issue slips consistently on the same date each month</li>
+          <li>Keep electronic archives of all issued slips for audit trails</li>
+          <li>Ensure amounts match actual payments to employees</li>
+          <li>Review PF and tax calculations for accuracy</li>
+          <li>Have authorized persons sign/approve all slips before distribution</li>
+          <li>Maintain separate slips for each employee even with same compensation</li>
+        </ul>
+
+        <h2>Important: Browser Privacy & Security</h2>
+        <p>This tool runs entirely in your browser. <strong>No data is stored or shared.</strong> Employee salary information never leaves your device—it's processed locally and deleted when you close the page. This ensures complete confidentiality of sensitive employee financial data.</p>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Calculators and Tools</h2>
+        <p>Manage employee compensation and taxes effectively with these tools:</p>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+          <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+          <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+          <a class="btn secondary" href="pf-calculator.html">PPF Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">✓ 100% Free</span>
+        <span class="footer-trust-item">🔒 No Login</span>
+        <span class="footer-trust-item">🗑️ No Data Stored</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function initSalarySlipGeneratorPage() {
+      document.getElementById('generateSalaryPreviewBtn').addEventListener('click', () => {
+        const employeeName = document.getElementById('employeeName').value.trim();
+        const employeeID = document.getElementById('employeeID').value.trim();
+        const companyName = document.getElementById('companyName').value.trim();
+        const designation = document.getElementById('designation').value.trim();
+        const salaryMonth = document.getElementById('salaryMonth').value;
+        const salaryYear = document.getElementById('salaryYear').value;
+        const basicSalary = parseFloat(document.getElementById('basicSalary').value) || 0;
+        const hra = parseFloat(document.getElementById('hra').value) || 0;
+        const da = parseFloat(document.getElementById('da').value) || 0;
+        const otherAllowances = parseFloat(document.getElementById('otherAllowances').value) || 0;
+        const pf = parseFloat(document.getElementById('pf').value) || 0;
+        const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+        const tax = parseFloat(document.getElementById('tax').value) || 0;
+        const otherDeductions = parseFloat(document.getElementById('otherDeductions').value) || 0;
+
+        const errorEl = document.getElementById('salaryError');
+        errorEl.textContent = '';
+
+        if (!employeeName || !employeeID || !companyName || !designation || !salaryMonth || !salaryYear || basicSalary <= 0) {
+          errorEl.textContent = '❌ Please fill all required fields (marked with *) and enter a valid basic salary.';
+          return;
+        }
+
+        const grossSalary = basicSalary + hra + da + otherAllowances;
+        const totalDeductions = pf + insurance + tax + otherDeductions;
+        const netSalary = grossSalary - totalDeductions;
+
+        let slipHtml = `
+          <div style="border: 1px solid #ccc; padding: 2rem; background: #fff; font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto;">
+            <div style="text-align: center; border-bottom: 2px solid #e37a14; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+              <h2 style="margin: 0; color: #1b2b22; font-size: 1.4rem;">SALARY SLIP</h2>
+              <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">${salaryMonth} ${salaryYear}</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+              <div>
+                <p style="margin: 0; font-weight: bold; color: #666; font-size: 0.9rem;">COMPANY</p>
+                <p style="margin: 0.5rem 0 0 0; font-weight: bold;">${companyName}</p>
+              </div>
+              <div>
+                <p style="margin: 0; font-weight: bold; color: #666; font-size: 0.9rem;">EMPLOYEE</p>
+                <p style="margin: 0.5rem 0 0 0; font-weight: bold;">${employeeName}</p>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; padding: 1rem; background: #f8faf7; border-radius: 4px;">
+              <div>
+                <p style="margin: 0; font-size: 0.85rem; color: #666;">Employee ID: ${employeeID}</p>
+                <p style="margin: 0.3rem 0 0 0; font-size: 0.85rem; color: #666;">Designation: ${designation}</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="margin: 0; font-size: 0.85rem; color: #666;">Pay Period: ${salaryMonth} ${salaryYear}</p>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem;">
+              <div>
+                <p style="margin: 0 0 1rem 0; font-weight: bold; color: #1b2b22; font-size: 0.95rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem;">EARNINGS</p>
+                <div style="font-size: 0.9rem;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;">
+                    <div>Basic Salary:</div>
+                    <div style="text-align: right;">₹${basicSalary.toFixed(0)}</div>
+                  </div>
+                  ${hra > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>HRA:</div><div style="text-align: right;">₹${hra.toFixed(0)}</div></div>` : ''}
+                  ${da > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>DA:</div><div style="text-align: right;">₹${da.toFixed(0)}</div></div>` : ''}
+                  ${otherAllowances > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>Other Allowances:</div><div style="text-align: right;">₹${otherAllowances.toFixed(0)}</div></div>` : ''}
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-top: 1px solid #ddd; padding-top: 0.5rem; margin-top: 0.5rem; font-weight: bold;">
+                    <div>Gross Salary:</div>
+                    <div style="text-align: right;">₹${grossSalary.toFixed(0)}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p style="margin: 0 0 1rem 0; font-weight: bold; color: #1b2b22; font-size: 0.95rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem;">DEDUCTIONS</p>
+                <div style="font-size: 0.9rem;">
+                  ${pf > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>PF:</div><div style="text-align: right;">₹${pf.toFixed(0)}</div></div>` : ''}
+                  ${insurance > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>Insurance:</div><div style="text-align: right;">₹${insurance.toFixed(0)}</div></div>` : ''}
+                  ${tax > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>Income Tax (TDS):</div><div style="text-align: right;">₹${tax.toFixed(0)}</div></div>` : ''}
+                  ${otherDeductions > 0 ? `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.5rem;"><div>Other Deductions:</div><div style="text-align: right;">₹${otherDeductions.toFixed(0)}</div></div>` : ''}
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-top: 1px solid #ddd; padding-top: 0.5rem; margin-top: 0.5rem; font-weight: bold;">
+                    <div>Total Deductions:</div>
+                    <div style="text-align: right;">₹${totalDeductions.toFixed(0)}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: #e37a14; color: white; padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.1rem; font-weight: bold;">
+                <div>NET SALARY (Take Home)</div>
+                <div style="text-align: right;">₹${netSalary.toFixed(0)}</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid #ddd; padding-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+              <div>
+                <p style="margin: 0; font-size: 0.8rem; color: #666;">Employee Signature</p>
+                <p style="margin: 1rem 0 0 0; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 0.3rem; width: 150px;">___________________</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="margin: 0; font-size: 0.8rem; color: #666;">Employer / Authorized Officer</p>
+                <p style="margin: 1rem 0 0 0; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 0.3rem; width: 150px; margin-left: auto;">___________________</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 0.8rem; background: #f0f7ff; border-left: 2px solid #1f7a4f; font-size: 0.85rem; color: #555;">
+              <p style="margin: 0;"><strong>Note:</strong> This salary slip has been generated for record-keeping and official purposes. Keep this for income tax filing, loan applications, and rental agreements. Contact HR for any discrepancies.</p>
+            </div>
+          </div>
+        `;
+
+        const previewContainer = document.getElementById('salaryPreviewContainer');
+        const previewDiv = document.getElementById('salaryPreview');
+        previewDiv.innerHTML = slipHtml;
+        previewContainer.style.display = 'block';
+
+        document.getElementById('downloadSalaryBtn').classList.remove('is-hidden');
+        document.getElementById('printSalaryBtn').classList.remove('is-hidden');
+
+        // Store data for download/print
+        window.currentSalaryData = {
+          title: 'Salary Slip',
+          filename: `salary-slip-${employeeID}-${salaryMonth.substring(0, 3)}-${salaryYear}.pdf`,
+          lines: [
+            'SALARY SLIP',
+            `${salaryMonth} ${salaryYear}`,
+            '',
+            `Company: ${companyName}`,
+            `Employee: ${employeeName}`,
+            `ID: ${employeeID}`,
+            `Designation: ${designation}`,
+            '',
+            'EARNINGS:',
+            `Basic Salary: ₹${basicSalary.toFixed(0)}`,
+            hra > 0 ? `HRA: ₹${hra.toFixed(0)}` : '',
+            da > 0 ? `DA: ₹${da.toFixed(0)}` : '',
+            otherAllowances > 0 ? `Other Allowances: ₹${otherAllowances.toFixed(0)}` : '',
+            `Gross Salary: ₹${grossSalary.toFixed(0)}`,
+            '',
+            'DEDUCTIONS:',
+            pf > 0 ? `PF: ₹${pf.toFixed(0)}` : '',
+            insurance > 0 ? `Insurance: ₹${insurance.toFixed(0)}` : '',
+            tax > 0 ? `Income Tax (TDS): ₹${tax.toFixed(0)}` : '',
+            otherDeductions > 0 ? `Other Deductions: ₹${otherDeductions.toFixed(0)}` : '',
+            `Total Deductions: ₹${totalDeductions.toFixed(0)}`,
+            '',
+            `NET SALARY (Take Home): ₹${netSalary.toFixed(0)}`,
+            '',
+            'Employee Signature: ___________________',
+            'Employer Signature: ___________________'
+          ],
+          previewHtml: slipHtml
+        };
+      });
+
+      if (typeof bindGeneratorActions === 'function') {
+        bindGeneratorActions('downloadSalaryBtn', 'printSalaryBtn', () => window.currentSalaryData);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSalarySlipGeneratorPage);
+    } else {
+      initSalarySlipGeneratorPage();
+    }
+  </script>
+</body>
+</html>

@@ -105,6 +105,7 @@ body {
 }
 
 .nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown-toggle.active,
 .nav-dropdown:focus-within .nav-dropdown-toggle {
   border-color: var(--border);
   background: var(--surface-alt);
@@ -638,6 +639,125 @@ label {
   color: var(--accent);
 }
 
+.generator-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.document-preview {
+  margin-top: 14px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.document-preview-title {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+}
+
+.preview-note,
+.document-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.document-meta-grid,
+.salary-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+
+.document-meta-item,
+.salary-grid > div {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--surface-alt);
+}
+
+.document-meta-item strong,
+.salary-grid strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.document-body {
+  margin-top: 16px;
+}
+
+.document-body p {
+  margin: 0 0 10px;
+}
+
+.document-summary {
+  padding: 12px;
+  border: 1px solid #dfeadf;
+  border-radius: 12px;
+  background: #f8fbf8;
+}
+
+.signature-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 18px;
+}
+
+.signature-box {
+  padding-top: 26px;
+  border-top: 1px solid var(--text);
+  font-weight: 600;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.invoice-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: #eef7f1;
+  border: 1px solid #d5e2d9;
+  color: var(--accent);
+}
+
+.document-total {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f6fbf8;
+  border: 1px solid #cfe3d6;
+}
+
+.document-total .result-item:last-child {
+  padding-bottom: 0;
+}
+
+.document-link-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.document-link-list a {
+  text-decoration: none;
+}
+
 .featured-badge {
   background: #28a745;
   color: white;
@@ -744,6 +864,12 @@ label {
   /* Center the final card when a 3-column row has a single leftover item (e.g., 4 cards). */
   .calculator-grid > .card:last-child:nth-child(3n + 1) {
     grid-column: 2;
+  }
+
+  .document-meta-grid,
+  .salary-grid,
+  .signature-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .inline-row {

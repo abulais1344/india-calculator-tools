@@ -20,13 +20,196 @@
     }
   }
 
+  function sanitizeText(value) {
+    return (value || "").toString().trim();
+  }
+
+  function formatCurrency(value) {
+    return "₹ " + formatINR(value);
+  }
+
+  function formatDateLong(value) {
+    return new Intl.DateTimeFormat("en-IN", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    }).format(value);
+  }
+
+  function numberToWordsIndian(value) {
+    var ones = [
+      "",
+      "One",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Eleven",
+      "Twelve",
+      "Thirteen",
+      "Fourteen",
+      "Fifteen",
+      "Sixteen",
+      "Seventeen",
+      "Eighteen",
+      "Nineteen"
+    ];
+    var tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+
+    function underHundred(number) {
+      if (number < 20) {
+        return ones[number];
+      }
+      return tens[Math.floor(number / 10)] + (number % 10 ? " " + ones[number % 10] : "");
+    }
+
+    function underThousand(number) {
+      if (number < 100) {
+        return underHundred(number);
+      }
+      return ones[Math.floor(number / 100)] + " Hundred" + (number % 100 ? " " + underHundred(number % 100) : "");
+    }
+
+    var number = Math.floor(Math.abs(value || 0));
+    if (number === 0) {
+      return "Zero";
+    }
+
+    var parts = [];
+    var crore = Math.floor(number / 10000000);
+    number %= 10000000;
+    var lakh = Math.floor(number / 100000);
+    number %= 100000;
+    var thousand = Math.floor(number / 1000);
+    number %= 1000;
+    var remainder = number;
+
+    if (crore) {
+      parts.push(underHundred(crore) + " Crore");
+    }
+    if (lakh) {
+      parts.push(underHundred(lakh) + " Lakh");
+    }
+    if (thousand) {
+      parts.push(underHundred(thousand) + " Thousand");
+    }
+    if (remainder) {
+      parts.push(underThousand(remainder));
+    }
+
+    return parts.join(" ").replace(/\s+/g, " ").trim();
+  }
+
+  function bindGeneratorActions(downloadBtnId, printBtnId, getDocumentData) {
+    var downloadBtn = byId(downloadBtnId);
+    var printBtn = byId(printBtnId);
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", function () {
+        var data = getDocumentData();
+        if (!data || !data.lines || !data.lines.length) {
+          return;
+        }
+        downloadPdfDocument(data.title, data.filename, data.lines);
+      });
+    }
+
+    if (printBtn) {
+      printBtn.addEventListener("click", function () {
+        var data = getDocumentData();
+        if (!data || !data.previewHtml) {
+          return;
+        }
+        printDocumentPreview(data.title, data.previewHtml);
+      });
+    }
+  }
+
+  function downloadPdfDocument(title, filename, lines) {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      window.print();
+      return;
+    }
+
+    var doc = new window.jspdf.jsPDF({ unit: "pt", format: "a4" });
+    var pageHeight = doc.internal.pageSize.getHeight();
+    var margin = 44;
+    var y = margin;
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text(title, margin, y);
+    y += 24;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+
+    lines.forEach(function (line) {
+      var safeLine = line || " ";
+      var wrapped = doc.splitTextToSize(safeLine, 515);
+      if (y + wrapped.length * 14 > pageHeight - margin) {
+        doc.addPage();
+        y = margin;
+      }
+      doc.text(wrapped, margin, y);
+      y += wrapped.length * 14;
+    });
+
+    doc.save(filename);
+  }
+
+  function printDocumentPreview(title, previewHtml) {
+    var printWindow = window.open("", "_blank", "width=900,height=700");
+    if (!printWindow) {
+      window.print();
+      return;
+    }
+
+    printWindow.document.write(
+      "<!DOCTYPE html><html><head><title>" + title + "</title><style>" +
+      "body{font-family:Arial,sans-serif;margin:32px;color:#222;}" +
+      ".document-preview{border:1px solid #d5e2d9;border-radius:16px;padding:24px;box-shadow:none;}" +
+      ".document-meta-grid,.signature-row{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));}" +
+      ".document-meta-item,.salary-grid > div{border:1px solid #d5e2d9;border-radius:12px;padding:10px 12px;background:#f8faf7;}" +
+      ".amortization-table{width:100%;border-collapse:collapse;margin-top:12px;}" +
+      ".amortization-table th,.amortization-table td{border:1px solid #d5e2d9;padding:8px 10px;text-align:left;}" +
+      ".amortization-table th{background:#f0f7f3;}" +
+      ".signature-box{padding-top:28px;border-top:1px solid #1b2b22;}" +
+      ".preview-note{color:#4d6357;font-size:14px;}" +
+      "@media print{body{margin:0;padding:16px;}}" +
+      "</style></head><body>" + previewHtml + "</body></html>"
+    );
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+  }
+
   function bindActiveNav() {
     var current = window.location.pathname.split("/").pop() || "index.html";
+    var onBlogPage = window.location.pathname.indexOf("/blog/") !== -1;
     var links = document.querySelectorAll(".site-nav a");
     links.forEach(function (link) {
-      var href = link.getAttribute("href");
-      if (href === current || (current === "" && href === "index.html")) {
+      var href = link.getAttribute("href") || "";
+      var target = href.split("/").pop();
+      var isActive = target === current || (current === "" && target === "index.html");
+
+      if (!isActive && onBlogPage && sanitizeText(link.textContent) === "Blog") {
+        isActive = true;
+      }
+
+      if (isActive) {
         link.classList.add("active");
+        var dropdown = link.closest(".nav-dropdown");
+        if (dropdown) {
+          var toggle = dropdown.querySelector(".nav-dropdown-toggle");
+          if (toggle) {
+            toggle.classList.add("active");
+          }
+        }
       }
     });
   }
@@ -64,10 +247,7 @@
       { href: "bmi-calculator.html", label: "BMI Calculator" },
       { href: "percentage-calculator.html", label: "Percentage Calculator" },
       { href: "discount-calculator.html", label: "Discount Calculator" },
-      { href: "break-even-calculator.html", label: "Break-Even Calculator" }
-    ];
-
-    var moreCalculators = [
+      { href: "break-even-calculator.html", label: "Break-Even Calculator" },
       { href: "loan-eligibility-calculator.html", label: "Loan Eligibility Calculator" },
       { href: "salary-calculator.html", label: "Salary Calculator" },
       { href: "electricity-bill-calculator.html", label: "Electricity Bill Calculator" },
@@ -75,6 +255,12 @@
       { href: "gratuity-calculator.html", label: "Gratuity Calculator" },
       { href: "simple-interest-calculator.html", label: "Simple Interest Calculator" },
       { href: "compound-interest-calculator.html", label: "Compound Interest Calculator" }
+    ];
+
+    var generatorTools = [
+      { href: "rent-receipt-generator.html", label: "Rent Receipt" },
+      { href: "gst-invoice-generator.html", label: "GST Invoice" },
+      { href: "salary-slip-generator.html", label: "Salary Slip" }
     ];
 
     function createTopLink(item) {
@@ -114,7 +300,7 @@
     nav.appendChild(createDropdown("Investment", investmentCalculators));
     nav.appendChild(createDropdown("Tax", taxCalculators));
     nav.appendChild(createDropdown("Utility", utilityCalculators));
-    nav.appendChild(createDropdown("More", moreCalculators));
+    nav.appendChild(createDropdown("Generators", generatorTools));
     nav.appendChild(createTopLink({ href: "blog/index.html", label: "Blog" }));
   }
 
@@ -126,6 +312,38 @@
       if (!img.getAttribute("decoding")) {
         img.setAttribute("decoding", "async");
       }
+    });
+  }
+
+  function enhanceFooterLinks() {
+    var footerLinks = document.querySelector(".footer-links");
+    if (!footerLinks) {
+      return;
+    }
+
+    var onBlogPage = window.location.pathname.indexOf("/blog/") !== -1;
+    var prefix = onBlogPage ? "../" : "";
+    var linksToAdd = [
+      { href: "privacy-policy.html", label: "Privacy Policy" },
+      { href: "terms.html", label: "Terms" },
+      { href: "about.html", label: "About" },
+      { href: "contact.html", label: "Contact" },
+      { href: "disclaimer.html", label: "Disclaimer" }
+    ];
+
+    var existing = Array.prototype.slice.call(footerLinks.querySelectorAll("a")).map(function (link) {
+      return link.getAttribute("href");
+    });
+
+    linksToAdd.forEach(function (item) {
+      var href = prefix + item.href;
+      if (existing.indexOf(href) !== -1) {
+        return;
+      }
+      var link = document.createElement("a");
+      link.href = href;
+      link.textContent = item.label;
+      footerLinks.appendChild(link);
     });
   }
 
@@ -1969,10 +2187,313 @@
     calculate();
   }
 
+  function initRentReceiptGenerator() {
+    var tenantEl = byId("rentTenantName");
+    if (!tenantEl) {
+      return;
+    }
+
+    var ownerEl = byId("rentOwnerName");
+    var addressEl = byId("rentPropertyAddress");
+    var rentEl = byId("rentMonthlyAmount");
+    var monthEl = byId("rentMonth");
+    var yearEl = byId("rentYear");
+    var paymentEl = byId("rentPaymentMode");
+    var errorEl = byId("rentReceiptError");
+    var previewEl = byId("rentReceiptPreview");
+    var currentData = null;
+
+    function getData() {
+      var tenant = sanitizeText(tenantEl.value);
+      var owner = sanitizeText(ownerEl.value);
+      var address = sanitizeText(addressEl.value);
+      var rent = parseFloat(rentEl.value);
+      var month = sanitizeText(monthEl.value);
+      var year = sanitizeText(yearEl.value);
+      var paymentMode = sanitizeText(paymentEl.value);
+
+      if (!tenant || !owner || !address || !month || !year || !Number.isFinite(rent) || rent <= 0) {
+        return null;
+      }
+
+      var receiptDate = new Date();
+      var receiptNumber = "RR-" + year + "-" + month.slice(0, 3).toUpperCase() + "-" + String(Math.round(rent)).slice(-4);
+      var amountWords = numberToWordsIndian(rent);
+      return {
+        title: "Rent Receipt",
+        filename: "rent-receipt-" + month.toLowerCase() + "-" + year + ".pdf",
+        receiptDate: formatDateLong(receiptDate),
+        receiptNumber: receiptNumber,
+        tenant: tenant,
+        owner: owner,
+        address: address,
+        rent: rent,
+        month: month,
+        year: year,
+        paymentMode: paymentMode,
+        amountWords: amountWords,
+        lines: [
+          "Rent Receipt",
+          "Receipt No: " + receiptNumber,
+          "Date: " + formatDateLong(receiptDate),
+          "",
+          "Received from: " + tenant,
+          "Landlord/Owner: " + owner,
+          "Property Address: " + address,
+          "Rent Month: " + month + " " + year,
+          "Payment Mode: " + paymentMode,
+          "Amount Received: " + formatCurrency(rent),
+          "Amount in Words: Rupees " + amountWords + " Only",
+          "",
+          "Tenant Signature: ____________________",
+          "Owner Signature: _____________________"
+        ]
+      };
+    }
+
+    function render() {
+      currentData = getData();
+      if (!currentData) {
+        errorEl.textContent = "Enter tenant, owner, address, rent, month, and year to generate the receipt.";
+        return;
+      }
+
+      errorEl.textContent = "";
+      setText("rentReceiptDate", currentData.receiptDate);
+      setText("rentReceiptNumber", currentData.receiptNumber);
+      setText("rentReceiptTenant", currentData.tenant);
+      setText("rentReceiptOwner", currentData.owner);
+      setText("rentReceiptAddress", currentData.address);
+      setText("rentReceiptPeriod", currentData.month + " " + currentData.year);
+      setText("rentReceiptMode", currentData.paymentMode);
+      setText("rentReceiptAmount", formatCurrency(currentData.rent));
+      setText("rentReceiptAmountWords", "Rupees " + currentData.amountWords + " Only");
+      previewEl.classList.remove("is-hidden");
+    }
+
+    [tenantEl, ownerEl, addressEl, rentEl, monthEl, yearEl, paymentEl].forEach(function (el) {
+      el.addEventListener("input", render);
+      el.addEventListener("change", render);
+    });
+
+    bindGeneratorActions("downloadRentReceiptBtn", "printRentReceiptBtn", function () {
+      return currentData ? {
+        title: currentData.title,
+        filename: currentData.filename,
+        lines: currentData.lines,
+        previewHtml: previewEl.outerHTML
+      } : null;
+    });
+
+    render();
+  }
+
+  function initGstInvoiceGenerator() {
+    var businessEl = byId("invoiceBusinessName");
+    if (!businessEl) {
+      return;
+    }
+
+    var gstNumberEl = byId("invoiceGstNumber");
+    var customerEl = byId("invoiceCustomerName");
+    var itemEl = byId("invoiceItemName");
+    var quantityEl = byId("invoiceQuantity");
+    var priceEl = byId("invoicePricePerItem");
+    var rateEl = byId("invoiceGstRate");
+    var errorEl = byId("gstInvoiceError");
+    var previewEl = byId("gstInvoicePreview");
+    var currentData = null;
+
+    function getData() {
+      var businessName = sanitizeText(businessEl.value);
+      var gstNumber = sanitizeText(gstNumberEl.value);
+      var customerName = sanitizeText(customerEl.value);
+      var itemName = sanitizeText(itemEl.value);
+      var quantity = parseFloat(quantityEl.value);
+      var price = parseFloat(priceEl.value);
+      var rate = parseFloat(rateEl.value);
+
+      if (!businessName || !gstNumber || !customerName || !itemName || !Number.isFinite(quantity) || quantity <= 0 || !Number.isFinite(price) || price <= 0 || !Number.isFinite(rate) || rate < 0) {
+        return null;
+      }
+
+      var subtotal = quantity * price;
+      var gstAmount = subtotal * (rate / 100);
+      var total = subtotal + gstAmount;
+      var invoiceNumber = "GST-" + String(Date.now()).slice(-6);
+      return {
+        title: "GST Invoice",
+        filename: "gst-invoice-" + invoiceNumber.toLowerCase() + ".pdf",
+        invoiceDate: formatDateLong(new Date()),
+        invoiceNumber: invoiceNumber,
+        businessName: businessName,
+        gstNumber: gstNumber,
+        customerName: customerName,
+        itemName: itemName,
+        quantity: quantity,
+        price: price,
+        rate: rate,
+        subtotal: subtotal,
+        gstAmount: gstAmount,
+        total: total,
+        lines: [
+          "GST Invoice",
+          "Invoice No: " + invoiceNumber,
+          "Invoice Date: " + formatDateLong(new Date()),
+          "",
+          "Business Name: " + businessName,
+          "GST Number: " + gstNumber,
+          "Customer Name: " + customerName,
+          "",
+          "Item: " + itemName,
+          "Quantity: " + quantity,
+          "Price per Item: " + formatCurrency(price),
+          "Subtotal: " + formatCurrency(subtotal),
+          "GST (" + rate + "%): " + formatCurrency(gstAmount),
+          "Total Amount: " + formatCurrency(total)
+        ]
+      };
+    }
+
+    function render() {
+      currentData = getData();
+      if (!currentData) {
+        errorEl.textContent = "Fill business, GST number, customer, item, quantity, price, and GST rate to build the invoice.";
+        return;
+      }
+
+      errorEl.textContent = "";
+      setText("invoicePreviewBusiness", currentData.businessName);
+      setText("invoicePreviewGstNumber", currentData.gstNumber);
+      setText("invoicePreviewCustomer", currentData.customerName);
+      setText("invoicePreviewDate", currentData.invoiceDate);
+      setText("invoicePreviewNumber", currentData.invoiceNumber);
+      setText("invoicePreviewItem", currentData.itemName);
+      setText("invoicePreviewQuantity", currentData.quantity.toFixed(2).replace(/\.00$/, ""));
+      setText("invoicePreviewPrice", formatCurrency(currentData.price));
+      setText("invoicePreviewSubtotal", formatCurrency(currentData.subtotal));
+      setText("invoicePreviewRate", currentData.rate.toFixed(2).replace(/\.00$/, "") + "%");
+      setText("invoicePreviewGst", formatCurrency(currentData.gstAmount));
+      setText("invoicePreviewTotal", formatCurrency(currentData.total));
+      previewEl.classList.remove("is-hidden");
+    }
+
+    [businessEl, gstNumberEl, customerEl, itemEl, quantityEl, priceEl, rateEl].forEach(function (el) {
+      el.addEventListener("input", render);
+      el.addEventListener("change", render);
+    });
+
+    bindGeneratorActions("downloadGstInvoiceBtn", "printGstInvoiceBtn", function () {
+      return currentData ? {
+        title: currentData.title,
+        filename: currentData.filename,
+        lines: currentData.lines,
+        previewHtml: previewEl.outerHTML
+      } : null;
+    });
+
+    render();
+  }
+
+  function initSalarySlipGenerator() {
+    var employeeEl = byId("salarySlipEmployeeName");
+    if (!employeeEl) {
+      return;
+    }
+
+    var companyEl = byId("salarySlipCompanyName");
+    var basicEl = byId("salarySlipBasic");
+    var hraEl = byId("salarySlipHra");
+    var allowanceEl = byId("salarySlipAllowances");
+    var deductionEl = byId("salarySlipDeductions");
+    var errorEl = byId("salarySlipError");
+    var previewEl = byId("salarySlipPreview");
+    var currentData = null;
+
+    function getData() {
+      var employeeName = sanitizeText(employeeEl.value);
+      var companyName = sanitizeText(companyEl.value);
+      var basic = parseFloat(basicEl.value);
+      var hra = parseFloat(hraEl.value);
+      var allowances = parseFloat(allowanceEl.value);
+      var deductions = parseFloat(deductionEl.value);
+
+      if (!employeeName || !companyName || !Number.isFinite(basic) || basic < 0 || !Number.isFinite(hra) || hra < 0 || !Number.isFinite(allowances) || allowances < 0 || !Number.isFinite(deductions) || deductions < 0) {
+        return null;
+      }
+
+      var gross = basic + hra + allowances;
+      var net = gross - deductions;
+      return {
+        title: "Salary Slip",
+        filename: "salary-slip-" + employeeName.toLowerCase().replace(/[^a-z0-9]+/g, "-") + ".pdf",
+        period: new Intl.DateTimeFormat("en-IN", { month: "long", year: "numeric" }).format(new Date()),
+        employeeName: employeeName,
+        companyName: companyName,
+        basic: basic,
+        hra: hra,
+        allowances: allowances,
+        deductions: deductions,
+        gross: gross,
+        net: net,
+        lines: [
+          "Salary Slip",
+          "Pay Period: " + new Intl.DateTimeFormat("en-IN", { month: "long", year: "numeric" }).format(new Date()),
+          "Employee Name: " + employeeName,
+          "Company Name: " + companyName,
+          "",
+          "Basic Salary: " + formatCurrency(basic),
+          "HRA: " + formatCurrency(hra),
+          "Allowances: " + formatCurrency(allowances),
+          "Total Earnings: " + formatCurrency(gross),
+          "Deductions (PF/Tax): " + formatCurrency(deductions),
+          "Net Salary: " + formatCurrency(net)
+        ]
+      };
+    }
+
+    function render() {
+      currentData = getData();
+      if (!currentData) {
+        errorEl.textContent = "Enter employee, company, earnings, and deductions to generate the salary slip.";
+        return;
+      }
+
+      errorEl.textContent = "";
+      setText("salarySlipPreviewCompany", currentData.companyName);
+      setText("salarySlipPreviewEmployee", currentData.employeeName);
+      setText("salarySlipPreviewPeriod", currentData.period);
+      setText("salarySlipPreviewBasic", formatCurrency(currentData.basic));
+      setText("salarySlipPreviewHra", formatCurrency(currentData.hra));
+      setText("salarySlipPreviewAllowances", formatCurrency(currentData.allowances));
+      setText("salarySlipPreviewGross", formatCurrency(currentData.gross));
+      setText("salarySlipPreviewDeductions", formatCurrency(currentData.deductions));
+      setText("salarySlipPreviewNet", formatCurrency(currentData.net));
+      previewEl.classList.remove("is-hidden");
+    }
+
+    [employeeEl, companyEl, basicEl, hraEl, allowanceEl, deductionEl].forEach(function (el) {
+      el.addEventListener("input", render);
+      el.addEventListener("change", render);
+    });
+
+    bindGeneratorActions("downloadSalarySlipBtn", "printSalarySlipBtn", function () {
+      return currentData ? {
+        title: currentData.title,
+        filename: currentData.filename,
+        lines: currentData.lines,
+        previewHtml: previewEl.outerHTML
+      } : null;
+    });
+
+    render();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     buildHeaderNavigation();
     bindActiveNav();
     optimizePageAssets();
+    enhanceFooterLinks();
     setupGlobalAdContainers();
     initGSTCalculator();
     initEMICalculator();
@@ -1993,6 +2514,9 @@
     initBmiCalculator();
     initDiscountCalculator();
     initBreakEvenCalculator();
+    initRentReceiptGenerator();
+    initGstInvoiceGenerator();
+    initSalarySlipGenerator();
     setupCopyButtons();
     setupShareButtons();
   });

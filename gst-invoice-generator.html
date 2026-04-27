@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST Invoice Generator India – Create Tax Invoice Online Free</title>
+  <meta name="description" content="Generate GST invoices free and instantly with automatic tax calculation. Create compliant business invoices with GSTIN. Download PDF or print tax invoices online.">
+  <meta name="keywords" content="gst invoice generator, invoice generator india, free gst invoice, business invoice">
+  
+  <meta property="og:title" content="GST Invoice Generator | Free Professional Invoices">
+  <meta property="og:description" content="Generate GST invoices instantly with automatic GST calculation and PDF download option.">
+  <meta property="og:type" content="website">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GST Invoice Generator",
+    "description": "Generate GST-compliant business invoices with automatic tax calculation and PDF download",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "platform": "Web",
+    "operatingSystem": "Any"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the difference between CGST, SGST, and IGST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CGST (Central GST) and SGST (State GST) are applied on intra-state transactions (supplier and buyer in same state). IGST (Integrated GST) is applied on inter-state transactions. Our generator shows GST rate; the split into central/state depends on business location."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is invoice number format fixed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. You can use any format: INV-001, GST-2026-001, or simple 001. However, ensure numbers are sequential for audit purposes. GST rules require systematic numbering, and gaps can trigger notices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I issue an invoice without GSTIN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you're GST-registered, you must include your GSTIN on every invoice. If unregistered (turnover below threshold), you can issue regular invoices without GSTIN, but you cannot charge or collect GST."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is HSN code and where do I find it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HSN (Harmonized System of Nomenclature) is a 6-digit code classifying products for tax purposes. Find HSN codes on the official GST portal (www.gst.gov.in) by product category. Each product falls under a specific HSN with a predefined GST rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I issue an invoice with wrong GST rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Incorrect GST rates can result in tax discrepancies during returns filing and audit. You can issue a credit note to correct mistakes, but it's better to ensure accuracy before issuing. Tax authorities may levy penalties for systematic errors."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Generators", "item": "https://calcverse.in/index.html#generator-tools"},
+      {"@type": "ListItem", "position": 3, "name": "GST Invoice Generator", "item": "https://calcverse.in/gst-invoice-generator.html"}
+    ]
+  }
+  </script>
+  
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>GST Invoice Generator India</h1>
+        <p>Create professional GST invoices instantly with automatic GST calculation. Download PDF or print directly.</p>
+      </section>
+
+      <div class="ad-container">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Generate GST Invoice</h2>
+        
+        <div class="field inline-row">
+          <div>
+            <label for="invoiceNumber">Invoice Number *</label>
+            <input id="invoiceNumber" type="text" placeholder="INV-001" required>
+            <p class="helper-text">Unique invoice identification number.</p>
+          </div>
+          <div>
+            <label for="invoiceDate">Invoice Date</label>
+            <input id="invoiceDate" type="date">
+            <p class="helper-text">Date of invoice issue. Defaults to today.</p>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="sellerName">Seller/Business Name *</label>
+            <input id="sellerName" type="text" placeholder="Your Business Name" required>
+            <p class="helper-text">Your business name or GSTIN registered name.</p>
+          </div>
+          <div>
+            <label for="sellerGSTIN">Seller GSTIN *</label>
+            <input id="sellerGSTIN" type="text" placeholder="18AABCT1234H1Z0" required>
+            <p class="helper-text">Your 15-digit GSTIN.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="sellerAddress">Seller Address</label>
+          <textarea id="sellerAddress" placeholder="Address Line 1, City, State 560001" rows="2"></textarea>
+          <p class="helper-text">Your business address.</p>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="buyerName">Buyer Name *</label>
+            <input id="buyerName" type="text" placeholder="Customer Name" required>
+            <p class="helper-text">Customer or buyer name.</p>
+          </div>
+          <div>
+            <label for="buyerGSTIN">Buyer GSTIN (Optional)</label>
+            <input id="buyerGSTIN" type="text" placeholder="18AABCT5678H2Z5">
+            <p class="helper-text">Customer's GSTIN if registered.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="buyerAddress">Buyer Address</label>
+          <textarea id="buyerAddress" placeholder="Address Line 1, City, State 560001" rows="2"></textarea>
+          <p class="helper-text">Customer's delivery or billing address.</p>
+        </div>
+
+        <div style="border-top: 2px solid #e37a14; padding-top: 1rem; margin-top: 1rem;">
+          <h3 style="margin-top: 0;">Item Details</h3>
+          
+          <div class="field inline-row">
+            <div style="flex: 2;">
+              <label for="itemDescription">Item Description *</label>
+              <input id="itemDescription" type="text" placeholder="E.g., Software Development Service" required>
+              <p class="helper-text">Description of product or service.</p>
+            </div>
+            <div>
+              <label for="itemHSN">HSN/SAC Code</label>
+              <input id="itemHSN" type="text" placeholder="998361">
+              <p class="helper-text">6-digit code for item classification.</p>
+            </div>
+          </div>
+
+          <div class="field inline-row">
+            <div>
+              <label for="itemQuantity">Quantity *</label>
+              <input id="itemQuantity" type="number" min="0" step="0.01" placeholder="1" value="1" required>
+              <p class="helper-text">Number of items or units.</p>
+            </div>
+            <div>
+              <label for="itemUnit">Unit</label>
+              <input id="itemUnit" type="text" placeholder="PCS, Hours, etc." value="PCS">
+              <p class="helper-text">Unit of measurement.</p>
+            </div>
+          </div>
+
+          <div class="field inline-row">
+            <div>
+              <label for="itemPrice">Unit Price (₹) *</label>
+              <input id="itemPrice" type="number" min="0" step="0.01" placeholder="1000" value="1000" required>
+              <p class="helper-text">Price per unit before GST.</p>
+            </div>
+            <div>
+              <label for="gstRate">GST Rate (%) *</label>
+              <select id="gstRate" required>
+                <option value="">Select GST Rate</option>
+                <option value="0">0% (Exempt)</option>
+                <option value="5">5%</option>
+                <option value="12">12%</option>
+                <option value="18">18%</option>
+                <option value="28">28%</option>
+              </select>
+              <p class="helper-text">Applicable GST rate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="invoiceNotes">Invoice Notes (Optional)</label>
+          <textarea id="invoiceNotes" placeholder="E.g., Payment terms, thank you note, bank details" rows="2"></textarea>
+          <p class="helper-text">Additional notes or footer text.</p>
+        </div>
+
+        <p id="invoiceError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="generator-actions">
+          <button id="generateInvoicePreviewBtn" type="button" class="btn">📄 Generate Preview</button>
+          <button id="downloadInvoiceBtn" type="button" class="btn secondary is-hidden">⬇️ Download PDF</button>
+          <button id="printInvoiceBtn" type="button" class="btn secondary is-hidden">🖨️ Print</button>
+        </div>
+
+        <div id="invoicePreviewContainer" style="display: none; margin-top: 2rem;">
+          <p class="preview-note">👇 Preview below. Click Download or Print after reviewing.</p>
+          <div id="invoicePreview" class="document-preview"></div>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Middle</div>
+
+      <section class="card content-block">
+        <h2>What is a GST Invoice?</h2>
+        <p>A GST (Goods and Services Tax) invoice is a document issued by a GST-registered business to a customer showing the supply of goods or services. It includes itemized details, applicable GST rates, and the total amount including GST. GST invoices are mandatory for transactions above ₹5,000 (goods) and ₹20,000 (services) for GST-registered businesses.</p>
+
+        <h2>Key GST Invoice Elements</h2>
+        <ul>
+          <li><strong>Invoice Number & Date:</strong> Unique identifier and date of issue.</li>
+          <li><strong>GSTIN Details:</strong> Seller's and buyer's 15-digit GSTIN.</li>
+          <li><strong>Item Description:</strong> Clear description of goods/services provided.</li>
+          <li><strong>HSN/SAC Code:</strong> Classification code for GST purposes.</li>
+          <li><strong>Quantity & Rate:</strong> Units and price before GST.</li>
+          <li><strong>GST Calculation:</strong> Automatic calculation of CGST, SGST (or IGST for inter-state).</li>
+          <li><strong>Total Amount:</strong> Grand total including GST.</li>
+        </ul>
+
+        <h2>How to Use This GST Invoice Generator?</h2>
+        <ol>
+          <li>Enter your business name and GSTIN (15-digit registration number).</li>
+          <li>Enter customer/buyer details and GSTIN if applicable.</li>
+          <li>Add item description, quantity, unit price, and applicable GST rate.</li>
+          <li>Click <strong>"Generate Preview"</strong> to see the formatted invoice.</li>
+          <li>Review for accuracy and make corrections if needed.</li>
+          <li>Click <strong>"Download PDF"</strong> to save the invoice or <strong>"Print"</strong> to print directly.</li>
+          <li>Keep digital and printed copies for GST records and compliance.</li>
+        </ol>
+
+        <h2>GST Rates in India</h2>
+        <p>GST rates vary by product category: 0% for essential items (food, medicines), 5% for other essentials, 12% for most goods, 18% for services and luxury items, and 28% for highest-taxed goods. Choose the appropriate rate for your item to ensure correct GST calculation and compliance.</p>
+
+        <h2>Legal and Compliance Notes</h2>
+        <p>This generator creates invoices in standard format as per GST rules. Invoices generated must include your business GSTIN to be legally valid. For IGST (Inter-State) transactions, the system calculates a single IGST instead of split CGST/SGST. Keep all invoices and supporting documents for audit and tax compliance. Incorrect GST rates or missing details may lead to compliance issues—always verify before finalizing.</p>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Tools</h2>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="rent-receipt-generator.html">Rent Receipt Generator</a>
+          <a class="btn secondary" href="salary-slip-generator.html">Salary Slip Generator</a>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h2>What is a GST Invoice?</h2>
+        <p>A GST invoice is an official business document issued by a GST-registered seller to a buyer that records the supply of goods or services. It provides itemized details of products/services sold, their GST rates, calculated tax amounts (CGST, SGST, or IGST), and the total amount including GST. GST invoices are mandatory for registered businesses and are critical for maintaining compliance with Indian tax laws, tracking supply chains, and enabling proper input tax credit (ITC) claims.</p>
+
+        <h2>Why GST Invoices Are Critical for Indian Businesses</h2>
+        <ul>
+          <li><strong>GST Compliance:</strong> Mandatory for all GST-registered businesses. Failure to issue proper invoices can lead to tax penalties and audit issues.</li>
+          <li><strong>Input Tax Credit (ITC):</strong> Buyers can claim ITC only with valid GST invoices, creating an incentive for proper invoicing.</li>
+          <li><strong>Invoice Tracking:</strong> GSTIN and invoice numbers are tracked by GST portals, creating an audit trail for tax authorities.</li>
+          <li><strong>B2B Compliance:</strong> Invoicing is automatic for inter-state transactions (IGST), and proper classification is essential.</li>
+          <li><strong>Transaction Record:</strong> Invoices serve as proof of supply for revenue recognition, especially for SaaS, services, and digital products.</li>
+          <li><strong>Vendor Management:</strong> Customers maintain invoice records for procurement audits and vendor compliance checks.</li>
+          <li><strong>Easy Return Processing:</strong> Credit/debit note adjustments require reference to original invoices.</li>
+        </ul>
+
+        <h2>How to Generate GST Invoices Using Our Tool</h2>
+        <ol>
+          <li><strong>Enter Invoice Number:</strong> Unique identifier for each invoice (e.g., INV-001, GST-2026-001).</li>
+          <li><strong>Set Invoice Date:</strong> Date of invoice issue. Defaults to today.</li>
+          <li><strong>Enter Your Business Details:</strong> Business name and 15-digit GSTIN (required for invoice validity).</li>
+          <li><strong>Add Your Business Address:</strong> Complete registered address or business address.</li>
+          <li><strong>Enter Customer/Buyer Details:</strong> Customer name (required) and GSTIN if they're a registered business.</li>
+          <li><strong>Add Customer Address:</strong> Delivery or billing address.</li>
+          <li><strong>Fill Item Description:</strong> Clear description of goods or services supplied.</li>
+          <li><strong>Enter HSN/SAC Code:</strong> 6-digit classification code for tax purposes (find HSN codes at GST portal).</li>
+          <li><strong>Input Quantity and Unit Price:</strong> Enter quantity and unit price before GST.</li>
+          <li><strong>Select GST Rate:</strong> Choose applicable rate (0%, 5%, 12%, 18%, or 28%).</li>
+          <li><strong>Add Optional Notes:</strong> Payment terms, bank details, or special conditions.</li>
+          <li><strong>Generate Preview:</strong> Review formatted invoice for accuracy.</li>
+          <li><strong>Download PDF or Print:</strong> Save invoice in PDF format or print directly.</li>
+          <li><strong>Authorize Invoice:</strong> Sign or digitally authorize before sending to buyer.</li>
+        </ol>
+
+        <h2>Real-World Example: GST Invoice</h2>
+        <p><strong>Scenario:</strong> TechSoft Solutions provides software development services to CloudFirst Industries. Both are GST-registered in different states (inter-state transaction = IGST).</p>
+        <ul>
+          <li><strong>Invoice Number:</strong> DEV-2026-0045</li>
+          <li><strong>Date:</strong> 15th April 2026</li>
+          <li><strong>From:</strong> TechSoft Solutions (GSTIN: 18AABCT1234H1Z0)</li>
+          <li><strong>To:</strong> CloudFirst Industries (GSTIN: 06AABCT5678K2Z9)</li>
+          <li><strong>Description:</strong> Website Development (SAC: 998361)</li>
+          <li><strong>Amount:</strong> ₹1,00,000 (before tax)</li>
+          <li><strong>IGST (18%):</strong> ₹18,000</li>
+          <li><strong>Total:</strong> ₹1,18,000</li>
+        </ul>
+        <p>Using our generator, TechSoft creates a compliant invoice in seconds. CloudFirst can claim ₹18,000 as ITC, and both companies maintain proper GST records for filing returns.</p>
+
+        <h2>Key Benefits of Using Our GST Invoice Generator</h2>
+        <ul>
+          <li><strong>Instant Invoice Generation:</strong> Create professional invoices in seconds without expensive accounting software.</li>
+          <li><strong>GST Compliant:</strong> Invoices include all mandatory fields required by GST authorities.</li>
+          <li><strong>Automatic Calculations:</strong> GST amounts calculated correctly for selected rates.</li>
+          <li><strong>CGST/SGST/IGST Support:</strong> Automatically determines tax type based on business location (for reference).</li>
+          <li><strong>PDF Download:</strong> Save invoices in universal PDF format for email and archiving.</li>
+          <li><strong>No Software Required:</strong> Generate invoices anywhere with internet—no expensive accounting subscriptions.</li>
+          <li><strong>Privacy Protected:</strong> All processing happens in your browser—no data stored on servers.</li>
+          <li><strong>Multiple Item Support:</strong> Easy to modify for single or multiple item invoices.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions About GST Invoices</h2>
+        <div class="faq-item">
+          <h4>What's the difference between CGST, SGST, and IGST?</h4>
+          <p>CGST (Central GST) and SGST (State GST) are applied on intra-state transactions (supplier and buyer in same state). IGST (Integrated GST) is applied on inter-state transactions. Our generator shows GST rate; the split into central/state depends on business location.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is invoice number format fixed?</h4>
+          <p>No. You can use any format: INV-001, GST-2026-001, or simple 001. However, ensure numbers are sequential for audit purposes. GST rules require systematic numbering, and gaps can trigger notices.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I issue an invoice without GSTIN?</h4>
+          <p>If you're GST-registered, you must include your GSTIN on every invoice. If unregistered (turnover below threshold), you can issue regular invoices without GSTIN, but you cannot charge or collect GST.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What is HSN code and where do I find it?</h4>
+          <p>HSN (Harmonized System of Nomenclature) is a 6-digit code classifying products for tax purposes. Find HSN codes on the official GST portal (www.gst.gov.in) by product category. Each product falls under a specific HSN with a predefined GST rate.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What happens if I issue an invoice with wrong GST rate?</h4>
+          <p>Incorrect GST rates can result in tax discrepancies during returns filing and audit. You can issue a credit note to correct mistakes, but it's better to ensure accuracy before issuing. Tax authorities may levy penalties for systematic errors.</p>
+        </div>
+
+        <h2>Important: Browser Privacy & Security</h2>
+        <p>This tool runs entirely in your browser. <strong>No data is stored or shared.</strong> Your business and customer information never leaves your device—it's processed locally and deleted when you close the page. This ensures complete confidentiality of sensitive business information.</p>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Calculators and Tools</h2>
+        <p>Simplify your business operations with these complementary tools:</p>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+          <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+          <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+          <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">✓ 100% Free</span>
+        <span class="footer-trust-item">🔒 No Login</span>
+        <span class="footer-trust-item">🗑️ No Data Stored</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function initGstInvoiceGeneratorPage() {
+      const dateInput = document.getElementById('invoiceDate');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+
+      const invoiceNumberInput = document.getElementById('invoiceNumber');
+      if (!invoiceNumberInput.value) {
+        invoiceNumberInput.value = 'INV-' + String(Date.now()).slice(-6);
+      }
+
+      document.getElementById('generateInvoicePreviewBtn').addEventListener('click', () => {
+        const invoiceNumber = document.getElementById('invoiceNumber').value.trim();
+        const invoiceDate = document.getElementById('invoiceDate').value;
+        const sellerName = document.getElementById('sellerName').value.trim();
+        const sellerGSTIN = document.getElementById('sellerGSTIN').value.trim();
+        const sellerAddress = document.getElementById('sellerAddress').value.trim();
+        const buyerName = document.getElementById('buyerName').value.trim();
+        const buyerGSTIN = document.getElementById('buyerGSTIN').value.trim();
+        const buyerAddress = document.getElementById('buyerAddress').value.trim();
+        const itemDescription = document.getElementById('itemDescription').value.trim();
+        const itemHSN = document.getElementById('itemHSN').value.trim();
+        const itemQuantity = parseFloat(document.getElementById('itemQuantity').value);
+        const itemUnit = document.getElementById('itemUnit').value.trim() || 'PCS';
+        const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+        const gstRate = parseFloat(document.getElementById('gstRate').value);
+        const invoiceNotes = document.getElementById('invoiceNotes').value.trim();
+
+        const errorEl = document.getElementById('invoiceError');
+        errorEl.textContent = '';
+
+        if (!invoiceNumber || !sellerName || !sellerGSTIN || !buyerName || !itemDescription || !itemQuantity || !itemPrice || gstRate === '' || gstRate < 0) {
+          errorEl.textContent = '❌ Please fill all required fields (marked with *) and select valid GST rate.';
+          return;
+        }
+
+        if (itemQuantity <= 0 || itemPrice <= 0) {
+          errorEl.textContent = '❌ Quantity and Price must be greater than 0.';
+          return;
+        }
+
+        const invoiceDateObj = new Date(invoiceDate);
+        const formattedDate = invoiceDateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        const subtotal = itemQuantity * itemPrice;
+        const gstAmount = (subtotal * gstRate) / 100;
+        const total = subtotal + gstAmount;
+
+        let invoiceHtml = `
+          <div style="border: 1px solid #ccc; padding: 2rem; background: #fff; font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e37a14; padding-bottom: 1.5rem;">
+              <div>
+                <h2 style="margin: 0; color: #1b2b22; font-size: 1.3rem;">TAX INVOICE</h2>
+                <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Invoice No: ${invoiceNumber}</p>
+                <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Date: ${formattedDate}</p>
+              </div>
+              <div style="text-align: right;">
+                <p style="margin: 0; font-weight: bold; color: #1b2b22;">GSTIN: ${sellerGSTIN}</p>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem;">
+              <div>
+                <p style="margin: 0; font-weight: bold; color: #666; font-size: 0.9rem;">FROM (Seller)</p>
+                <p style="margin: 0.5rem 0 0 0; font-weight: bold;">${sellerName}</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">${sellerAddress}</p>
+              </div>
+              <div>
+                <p style="margin: 0; font-weight: bold; color: #666; font-size: 0.9rem;">TO (Buyer)</p>
+                <p style="margin: 0.5rem 0 0 0; font-weight: bold;">${buyerName}</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">${buyerAddress}</p>
+                ${buyerGSTIN ? `<p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;"><strong>GSTIN:</strong> ${buyerGSTIN}</p>` : ''}
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 4px; overflow: hidden;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <tr style="background: #f8faf7;">
+                  <th style="border: 1px solid #ddd; padding: 0.7rem; text-align: left; font-weight: bold;">Description</th>
+                  <th style="border: 1px solid #ddd; padding: 0.7rem; text-align: center; width: 80px;">HSN</th>
+                  <th style="border: 1px solid #ddd; padding: 0.7rem; text-align: center; width: 80px;">Qty</th>
+                  <th style="border: 1px solid #ddd; padding: 0.7rem; text-align: right; width: 100px;">Rate</th>
+                  <th style="border: 1px solid #ddd; padding: 0.7rem; text-align: right; width: 100px;">Amount</th>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 0.7rem;">${itemDescription}</td>
+                  <td style="border: 1px solid #ddd; padding: 0.7rem; text-align: center;">${itemHSN || '-'}</td>
+                  <td style="border: 1px solid #ddd; padding: 0.7rem; text-align: center;">${itemQuantity} ${itemUnit}</td>
+                  <td style="border: 1px solid #ddd; padding: 0.7rem; text-align: right;">₹${itemPrice.toFixed(2)}</td>
+                  <td style="border: 1px solid #ddd; padding: 0.7rem; text-align: right;">₹${subtotal.toFixed(2)}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 200px; gap: 1rem; margin-bottom: 1.5rem;">
+              <div></div>
+              <div style="border: 1px solid #ddd; border-radius: 4px; padding: 1rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem;">
+                  <div>Subtotal:</div>
+                  <div style="text-align: right;">₹${subtotal.toFixed(2)}</div>
+                  <div>GST (${gstRate}%):</div>
+                  <div style="text-align: right; color: #e37a14; font-weight: bold;">₹${gstAmount.toFixed(2)}</div>
+                  <div style="border-top: 1px solid #ddd; padding-top: 0.5rem; font-weight: bold;">Total:</div>
+                  <div style="border-top: 1px solid #ddd; padding-top: 0.5rem; text-align: right; font-weight: bold; font-size: 1rem; color: #1b2b22;">₹${total.toFixed(2)}</div>
+                </div>
+              </div>
+            </div>
+
+            ${invoiceNotes ? `<div style="margin-bottom: 1rem; padding: 0.8rem; background: #fffbf0; border-left: 2px solid #e37a14;"><p style="margin: 0; font-size: 0.9rem;"><strong>Notes:</strong> ${invoiceNotes}</p></div>` : ''}
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid #ddd; padding-top: 1rem;">
+              <p style="margin: 0; font-size: 0.8rem; color: #666;">Authorized Signature ___________________</p>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 0.8rem; background: #f0f7ff; border-left: 2px solid #1f7a4f; font-size: 0.85rem; color: #555;">
+              <p style="margin: 0;"><strong>Note:</strong> This is a computer-generated invoice. The details above must match your accounting records. Keep this for GST compliance and auditing.</p>
+            </div>
+          </div>
+        `;
+
+        const previewContainer = document.getElementById('invoicePreviewContainer');
+        const previewDiv = document.getElementById('invoicePreview');
+        previewDiv.innerHTML = invoiceHtml;
+        previewContainer.style.display = 'block';
+
+        document.getElementById('downloadInvoiceBtn').classList.remove('is-hidden');
+        document.getElementById('printInvoiceBtn').classList.remove('is-hidden');
+
+        // Store data for download/print
+        window.currentInvoiceData = {
+          title: 'GST Invoice',
+          filename: `invoice-${invoiceNumber.replace(/\//g, '-')}.pdf`,
+          lines: [
+            'TAX INVOICE',
+            `Invoice No: ${invoiceNumber}`,
+            `Date: ${formattedDate}`,
+            `GSTIN: ${sellerGSTIN}`,
+            '',
+            `FROM: ${sellerName}`,
+            sellerAddress,
+            '',
+            `TO: ${buyerName}`,
+            buyerAddress,
+            buyerGSTIN ? `GSTIN: ${buyerGSTIN}` : '',
+            '',
+            'ITEM DETAILS:',
+            `Description: ${itemDescription}`,
+            `HSN/SAC: ${itemHSN || 'N/A'}`,
+            `Quantity: ${itemQuantity} ${itemUnit}`,
+            `Rate: ₹${itemPrice.toFixed(2)}`,
+            `Amount: ₹${subtotal.toFixed(2)}`,
+            '',
+            `Subtotal: ₹${subtotal.toFixed(2)}`,
+            `GST (${gstRate}%): ₹${gstAmount.toFixed(2)}`,
+            `Total: ₹${total.toFixed(2)}`,
+            '',
+            invoiceNotes ? `Notes: ${invoiceNotes}` : '',
+            '',
+            'Authorized Signature: ___________________',
+            'Generated via GST Invoice Generator - Keep for compliance.'
+          ],
+          previewHtml: invoiceHtml
+        };
+      });
+
+      if (typeof bindGeneratorActions === 'function') {
+        bindGeneratorActions('downloadInvoiceBtn', 'printInvoiceBtn', () => window.currentInvoiceData);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGstInvoiceGeneratorPage);
+    } else {
+      initGstInvoiceGeneratorPage();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Receipt Generator India (Free PDF) – Create HRA Receipt Online</title>
+  <meta name="description" content="Generate professional rent receipts free. Create HRA-approved rent receipts in PDF instantly. Perfect for landlords, tenants, tax filing and loan applications in India.">
+  <meta name="keywords" content="rent receipt generator, rent receipt india, free rent receipt, landlord tenant receipt">
+  
+  <meta property="og:title" content="Rent Receipt Generator | Free Professional Receipts">
+  <meta property="og:description" content="Generate professional rent receipts instantly. Free online rent receipt generator with PDF download and print option.">
+  <meta property="og:type" content="website">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Rent Receipt Generator",
+    "description": "Generate professional rent receipts instantly for HRA tax deduction and legal documentation",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    },
+    "platform": "Web",
+    "operatingSystem": "Any"
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is a digitally generated rent receipt valid for HRA tax deduction in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, digitally generated receipts are valid as long as they contain all required details (tenant name, landlord name, property address, rent amount, period, and landlord's signature). Most employers and tax authorities accept computer-generated receipts that are printed and signed by the landlord."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need the landlord's signature on the rent receipt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For maximum legal validity, especially for HRA claims and official purposes, it's best to have the landlord sign the printed receipt. The signature establishes authenticity and is often required by employers and financial institutions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use a rent receipt for claiming HRA deduction if I'm self-employed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Self-employed individuals cannot directly claim HRA because it's an employment benefit. However, they can deduct actual rent paid as a business expense under Schedule C (Business Income). Rent receipts help document this expense for tax filing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if the landlord issues a receipt with a different amount than what was paid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For HRA tax deductions, the amount on the receipt must match what you actually paid. Using incorrect amounts can trigger tax authority scrutiny. Always ensure accuracy before submitting to employers or during tax filing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many rent receipts do I need for HRA claiming?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need a receipt for each month of rent payment during the financial year. If you rent for 12 months, collect 12 monthly receipts. Employers typically review these receipts during HRA verification processes."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Generators", "item": "https://calcverse.in/index.html#generator-tools"},
+      {"@type": "ListItem", "position": 3, "name": "Rent Receipt Generator", "item": "https://calcverse.in/rent-receipt-generator.html"}
+    ]
+  }
+  </script>
+  
+  <link rel="stylesheet" href="styles.min.css">
+  <script src="app.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="index.html" class="brand">India Utility Calculator</a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Rent Receipt Generator India</h1>
+        <p>Create professional rent receipts instantly with landlord and tenant details. Download PDF or print directly.</p>
+      </section>
+
+      <div class="ad-container">Ad Space - Top Banner</div>
+
+      <section class="card">
+        <h2>Generate Rent Receipt</h2>
+        
+        <div class="field">
+          <label for="receiptDate">Receipt Date</label>
+          <input id="receiptDate" type="date">
+          <p class="helper-text">The date the rent was received. Defaults to today.</p>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="tenantName">Tenant Name *</label>
+            <input id="tenantName" type="text" placeholder="Full name of tenant" required>
+            <p class="helper-text">The person paying the rent.</p>
+          </div>
+          <div>
+            <label for="landlordName">Landlord Name *</label>
+            <input id="landlordName" type="text" placeholder="Full name of landlord/owner" required>
+            <p class="helper-text">The owner receiving the rent.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="propertyAddress">Property Address *</label>
+          <textarea id="propertyAddress" placeholder="House/Flat Number, Building Name, Street, Area, City, State, Pin Code" rows="3" required></textarea>
+          <p class="helper-text">Complete address of the rental property.</p>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="rentAmount">Rent Amount (₹) *</label>
+            <input id="rentAmount" type="number" min="1" step="1" placeholder="Example: 15000" required>
+            <p class="helper-text">Monthly rent amount.</p>
+          </div>
+          <div>
+            <label for="rentMonth">Month *</label>
+            <select id="rentMonth" required>
+              <option value="">Select Month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <p class="helper-text">Month for which rent is paid.</p>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="rentYear">Year *</label>
+            <input id="rentYear" type="number" min="2020" max="2100" placeholder="Example: 2026" required>
+            <p class="helper-text">Year for which rent is paid.</p>
+          </div>
+          <div>
+            <label for="paymentMode">Payment Mode</label>
+            <select id="paymentMode">
+              <option value="Cash">Cash</option>
+              <option value="Cheque">Cheque</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Digital Payment">Digital Payment</option>
+              <option value="Other">Other</option>
+            </select>
+            <p class="helper-text">How the rent was paid.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="remarks">Remarks (Optional)</label>
+          <textarea id="remarks" placeholder="E.g., Includes security deposit adjustment, Late payment, etc." rows="2"></textarea>
+          <p class="helper-text">Any additional notes for the receipt.</p>
+        </div>
+
+        <p id="receiptError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="generator-actions">
+          <button id="generateReceiptPreviewBtn" type="button" class="btn">📄 Generate Preview</button>
+          <button id="downloadReceiptBtn" type="button" class="btn secondary is-hidden">⬇️ Download PDF</button>
+          <button id="printReceiptBtn" type="button" class="btn secondary is-hidden">🖨️ Print</button>
+        </div>
+
+        <div id="receiptPreviewContainer" style="display: none; margin-top: 2rem;">
+          <p class="preview-note">👇 Preview below. Click Download or Print after reviewing.</p>
+          <div id="receiptPreview" class="document-preview"></div>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Middle</div>
+
+      <section class="card content-block">
+        <h2>Why Use a Rent Receipt?</h2>
+        <p>A rent receipt is a legal document that proves payment of rent. It serves as proof for both tenant and landlord in case of disputes. For tenants, it helps in claiming tax deductions and proving residence for official documents. For landlords, it creates a clear record of rent received and maintenance of tenant payments.</p>
+
+        <h2>What to Include in a Rent Receipt?</h2>
+        <ul>
+          <li><strong>Receipt Date:</strong> The date the receipt is issued.</li>
+          <li><strong>Tenant Details:</strong> Full name and contact of the person paying rent.</li>
+          <li><strong>Landlord Details:</strong> Full name and contact of the property owner.</li>
+          <li><strong>Property Address:</strong> Complete address of the rented property.</li>
+          <li><strong>Rent Amount:</strong> The monthly rent amount paid.</li>
+          <li><strong>Period:</strong> Month and year for which rent is paid.</li>
+          <li><strong>Payment Mode:</strong> Method of payment (cash, cheque, bank transfer, etc.).</li>
+          <li><strong>Landlord Signature:</strong> Signed by the property owner for authenticity.</li>
+        </ul>
+
+        <h2>How to Use This Rent Receipt Generator?</h2>
+        <ol>
+          <li>Fill in all required fields (marked with *).</li>
+          <li>Enter tenant and landlord names, property address, and rent details.</li>
+          <li>Click <strong>"Generate Preview"</strong> to see the receipt format.</li>
+          <li>Review the preview for accuracy.</li>
+          <li>Click <strong>"Download PDF"</strong> to save the receipt or <strong>"Print"</strong> to print directly.</li>
+          <li>Print the receipt and have the landlord sign it for legal validity.</li>
+        </ol>
+
+        <h2>Legal Validity and Best Practices</h2>
+        <p>While digital receipts are commonly used, it's always good to have a printed and signed copy. Ensure both parties keep a copy of the receipt. For official purposes like bank loans or tax claims, present the original signed receipt. Some landlords may use their own receipt format—using this generator ensures you have a professional, standardized document that covers all necessary details.</p>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Tools</h2>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="gst-invoice-generator.html">GST Invoice Generator</a>
+          <a class="btn secondary" href="salary-slip-generator.html">Salary Slip Generator</a>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h2>What is a Rent Receipt?</h2>
+        <p>A rent receipt is an official document issued by a landlord to confirm payment of rent from a tenant. It serves as legal proof of rental transactions and is essential for various purposes including tax deductions, bank loan applications, and official verifications. In India, rent receipts are particularly important for House Rent Allowance (HRA) tax deductions and for proving residence during rental agreements. A proper rent receipt includes details of both the tenant and landlord, property address, rent amount, payment period, and mode of payment.</p>
+
+        <h2>Why is Rent Receipt Important in India?</h2>
+        <ul>
+          <li><strong>HRA Tax Deduction:</strong> Employees can claim House Rent Allowance deductions from their salary tax by providing proper rent receipts to their employer.</li>
+          <li><strong>Loan Applications:</strong> Banks require rent receipt history as proof of income stability and residence when processing home loans or personal loan applications.</li>
+          <li><strong>Rental Agreement Proof:</strong> Rent receipts serve as evidence of the landlord-tenant relationship and rental payment history for official purposes.</li>
+          <li><strong>Legal Protection:</strong> Both landlords and tenants benefit from having signed rent receipts, creating a clear record of transactions and preventing disputes.</li>
+          <li><strong>GST Registration:</strong> Self-employed individuals can use rent receipts as supporting documents for business expense claims.</li>
+          <li><strong>Address Verification:</strong> Rent receipts are accepted as address proof for opening bank accounts, passport applications, and voter ID registration.</li>
+        </ul>
+
+        <h2>How to Create a Professional Rent Receipt Using Our Generator</h2>
+        <ol>
+          <li><strong>Set Receipt Date:</strong> The date when the rent payment was received. Defaults to today's date for convenience.</li>
+          <li><strong>Enter Tenant Name:</strong> Full legal name of the person paying rent (required field).</li>
+          <li><strong>Enter Landlord/Owner Name:</strong> Full name of the property owner receiving the rent (required).</li>
+          <li><strong>Add Property Address:</strong> Complete rental property address including house/flat number, building name, street, area, city, state, and postal code.</li>
+          <li><strong>Input Rent Amount:</strong> The monthly rent amount in rupees. Use only numeric values (e.g., 15000).</li>
+          <li><strong>Select Rent Month and Year:</strong> Choose the month and year for which rent is being paid from the dropdown menus.</li>
+          <li><strong>Choose Payment Mode:</strong> Select how rent was paid—Cash, Cheque, Bank Transfer, Digital Payment, or Other.</li>
+          <li><strong>Add Optional Remarks:</strong> Include any additional notes like "Includes water charges," "Late payment," or "Security deposit adjustment."</li>
+          <li><strong>Generate Preview:</strong> Click to see formatted receipt before downloading.</li>
+          <li><strong>Download or Print:</strong> Choose to download as PDF or print directly to paper.</li>
+          <li><strong>Print and Sign:</strong> Print the receipt and have the landlord sign it for legal validity.</li>
+        </ol>
+
+        <h2>Real-World Example: Rent Receipt</h2>
+        <p><strong>Scenario:</strong> Priya lives in a rental flat in Bangalore and pays ₹25,000 per month to her landlord Mr. Sharma. She needs a receipt for March 2026 to claim HRA tax deduction from her employer.</p>
+        <ul>
+          <li>Receipt Date: 31st March, 2026</li>
+          <li>Received From: Priya Verma</li>
+          <li>Received By: Mr. Sharma (Landlord)</li>
+          <li>Property: 5-B, Prestige Towers, Indiranagar, Bangalore 560038</li>
+          <li>Amount: ₹25,000</li>
+          <li>Period: March 2026</li>
+          <li>Payment Mode: Bank Transfer</li>
+        </ul>
+        <p>Using our receipt generator, Priya receives a professional PDF that she can print, get signed by Mr. Sharma, and submit to her employer for HRA claim—saving both time and ensuring compliance with tax authority requirements.</p>
+
+        <h2>Key Benefits of Using Our Rent Receipt Generator</h2>
+        <ul>
+          <li><strong>Free & Instant:</strong> No charges, no signup, results generated in seconds.</li>
+          <li><strong>Professional Format:</strong> Receipts follow standard legal formatting suitable for official purposes.</li>
+          <li><strong>PDF Download:</strong> Save receipts in PDF format for easy storage and sharing via email.</li>
+          <li><strong>Print Ready:</strong> Optimized layouts for printing on standard A4 paper without formatting issues.</li>
+          <li><strong>No Data Storage:</strong> All processing happens in your browser—no personal data is stored on any server.</li>
+          <li><strong>Mobile Friendly:</strong> Create receipts on any device—smartphone, tablet, or desktop.</li>
+          <li><strong>Legally Valid:</strong> Receipts contain all legally required information for HRA and loan applications.</li>
+          <li><strong>Customizable:</strong> Add remarks or special notes specific to your rental agreement.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions About Rent Receipts</h2>
+        <div class="faq-item">
+          <h4>Is a digitally generated rent receipt valid for HRA tax deduction in India?</h4>
+          <p>Yes, digitally generated receipts are valid as long as they contain all required details (tenant name, landlord name, property address, rent amount, period, and landlord's signature). Most employers and tax authorities accept computer-generated receipts that are printed and signed by the landlord.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do I need the landlord's signature on the rent receipt?</h4>
+          <p>For maximum legal validity, especially for HRA claims and official purposes, it's best to have the landlord sign the printed receipt. The signature establishes authenticity and is often required by employers and financial institutions.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I use a rent receipt for claiming HRA deduction if I'm self-employed?</h4>
+          <p>Self-employed individuals cannot directly claim HRA because it's an employment benefit. However, they can deduct actual rent paid as a business expense under Schedule C (Business Income). Rent receipts help document this expense for tax filing.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What if the landlord issues a receipt with a different amount than what was paid?</h4>
+          <p>For HRA tax deductions, the amount on the receipt must match what you actually paid. Using incorrect amounts can trigger tax authority scrutiny. Always ensure accuracy before submitting to employers or during tax filing.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many rent receipts do I need for HRA claiming?</h4>
+          <p>You need a receipt for each month of rent payment during the financial year. If you rent for 12 months, collect 12 monthly receipts. Employers typically review these receipts during HRA verification processes.</p>
+        </div>
+
+        <h2>Important: Browser Privacy & Security</h2>
+        <p>This tool runs entirely in your browser. <strong>No data is stored or shared.</strong> Your rent receipt information never leaves your device—it's processed locally using JavaScript and deleted when you close the page. This ensures complete privacy for sensitive landlord-tenant information.</p>
+      </section>
+
+      <section class="card content-block">
+        <h2>Related Calculators and Tools</h2>
+        <p>Manage your finances more effectively with these complementary tools:</p>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+          <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+          <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container">Ad Space - Bottom</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 India Utility Calculator</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">✓ 100% Free</span>
+        <span class="footer-trust-item">🔒 No Login</span>
+        <span class="footer-trust-item">🗑️ No Data Stored</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function initRentReceiptGeneratorPage() {
+      const dateInput = document.getElementById('receiptDate');
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.value = today;
+
+      document.getElementById('generateReceiptPreviewBtn').addEventListener('click', () => {
+        const tenantName = document.getElementById('tenantName').value.trim();
+        const landlordName = document.getElementById('landlordName').value.trim();
+        const propertyAddress = document.getElementById('propertyAddress').value.trim();
+        const rentAmount = parseFloat(document.getElementById('rentAmount').value);
+        const rentMonth = document.getElementById('rentMonth').value;
+        const rentYear = document.getElementById('rentYear').value;
+        const paymentMode = document.getElementById('paymentMode').value;
+        const remarks = document.getElementById('remarks').value.trim();
+        const receiptDate = document.getElementById('receiptDate').value;
+
+        const errorEl = document.getElementById('receiptError');
+        errorEl.textContent = '';
+
+        if (!tenantName || !landlordName || !propertyAddress || !rentAmount || !rentMonth || !rentYear || !receiptDate) {
+          errorEl.textContent = '❌ Please fill all required fields (marked with *)';
+          return;
+        }
+
+        if (rentAmount <= 0) {
+          errorEl.textContent = '❌ Rent amount must be greater than 0';
+          return;
+        }
+
+        const receiptDateObj = new Date(receiptDate);
+        const formattedDate = receiptDateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        let receiptHtml = `
+          <div style="border: 1px solid #ccc; padding: 2rem; background: #fff; font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <div style="text-align: center; border-bottom: 2px solid #e37a14; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+              <h2 style="margin: 0; color: #1b2b22; font-size: 1.5rem;">RENT RECEIPT</h2>
+              <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Receipt No: ${Math.random().toString(36).substring(2, 11).toUpperCase()}</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <p style="margin: 0.5rem 0;"><strong>Date of Receipt:</strong> ${formattedDate}</p>
+              <p style="margin: 0.5rem 0;"><strong>Received From:</strong> ${tenantName}</p>
+              <p style="margin: 0.5rem 0;"><strong>Received By:</strong> ${landlordName}</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f8faf7; border-left: 4px solid #e37a14;">
+              <p style="margin: 0.5rem 0;"><strong>Property Address:</strong></p>
+              <p style="margin: 0.5rem 0; white-space: pre-wrap;">${propertyAddress}</p>
+            </div>
+
+            <div style="margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">RENT DETAILS</p>
+                <p style="margin: 0.5rem 0;"><strong>Rent Amount:</strong> ₹${rentAmount.toLocaleString('en-IN')}</p>
+                <p style="margin: 0.5rem 0;"><strong>Period:</strong> ${rentMonth} ${rentYear}</p>
+                <p style="margin: 0.5rem 0;"><strong>Payment Mode:</strong> ${paymentMode}</p>
+              </div>
+              <div style="background: #e37a14; color: white; padding: 1rem; border-radius: 4px; display: flex; flex-direction: column; justify-content: center;">
+                <p style="margin: 0; font-size: 0.8rem;">AMOUNT RECEIVED</p>
+                <p style="margin: 0.5rem 0 0 0; font-size: 1.3rem; font-weight: bold;">₹${rentAmount.toLocaleString('en-IN')}</p>
+              </div>
+            </div>
+
+            ${remarks ? `<div style="margin-bottom: 1.5rem; padding: 0.5rem; background: #fffbf0; border-left: 2px solid #e37a14;"><p style="margin: 0; font-size: 0.9rem;"><strong>Remarks:</strong> ${remarks}</p></div>` : ''}
+
+            <div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem;">
+              <p style="margin: 0; font-size: 0.8rem; color: #666;">Landlord's Signature ___________________</p>
+              <p style="margin: 0.5rem 0 0 0; font-size: 0.8rem; color: #666;">(Please sign above for authenticity)</p>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 0.8rem; background: #f0f7ff; border-left: 2px solid #1f7a4f; font-size: 0.85rem; color: #555;">
+              <p style="margin: 0;"><strong>Note:</strong> This receipt is generated automatically. For legal validity, landlord's signature is required. Keep a copy for your records and tax documentation.</p>
+            </div>
+          </div>
+        `;
+
+        const previewContainer = document.getElementById('receiptPreviewContainer');
+        const previewDiv = document.getElementById('receiptPreview');
+        previewDiv.innerHTML = receiptHtml;
+        previewContainer.style.display = 'block';
+
+        document.getElementById('downloadReceiptBtn').classList.remove('is-hidden');
+        document.getElementById('printReceiptBtn').classList.remove('is-hidden');
+
+        // Store data for download/print
+        window.currentReceiptData = {
+          title: 'Rent Receipt',
+          filename: `rent-receipt-${rentMonth.substring(0, 3)}-${rentYear}.pdf`,
+          lines: [
+            'RENT RECEIPT',
+            `Date: ${formattedDate}`,
+            `Receipt No: ${Math.random().toString(36).substring(2, 11).toUpperCase()}`,
+            '',
+            `Received From: ${tenantName}`,
+            `Received By: ${landlordName}`,
+            '',
+            'PROPERTY ADDRESS:',
+            propertyAddress,
+            '',
+            'RENT DETAILS:',
+            `Rent Amount: ₹${rentAmount.toLocaleString('en-IN')}`,
+            `Period: ${rentMonth} ${rentYear}`,
+            `Payment Mode: ${paymentMode}`,
+            '',
+            remarks ? `Remarks: ${remarks}` : '',
+            '',
+            'Landlord Signature: ___________________',
+            'Note: This receipt is auto-generated. Landlord signature required for validity.',
+            'For tax and official documentation purposes.'
+          ],
+          previewHtml: receiptHtml
+        };
+      });
+
+      if (typeof bindGeneratorActions === 'function') {
+        bindGeneratorActions('downloadReceiptBtn', 'printReceiptBtn', () => window.currentReceiptData);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRentReceiptGeneratorPage);
+    } else {
+      initRentReceiptGeneratorPage();
+    }
+  </script>
+</body>
+</html>
