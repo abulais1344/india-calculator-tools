@@ -130,6 +130,8 @@
     }
   }
 
+  window.bindGeneratorActions = bindGeneratorActions;
+
   function downloadPdfDocument(title, filename, lines) {
     if (!window.jspdf || !window.jspdf.jsPDF) {
       window.print();
