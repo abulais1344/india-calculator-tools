@@ -224,7 +224,6 @@
 
     var brand = document.querySelector(".brand");
     if (brand) {
-      brand.textContent = "CalcVerse";
       brand.setAttribute("aria-label", "CalcVerse Home");
     }
 
