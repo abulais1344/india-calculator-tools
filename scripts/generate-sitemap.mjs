@@ -31,6 +31,16 @@ const ELECTRICITY_PROVIDERS = [
   "bses-rajdhani-bill-calculator",
   "wesco-bill-calculator",
   "tangedco-bill-calculator",
+  "tneb-bill-calculator",
+  "wbsedcl-bill-calculator",
+];
+
+const ELECTRICITY_SUPPORT_PAGES = [
+  "/electricity",
+  "/electricity/how-electricity-bill-is-calculated",
+  "/electricity/electricity-slab-rate-explained",
+  "/electricity/1-unit-electricity-cost-india",
+  "/electricity/fixed-charge-vs-energy-charge",
 ];
 
 function walkHtml(dir) {
@@ -58,6 +68,7 @@ function toPath(rel) {
 function priorityFor(route) {
   if (route === "/") return "1.0";
   if (route.includes("generator") || route.includes("calculator")) return "0.9";
+  if (route === "/electricity") return "0.9";
   if (route.startsWith("/percentage/")) return "0.85";
   if (route.startsWith("/electricity/")) return "0.8";
   if (route.startsWith("/blog/")) return "0.8";
@@ -67,6 +78,7 @@ function priorityFor(route) {
 
 function freqFor(route) {
   if (route === "/" || route === "/blog/") return "weekly";
+  if (route === "/electricity") return "weekly";
   if (route.startsWith("/percentage/") || route.startsWith("/electricity/")) return "monthly";
   return "monthly";
 }
@@ -105,14 +117,17 @@ const electricityRoutes = ELECTRICITY_PROVIDERS.map(
   (provider) => `/electricity/${provider}`
 );
 
+// Add electricity hub and supporting guides
+const electricitySupportRoutes = ELECTRICITY_SUPPORT_PAGES;
+
 // Combine all routes
-routes = [...new Set([...routes, ...percentageRoutes, ...electricityRoutes])].sort((a, b) =>
+routes = [...new Set([...routes, ...percentageRoutes, ...electricityRoutes, ...electricitySupportRoutes])].sort((a, b) =>
   a.localeCompare(b)
 );
 
 const xml = buildSitemapXml(routes);
 const percentageXml = buildSitemapXml(percentageRoutes);
-const electricityXml = buildSitemapXml(electricityRoutes);
+const electricityXml = buildSitemapXml([...electricityRoutes, ...electricitySupportRoutes]);
 
 fs.writeFileSync(path.join(ROOT, "public", "sitemap.xml"), xml, "utf8");
 fs.writeFileSync(path.join(ROOT, "public", "sitemap-percentage.xml"), percentageXml, "utf8");
@@ -134,4 +149,4 @@ console.log(`✅ Sitemap generated successfully!`);
 console.log(`   Total URLs: ${routes.length}`);
 console.log(`   Static URLs: ${htmlFiles.length}`);
 console.log(`   Percentage pages: ${percentageRoutes.length}`);
-console.log(`   Electricity pages: ${electricityRoutes.length}`);
+console.log(`   Electricity pages: ${electricityRoutes.length + electricitySupportRoutes.length}`);

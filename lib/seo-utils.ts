@@ -79,7 +79,7 @@ export function generateElectricityMetaDescription(
   provider: string,
   state: string
 ): string {
-  return `${provider} bill calculator for ${state}: estimate units to bill using slab rates, fixed charges, and tax breakdown. Free and updated for 2026.`;
+  return `${provider} electricity bill calculator for ${state}. Estimate units, slab rates, fixed charges, and taxes with a free 2026 bill estimator.`;
 }
 
 /**
@@ -96,7 +96,7 @@ export function generatePercentageTitle(
 }
 
 export function generateElectricityTitle(provider: string, state: string): string {
-  return `${provider} Bill Calculator (${state}) - Unit Slab Rates 2026 | CalcVerse`;
+  return `${provider} Electricity Bill Calculator 2026 | ${state} Unit Rate & Bill Estimator | CalcVerse`;
 }
 
 /**
@@ -228,4 +228,6 @@ export const ELECTRICITY_PROVIDERS: Array<{
   { id: 'bses-rajdhani', name: 'BSES Rajdhani', state: 'Delhi', slug: 'bses-rajdhani-bill-calculator', unitRate: 8.0 },
   { id: 'wesco', name: 'WESCO', state: 'Odisha', slug: 'wesco-bill-calculator', unitRate: 7.2 },
   { id: 'tangedco', name: 'TANGEDCO', state: 'Tamil Nadu', slug: 'tangedco-bill-calculator', unitRate: 8.5 },
+  { id: 'tneb', name: 'TNEB', state: 'Tamil Nadu', slug: 'tneb-bill-calculator', unitRate: 8.6 },
+  { id: 'wbsedcl', name: 'WBSEDCL', state: 'West Bengal', slug: 'wbsedcl-bill-calculator', unitRate: 6.9 },
 ];
