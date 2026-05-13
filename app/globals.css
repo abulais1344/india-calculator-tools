@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Calculator Layout */
+.calculator-container {
+  @apply max-w-4xl mx-auto px-4 py-8;
+}
+
+.calculator-card {
+  @apply bg-white rounded-lg shadow-md p-6 mb-6;
+}
+
+.result-box {
+  @apply bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center mb-6;
+}
+
+.result-value {
+  @apply text-4xl md:text-5xl font-bold text-blue-600 mb-2;
+}
+
+.result-label {
+  @apply text-gray-600 text-lg;
+}
+
+/* Form Inputs */
+input[type='text'],
+input[type='number'],
+select,
+textarea {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent mb-4;
+}
+
+/* Buttons */
+button,
+.btn {
+  @apply px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium cursor-pointer;
+}
+
+button:disabled,
+.btn:disabled {
+  @apply bg-gray-400 cursor-not-allowed;
+}
+
+/* FAQ Section */
+.faq-section {
+  @apply my-8;
+}
+
+.faq-section details {
+  @apply mb-4;
+}
+
+.faq-section summary {
+  @apply font-semibold cursor-pointer;
+}
+
+/* Related Calculators */
+.related-calculators {
+  @apply my-8 py-8 border-t border-gray-200;
+}
+
+.related-calculators-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* Schema & Structured Data */
+script[type='application/ld+json'] {
+  display: none;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
