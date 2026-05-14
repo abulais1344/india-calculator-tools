@@ -6,6 +6,7 @@ import { Calculator } from '@/types';
 import { getElectricityProviderFaqs, getElectricityGuideLinks, getElectricityProviderContent } from '@/lib/electricity-content';
 import { getCanonicalUrl } from '@/lib/seo-utils';
 import { getCalculatorById } from '@/lib/calculators';
+import ProviderBillCalculator from '@/app/electricity/_components/ProviderBillCalculator';
 
 interface ElectricityProviderPageProps {
   provider: NonNullable<ReturnType<typeof getElectricityProviderContent>>;
@@ -101,23 +102,7 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
 
       <div className="card content-block">
         <h2>Interactive Bill Calculator</h2>
-        <div className="explanation-section">
-          <div className="field">
-            <label>Units Consumed (kWh):</label>
-            <input type="number" placeholder="Enter units" />
-          </div>
-
-          <div className="field">
-            <label>Category:</label>
-            <select>
-              <option>Domestic</option>
-              <option>Commercial</option>
-              <option>Industrial</option>
-            </select>
-          </div>
-
-          <button>Calculate Bill</button>
-        </div>
+        <ProviderBillCalculator providerName={provider.name} baseUnitRate={provider.unitRate} />
       </div>
 
       <div className="card content-block">
