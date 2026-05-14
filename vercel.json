@@ -22,21 +22,6 @@
       "permanent": false
     },
     {
-      "source": "/electricity",
-      "destination": "/electricity-bill-calculator.html",
-      "permanent": false
-    },
-    {
-      "source": "/electricity/",
-      "destination": "/electricity-bill-calculator.html",
-      "permanent": false
-    },
-    {
-      "source": "/electricity/:slug",
-      "destination": "/electricity-bill-calculator.html",
-      "permanent": false
-    },
-    {
       "source": "/:path+/index.html",
       "destination": "/:path*/",
       "permanent": true
