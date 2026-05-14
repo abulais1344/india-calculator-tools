@@ -32,15 +32,6 @@ const nextConfig = {
       ],
     },
   ],
-
-  redirects: async () => [
-    {
-      source: '/blog',
-      destination: '/blog/index.html',
-      permanent: false,
-    },
-  ],
-
 };
 
 module.exports = nextConfig;
