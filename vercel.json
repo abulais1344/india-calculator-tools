@@ -17,6 +17,11 @@
   ],
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/home.html",
+      "permanent": false
+    },
+    {
       "source": "/electricity",
       "destination": "/electricity-bill-calculator.html",
       "permanent": false
