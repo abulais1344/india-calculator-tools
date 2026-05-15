@@ -49,7 +49,7 @@ function walkHtml(dir) {
     if (entry.name.startsWith(".")) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (entry.name === "node_modules" || entry.name === "scripts" || entry.name === ".next" || entry.name === "app") continue;
+      if (entry.name === "node_modules" || entry.name === "scripts" || entry.name === ".next" || entry.name === "app" || entry.name === "public") continue;
       out.push(...walkHtml(full));
     } else if (entry.isFile() && entry.name.endsWith(".html")) {
       out.push(full);

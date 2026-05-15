@@ -17,7 +17,6 @@ yarn-error.log*
 *.swo
 *~
 .cache/
-public/sitemap.xml
 public/.well-known/
 coverage/
 .turbo/
