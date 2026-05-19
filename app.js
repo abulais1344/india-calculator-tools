@@ -248,7 +248,13 @@
       { href: "age-calculator.html", label: "Age Calculator" },
       { href: "salary-calculator.html", label: "Salary Calculator" },
       { href: "electricity-bill-calculator.html", label: "Electricity Bill" },
-      { href: "fuel-cost-calculator.html", label: "Fuel Cost" }
+      { href: "fuel-cost-calculator.html", label: "Fuel Cost" },
+      { href: "marks-percentage-calculator.html", label: "Marks % Calculator" },
+      { href: "hsc-percentage-calculator.html", label: "HSC Percentage" },
+      { href: "ssc-percentage-calculator.html", label: "SSC Percentage" },
+      { href: "cbse-best-of-5-calculator.html", label: "CBSE Best of 5" },
+      { href: "neet-marks-calculator.html", label: "NEET Marks Calculator" },
+      { href: "mht-cet-percentile-calculator.html", label: "MHT CET Calculator" }
     ];
 
     function createTopLink(item) {
@@ -2223,6 +2229,546 @@
     calculate();
   }
 
+  function initMarksPercentageCalculator() {
+    var obtainedEl = byId("marksObtained");
+    if (!obtainedEl) {
+      return;
+    }
+    var totalEl = byId("marksTotal");
+    var errorEl = byId("marksError");
+
+    var gradeMap = [
+      { min: 90, grade: "A+", remark: "Outstanding" },
+      { min: 80, grade: "A",  remark: "Excellent" },
+      { min: 70, grade: "B+", remark: "Very Good" },
+      { min: 60, grade: "B",  remark: "Good" },
+      { min: 50, grade: "C",  remark: "Average" },
+      { min: 40, grade: "D",  remark: "Below Average" },
+      { min: 0,  grade: "F",  remark: "Fail" }
+    ];
+
+    function getGrade(pct) {
+      for (var i = 0; i < gradeMap.length; i++) {
+        if (pct >= gradeMap[i].min) {
+          return gradeMap[i];
+        }
+      }
+      return gradeMap[gradeMap.length - 1];
+    }
+
+    function calculate() {
+      var obtained = parseFloat(obtainedEl.value);
+      var total = parseFloat(totalEl.value);
+
+      if (!Number.isFinite(obtained) || !Number.isFinite(total) || total <= 0) {
+        errorEl.textContent = obtained > 0 && total <= 0 ? "Total marks must be greater than 0." : "";
+        setText("marksPercentage", "-");
+        setText("marksGrade", "-");
+        setText("marksRemark", "-");
+        return;
+      }
+
+      if (obtained > total) {
+        errorEl.textContent = "Marks obtained cannot exceed total marks.";
+        setText("marksPercentage", "-");
+        setText("marksGrade", "-");
+        setText("marksRemark", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var pct = (obtained / total) * 100;
+      var info = getGrade(pct);
+      setText("marksPercentage", pct.toFixed(2) + "%");
+      setText("marksGrade", info.grade);
+      setText("marksRemark", info.remark);
+
+      var tableBody = byId("marksExamplesTable");
+      if (tableBody) {
+        tableBody.innerHTML = "";
+        var presets = [
+          { label: obtained + " / " + total, val: obtained }
+        ];
+        presets.forEach(function (p) {
+          var tr = document.createElement("tr");
+          tr.innerHTML = "<td>" + p.label + "</td><td>" + ((p.val / total) * 100).toFixed(2) + "%</td>";
+          tableBody.appendChild(tr);
+        });
+      }
+    }
+
+    [obtainedEl, totalEl].forEach(function (el) {
+      el.addEventListener("input", calculate);
+    });
+    calculate();
+  }
+
+  function initHscPercentageCalculator() {
+    var s1El = byId("hscSub1");
+    if (!s1El) {
+      return;
+    }
+
+    var subIds = ["hscSub1", "hscSub2", "hscSub3", "hscSub4", "hscSub5", "hscSub6"];
+    var maxIds = ["hscMax1", "hscMax2", "hscMax3", "hscMax4", "hscMax5", "hscMax6"];
+    var errorEl = byId("hscError");
+
+    var classMap = [
+      { min: 75, label: "Distinction" },
+      { min: 60, label: "First Class" },
+      { min: 45, label: "Second Class" },
+      { min: 35, label: "Pass Class" },
+      { min: 0,  label: "Fail" }
+    ];
+
+    function getClass(pct) {
+      for (var i = 0; i < classMap.length; i++) {
+        if (pct >= classMap[i].min) {
+          return classMap[i].label;
+        }
+      }
+      return "Fail";
+    }
+
+    function calculate() {
+      var totalObtained = 0;
+      var totalMax = 0;
+      var hasValue = false;
+
+      for (var i = 0; i < subIds.length; i++) {
+        var subEl = byId(subIds[i]);
+        var maxEl = byId(maxIds[i]);
+        if (!subEl || !maxEl) {
+          continue;
+        }
+        var subVal = subEl.value.trim();
+        var maxVal = maxEl.value.trim();
+        if (subVal === "" && maxVal === "") {
+          continue;
+        }
+        var sub = parseFloat(subVal);
+        var max = parseFloat(maxVal);
+        if (!Number.isFinite(sub) || !Number.isFinite(max) || max <= 0) {
+          continue;
+        }
+        if (sub > max) {
+          errorEl.textContent = "Marks in a subject cannot exceed its maximum marks.";
+          setText("hscPercentage", "-");
+          setText("hscClass", "-");
+          return;
+        }
+        totalObtained += sub;
+        totalMax += max;
+        hasValue = true;
+      }
+
+      if (!hasValue || totalMax === 0) {
+        errorEl.textContent = "";
+        setText("hscPercentage", "-");
+        setText("hscClass", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var pct = (totalObtained / totalMax) * 100;
+      setText("hscPercentage", pct.toFixed(2) + "%");
+      setText("hscClass", getClass(pct));
+      setText("hscTotalObtained", totalObtained);
+      setText("hscTotalMax", totalMax);
+    }
+
+    subIds.concat(maxIds).forEach(function (id) {
+      var el = byId(id);
+      if (el) {
+        el.addEventListener("input", calculate);
+      }
+    });
+    calculate();
+  }
+
+  function initSscPercentageCalculator() {
+    var s1El = byId("sscSub1");
+    if (!s1El) {
+      return;
+    }
+
+    var subIds = ["sscSub1", "sscSub2", "sscSub3", "sscSub4", "sscSub5", "sscSub6"];
+    var errorEl = byId("sscError");
+    var maxPerSubject = 100;
+    var totalSubjects = 6;
+    var grandMax = maxPerSubject * totalSubjects;
+
+    var gradeMap = [
+      { min: 91, grade: "A1", remark: "Outstanding" },
+      { min: 81, grade: "A2", remark: "Excellent" },
+      { min: 71, grade: "B1", remark: "Very Good" },
+      { min: 61, grade: "B2", remark: "Good" },
+      { min: 51, grade: "C1", remark: "Average" },
+      { min: 41, grade: "C2", remark: "Below Average" },
+      { min: 35, grade: "D",  remark: "Pass" },
+      { min: 0,  grade: "E",  remark: "Fail" }
+    ];
+
+    function getGrade(pct) {
+      for (var i = 0; i < gradeMap.length; i++) {
+        if (pct >= gradeMap[i].min) {
+          return gradeMap[i];
+        }
+      }
+      return gradeMap[gradeMap.length - 1];
+    }
+
+    function calculate() {
+      var total = 0;
+      var filled = 0;
+
+      for (var i = 0; i < subIds.length; i++) {
+        var el = byId(subIds[i]);
+        if (!el || el.value.trim() === "") {
+          continue;
+        }
+        var val = parseFloat(el.value);
+        if (!Number.isFinite(val) || val < 0) {
+          continue;
+        }
+        if (val > maxPerSubject) {
+          errorEl.textContent = "Each subject is out of 100. Please check your entries.";
+          setText("sscPercentage", "-");
+          setText("sscGrade", "-");
+          setText("sscRemark", "-");
+          return;
+        }
+        total += val;
+        filled++;
+      }
+
+      if (filled === 0) {
+        errorEl.textContent = "";
+        setText("sscPercentage", "-");
+        setText("sscGrade", "-");
+        setText("sscRemark", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var effectiveMax = filled * maxPerSubject;
+      var pct = (total / grandMax) * 100;
+      var info = getGrade(pct);
+      setText("sscPercentage", pct.toFixed(2) + "%");
+      setText("sscGrade", info.grade);
+      setText("sscRemark", info.remark);
+      setText("sscTotal", total + " / " + (filled < totalSubjects ? grandMax + " (partial)" : grandMax));
+    }
+
+    subIds.forEach(function (id) {
+      var el = byId(id);
+      if (el) {
+        el.addEventListener("input", calculate);
+      }
+    });
+    calculate();
+  }
+
+  function initCbseBestOf5Calculator() {
+    var engEl = byId("cbseEnglish");
+    if (!engEl) {
+      return;
+    }
+
+    var subIds = ["cbseSub1", "cbseSub2", "cbseSub3", "cbseSub4", "cbseSub5"];
+    var errorEl = byId("cbseError");
+
+    var gradeMap = [
+      { min: 91, grade: "A1", points: 10 },
+      { min: 81, grade: "A2", points: 9 },
+      { min: 71, grade: "B1", points: 8 },
+      { min: 61, grade: "B2", points: 7 },
+      { min: 51, grade: "C1", points: 6 },
+      { min: 41, grade: "C2", points: 5 },
+      { min: 33, grade: "D",  points: 4 },
+      { min: 0,  grade: "E",  points: 0 }
+    ];
+
+    function getGrade(marks) {
+      var pct = marks;
+      for (var i = 0; i < gradeMap.length; i++) {
+        if (pct >= gradeMap[i].min) {
+          return gradeMap[i];
+        }
+      }
+      return gradeMap[gradeMap.length - 1];
+    }
+
+    function calculate() {
+      var engVal = parseFloat(engEl.value);
+      if (!Number.isFinite(engVal) || engVal < 0 || engVal > 100) {
+        errorEl.textContent = "Enter a valid English marks (0–100).";
+        setText("cbseTotal", "-");
+        setText("cbsePercentage", "-");
+        setText("cbseCgpa", "-");
+        return;
+      }
+
+      var others = [];
+      for (var i = 0; i < subIds.length; i++) {
+        var el = byId(subIds[i]);
+        if (!el || el.value.trim() === "") {
+          continue;
+        }
+        var val = parseFloat(el.value);
+        if (Number.isFinite(val) && val >= 0 && val <= 100) {
+          others.push(val);
+        }
+      }
+
+      if (others.length < 4) {
+        errorEl.textContent = "Enter marks for at least 4 other subjects.";
+        setText("cbseTotal", "-");
+        setText("cbsePercentage", "-");
+        setText("cbseCgpa", "-");
+        return;
+      }
+
+      others.sort(function (a, b) { return b - a; });
+      var best4 = others.slice(0, 4);
+      var best5Total = engVal + best4.reduce(function (s, v) { return s + v; }, 0);
+      var pct = best5Total;
+
+      var cgpaTotal = 0;
+      [engVal].concat(best4).forEach(function (m) {
+        cgpaTotal += getGrade(m).points;
+      });
+      var cgpa = (cgpaTotal / 5).toFixed(1);
+
+      errorEl.textContent = "";
+      setText("cbseTotal", best5Total + " / 500");
+      setText("cbsePercentage", pct.toFixed(2) + "%");
+      setText("cbseCgpa", cgpa);
+
+      var tbody = byId("cbseBreakdownTable");
+      if (tbody) {
+        tbody.innerHTML = "";
+        var rows = [{ label: "English", val: engVal }].concat(
+          best4.map(function (v, idx) { return { label: "Subject " + (idx + 2), val: v }; })
+        );
+        rows.forEach(function (r) {
+          var tr = document.createElement("tr");
+          tr.innerHTML = "<td>" + r.label + "</td><td>" + r.val + "</td><td>" + getGrade(r.val).grade + "</td>";
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    [engEl].concat(subIds.map(function (id) { return byId(id); })).forEach(function (el) {
+      if (el) {
+        el.addEventListener("input", calculate);
+      }
+    });
+    calculate();
+  }
+
+  function initNeetMarksCalculator() {
+    var phyCorEl = byId("neetPhyCorrect");
+    if (!phyCorEl) {
+      return;
+    }
+
+    var fields = [
+      { correct: "neetPhyCorrect", wrong: "neetPhyWrong" },
+      { correct: "neetChemCorrect", wrong: "neetChemWrong" },
+      { correct: "neetBioCorrect", wrong: "neetBioWrong" }
+    ];
+    var maxQ = { phy: 45, chem: 45, bio: 90 };
+    var maxMarks = { phy: 180, chem: 180, bio: 360 };
+    var totalMax = 720;
+    var errorEl = byId("neetError");
+
+    var percentileBrackets = [
+      { min: 700, label: "99.99+ – Top AIR ~1–100" },
+      { min: 680, label: "99.9+ – AIR ~100–700" },
+      { min: 650, label: "99.5+ – AIR ~700–5,000" },
+      { min: 600, label: "98+ – AIR ~5,000–20,000" },
+      { min: 550, label: "96+ – AIR ~20,000–50,000" },
+      { min: 500, label: "93+ – AIR ~50,000–1,00,000" },
+      { min: 450, label: "88+ – Government college possible (state quota)" },
+      { min: 360, label: "70+ – Near general cutoff; private college likely" },
+      { min: 0,   label: "Below cutoff for government seats" }
+    ];
+
+    function getBracket(score) {
+      for (var i = 0; i < percentileBrackets.length; i++) {
+        if (score >= percentileBrackets[i].min) {
+          return percentileBrackets[i].label;
+        }
+      }
+      return "Below cutoff for government seats";
+    }
+
+    function calculate() {
+      var sectionKeys = ["phy", "chem", "bio"];
+      var sectionMax = [45, 45, 90];
+      var totalScore = 0;
+      var valid = true;
+
+      for (var i = 0; i < fields.length; i++) {
+        var corEl = byId(fields[i].correct);
+        var wrgEl = byId(fields[i].wrong);
+        var cor = parseFloat(corEl ? corEl.value : "");
+        var wrg = parseFloat(wrgEl ? wrgEl.value : "");
+        cor = Number.isFinite(cor) ? Math.max(0, cor) : 0;
+        wrg = Number.isFinite(wrg) ? Math.max(0, wrg) : 0;
+
+        var key = sectionKeys[i];
+        if (cor + wrg > sectionMax[i]) {
+          valid = false;
+          break;
+        }
+        var sectionScore = cor * 4 - wrg;
+        totalScore += sectionScore;
+        setText("neet" + key.charAt(0).toUpperCase() + key.slice(1) + "Score", Math.max(0, sectionScore) + " / " + maxMarks[key]);
+      }
+
+      if (!valid) {
+        errorEl.textContent = "Correct + wrong answers should not exceed total questions in a section.";
+        setText("neetTotalScore", "-");
+        setText("neetPercentileBracket", "-");
+        return;
+      }
+
+      errorEl.textContent = "";
+      var finalScore = Math.max(0, totalScore);
+      setText("neetTotalScore", finalScore + " / " + totalMax);
+      setText("neetPercentileBracket", getBracket(finalScore));
+    }
+
+    fields.forEach(function (f) {
+      [byId(f.correct), byId(f.wrong)].forEach(function (el) {
+        if (el) {
+          el.addEventListener("input", calculate);
+        }
+      });
+    });
+    calculate();
+  }
+
+  function initMhtCetCalculator() {
+    var groupEl = byId("cetGroup");
+    if (!groupEl) {
+      return;
+    }
+
+    var phyCorEl = byId("cetPhyCorrect");
+    var phyWrgEl = byId("cetPhyWrong");
+    var chemCorEl = byId("cetChemCorrect");
+    var chemWrgEl = byId("cetChemWrong");
+    var mathCorEl = byId("cetMathCorrect");
+    var mathWrgEl = byId("cetMathWrong");
+    var bioCorEl = byId("cetBioCorrect");
+    var bioWrgEl = byId("cetBioWrong");
+    var pcmSection = byId("cetPcmSection");
+    var pcbSection = byId("cetPcbSection");
+    var errorEl = byId("cetError");
+
+    var brackets = {
+      PCM: [
+        { min: 155, label: "99.9+ – Top engineering colleges (VJTI, COEP)" },
+        { min: 140, label: "99+ – Good government engineering seats" },
+        { min: 120, label: "95+ – Government college (non-premium)" },
+        { min: 100, label: "85+ – Semi-government / aided colleges" },
+        { min: 80,  label: "70+ – Private engineering colleges" },
+        { min: 60,  label: "50+ – Most private colleges" },
+        { min: 0,   label: "Below 50 percentile" }
+      ],
+      PCB: [
+        { min: 155, label: "99.9+ – Top medical / pharmacy seats" },
+        { min: 130, label: "98+ – Government medical college possible" },
+        { min: 110, label: "90+ – Semi-government pharmacy" },
+        { min: 80,  label: "70+ – Private medical / pharmacy" },
+        { min: 0,   label: "Below 70 percentile" }
+      ]
+    };
+
+    function getBracket(score, group) {
+      var list = brackets[group] || brackets.PCM;
+      for (var i = 0; i < list.length; i++) {
+        if (score >= list[i].min) {
+          return list[i].label;
+        }
+      }
+      return list[list.length - 1].label;
+    }
+
+    function toggleSections() {
+      var g = groupEl.value;
+      if (pcmSection) {
+        pcmSection.classList.toggle("is-hidden", g !== "PCM");
+      }
+      if (pcbSection) {
+        pcbSection.classList.toggle("is-hidden", g !== "PCB");
+      }
+    }
+
+    function calcSection(corEl, wrgEl, maxQ, marks) {
+      var cor = parseFloat(corEl ? corEl.value : "") || 0;
+      var wrg = parseFloat(wrgEl ? wrgEl.value : "") || 0;
+      cor = Math.max(0, cor);
+      wrg = Math.max(0, wrg);
+      if (cor + wrg > maxQ) {
+        return null;
+      }
+      return cor * (marks / maxQ) - wrg * (marks / maxQ / 4);
+    }
+
+    function calculate() {
+      var g = groupEl.value;
+      toggleSections();
+      var total = 0;
+
+      if (g === "PCM") {
+        var phy = calcSection(phyCorEl, phyWrgEl, 10, 50);
+        var chem = calcSection(chemCorEl, chemWrgEl, 10, 50);
+        var math = calcSection(mathCorEl, mathWrgEl, 10, 100);
+        if (phy === null || chem === null || math === null) {
+          errorEl.textContent = "Correct + wrong should not exceed questions in a section.";
+          setText("cetTotalScore", "-");
+          setText("cetPercentileBracket", "-");
+          return;
+        }
+        total = Math.max(0, phy + chem + math);
+        setText("cetPhyScore", Math.max(0, phy).toFixed(2));
+        setText("cetChemScore", Math.max(0, chem).toFixed(2));
+        setText("cetMathScore", Math.max(0, math).toFixed(2));
+      } else {
+        var phy2 = calcSection(phyCorEl, phyWrgEl, 10, 50);
+        var chem2 = calcSection(chemCorEl, chemWrgEl, 10, 50);
+        var bio = calcSection(bioCorEl, bioWrgEl, 10, 100);
+        if (phy2 === null || chem2 === null || bio === null) {
+          errorEl.textContent = "Correct + wrong should not exceed questions in a section.";
+          setText("cetTotalScore", "-");
+          setText("cetPercentileBracket", "-");
+          return;
+        }
+        total = Math.max(0, phy2 + chem2 + bio);
+        setText("cetPhyScore", Math.max(0, phy2).toFixed(2));
+        setText("cetChemScore", Math.max(0, chem2).toFixed(2));
+        setText("cetBioScore", Math.max(0, bio).toFixed(2));
+      }
+
+      errorEl.textContent = "";
+      setText("cetTotalScore", total.toFixed(2) + " / 200");
+      setText("cetPercentileBracket", getBracket(total, g));
+    }
+
+    groupEl.addEventListener("change", calculate);
+    [phyCorEl, phyWrgEl, chemCorEl, chemWrgEl, mathCorEl, mathWrgEl, bioCorEl, bioWrgEl].forEach(function (el) {
+      if (el) {
+        el.addEventListener("input", calculate);
+      }
+    });
+    toggleSections();
+    calculate();
+  }
+
   function initRentReceiptGenerator() {
     var tenantEl = byId("rentTenantName");
     if (!tenantEl) {
@@ -2551,6 +3097,12 @@
     initBmiCalculator();
     initDiscountCalculator();
     initBreakEvenCalculator();
+    initMarksPercentageCalculator();
+    initHscPercentageCalculator();
+    initSscPercentageCalculator();
+    initCbseBestOf5Calculator();
+    initNeetMarksCalculator();
+    initMhtCetCalculator();
     initRentReceiptGenerator();
     initGstInvoiceGenerator();
     initSalarySlipGenerator();

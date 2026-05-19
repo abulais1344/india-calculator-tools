@@ -43,6 +43,11 @@ export default function ElectricityGuidePage({
     .map(slug => getCalculatorById(slug))
     .filter((item): item is NonNullable<ReturnType<typeof getCalculatorById>> => Boolean(item));
   const guideLinks = getElectricityGuideLinks().filter(link => relatedGuideSlugs.includes(link.path.replace('/electricity/', '')));
+  const planningLinks = [
+    getCalculatorById('salary'),
+    getCalculatorById('emi'),
+    getCalculatorById('fuel-cost'),
+  ].filter((item): item is NonNullable<ReturnType<typeof getCalculatorById>> => Boolean(item));
 
   return (
     <div className="calculator-container">
@@ -87,6 +92,24 @@ export default function ElectricityGuidePage({
       </div>
 
       <div className="card content-block">
+        <h2>Use This Guide for Better Bill Planning</h2>
+        <ul>
+          <li>Read the billing concept here first, then open the provider calculator that matches your electricity board.</li>
+          <li>Estimate one normal month and one peak-usage month to understand slab movement.</li>
+          <li>If electricity is a meaningful part of the household budget, compare it against your salary and EMI outflow for the same month.</li>
+        </ul>
+        <div className="calc-link-row">
+          <Link href="/electricity" className="btn">Open Electricity Hub</Link>
+          <Link href="/electricity-bill-calculator.html" className="btn secondary">Bill Calculator</Link>
+          {calculators.slice(0, 1).map(calculator => (
+            <Link key={calculator.id} href={calculator.path} className="btn secondary">
+              Open Provider Page
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="card content-block">
         <FAQSection faqs={faqs} />
       </div>
 
@@ -107,6 +130,12 @@ export default function ElectricityGuidePage({
               </Link>
             ))}
           </div>
+        </div>
+      ) : null}
+
+      {planningLinks.length > 0 ? (
+        <div className="card content-block">
+          <RelatedCalculators calculators={planningLinks} title="Monthly Budget Tools" />
         </div>
       ) : null}
     </div>

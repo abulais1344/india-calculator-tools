@@ -79,7 +79,7 @@ export function generateElectricityMetaDescription(
   provider: string,
   state: string
 ): string {
-  return `${provider} electricity bill calculator for ${state}. Estimate units, slab rates, fixed charges, and taxes with a free 2026 bill estimator.`;
+  return `${provider} electricity bill calculator for ${state}. Check per unit rate, slab charges, fixed charges, and taxes with a free 2026 bill estimator.`;
 }
 
 /**
@@ -96,7 +96,7 @@ export function generatePercentageTitle(
 }
 
 export function generateElectricityTitle(provider: string, state: string): string {
-  return `${provider} Electricity Bill Calculator 2026 | ${state} Unit Rate & Bill Estimator | CalcVerse`;
+  return `${provider} Electricity Bill Calculator 2026 | ${state} Per Unit Rate, Slab & Bill Estimator | CalcVerse`;
 }
 
 /**

@@ -43,6 +43,25 @@ const ELECTRICITY_SUPPORT_PAGES = [
   "/electricity/fixed-charge-vs-energy-charge",
 ];
 
+const QUERY_LANDING_ROUTES = [
+  "/438-out-of-500-as-a-percentage.html",
+  "/438-out-of-600-as-a-percentage.html",
+  "/age-calculator-of-india.html",
+  "/bescom-electricity-rate-per-unit.html",
+  "/bses-rajdhani-electricity-rate-per-unit.html",
+  "/jusco-electricity-rate.html",
+  "/jusco-electricity-bill-rate-per-unit-in-jamshedpur.html",
+  "/kseb-electricity-rate-per-unit.html",
+  "/msedcl-electricity-rate-per-unit.html",
+  "/per-unit-electricity-rate-india.html",
+  "/state-electricity-charges-india.html",
+  "/tangedco-electricity-rate-per-unit.html",
+  "/tneb-electricity-rate-per-unit.html",
+  "/tpddl-electricity-rate-per-unit.html",
+  "/what-is-the-price-of-1-kwh-electricity-in-india.html",
+  "/wbsedcl-electricity-rate-per-unit.html",
+];
+
 function walkHtml(dir) {
   const out = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -121,7 +140,7 @@ const electricityRoutes = ELECTRICITY_PROVIDERS.map(
 const electricitySupportRoutes = ELECTRICITY_SUPPORT_PAGES;
 
 // Combine all routes
-routes = [...new Set([...routes, ...percentageRoutes, ...electricityRoutes, ...electricitySupportRoutes])].sort((a, b) =>
+routes = [...new Set([...routes, ...percentageRoutes, ...electricityRoutes, ...electricitySupportRoutes, ...QUERY_LANDING_ROUTES])].sort((a, b) =>
   a.localeCompare(b)
 );
 

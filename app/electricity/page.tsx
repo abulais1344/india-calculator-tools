@@ -13,8 +13,8 @@ import {
 } from '@/lib/electricity-content';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Electricity Bill Calculators by State & Provider | CalcVerse';
-  const description = 'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more using state-wise electricity bill calculators.';
+  const title = 'Electricity Bill Calculators by State, Per Unit Rate & Provider | CalcVerse';
+  const description = 'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more. Compare per unit rate, slab charges, and state-wise electricity calculators.';
   const canonical = getCanonicalUrl('/electricity');
 
   return {
@@ -40,6 +40,38 @@ export default function ElectricityHubPage() {
   const guideLinks = getElectricityGuideLinks();
   const providerGroups = getElectricityHubProviderLinks();
   const totalProviderCount = providerGroups.reduce((count, group) => count + group.providers.length, 0);
+  const popularSearchPages = [
+    {
+      title: 'Per Unit Electricity Rate in India',
+      path: '/per-unit-electricity-rate-india.html',
+      description: 'Generic state and slab-level rate query page.',
+    },
+    {
+      title: 'State Electricity Charges in India',
+      path: '/state-electricity-charges-india.html',
+      description: 'Entry page for users comparing state-wise billing differences.',
+    },
+    {
+      title: 'Price of 1 kWh Electricity in India',
+      path: '/what-is-the-price-of-1-kwh-electricity-in-india.html',
+      description: 'Explains 1 unit electricity cost and what changes the actual bill.',
+    },
+    {
+      title: 'JUSCO Electricity Rate',
+      path: '/jusco-electricity-rate.html',
+      description: 'Jamshedpur-focused provider intent page.',
+    },
+    {
+      title: 'MSEDCL Electricity Rate Per Unit',
+      path: '/msedcl-electricity-rate-per-unit.html',
+      description: 'Maharashtra provider-intent landing page.',
+    },
+    {
+      title: 'TNEB Electricity Rate Per Unit',
+      path: '/tneb-electricity-rate-per-unit.html',
+      description: 'Tamil Nadu provider-intent landing page.',
+    },
+  ];
 
   return (
     <div className="calculator-container">
@@ -51,20 +83,40 @@ export default function ElectricityHubPage() {
         {breadcrumbs.map((item, index) => (
           <span key={item.url}>
             {index > 0 && ' / '}
+    {
+      title: 'TPDDL Electricity Rate Per Unit',
+      path: '/tpddl-electricity-rate-per-unit.html',
+      description: 'Delhi provider-intent landing page for per unit and bill estimate searches.',
+    },
+    {
+      title: 'BSES Rajdhani Electricity Rate Per Unit',
+      path: '/bses-rajdhani-electricity-rate-per-unit.html',
+      description: 'Delhi provider-intent page for BSES Rajdhani rate and bill queries.',
+    },
             {index < breadcrumbs.length - 1 ? <Link href={item.url}>{item.name}</Link> : item.name}
           </span>
         ))}
       </nav>
 
+    {
+      title: 'KSEB Electricity Rate Per Unit',
+      path: '/kseb-electricity-rate-per-unit.html',
+      description: 'Kerala provider-intent landing page for rate and slab searches.',
+    },
+    {
+      title: 'TANGEDCO Electricity Rate Per Unit',
+      path: '/tangedco-electricity-rate-per-unit.html',
+      description: 'Tamil Nadu provider-intent landing page for TANGEDCO queries.',
+    },
+    {
+      title: 'BESCOM Electricity Rate Per Unit',
+      path: '/bescom-electricity-rate-per-unit.html',
+      description: 'Karnataka provider-intent landing page.',
+    },
       <section className="hero">
-        <h1>Electricity Bill Calculators by State & Provider</h1>
-        <p>Find state-wise electricity bill calculators, slab-rate explainers, and provider guides in one place. Built for quick monthly bill planning in India.</p>
-        <div className="blog-meta">
-          <span className="chip">{totalProviderCount} Providers</span>
-          <span className="chip">Updated for 2026</span>
           <span className="chip">Free and No Signup</span>
-        </div>
-        <div className="hero-actions">
+      path: '/wbsedcl-electricity-rate-per-unit.html',
+      description: 'West Bengal provider-intent landing page.',
           <a className="btn" href="#provider-sections">Browse Providers</a>
           <a className="btn secondary" href="#electricity-guides">Open Guides</a>
           <a className="btn secondary" href="#electricity-faqs">View FAQs</a>
@@ -81,6 +133,24 @@ export default function ElectricityHubPage() {
       <div className="summary-box">
         <strong>Best way to use this hub:</strong> start with your provider page for slab-aware estimates, then use the billing guides to verify formula, fixed charges, and effective unit cost.
       </div>
+
+      <section className="card content-block">
+        <h2>Popular Electricity Rate Searches</h2>
+        <p>These pages are built for the exact queries people use when they want a rate answer first and a calculator second.</p>
+        <div className="grid calculator-grid">
+          {popularSearchPages.map(page => (
+            <article key={page.path} className="card">
+              <h3>{page.title}</h3>
+              <p>{page.description}</p>
+              <div className="calc-link-row">
+                <Link href={page.path} className="btn secondary">
+                  Open Page
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <div className="ad-container">Electricity Calculator Hub • State-wise and Provider-wise Tools</div>
 

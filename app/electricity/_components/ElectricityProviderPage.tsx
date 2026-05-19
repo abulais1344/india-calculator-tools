@@ -28,6 +28,11 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
   const relatedProviders = provider.relatedProviderSlugs
     .map(slug => getElectricityProviderContent(slug))
     .filter((item): item is NonNullable<ReturnType<typeof getElectricityProviderContent>> => Boolean(item));
+  const planningCalculators: Calculator[] = [
+    getCalculatorById('salary'),
+    getCalculatorById('emi'),
+    getCalculatorById('fuel-cost'),
+  ].filter((item): item is Calculator => Boolean(item));
 
   return (
     <div className="calculator-container">
@@ -45,7 +50,7 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
       </nav>
 
       <h1>
-        {provider.name} Electricity Bill Calculator 2026 - {provider.state}
+        {provider.name} Electricity Bill Calculator 2026 - {provider.state} Per Unit Rate, Slab & Bill Estimate
       </h1>
       <p className="safe-private">{provider.intro}</p>
       <p className="safe-private">{provider.latestRateNote} Updated May 2026 • Free calculator • No signup required</p>
@@ -59,6 +64,16 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
           <strong>State/Region:</strong> {provider.state} ({provider.region})
         </p>
         <p>{provider.summary}</p>
+      </div>
+
+      <div className="card content-block">
+        <h2>What Users Usually Need on This Page</h2>
+        <p>Most searches for {provider.name} are really about three things: the per unit rate, how slab jumps change the final bill, and how much the next bill is likely to be before it arrives.</p>
+        <ul>
+          <li>Check the approximate domestic per unit rate before using the calculator.</li>
+          <li>Compare a normal month and a high-usage month to see where slab pricing starts hurting.</li>
+          <li>Use the related guides below if you need to understand fixed charges, energy charges, or 1 kWh cost.</li>
+        </ul>
       </div>
 
       <div className="card content-block">
@@ -106,6 +121,15 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
       </div>
 
       <div className="card content-block">
+        <h2>Use This Before the Official Bill Arrives</h2>
+        <ul>
+          <li>Estimate the bill once with your current month units and once with 10 to 15 percent higher usage.</li>
+          <li>Keep fixed charges in mind, because low-usage months do not reduce the bill in a straight line.</li>
+          <li>Compare the estimated power cost with the rest of your monthly budget if electricity is one of your larger household expenses.</li>
+        </ul>
+      </div>
+
+      <div className="card content-block">
         <h2>Example Calculation</h2>
         <ul>
           <li>100 units x Rs {provider.unitRate.toFixed(2)} = Rs {(100 * provider.unitRate).toFixed(0)} energy charge</li>
@@ -113,6 +137,21 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
           <li>Taxes and provider charges can move the final estimate upward</li>
           <li>Use the calculator to compare a low-usage and high-usage month side by side</li>
         </ul>
+      </div>
+
+      <div className="card content-block">
+        <h2>What Most {provider.name} Users Check Next</h2>
+        <div className="calc-link-row">
+          <Link href="/electricity-bill-calculator.html" className="btn">
+            Generic Electricity Bill Calculator
+          </Link>
+          {guideLinks.slice(0, 2).map(link => (
+            <Link key={link.path} href={link.path} className="btn secondary">
+              {link.name}
+            </Link>
+          ))}
+        </div>
+        <p className="safe-private">If you are reviewing household expenses, pair the electricity estimate with salary, EMI, or travel fuel planning instead of treating the bill in isolation.</p>
       </div>
 
       <div className="card content-block">
@@ -127,6 +166,12 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
       {calculatorLinks.length > 0 ? (
         <div className="card content-block">
           <RelatedCalculators calculators={calculatorLinks} title="Related Electricity Calculators" />
+        </div>
+      ) : null}
+
+      {planningCalculators.length > 0 ? (
+        <div className="card content-block">
+          <RelatedCalculators calculators={planningCalculators} title="Budget Planning Tools After Electricity Check" />
         </div>
       ) : null}
 
