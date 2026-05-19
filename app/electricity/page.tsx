@@ -14,7 +14,8 @@ import {
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Electricity Bill Calculators by State, Per Unit Rate & Provider | CalcVerse';
-  const description = 'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more. Compare per unit rate, slab charges, and state-wise electricity calculators.';
+  const description =
+    'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more. Compare per unit rate, slab charges, and state-wise electricity calculators.';
   const canonical = getCanonicalUrl('/electricity');
 
   return {
@@ -40,6 +41,7 @@ export default function ElectricityHubPage() {
   const guideLinks = getElectricityGuideLinks();
   const providerGroups = getElectricityHubProviderLinks();
   const totalProviderCount = providerGroups.reduce((count, group) => count + group.providers.length, 0);
+
   const popularSearchPages = [
     {
       title: 'Per Unit Electricity Rate in India',
@@ -67,23 +69,6 @@ export default function ElectricityHubPage() {
       description: 'Maharashtra provider-intent landing page.',
     },
     {
-      title: 'TNEB Electricity Rate Per Unit',
-      path: '/tneb-electricity-rate-per-unit.html',
-      description: 'Tamil Nadu provider-intent landing page.',
-    },
-  ];
-
-  return (
-    <div className="calculator-container">
-      <Schema schema={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Electricity Bill Calculators by State & Provider', description: 'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more using state-wise electricity bill calculators.', url: canonical, isPartOf: { '@type': 'WebSite', name: 'CalcVerse', url: 'https://calcverse.in' } }} />
-      <Schema schema={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `https://calcverse.in${item.url}` })) }} />
-      <Schema schema={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: ELECTRICITY_HUB_FAQS.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) }} />
-
-      <nav className="safe-private">
-        {breadcrumbs.map((item, index) => (
-          <span key={item.url}>
-            {index > 0 && ' / '}
-    {
       title: 'TPDDL Electricity Rate Per Unit',
       path: '/tpddl-electricity-rate-per-unit.html',
       description: 'Delhi provider-intent landing page for per unit and bill estimate searches.',
@@ -93,11 +78,11 @@ export default function ElectricityHubPage() {
       path: '/bses-rajdhani-electricity-rate-per-unit.html',
       description: 'Delhi provider-intent page for BSES Rajdhani rate and bill queries.',
     },
-            {index < breadcrumbs.length - 1 ? <Link href={item.url}>{item.name}</Link> : item.name}
-          </span>
-        ))}
-      </nav>
-
+    {
+      title: 'TNEB Electricity Rate Per Unit',
+      path: '/tneb-electricity-rate-per-unit.html',
+      description: 'Tamil Nadu provider-intent landing page.',
+    },
     {
       title: 'KSEB Electricity Rate Per Unit',
       path: '/kseb-electricity-rate-per-unit.html',
@@ -113,15 +98,91 @@ export default function ElectricityHubPage() {
       path: '/bescom-electricity-rate-per-unit.html',
       description: 'Karnataka provider-intent landing page.',
     },
-      <section className="hero">
-          <span className="chip">Free and No Signup</span>
+    {
+      title: 'WBSEDCL Electricity Rate Per Unit',
       path: '/wbsedcl-electricity-rate-per-unit.html',
       description: 'West Bengal provider-intent landing page.',
-          <a className="btn" href="#provider-sections">Browse Providers</a>
-          <a className="btn secondary" href="#electricity-guides">Open Guides</a>
-          <a className="btn secondary" href="#electricity-faqs">View FAQs</a>
+    },
+  ];
+
+  return (
+    <div className="calculator-container">
+      <Schema
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'Electricity Bill Calculators by State & Provider',
+          description:
+            'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more using state-wise electricity bill calculators.',
+          url: canonical,
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'CalcVerse',
+            url: 'https://calcverse.in',
+          },
+        }}
+      />
+      <Schema
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbs.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: item.name,
+            item: `https://calcverse.in${item.url}`,
+          })),
+        }}
+      />
+      <Schema
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: ELECTRICITY_HUB_FAQS.map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer,
+            },
+          })),
+        }}
+      />
+
+      <nav className="safe-private">
+        {breadcrumbs.map((item, index) => (
+          <span key={item.url}>
+            {index > 0 && ' / '}
+            {index < breadcrumbs.length - 1 ? <Link href={item.url}>{item.name}</Link> : item.name}
+          </span>
+        ))}
+      </nav>
+
+      <section className="hero">
+        <h1>Electricity Bill Calculators by State & Provider</h1>
+        <p>
+          Find state-wise electricity bill calculators, per unit rate guides, slab-rate explainers,
+          and provider pages in one place. Built for quick monthly bill planning in India.
+        </p>
+        <div className="blog-meta">
+          <span className="chip">{totalProviderCount} Providers</span>
+          <span className="chip">Updated for 2026</span>
+          <span className="chip">Free and No Signup</span>
         </div>
-        <p className="safe-private">Use provider cards below to jump directly to your board and estimate bills by units.</p>
+        <div className="hero-actions">
+          <a className="btn" href="#provider-sections">
+            Browse Providers
+          </a>
+          <a className="btn secondary" href="#electricity-guides">
+            Open Guides
+          </a>
+          <a className="btn secondary" href="#electricity-faqs">
+            View FAQs
+          </a>
+        </div>
+        <p className="safe-private">
+          Use provider cards below to jump directly to your board and estimate bills by units.
+        </p>
       </section>
 
       <div className="card content-block">
@@ -131,12 +192,17 @@ export default function ElectricityHubPage() {
       </div>
 
       <div className="summary-box">
-        <strong>Best way to use this hub:</strong> start with your provider page for slab-aware estimates, then use the billing guides to verify formula, fixed charges, and effective unit cost.
+        <strong>Best way to use this hub:</strong> start with your provider page for slab-aware
+        estimates, then use the billing guides to verify formula, fixed charges, and effective
+        unit cost.
       </div>
 
       <section className="card content-block">
         <h2>Popular Electricity Rate Searches</h2>
-        <p>These pages are built for the exact queries people use when they want a rate answer first and a calculator second.</p>
+        <p>
+          These pages are built for the exact queries people use when they want a rate answer first
+          and a calculator second.
+        </p>
         <div className="grid calculator-grid">
           {popularSearchPages.map(page => (
             <article key={page.path} className="card">
@@ -152,10 +218,14 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <div className="ad-container">Electricity Calculator Hub • State-wise and Provider-wise Tools</div>
+      <div className="ad-container">Electricity Calculator Hub - State-wise and Provider-wise Tools</div>
 
       {providerGroups.map((group, index) => (
-        <section key={group.title} id={index === 0 ? 'provider-sections' : undefined} className="card content-block">
+        <section
+          key={group.title}
+          id={index === 0 ? 'provider-sections' : undefined}
+          className="card content-block"
+        >
           <h2>{group.title} Calculators</h2>
           <p>{group.description}</p>
           <div className="grid calculator-grid electricity-provider-grid">
@@ -182,7 +252,10 @@ export default function ElectricityHubPage() {
 
       <section className="card content-block">
         <h2>How Electricity Billing Works in India</h2>
-        <p>Electricity bills usually combine energy charges, fixed charges, and taxes. Slab pricing means your average rate can rise as monthly usage increases.</p>
+        <p>
+          Electricity bills usually combine energy charges, fixed charges, and taxes. Slab pricing
+          means your average rate can rise as monthly usage increases.
+        </p>
         <ul>
           <li>Read the meter and note the units consumed for the billing period.</li>
           <li>Multiply units by the applicable slab rate for your provider.</li>
@@ -200,7 +273,10 @@ export default function ElectricityHubPage() {
 
       <section id="electricity-guides" className="card content-block">
         <h2>Electricity Guides</h2>
-        <p>Read concise explainers for slab rates, per-unit cost, fixed vs energy charges, and bill formulas.</p>
+        <p>
+          Read concise explainers for slab rates, per-unit cost, fixed vs energy charges, and bill
+          formulas.
+        </p>
         <div className="grid calculator-grid">
           {guideLinks.map(link => (
             <article key={link.path} className="card">
