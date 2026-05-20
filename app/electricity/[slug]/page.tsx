@@ -10,6 +10,9 @@ interface PageProps {
   }>;
 }
 
+export const revalidate = false;
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const provider = ELECTRICITY_PROVIDERS.find(p => p.slug === slug);

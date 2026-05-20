@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+export const revalidate = false;
+
 export const metadata: Metadata = {
   title: 'CalcVerse - Free India Utility Calculators',
   description:
