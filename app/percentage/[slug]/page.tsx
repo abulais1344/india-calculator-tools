@@ -24,7 +24,7 @@ interface PageProps {
 }
 
 export const revalidate = false;
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;

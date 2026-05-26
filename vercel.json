@@ -3,19 +3,44 @@
     {
       "source": "/(.*)\\.html",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
         { "key": "Pragma", "value": "no-cache" }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
         { "key": "Pragma", "value": "no-cache" }
       ]
     }
   ],
   "redirects": [
+    {
+      "source": "/salary-needed-for-home-loan.html",
+      "destination": "/blog/salary-needed-for-home-loan.html",
+      "permanent": true
+    },
+    {
+      "source": "/personal-loan-vs-credit-card.html",
+      "destination": "/blog/personal-loan-vs-credit-card.html",
+      "permanent": true
+    },
+    {
+      "source": "/kWh",
+      "destination": "/electricity/1-unit-electricity-cost-india",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/home.html",
+      "permanent": false
+    },
+    {
+      "source": "/:path+/index.html",
+      "destination": "/:path*/",
+      "permanent": true
+    },
     {
       "source": "/(.*)",
       "has": [
