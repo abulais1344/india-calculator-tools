@@ -31,6 +31,9 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
   const planningCalculators: Calculator[] = [
     getCalculatorById('salary'),
     getCalculatorById('emi'),
+    getCalculatorById('home-loan'),
+    getCalculatorById('sip'),
+    getCalculatorById('income-tax'),
     getCalculatorById('fuel-cost'),
   ].filter((item): item is Calculator => Boolean(item));
 
@@ -171,7 +174,7 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
 
       {planningCalculators.length > 0 ? (
         <div className="card content-block">
-          <RelatedCalculators calculators={planningCalculators} title="Budget Planning Tools After Electricity Check" />
+          <RelatedCalculators calculators={planningCalculators} title="Money Planning Tools After Bill Estimate" />
         </div>
       ) : null}
 

@@ -15,7 +15,7 @@ import {
   getCanonicalUrl,
 } from '@/lib/seo-utils';
 import { PERCENTAGE_FAQS } from '@/lib/faq-data';
-import { getRelatedCalculators } from '@/lib/calculators';
+import { getRelatedCalculators, getCalculatorById } from '@/lib/calculators';
 
 interface PageProps {
   params: Promise<{
@@ -77,6 +77,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export async function generateStaticParams() {
   const commonPercentages = [
+    { obtained: 362, total: 500 },
+    { obtained: 358, total: 500 },
+    { obtained: 360, total: 500 },
+    { obtained: 364, total: 500 },
+    { obtained: 440, total: 600 },
+    { obtained: 442, total: 600 },
+    { obtained: 500, total: 600 },
     { obtained: 438, total: 600 },
     { obtained: 380, total: 500 },
     { obtained: 438, total: 500 },
@@ -133,7 +140,15 @@ export default async function PercentageCalculatorPage({ params }: PageProps) {
     ]
   );
 
-  const relatedCalcs = getRelatedCalculators('percentage-calc', 6);
+  const relatedCalcs = getRelatedCalculators('percentage', 6);
+  const monetizationCalcs = [
+    getCalculatorById('emi'),
+    getCalculatorById('sip'),
+    getCalculatorById('income-tax'),
+    getCalculatorById('home-loan'),
+    getCalculatorById('salary'),
+    getCalculatorById('gst'),
+  ].filter((item): item is NonNullable<ReturnType<typeof getCalculatorById>> => Boolean(item));
 
   return (
     <div className="calculator-container">
@@ -171,6 +186,15 @@ export default async function PercentageCalculatorPage({ params }: PageProps) {
           </span>
         </div>
       </div>
+
+      {monetizationCalcs.length > 0 ? (
+        <div className="card content-block">
+          <RelatedCalculators
+            calculators={monetizationCalcs}
+            title="Most Used Money Calculators After Marks Check"
+          />
+        </div>
+      ) : null}
 
       <div className="card content-block">
         <h2>How to Calculate Percentage</h2>

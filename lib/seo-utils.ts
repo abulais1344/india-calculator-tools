@@ -69,7 +69,7 @@ export function generatePercentageMetaDescription(
   category?: string
 ): string {
   const categoryText = category ? ` for ${category.toLowerCase()}` : '';
-  return `${obtained} out of ${total} = ${percentage}%${categoryText}. Free calculator with formula, grade analysis, and step-by-step method. Updated 2026.`;
+  return `Find ${obtained} out of ${total} percentage (or ${obtained}/${total}) = ${percentage}%${categoryText} instantly. Free marks calculator with formula, grade analysis, and pass/fail result. Updated 2026.`;
 }
 
 /**
@@ -77,9 +77,25 @@ export function generatePercentageMetaDescription(
  */
 export function generateElectricityMetaDescription(
   provider: string,
-  state: string
+  state: string,
+  slug?: string
 ): string {
-  return `${provider} electricity bill calculator for ${state}. Check per unit rate, slab charges, fixed charges, and taxes with a free 2026 bill estimator.`;
+  const queryHintMap: Record<string, string> = {
+    'jusco-bill-calculator': 'including Jamshedpur per unit rate context',
+    'msedcl-bill-calculator': 'including Maharashtra unit rate and slab updates',
+    'bescom-bill-calculator': 'including Karnataka slab-wise unit charges',
+    'kseb-bill-calculator': 'including Kerala domestic tariff context',
+    'tpddl-bill-calculator': 'including Delhi slab and fixed-charge estimate',
+    'bses-rajdhani-bill-calculator': 'including BSES Rajdhani unit rate estimate',
+    'wesco-bill-calculator': 'including Odisha domestic tariff context',
+    'tangedco-bill-calculator': 'including Tamil Nadu slab-wise bill estimate',
+    'tneb-bill-calculator': 'including Tamil Nadu per unit rate context',
+    'wbsedcl-bill-calculator': 'including West Bengal per unit rate context',
+  };
+
+  const hint = slug ? queryHintMap[slug] : undefined;
+  const hintText = hint ? `, ${hint}` : '';
+  return `Check ${provider} electricity bill in ${state} with slab-wise unit rates, fixed charges, and taxes${hintText}. Free 2026 per unit bill estimator for home users.`;
 }
 
 /**
@@ -92,11 +108,33 @@ export function generatePercentageTitle(
   category?: string
 ): string {
   const suffix = category ? ` (${category})` : '';
-  return `${obtained} out of ${total} as Percentage = ${percentage}%${suffix} | CalcVerse`;
+  const standardExamTotals = new Set([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]);
+  const queryLead = standardExamTotals.has(total)
+    ? `${obtained} out of ${total} in Percentage`
+    : `${obtained}/${total} as Percentage`;
+  return `${queryLead} = ${percentage}%${suffix} | Marks Calculator | CalcVerse`;
 }
 
-export function generateElectricityTitle(provider: string, state: string): string {
-  return `${provider} Electricity Bill Calculator 2026 | ${state} Per Unit Rate, Slab & Bill Estimator | CalcVerse`;
+export function generateElectricityTitle(provider: string, state: string, slug?: string): string {
+  const titleHintMap: Record<string, string> = {
+    'jusco-bill-calculator': 'JUSCO Electricity Rate in Jamshedpur',
+    'msedcl-bill-calculator': 'MSEDCL Electricity Bill Rate',
+    'bescom-bill-calculator': 'BESCOM Electricity Bill Rate',
+    'kseb-bill-calculator': 'KSEB Electricity Bill Rate',
+    'tpddl-bill-calculator': 'TPDDL Electricity Bill Rate',
+    'bses-rajdhani-bill-calculator': 'BSES Rajdhani Electricity Bill Rate',
+    'wesco-bill-calculator': 'WESCO Electricity Bill Rate',
+    'tangedco-bill-calculator': 'TANGEDCO Electricity Bill Rate',
+    'tneb-bill-calculator': 'TNEB Electricity Bill Rate',
+    'wbsedcl-bill-calculator': 'WBSEDCL Electricity Bill Rate',
+  };
+
+  const queryLead = slug ? titleHintMap[slug] : undefined;
+  if (queryLead) {
+    return `${queryLead} 2026 | ${provider} Calculator (${state}) | CalcVerse`;
+  }
+
+  return `${provider} Bill Calculator (${state}) - Per Unit Rate 2026 | CalcVerse`;
 }
 
 /**

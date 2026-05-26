@@ -5,17 +5,19 @@ import FAQSection from '@/app/components/FAQSection';
 import RelatedCalculators from '@/app/components/RelatedCalculators';
 import { getCanonicalUrl } from '@/lib/seo-utils';
 import {
+  ELECTRICITY_CALCULATOR_CLUSTERS,
   ELECTRICITY_GUIDES,
   ELECTRICITY_HUB_FAQS,
+  ELECTRICITY_PROVIDER_GROUP_FAQS,
   getElectricityCalculatorLinks,
   getElectricityGuideLinks,
   getElectricityHubProviderLinks,
 } from '@/lib/electricity-content';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Electricity Bill Calculators by State, Per Unit Rate & Provider | CalcVerse';
+  const title = 'Electricity Bill India: State Calculators, Unit Rate, Slabs & Tariff Guides | CalcVerse';
   const description =
-    'Calculate electricity bills instantly for JUSCO, MSEDCL, BESCOM, TNEB and more. Compare per unit rate, slab charges, and state-wise electricity calculators.';
+    'Own your electricity bill planning in India with provider calculators, per unit rate pages, slab explainers, and tariff guides for all major state boards.';
   const canonical = getCanonicalUrl('/electricity');
 
   return {
@@ -191,6 +193,69 @@ export default function ElectricityHubPage() {
         <RelatedCalculators calculators={calculatorLinks} title="Provider Calculators" />
       </div>
 
+      <section className="card content-block">
+        <h2>Electricity Calculator Clusters</h2>
+        <p>
+          Explore the full electricity topic map by intent. Each cluster is designed for specific search
+          intent like bill estimate, tariff understanding, or bill reduction planning.
+        </p>
+        <div className="grid calculator-grid">
+          {ELECTRICITY_CALCULATOR_CLUSTERS.map(cluster => (
+            <article key={cluster.title} className="card">
+              <h3>{cluster.title}</h3>
+              <p>{cluster.intent}</p>
+              <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
+                {cluster.links.slice(0, 4).map(link => (
+                  <Link key={link.path} href={link.path} className="btn secondary">
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="card content-block">
+        <h2>Long-Tail Electricity Guides</h2>
+        <p>
+          These guides target the exact search patterns people use when they want a fast answer on units, meter readings, or provider-specific cost checks.
+        </p>
+        <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
+          <Link href="/electricity/electricity-bill-100-units-india" className="btn secondary">
+            100 Units Bill Guide
+          </Link>
+          <Link href="/electricity/electricity-bill-200-units-india" className="btn secondary">
+            200 Units Bill Guide
+          </Link>
+          <Link href="/electricity/how-to-read-electricity-meter-india" className="btn secondary">
+            Read Electricity Meter
+          </Link>
+          <Link href="/electricity/peak-vs-off-peak-electricity-india" className="btn secondary">
+            Peak vs Off-Peak Tariff
+          </Link>
+          <Link href="/electricity/1-kwh-electricity-cost-jharkhand" className="btn secondary">
+            Jharkhand 1 kWh Cost
+          </Link>
+          <Link href="/electricity/summer-electricity-bill-india" className="btn secondary">
+            Summer Bill Planning
+          </Link>
+        </div>
+      </section>
+
+      <section className="card content-block">
+        <h2>Public Reference Data</h2>
+        <p>
+          Need a citeable reference file for provider-level estimation rates? Use this public JSON
+          source for newsroom, blog, and research references.
+        </p>
+        <div className="calc-link-row">
+          <Link href="/electricity-rate-reference-india-2026.json" className="btn secondary">
+            Open Electricity Rate Reference JSON
+          </Link>
+        </div>
+      </section>
+
       <div className="summary-box">
         <strong>Best way to use this hub:</strong> start with your provider page for slab-aware
         estimates, then use the billing guides to verify formula, fixed charges, and effective
@@ -226,6 +291,20 @@ export default function ElectricityHubPage() {
           id={index === 0 ? 'provider-sections' : undefined}
           className="card content-block"
         >
+          <Schema
+            schema={{
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: (ELECTRICITY_PROVIDER_GROUP_FAQS[group.title] || []).map(faq => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer,
+                },
+              })),
+            }}
+          />
           <h2>{group.title} Calculators</h2>
           <p>{group.description}</p>
           <div className="grid calculator-grid electricity-provider-grid">

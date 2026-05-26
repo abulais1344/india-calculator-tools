@@ -1,0 +1,17 @@
+{
+  "source": "CalcVerse",
+  "updated": "2026-05",
+  "description": "Approximate domestic per-unit reference rates used for calculator estimation.",
+  "providers": [
+    { "name": "JUSCO", "state": "Jharkhand", "slug": "jusco-bill-calculator", "unitRate": 7.5 },
+    { "name": "MSEDCL", "state": "Maharashtra", "slug": "msedcl-bill-calculator", "unitRate": 8.2 },
+    { "name": "BESCOM", "state": "Karnataka", "slug": "bescom-bill-calculator", "unitRate": 8.9 },
+    { "name": "KSEB", "state": "Kerala", "slug": "kseb-bill-calculator", "unitRate": 6.5 },
+    { "name": "TPDDL", "state": "Delhi", "slug": "tpddl-bill-calculator", "unitRate": 8.4 },
+    { "name": "BSES Rajdhani", "state": "Delhi", "slug": "bses-rajdhani-bill-calculator", "unitRate": 8.0 },
+    { "name": "WESCO", "state": "Odisha", "slug": "wesco-bill-calculator", "unitRate": 7.2 },
+    { "name": "TANGEDCO", "state": "Tamil Nadu", "slug": "tangedco-bill-calculator", "unitRate": 8.5 },
+    { "name": "TNEB", "state": "Tamil Nadu", "slug": "tneb-bill-calculator", "unitRate": 8.6 },
+    { "name": "WBSEDCL", "state": "West Bengal", "slug": "wbsedcl-bill-calculator", "unitRate": 6.9 }
+  ]
+}

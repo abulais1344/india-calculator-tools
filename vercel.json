@@ -3,29 +3,19 @@
     {
       "source": "/(.*)\\.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
         { "key": "Pragma", "value": "no-cache" }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
         { "key": "Pragma", "value": "no-cache" }
       ]
     }
   ],
   "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/home.html",
-      "permanent": false
-    },
-    {
-      "source": "/:path+/index.html",
-      "destination": "/:path*/",
-      "permanent": true
-    },
     {
       "source": "/(.*)",
       "has": [

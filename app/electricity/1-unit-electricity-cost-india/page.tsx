@@ -5,8 +5,10 @@ import { getElectricityGuide } from '@/lib/electricity-content';
 
 export async function generateMetadata(): Promise<Metadata> {
   const guide = getElectricityGuide('1-unit-electricity-cost-india');
-  const title = `${guide?.title} | CalcVerse`;
-  const description = guide?.description || '';
+  const title = '1 Unit Electricity Cost in India (1 kWh Price) 2026 | CalcVerse';
+  const description =
+    guide?.description ||
+    'Check 1 unit (1 kWh) electricity price in India with formula, examples, and state-wise context for 2026.';
   const canonical = getCanonicalUrl('/electricity/1-unit-electricity-cost-india');
 
   return {

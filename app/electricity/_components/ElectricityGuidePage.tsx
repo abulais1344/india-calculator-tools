@@ -46,6 +46,9 @@ export default function ElectricityGuidePage({
   const planningLinks = [
     getCalculatorById('salary'),
     getCalculatorById('emi'),
+    getCalculatorById('home-loan'),
+    getCalculatorById('sip'),
+    getCalculatorById('income-tax'),
     getCalculatorById('fuel-cost'),
   ].filter((item): item is NonNullable<ReturnType<typeof getCalculatorById>> => Boolean(item));
 
@@ -135,7 +138,7 @@ export default function ElectricityGuidePage({
 
       {planningLinks.length > 0 ? (
         <div className="card content-block">
-          <RelatedCalculators calculators={planningLinks} title="Monthly Budget Tools" />
+          <RelatedCalculators calculators={planningLinks} title="Monthly Budget and Money Tools" />
         </div>
       ) : null}
     </div>
