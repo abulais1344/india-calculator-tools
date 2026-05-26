@@ -845,4 +845,9 @@ label {
     pointer-events: auto;
     transform: translateY(0);
   }
+
+  .nav-dropdown--panel.is-open,
+  .nav-dropdown--panel:focus-within {
+    padding-bottom: 430px;
+  }
 }

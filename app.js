@@ -315,8 +315,13 @@
         return;
       }
 
+      var isPanelDropdown = dropdown.classList.contains("nav-dropdown--panel") || sanitizeText(toggle.textContent).toLowerCase() === "more";
+      if (isPanelDropdown) {
+        dropdown.classList.add("nav-dropdown--panel");
+      }
+
       toggle.addEventListener("click", function (event) {
-        if (!dropdown.classList.contains("nav-dropdown--panel")) {
+        if (!isPanelDropdown) {
           return;
         }
 
