@@ -111,6 +111,9 @@ export default function ElectricityHubPage() {
           <a className="btn secondary" href="#core-guides">
             View Billing Guides
           </a>
+          <a className="btn secondary" href="#solar-electricity">
+            Solar Electricity
+          </a>
           <a className="btn secondary" href="#electricity-faqs">
             View FAQs
           </a>
@@ -156,7 +159,7 @@ export default function ElectricityHubPage() {
               <h3>{cluster.title}</h3>
               <p style={{ fontSize: '0.9em', minHeight: '50px' }}>{cluster.intent}</p>
               <div className="calc-link-row" style={{ flexWrap: 'wrap', gap: '6px' }}>
-                {cluster.links.slice(0, 3).map(link => (
+                {cluster.links.slice(0, cluster.title === 'Advanced Billing Topics' ? 4 : 3).map(link => (
                   <Link key={link.path} href={link.path} className="btn secondary" style={{ fontSize: '0.85em' }}>
                     {link.name}
                   </Link>
@@ -191,6 +194,32 @@ export default function ElectricityHubPage() {
           </Link>
           <Link href="/electricity/how-to-reduce-electricity-bill-india" className="btn secondary">
             Reduce Your Bill
+          </Link>
+        </div>
+      </section>
+
+      <section
+        id="solar-electricity"
+        className="card content-block"
+        style={{ borderLeft: '4px solid #16a34a', background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.08) 0%, rgba(34, 197, 94, 0.06) 100%)' }}
+      >
+        <h2>☀️ Solar Electricity Planning</h2>
+        <p>
+          Planning rooftop solar? Understand net metering, residual electricity bills, and how fixed
+          charges still apply after solar installation.
+        </p>
+        <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
+          <Link href="/electricity/solar-net-metering-bill-explained" className="btn">
+            Solar Net Metering Guide
+          </Link>
+          <Link href="/electricity/fixed-charge-vs-energy-charge" className="btn secondary">
+            Fixed vs Energy Charge
+          </Link>
+          <Link href="/electricity/tod-tariff-time-of-day-explained" className="btn secondary">
+            TOD Tariff for Solar Users
+          </Link>
+          <Link href="/electricity/how-to-reduce-electricity-bill-india" className="btn secondary">
+            Reduce Bill with Usage Strategy
           </Link>
         </div>
       </section>
