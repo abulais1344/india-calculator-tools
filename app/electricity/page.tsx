@@ -2,14 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Schema from '@/app/components/Schema';
 import FAQSection from '@/app/components/FAQSection';
-import RelatedCalculators from '@/app/components/RelatedCalculators';
 import { getCanonicalUrl } from '@/lib/seo-utils';
 import {
   ELECTRICITY_CALCULATOR_CLUSTERS,
   ELECTRICITY_GUIDES,
   ELECTRICITY_HUB_FAQS,
-  ELECTRICITY_PROVIDER_GROUP_FAQS,
-  getElectricityCalculatorLinks,
   getElectricityGuideLinks,
   getElectricityHubProviderLinks,
 } from '@/lib/electricity-content';
@@ -39,73 +36,9 @@ export default function ElectricityHubPage() {
     { name: 'Home', url: '/' },
     { name: 'Electricity', url: '/electricity' },
   ];
-  const calculatorLinks = getElectricityCalculatorLinks();
   const guideLinks = getElectricityGuideLinks();
   const providerGroups = getElectricityHubProviderLinks();
   const totalProviderCount = providerGroups.reduce((count, group) => count + group.providers.length, 0);
-
-  const popularSearchPages = [
-    {
-      title: 'Per Unit Electricity Rate in India',
-      path: '/per-unit-electricity-rate-india.html',
-      description: 'Generic state and slab-level rate query page.',
-    },
-    {
-      title: 'State Electricity Charges in India',
-      path: '/state-electricity-charges-india.html',
-      description: 'Entry page for users comparing state-wise billing differences.',
-    },
-    {
-      title: 'Price of 1 kWh Electricity in India',
-      path: '/what-is-the-price-of-1-kwh-electricity-in-india.html',
-      description: 'Explains 1 unit electricity cost and what changes the actual bill.',
-    },
-    {
-      title: 'JUSCO Electricity Rate',
-      path: '/jusco-electricity-rate.html',
-      description: 'Jamshedpur-focused provider intent page.',
-    },
-    {
-      title: 'MSEDCL Electricity Rate Per Unit',
-      path: '/msedcl-electricity-rate-per-unit.html',
-      description: 'Maharashtra provider-intent landing page.',
-    },
-    {
-      title: 'TPDDL Electricity Rate Per Unit',
-      path: '/tpddl-electricity-rate-per-unit.html',
-      description: 'Delhi provider-intent landing page for per unit and bill estimate searches.',
-    },
-    {
-      title: 'BSES Rajdhani Electricity Rate Per Unit',
-      path: '/bses-rajdhani-electricity-rate-per-unit.html',
-      description: 'Delhi provider-intent page for BSES Rajdhani rate and bill queries.',
-    },
-    {
-      title: 'TNEB Electricity Rate Per Unit',
-      path: '/tneb-electricity-rate-per-unit.html',
-      description: 'Tamil Nadu provider-intent landing page.',
-    },
-    {
-      title: 'KSEB Electricity Rate Per Unit',
-      path: '/kseb-electricity-rate-per-unit.html',
-      description: 'Kerala provider-intent landing page for rate and slab searches.',
-    },
-    {
-      title: 'TANGEDCO Electricity Rate Per Unit',
-      path: '/tangedco-electricity-rate-per-unit.html',
-      description: 'Tamil Nadu provider-intent landing page for TANGEDCO queries.',
-    },
-    {
-      title: 'BESCOM Electricity Rate Per Unit',
-      path: '/bescom-electricity-rate-per-unit.html',
-      description: 'Karnataka provider-intent landing page.',
-    },
-    {
-      title: 'WBSEDCL Electricity Rate Per Unit',
-      path: '/wbsedcl-electricity-rate-per-unit.html',
-      description: 'West Bengal provider-intent landing page.',
-    },
-  ];
 
   return (
     <div className="calculator-container">
@@ -163,8 +96,8 @@ export default function ElectricityHubPage() {
       <section className="hero">
         <h1>Electricity Bill Calculators by State & Provider</h1>
         <p>
-          Find state-wise electricity bill calculators, per unit rate guides, slab-rate explainers,
-          and provider pages in one place. Built for quick monthly bill planning in India.
+          Estimate your electricity bill instantly with slab-aware calculators for {totalProviderCount}+ major
+          providers. Get tariff rates, billing guides, and bill optimization tips in one place.
         </p>
         <div className="blog-meta">
           <span className="chip">{totalProviderCount} Providers</span>
@@ -172,41 +105,59 @@ export default function ElectricityHubPage() {
           <span className="chip">Free and No Signup</span>
         </div>
         <div className="hero-actions">
-          <a className="btn" href="#provider-sections">
-            Browse Providers
+          <a className="btn" href="#start-calculator">
+            Find Your Provider
           </a>
-          <a className="btn secondary" href="#electricity-guides">
-            Open Guides
+          <a className="btn secondary" href="#core-guides">
+            View Billing Guides
           </a>
           <a className="btn secondary" href="#electricity-faqs">
             View FAQs
           </a>
         </div>
-        <p className="safe-private">
-          Use provider cards below to jump directly to your board and estimate bills by units.
-        </p>
       </section>
 
-      <div className="card content-block">
-        <h2>Quick Access: Provider Calculators</h2>
-        <p>Open a provider page directly from this list if you already know your electricity board.</p>
-        <RelatedCalculators calculators={calculatorLinks} title="Provider Calculators" />
-      </div>
+      <section id="start-calculator" className="card content-block">
+        <h2>Find Your Electricity Provider</h2>
+        <p>Select your state to jump directly to your provider&apos;s calculator and start estimating your bill by units.</p>
+        <div className="grid calculator-grid">
+          {providerGroups.map(group => (
+            <div key={group.title} className="card">
+              <h3>{group.title}</h3>
+              <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '12px' }}>
+                {group.providers.length} provider{group.providers.length > 1 ? 's' : ''}
+              </p>
+              <div className="calc-link-row" style={{ flexDirection: 'column', gap: '8px' }}>
+                {group.providers.map(provider => (
+                  <Link
+                    key={provider.slug}
+                    href={`/electricity/${provider.slug}`}
+                    className="btn secondary"
+                    style={{ textAlign: 'left', fontSize: '0.9em' }}
+                  >
+                    {provider.name} ({provider.state})
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="card content-block">
-        <h2>Electricity Calculator Clusters</h2>
+        <h2>Explore by Topic</h2>
         <p>
-          Explore the full electricity topic map by intent. Each cluster is designed for specific search
-          intent like bill estimate, tariff understanding, or bill reduction planning.
+          Navigate electricity calculators and guides by specific intent: bill estimation, tariff
+          understanding, bill reduction, or advanced billing topics.
         </p>
         <div className="grid calculator-grid">
           {ELECTRICITY_CALCULATOR_CLUSTERS.map(cluster => (
             <article key={cluster.title} className="card">
               <h3>{cluster.title}</h3>
-              <p>{cluster.intent}</p>
-              <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
-                {cluster.links.slice(0, 4).map(link => (
-                  <Link key={link.path} href={link.path} className="btn secondary">
+              <p style={{ fontSize: '0.9em', minHeight: '50px' }}>{cluster.intent}</p>
+              <div className="calc-link-row" style={{ flexWrap: 'wrap', gap: '6px' }}>
+                {cluster.links.slice(0, 3).map(link => (
+                  <Link key={link.path} href={link.path} className="btn secondary" style={{ fontSize: '0.85em' }}>
                     {link.name}
                   </Link>
                 ))}
@@ -217,132 +168,60 @@ export default function ElectricityHubPage() {
       </section>
 
       <section className="card content-block">
-        <h2>Long-Tail Electricity Guides</h2>
+        <h2>Quick Answers: Specific Scenarios</h2>
         <p>
-          These guides target the exact search patterns people use when they want a fast answer on units, meter readings, or provider-specific cost checks.
+          Find answers for common electricity questions: 100-unit bills, reading meters, peak vs
+          off-peak tariffs, solar net metering, and more.
         </p>
         <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
           <Link href="/electricity/electricity-bill-100-units-india" className="btn secondary">
-            100 Units Bill Guide
+            100 Units Bill
           </Link>
           <Link href="/electricity/electricity-bill-200-units-india" className="btn secondary">
-            200 Units Bill Guide
+            200 Units Bill
           </Link>
           <Link href="/electricity/how-to-read-electricity-meter-india" className="btn secondary">
-            Read Electricity Meter
+            Read Your Meter
           </Link>
           <Link href="/electricity/peak-vs-off-peak-electricity-india" className="btn secondary">
-            Peak vs Off-Peak Tariff
+            Peak vs Off-Peak
           </Link>
-          <Link href="/electricity/1-kwh-electricity-cost-jharkhand" className="btn secondary">
-            Jharkhand 1 kWh Cost
+          <Link href="/electricity/solar-net-metering-bill-explained" className="btn secondary">
+            Solar Net Metering
           </Link>
-          <Link href="/electricity/summer-electricity-bill-india" className="btn secondary">
-            Summer Bill Planning
+          <Link href="/electricity/how-to-reduce-electricity-bill-india" className="btn secondary">
+            Reduce Your Bill
           </Link>
         </div>
       </section>
 
       <section className="card content-block">
-        <h2>Public Reference Data</h2>
+        <h2>Reference Data</h2>
         <p>
-          Need a citeable reference file for provider-level estimation rates? Use this public JSON
-          source for newsroom, blog, and research references.
+          Use our public JSON reference file for electricity rates across Indian providers.
+          Perfect for newsroom, research, and blog references.
         </p>
         <div className="calc-link-row">
           <Link href="/electricity-rate-reference-india-2026.json" className="btn secondary">
-            Open Electricity Rate Reference JSON
+            View Electricity Rate Reference JSON
           </Link>
         </div>
       </section>
 
-      <div className="summary-box">
-        <strong>Best way to use this hub:</strong> start with your provider page for slab-aware
-        estimates, then use the billing guides to verify formula, fixed charges, and effective
-        unit cost.
-      </div>
-
       <section className="card content-block">
-        <h2>Popular Electricity Rate Searches</h2>
+        <h2>Understand Your Electricity Bill</h2>
         <p>
-          These pages are built for the exact queries people use when they want a rate answer first
-          and a calculator second.
+          Electricity bills combine energy charges, fixed charges, and taxes. Slab pricing means your
+          average rate rises with higher usage. Learn the formula and optimize your bill.
         </p>
-        <div className="grid calculator-grid">
-          {popularSearchPages.map(page => (
-            <article key={page.path} className="card">
-              <h3>{page.title}</h3>
-              <p>{page.description}</p>
-              <div className="calc-link-row">
-                <Link href={page.path} className="btn secondary">
-                  Open Page
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <div className="ad-container">Electricity Calculator Hub - State-wise and Provider-wise Tools</div>
-
-      {providerGroups.map((group, index) => (
-        <section
-          key={group.title}
-          id={index === 0 ? 'provider-sections' : undefined}
-          className="card content-block"
-        >
-          <Schema
-            schema={{
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: (ELECTRICITY_PROVIDER_GROUP_FAQS[group.title] || []).map(faq => ({
-                '@type': 'Question',
-                name: faq.question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: faq.answer,
-                },
-              })),
-            }}
-          />
-          <h2>{group.title} Calculators</h2>
-          <p>{group.description}</p>
-          <div className="grid calculator-grid electricity-provider-grid">
-            {group.providers.map(provider => (
-              <article key={provider.slug} className="card electricity-provider-card">
-                <h3>{provider.name} Bill Calculator</h3>
-                <p>
-                  <strong>State:</strong> {provider.state}
-                </p>
-                <p>
-                  <strong>Approx Rate:</strong> Rs {provider.unitRate.toFixed(2)}/kWh
-                </p>
-                <p>{provider.summary}</p>
-                <div className="calc-link-row">
-                  <Link href={`/electricity/${provider.slug}`} className="btn">
-                    Open {provider.name}
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ))}
-
-      <section className="card content-block">
-        <h2>How Electricity Billing Works in India</h2>
-        <p>
-          Electricity bills usually combine energy charges, fixed charges, and taxes. Slab pricing
-          means your average rate can rise as monthly usage increases.
-        </p>
-        <ul>
-          <li>Read the meter and note the units consumed for the billing period.</li>
-          <li>Multiply units by the applicable slab rate for your provider.</li>
-          <li>Add fixed charges, meter charges, and other provider-specific fees.</li>
-          <li>Check the final estimate with the right provider calculator before paying.</li>
+        <ul style={{ marginBottom: '16px' }}>
+          <li><strong>Read your meter:</strong> Note units consumed for the billing period.</li>
+          <li><strong>Apply slab rates:</strong> Multiply units by the rate for your usage bracket.</li>
+          <li><strong>Add fixed charges:</strong> Include meter charges and provider-specific fees.</li>
+          <li><strong>Calculate taxes:</strong> Factor in duty, surcharges, and applicable GST.</li>
         </ul>
-        <div className="calc-link-row">
-          {ELECTRICITY_GUIDES.slice(0, 4).map(guide => (
+        <div className="calc-link-row" style={{ flexWrap: 'wrap' }}>
+          {ELECTRICITY_GUIDES.slice(0, 6).map(guide => (
             <Link key={guide.slug} className="btn secondary" href={`/electricity/${guide.slug}`}>
               {guide.title}
             </Link>
@@ -350,17 +229,17 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section id="electricity-guides" className="card content-block">
-        <h2>Electricity Guides</h2>
+      <section id="core-guides" className="card content-block">
+        <h2>Core Electricity Guides</h2>
         <p>
-          Read concise explainers for slab rates, per-unit cost, fixed vs energy charges, and bill
-          formulas.
+          Master the fundamentals: learn how bills are calculated, understand slab rates, compare
+          tariff models, and discover ways to reduce your monthly electricity costs.
         </p>
         <div className="grid calculator-grid">
-          {guideLinks.map(link => (
+          {guideLinks.slice(0, 12).map(link => (
             <article key={link.path} className="card">
               <h3>{link.name}</h3>
-              <p>{link.description}</p>
+              <p style={{ fontSize: '0.9em' }}>{link.description}</p>
               <div className="calc-link-row">
                 <Link href={link.path} className="btn secondary">
                   Read Guide
@@ -369,6 +248,13 @@ export default function ElectricityHubPage() {
             </article>
           ))}
         </div>
+        {guideLinks.length > 12 && (
+          <div style={{ marginTop: '24px', textAlign: 'center' }}>
+            <Link href="/electricity/all-guides" className="btn" style={{ display: 'inline-block' }}>
+              View All {guideLinks.length} Guides →
+            </Link>
+          </div>
+        )}
       </section>
 
       <section id="electricity-faqs" className="card content-block">
