@@ -144,8 +144,8 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section className="card content-block">
-        <h2>Explore by Topic</h2>
+      <section className="card content-block" style={{ borderLeft: '4px solid #8b5cf6', background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(168, 85, 247, 0.06) 100%)' }}>
+        <h2>🎯 Explore by Topic</h2>
         <p>
           Navigate electricity calculators and guides by specific intent: bill estimation, tariff
           understanding, bill reduction, or advanced billing topics.
@@ -167,8 +167,8 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section className="card content-block">
-        <h2>Quick Answers: Specific Scenarios</h2>
+      <section className="card content-block" style={{ borderLeft: '4px solid #7c3aed', background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(168, 85, 247, 0.06) 100%)' }}>
+        <h2>❓ Quick Answers: Specific Scenarios</h2>
         <p>
           Find answers for common electricity questions: 100-unit bills, reading meters, peak vs
           off-peak tariffs, solar net metering, and more.
@@ -195,8 +195,8 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section className="card content-block">
-        <h2>Reference Data</h2>
+      <section className="card content-block" style={{ borderLeft: '4px solid #d97706', background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(245, 158, 11, 0.06) 100%)' }}>
+        <h2>🎯 Reference Data</h2>
         <p>
           Use our public JSON reference file for electricity rates across Indian providers.
           Perfect for newsroom, research, and blog references.
@@ -208,8 +208,8 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section className="card content-block">
-        <h2>Understand Your Electricity Bill</h2>
+      <section className="card content-block" style={{ borderLeft: '4px solid #d97706', background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(245, 158, 11, 0.06) 100%)' }}>
+        <h2>📊 Understand Your Electricity Bill</h2>
         <p>
           Electricity bills combine energy charges, fixed charges, and taxes. Slab pricing means your
           average rate rises with higher usage. Learn the formula and optimize your bill.
@@ -229,12 +229,8 @@ export default function ElectricityHubPage() {
         </div>
       </section>
 
-      <section id="core-guides" className="card content-block">
-        <h2>Core Electricity Guides</h2>
-        <p>
-          Master the fundamentals: learn how bills are calculated, understand slab rates, compare
-          tariff models, and discover ways to reduce your monthly electricity costs.
-        </p>
+      <section id="core-guides" className="card content-block" style={{ borderLeft: '4px solid #0891b2', background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(34, 211, 238, 0.06) 100%)' }}>
+        <h2>📚 Core Electricity Guides</h2>
         <div className="grid calculator-grid">
           {guideLinks.slice(0, 12).map(link => (
             <article key={link.path} className="card">
@@ -257,7 +253,8 @@ export default function ElectricityHubPage() {
         )}
       </section>
 
-      <section id="electricity-faqs" className="card content-block">
+      <section id="electricity-faqs" className="card content-block" style={{ borderLeft: '4px solid #6366f1', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%)' }}>
+        <h2>❓ Frequently Asked Questions</h2>
         <FAQSection faqs={ELECTRICITY_HUB_FAQS} />
       </section>
     </div>
