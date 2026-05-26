@@ -251,6 +251,10 @@ export const ELECTRICITY_HUB_FAQS: FAQItem[] = [
     question: 'Are the provider pages updated for 2026?',
     answer: 'Yes. The electricity pages are written for 2026-style planning and are intended for quick estimation, not official billing.',
   },
+  {
+    question: 'Does solar make electricity bill zero?',
+    answer: 'Not always. Even with rooftop solar, fixed charges and provider net-metering settlement rules can leave a residual bill.',
+  },
 ];
 
 export const ELECTRICITY_GUIDES: ElectricityGuideContent[] = [
