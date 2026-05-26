@@ -43,6 +43,30 @@ const ELECTRICITY_SUPPORT_PAGES = [
   "/electricity/fixed-charge-vs-energy-charge",
 ];
 
+const FINANCE_GUIDES = [
+  "best-home-loan-tenure-india",
+  "reduce-emi-without-refinance",
+  "car-loan-down-payment-vs-emi",
+  "personal-loan-eligibility-by-salary",
+  "fixed-vs-floating-home-loan-rate",
+  "should-you-prepay-home-loan-or-invest",
+  "sip-vs-rd-for-monthly-savers",
+  "monthly-sip-target-1-crore",
+  "ppf-vs-sip-15-year-comparison",
+  "income-tax-old-vs-new-regime-checklist",
+  "salary-hike-percent-to-in-hand-impact",
+  "ctc-to-in-hand-common-deductions",
+  "break-even-point-for-small-business-india",
+  "simple-vs-compound-interest-when-to-use",
+  "gst-inclusive-vs-exclusive-price-formula",
+  "fuel-cost-monthly-budget-by-commute",
+  "loan-eligibility-before-home-search",
+  "emergency-fund-vs-prepayment-priority",
+  "rent-vs-buy-home-india-emi-lens",
+  "fd-ladder-strategy-for-stable-cash-flow",
+  "annual-bonus-allocation-rule-india",
+];
+
 const QUERY_LANDING_ROUTES = [
   "/438-out-of-500-as-a-percentage.html",
   "/438-out-of-600-as-a-percentage.html",
@@ -88,8 +112,10 @@ function priorityFor(route) {
   if (route === "/") return "1.0";
   if (route.includes("generator") || route.includes("calculator")) return "0.9";
   if (route === "/electricity") return "0.9";
+  if (route === "/finance") return "0.9";
   if (route.startsWith("/percentage/")) return "0.85";
   if (route.startsWith("/electricity/")) return "0.8";
+  if (route.startsWith("/finance/")) return "0.8";
   if (route.startsWith("/blog/")) return "0.8";
   if (["/about.html", "/contact.html", "/disclaimer.html", "/privacy-policy.html", "/terms.html"].includes(route)) return "0.8";
   return "0.7";
@@ -98,7 +124,8 @@ function priorityFor(route) {
 function freqFor(route) {
   if (route === "/" || route === "/blog/") return "weekly";
   if (route === "/electricity") return "weekly";
-  if (route.startsWith("/percentage/") || route.startsWith("/electricity/")) return "monthly";
+  if (route === "/finance") return "weekly";
+  if (route.startsWith("/percentage/") || route.startsWith("/electricity/") || route.startsWith("/finance/")) return "monthly";
   return "monthly";
 }
 
@@ -117,6 +144,26 @@ function buildSitemapXml(routes) {
     "</urlset>",
     ""
   ].join("\n");
+}
+
+function buildSitemapIndex(entries) {
+  return [
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+    "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">",
+    ...entries.map((name) => [
+      "  <sitemap>",
+      `    <loc>${BASE_URL}/${name}</loc>`,
+      `    <lastmod>${TODAY}</lastmod>`,
+      "  </sitemap>",
+    ].join("\n")),
+    "</sitemapindex>",
+    "",
+  ].join("\n");
+}
+
+function writeToTargets(fileName, content) {
+  fs.writeFileSync(path.join(ROOT, fileName), content, "utf8");
+  fs.writeFileSync(path.join(ROOT, "public", fileName), content, "utf8");
 }
 
 // Get all static HTML routes
@@ -142,33 +189,65 @@ const electricityRoutes = ELECTRICITY_PROVIDERS.map(
 // Add electricity hub and supporting guides
 const electricitySupportRoutes = ELECTRICITY_SUPPORT_PAGES;
 
-// Combine all routes
-routes = [...new Set([...routes, ...percentageRoutes, ...electricityRoutes, ...electricitySupportRoutes, ...QUERY_LANDING_ROUTES])].sort((a, b) =>
+// Add finance long-tail route pages
+const financeRoutes = ["/finance", ...FINANCE_GUIDES.map((slug) => `/finance/${slug}`)];
+
+// Split static routes into core and blog clusters
+const staticBlogRoutes = routes.filter((route) => route.startsWith("/blog/"));
+const staticCoreRoutes = routes.filter((route) => !route.startsWith("/blog/"));
+
+// Add query pages to core sitemap bucket
+const coreRoutes = [...new Set([...staticCoreRoutes, ...QUERY_LANDING_ROUTES])].sort((a, b) =>
   a.localeCompare(b)
 );
 
-const xml = buildSitemapXml(routes);
-const percentageXml = buildSitemapXml(percentageRoutes);
-const electricityXml = buildSitemapXml([...electricityRoutes, ...electricitySupportRoutes]);
+const blogRoutes = [...new Set(staticBlogRoutes)].sort((a, b) => a.localeCompare(b));
+const percentageSitemapRoutes = [...new Set(percentageRoutes)].sort((a, b) => a.localeCompare(b));
+const electricitySitemapRoutes = [...new Set([...electricityRoutes, ...electricitySupportRoutes])].sort((a, b) =>
+  a.localeCompare(b)
+);
+const financeSitemapRoutes = [...new Set(financeRoutes)].sort((a, b) => a.localeCompare(b));
 
-fs.writeFileSync(path.join(ROOT, "public", "sitemap.xml"), xml, "utf8");
-fs.writeFileSync(path.join(ROOT, "public", "sitemap-percentage.xml"), percentageXml, "utf8");
-fs.writeFileSync(path.join(ROOT, "public", "sitemap-electricity.xml"), electricityXml, "utf8");
+// Combined route count for diagnostics only
+const allRoutes = [...new Set([...coreRoutes, ...blogRoutes, ...percentageSitemapRoutes, ...electricitySitemapRoutes, ...financeSitemapRoutes])].sort((a, b) =>
+  a.localeCompare(b)
+);
+
+const coreXml = buildSitemapXml(coreRoutes);
+const blogXml = buildSitemapXml(blogRoutes);
+const percentageXml = buildSitemapXml(percentageSitemapRoutes);
+const electricityXml = buildSitemapXml(electricitySitemapRoutes);
+const financeXml = buildSitemapXml(financeSitemapRoutes);
+const sitemapIndexXml = buildSitemapIndex([
+  "sitemap-core.xml",
+  "sitemap-blog.xml",
+  "sitemap-percentage.xml",
+  "sitemap-electricity.xml",
+  "sitemap-finance.xml",
+]);
+
+writeToTargets("sitemap.xml", sitemapIndexXml);
+writeToTargets("sitemap-core.xml", coreXml);
+writeToTargets("sitemap-blog.xml", blogXml);
+writeToTargets("sitemap-percentage.xml", percentageXml);
+writeToTargets("sitemap-electricity.xml", electricityXml);
+writeToTargets("sitemap-finance.xml", financeXml);
 
 const robots = [
   "User-agent: *",
   "Allow: /",
   "",
   `Sitemap: ${BASE_URL}/sitemap.xml`,
-  `Sitemap: ${BASE_URL}/sitemap-percentage.xml`,
-  `Sitemap: ${BASE_URL}/sitemap-electricity.xml`,
   ""
 ].join("\n");
 
+fs.writeFileSync(path.join(ROOT, "robots.txt"), robots, "utf8");
 fs.writeFileSync(path.join(ROOT, "public", "robots.txt"), robots, "utf8");
 
-console.log(`✅ Sitemap generated successfully!`);
-console.log(`   Total URLs: ${routes.length}`);
-console.log(`   Static URLs: ${htmlFiles.length}`);
-console.log(`   Percentage pages: ${percentageRoutes.length}`);
-console.log(`   Electricity pages: ${electricityRoutes.length + electricitySupportRoutes.length}`);
+console.log(`✅ Sitemap index generated successfully!`);
+console.log(`   Total URLs: ${allRoutes.length}`);
+console.log(`   Static core URLs: ${coreRoutes.length}`);
+console.log(`   Static blog URLs: ${blogRoutes.length}`);
+console.log(`   Percentage pages: ${percentageSitemapRoutes.length}`);
+console.log(`   Electricity pages: ${electricitySitemapRoutes.length}`);
+console.log(`   Finance pages: ${financeSitemapRoutes.length}`);

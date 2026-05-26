@@ -2,5 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://calcverse.in/sitemap.xml
-Sitemap: https://calcverse.in/sitemap-percentage.xml
-Sitemap: https://calcverse.in/sitemap-electricity.xml
