@@ -68,13 +68,18 @@ const FINANCE_GUIDES = [
 ];
 
 const QUERY_LANDING_ROUTES = [
+];
+
+const LEGACY_PERCENTAGE_DUPLICATE_ROUTES = new Set([
   "/438-out-of-500-as-a-percentage.html",
   "/438-out-of-600-as-a-percentage.html",
-  "/age-calculator-of-india.html",
+]);
+
+const LEGACY_ELECTRICITY_DUPLICATE_ROUTES = new Set([
   "/bescom-electricity-rate-per-unit.html",
   "/bses-rajdhani-electricity-rate-per-unit.html",
-  "/jusco-electricity-rate.html",
   "/jusco-electricity-bill-rate-per-unit-in-jamshedpur.html",
+  "/jusco-electricity-rate.html",
   "/kseb-electricity-rate-per-unit.html",
   "/msedcl-electricity-rate-per-unit.html",
   "/per-unit-electricity-rate-india.html",
@@ -84,7 +89,7 @@ const QUERY_LANDING_ROUTES = [
   "/tpddl-electricity-rate-per-unit.html",
   "/what-is-the-price-of-1-kwh-electricity-in-india.html",
   "/wbsedcl-electricity-rate-per-unit.html",
-];
+]);
 
 function walkHtml(dir) {
   const out = [];
@@ -175,6 +180,12 @@ let routes = htmlFiles
 
 // Exclude Google verification files from sitemap; these are not SEO landing pages.
 routes = routes.filter((route) => !/^\/google[a-z0-9]+\.html$/i.test(route));
+
+// Keep legacy percentage HTML pages out of sitemap once canonical app routes exist.
+routes = routes.filter((route) => !LEGACY_PERCENTAGE_DUPLICATE_ROUTES.has(route));
+
+// Keep legacy electricity HTML pages out of sitemap once canonical app routes exist.
+routes = routes.filter((route) => !LEGACY_ELECTRICITY_DUPLICATE_ROUTES.has(route));
 
 // Add dynamic percentage calculator pages (from GSC top searches)
 const percentageRoutes = TOP_PERCENTAGES.map(

@@ -37,6 +37,76 @@
       "permanent": false
     },
     {
+      "source": "/438-out-of-500-as-a-percentage.html",
+      "destination": "/percentage/438-out-of-500",
+      "permanent": true
+    },
+    {
+      "source": "/438-out-of-600-as-a-percentage.html",
+      "destination": "/percentage/438-out-of-600",
+      "permanent": true
+    },
+    {
+      "source": "/jusco-electricity-bill-rate-per-unit-in-jamshedpur.html",
+      "destination": "/electricity/jusco-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/per-unit-electricity-rate-india.html",
+      "destination": "/electricity",
+      "permanent": true
+    },
+    {
+      "source": "/state-electricity-charges-india.html",
+      "destination": "/electricity",
+      "permanent": true
+    },
+    {
+      "source": "/what-is-the-price-of-1-kwh-electricity-in-india.html",
+      "destination": "/electricity/1-unit-electricity-cost-india",
+      "permanent": true
+    },
+    {
+      "source": "/bescom-electricity-rate-per-unit.html",
+      "destination": "/electricity/bescom-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/bses-rajdhani-electricity-rate-per-unit.html",
+      "destination": "/electricity/bses-rajdhani-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/kseb-electricity-rate-per-unit.html",
+      "destination": "/electricity/kseb-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/msedcl-electricity-rate-per-unit.html",
+      "destination": "/electricity/msedcl-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tangedco-electricity-rate-per-unit.html",
+      "destination": "/electricity/tangedco-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tneb-electricity-rate-per-unit.html",
+      "destination": "/electricity/tneb-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tpddl-electricity-rate-per-unit.html",
+      "destination": "/electricity/tpddl-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/wbsedcl-electricity-rate-per-unit.html",
+      "destination": "/electricity/wbsedcl-bill-calculator",
+      "permanent": true
+    },
+    {
       "source": "/:path+/index.html",
       "destination": "/:path*/",
       "permanent": true
