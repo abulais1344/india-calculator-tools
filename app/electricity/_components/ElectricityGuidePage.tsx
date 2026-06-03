@@ -103,7 +103,7 @@ export default function ElectricityGuidePage({
         </ul>
         <div className="calc-link-row">
           <Link href="/electricity" className="btn">Open Electricity Hub</Link>
-          <Link href="/electricity-bill-calculator.html" className="btn secondary">Bill Calculator</Link>
+          <a href="/electricity-bill-calculator.html" className="btn secondary">Bill Calculator</a>
           {calculators.slice(0, 1).map(calculator => (
             <Link key={calculator.id} href={calculator.path} className="btn secondary">
               Open Provider Page

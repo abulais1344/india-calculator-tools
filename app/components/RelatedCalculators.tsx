@@ -23,14 +23,17 @@ export default function RelatedCalculators({
       <h3>{title}</h3>
       <div className="grid calculator-grid">
         {calculators.map(calc => (
-          <Link
-            key={calc.id}
-            href={calc.path}
-            className="card"
-          >
-            <h4>{calc.name}</h4>
-            <p>{calc.description}</p>
-          </Link>
+          calc.path.endsWith('.html') ? (
+            <a key={calc.id} href={calc.path} className="card">
+              <h4>{calc.name}</h4>
+              <p>{calc.description}</p>
+            </a>
+          ) : (
+            <Link key={calc.id} href={calc.path} className="card">
+              <h4>{calc.name}</h4>
+              <p>{calc.description}</p>
+            </Link>
+          )
         ))}
       </div>
     </section>

@@ -145,9 +145,9 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
       <div className="card content-block">
         <h2>What Most {provider.name} Users Check Next</h2>
         <div className="calc-link-row">
-          <Link href="/electricity-bill-calculator.html" className="btn">
+          <a href="/electricity-bill-calculator.html" className="btn">
             Generic Electricity Bill Calculator
-          </Link>
+          </a>
           {guideLinks.slice(0, 2).map(link => (
             <Link key={link.path} href={link.path} className="btn secondary">
               {link.name}
