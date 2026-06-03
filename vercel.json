@@ -52,6 +52,11 @@
       "permanent": true
     },
     {
+      "source": "/jusco-electricity-rate.html",
+      "destination": "/electricity/jusco-bill-calculator",
+      "permanent": true
+    },
+    {
       "source": "/per-unit-electricity-rate-india.html",
       "destination": "/electricity",
       "permanent": true
