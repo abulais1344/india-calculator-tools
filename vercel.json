@@ -42,6 +42,11 @@
       "permanent": true
     },
     {
+      "source": "/age-calculator-of-india.html",
+      "destination": "/age-calculator.html",
+      "permanent": true
+    },
+    {
       "source": "/438-out-of-600-as-a-percentage.html",
       "destination": "/percentage/438-out-of-600",
       "permanent": true
