@@ -306,8 +306,8 @@ export const ELECTRICITY_GUIDES: ElectricityGuideContent[] = [
   },
   {
     slug: '1-unit-electricity-cost-india',
-    title: '1 Unit Electricity Cost in India (1 kWh Price)',
-    description: 'Check 1 unit (1 kWh) electricity price in India and estimate bill impact by state and slab.',
+    title: '1 Unit = 1 kWh: Electricity Cost per Unit in India',
+    description: '1 unit of electricity = 1 kWh. See what 1 unit costs in India (roughly Rs 3 to Rs 10+ by state and slab), how to work out your real cost per unit, and examples.',
     answer: 'One unit of electricity equals 1 kWh, but the rupee cost of that unit changes by state, provider, slab, and consumer category.',
     bullets: [
       '1 unit = 1 kilowatt-hour, which is the standard billing measure.',
@@ -321,6 +321,7 @@ export const ELECTRICITY_GUIDES: ElectricityGuideContent[] = [
     ],
     faqs: [
       { question: 'What does 1 unit mean in electricity?', answer: 'One unit means one kilowatt-hour, or 1 kWh, of electricity consumed.' },
+      { question: '1 kWh is equal to how many units?', answer: '1 kWh is exactly 1 unit on your electricity bill. For example, a 1000-watt appliance running for 1 hour uses 1 unit.' },
       { question: 'Why is the effective cost per unit not the same as the tariff?', answer: 'Fixed charges, taxes, and slab changes alter the final average cost.' },
       { question: 'Is the unit cost same in every state?', answer: 'No, tariff rates differ by provider and region.' },
     ],
