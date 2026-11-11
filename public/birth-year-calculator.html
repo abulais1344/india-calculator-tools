@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birth Year Calculator – Find Birth Year from Age &amp; Age from Year | CalcVerse</title>
+  <meta name="description" content="Year calculator: find which year you were born from your age, how old you will be in any year, or the number of years between two years. Includes a birth year to age table for 2026.">
+
+  <link rel="canonical" href="https://calcverse.in/birth-year-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Birth Year Calculator – Find Birth Year from Age &amp; Age from Year | CalcVerse">
+  <meta property="og:description" content="Find which year you were born from your age, how old you will be in any year, or the years between two years.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/birth-year-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Birth Year Calculator – Find Birth Year from Age &amp; Age from Year | CalcVerse">
+  <meta name="twitter:description" content="Find which year you were born from your age, how old you will be in any year, or the years between two years.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I find my birth year from my age?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract your age from the current year. If your birthday has already passed this year, that is your birth year. If your birthday is still to come, subtract one more year. For example, someone who is 25 in 2026 was born in 2001 if their birthday has passed, or in 2000 if it has not."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How old will I be in a given year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract your birth year from the target year. That is the age you turn on your birthday in that year. Before your birthday you are one year younger. For example, someone born in 1995 turns 31 in 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the calculator show two possible answers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Age and year alone cannot tell whether your birthday has already happened this year. The answer differs by one year depending on that, so both possibilities are shown. For an exact answer, use the Age Calculator with your full date of birth."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Age Calculator", "item": "https://calcverse.in/age-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "Birth Year Calculator", "item": "https://calcverse.in/birth-year-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .yc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .yc-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .yc-table-wrap { overflow-x: auto; }
+    .yc-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .yc-table th, .yc-table td { text-align: left; padding: 7px 10px; border-bottom: 1px solid #e3ece6; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Birth Year Calculator</h1>
+        <p>Find which year you were born from your age, how old you will be in any year, or how many years lie between two years.</p>
+      </section>
+
+      <section class="card">
+        <div class="yc-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" data-mode="fromAge" aria-pressed="true">Age → Birth Year</button>
+          <button type="button" data-mode="fromYear" aria-pressed="false">Birth Year → Age</button>
+          <button type="button" data-mode="between" aria-pressed="false">Years Between</button>
+        </div>
+
+        <div data-panel="fromAge">
+          <h2>Which year was I born?</h2>
+          <div class="field inline-row">
+            <div>
+              <label for="ycAge">Your age (years)</label>
+              <input id="ycAge" type="number" min="0" max="130" step="1" placeholder="Example: 25">
+            </div>
+            <div>
+              <label for="ycRefYear">In year</label>
+              <input id="ycRefYear" type="number" min="1900" max="2200" step="1">
+            </div>
+          </div>
+        </div>
+
+        <div data-panel="fromYear" hidden>
+          <h2>How old will I be?</h2>
+          <div class="field inline-row">
+            <div>
+              <label for="ycBornYear">Birth year</label>
+              <input id="ycBornYear" type="number" min="1900" max="2200" step="1" placeholder="Example: 1995">
+            </div>
+            <div>
+              <label for="ycTargetYear">Age in year</label>
+              <input id="ycTargetYear" type="number" min="1900" max="2200" step="1">
+            </div>
+          </div>
+        </div>
+
+        <div data-panel="between" hidden>
+          <h2>Years between two years</h2>
+          <div class="field inline-row">
+            <div>
+              <label for="ycFromYear">From year</label>
+              <input id="ycFromYear" type="number" min="1" max="9999" step="1" placeholder="Example: 1947">
+            </div>
+            <div>
+              <label for="ycToYear">To year</label>
+              <input id="ycToYear" type="number" min="1" max="9999" step="1">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="ycBtn" type="button">Calculate</button>
+        </div>
+        <p id="ycError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div id="ycResult" class="result-value">Result: -</div>
+          <div class="steps" id="ycDetail"></div>
+        </div>
+        <p style="margin-top: 1rem;">Know your full date of birth? The <a href="age-calculator.html">Age Calculator</a> gives your exact age in years, months and days.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Birth Year to Age Table (<span class="yc-cur-year">2026</span>)</h2>
+        <p>Find your birth year in the table to see how old you are in <span class="yc-cur-year">2026</span>. The first number is your age before your birthday this year, the second is your age after it.</p>
+        <div class="yc-table-wrap">
+          <table class="yc-table">
+            <thead><tr><th>Birth year</th><th>Age before birthday</th><th>Age after birthday</th></tr></thead>
+            <tbody id="ycTable">
+              <tr><td>2025</td><td>0</td><td>1</td></tr>
+              <tr><td>2024</td><td>1</td><td>2</td></tr>
+              <tr><td>2023</td><td>2</td><td>3</td></tr>
+              <tr><td>2022</td><td>3</td><td>4</td></tr>
+              <tr><td>2021</td><td>4</td><td>5</td></tr>
+              <tr><td>2020</td><td>5</td><td>6</td></tr>
+              <tr><td>2019</td><td>6</td><td>7</td></tr>
+              <tr><td>2018</td><td>7</td><td>8</td></tr>
+              <tr><td>2017</td><td>8</td><td>9</td></tr>
+              <tr><td>2016</td><td>9</td><td>10</td></tr>
+              <tr><td>2015</td><td>10</td><td>11</td></tr>
+              <tr><td>2014</td><td>11</td><td>12</td></tr>
+              <tr><td>2013</td><td>12</td><td>13</td></tr>
+              <tr><td>2012</td><td>13</td><td>14</td></tr>
+              <tr><td>2011</td><td>14</td><td>15</td></tr>
+              <tr><td>2010</td><td>15</td><td>16</td></tr>
+              <tr><td>2009</td><td>16</td><td>17</td></tr>
+              <tr><td>2008</td><td>17</td><td>18</td></tr>
+              <tr><td>2007</td><td>18</td><td>19</td></tr>
+              <tr><td>2006</td><td>19</td><td>20</td></tr>
+              <tr><td>2005</td><td>20</td><td>21</td></tr>
+              <tr><td>2004</td><td>21</td><td>22</td></tr>
+              <tr><td>2003</td><td>22</td><td>23</td></tr>
+              <tr><td>2002</td><td>23</td><td>24</td></tr>
+              <tr><td>2001</td><td>24</td><td>25</td></tr>
+              <tr><td>2000</td><td>25</td><td>26</td></tr>
+              <tr><td>1999</td><td>26</td><td>27</td></tr>
+              <tr><td>1998</td><td>27</td><td>28</td></tr>
+              <tr><td>1997</td><td>28</td><td>29</td></tr>
+              <tr><td>1996</td><td>29</td><td>30</td></tr>
+              <tr><td>1995</td><td>30</td><td>31</td></tr>
+              <tr><td>1994</td><td>31</td><td>32</td></tr>
+              <tr><td>1993</td><td>32</td><td>33</td></tr>
+              <tr><td>1992</td><td>33</td><td>34</td></tr>
+              <tr><td>1991</td><td>34</td><td>35</td></tr>
+              <tr><td>1990</td><td>35</td><td>36</td></tr>
+              <tr><td>1989</td><td>36</td><td>37</td></tr>
+              <tr><td>1988</td><td>37</td><td>38</td></tr>
+              <tr><td>1987</td><td>38</td><td>39</td></tr>
+              <tr><td>1986</td><td>39</td><td>40</td></tr>
+              <tr><td>1985</td><td>40</td><td>41</td></tr>
+              <tr><td>1984</td><td>41</td><td>42</td></tr>
+              <tr><td>1983</td><td>42</td><td>43</td></tr>
+              <tr><td>1982</td><td>43</td><td>44</td></tr>
+              <tr><td>1981</td><td>44</td><td>45</td></tr>
+              <tr><td>1980</td><td>45</td><td>46</td></tr>
+              <tr><td>1979</td><td>46</td><td>47</td></tr>
+              <tr><td>1978</td><td>47</td><td>48</td></tr>
+              <tr><td>1977</td><td>48</td><td>49</td></tr>
+              <tr><td>1976</td><td>49</td><td>50</td></tr>
+              <tr><td>1975</td><td>50</td><td>51</td></tr>
+              <tr><td>1974</td><td>51</td><td>52</td></tr>
+              <tr><td>1973</td><td>52</td><td>53</td></tr>
+              <tr><td>1972</td><td>53</td><td>54</td></tr>
+              <tr><td>1971</td><td>54</td><td>55</td></tr>
+              <tr><td>1970</td><td>55</td><td>56</td></tr>
+              <tr><td>1969</td><td>56</td><td>57</td></tr>
+              <tr><td>1968</td><td>57</td><td>58</td></tr>
+              <tr><td>1967</td><td>58</td><td>59</td></tr>
+              <tr><td>1966</td><td>59</td><td>60</td></tr>
+              <tr><td>1965</td><td>60</td><td>61</td></tr>
+              <tr><td>1964</td><td>61</td><td>62</td></tr>
+              <tr><td>1963</td><td>62</td><td>63</td></tr>
+              <tr><td>1962</td><td>63</td><td>64</td></tr>
+              <tr><td>1961</td><td>64</td><td>65</td></tr>
+              <tr><td>1960</td><td>65</td><td>66</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h2>How the Year Calculator Works</h2>
+        <p><strong>Birth year from age:</strong> subtract your age from the current year. If your birthday has already happened this year, that is your birth year. If not, you were born one year earlier. For example, if you are 25 in 2026, you were born in <strong>2001</strong> if your birthday has passed, or <strong>2000</strong> if it has not.</p>
+        <p><strong>Age from birth year:</strong> subtract your birth year from the target year to get the age you turn on your birthday that year. For example, someone born in <strong>1995</strong> turns <strong>31</strong> in 2026 and is 30 until their birthday.</p>
+        <p><strong>Years between two years:</strong> subtract the earlier year from the later one. For example, from 1947 to 2026 is 79 years.</p>
+        <p>Because a year alone does not say whether your birthday has passed, results that depend on it show both possible answers. For an exact age on a specific date, such as an exam cut-off, use the <a href="age-as-on-date-calculator.html">Age As On Date Calculator</a>.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How do I find my birth year from my age?</h4>
+          <p>Subtract your age from the current year. If your birthday has already passed this year, that is your birth year. If your birthday is still to come, subtract one more year. For example, someone who is 25 in 2026 was born in 2001 if their birthday has passed, or in 2000 if it has not.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How old will I be in a given year?</h4>
+          <p>Subtract your birth year from the target year. That is the age you turn on your birthday in that year. Before your birthday you are one year younger. For example, someone born in 1995 turns 31 in 2026.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Why does the calculator show two possible answers?</h4>
+          <p>Age and year alone cannot tell whether your birthday has already happened this year. The answer differs by one year depending on that, so both possibilities are shown. For an exact answer, use the Age Calculator with your full date of birth.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Age Tools</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+          <a class="btn secondary" href="birthday-calculator.html">Birthday Calculator</a>
+          <a class="btn secondary" href="age-as-on-date-calculator.html">Age As On Date (Exams)</a>
+          <a class="btn secondary" href="percentage-calculator.html">Percentage Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    var CUR = new Date().getFullYear();
+    var mode = "fromAge";
+    var resEl = $("ycResult"), detEl = $("ycDetail"), errEl = $("ycError");
+    $("ycRefYear").value = CUR; $("ycTargetYear").value = CUR; $("ycToYear").value = CUR;
+
+    // Keep the static table current if the page is viewed in a later year.
+    if (CUR !== 2026) {
+      var rows = "";
+      for (var y = CUR - 1; y >= CUR - 66; y--) rows += "<tr><td>" + y + "</td><td>" + Math.max(CUR - y - 1, 0) + "</td><td>" + (CUR - y) + "</td></tr>";
+      $("ycTable").innerHTML = rows;
+      Array.prototype.forEach.call(document.querySelectorAll(".yc-cur-year"), function (el) { el.textContent = CUR; });
+    }
+
+    function intVal(id) { var v = $(id).value.trim(); return /^\d+$/.test(v) ? parseInt(v, 10) : null; }
+    function show(main, detail) { errEl.textContent = ""; resEl.textContent = main; detEl.textContent = detail || ""; }
+    function fail(msg) { errEl.textContent = msg; resEl.textContent = "Result: -"; detEl.textContent = ""; }
+
+    function calculate() {
+      if (mode === "fromAge") {
+        var age = intVal("ycAge"), ref = intVal("ycRefYear");
+        if (age === null || age > 130) return fail("Please enter a valid age in whole years.");
+        if (ref === null) return fail("Please enter a valid year.");
+        var after = ref - age, before = ref - age - 1;
+        return show("You were born in " + after + " or " + before,
+          "Born in " + after + " if your birthday has already passed in " + ref + "; born in " + before + " if it has not.");
+      }
+      if (mode === "fromYear") {
+        var born = intVal("ycBornYear"), target = intVal("ycTargetYear");
+        if (born === null || target === null) return fail("Please enter both years.");
+        if (target < born) return fail("The target year must be the same as or after the birth year.");
+        var turn = target - born;
+        if (turn === 0) return show("Born in " + born, "In " + target + " you are 0 years old (your first birthday comes in " + (born + 1) + ").");
+        return show("You turn " + turn + " in " + target,
+          "Age " + (turn - 1) + " before your birthday in " + target + ", and " + turn + " after it.");
+      }
+      var a = intVal("ycFromYear"), b = intVal("ycToYear");
+      if (a === null || b === null) return fail("Please enter both years.");
+      var diff = Math.abs(b - a);
+      show(diff + (diff === 1 ? " year" : " years") + " between " + Math.min(a, b) + " and " + Math.max(a, b),
+        "That is about " + (diff * 12).toLocaleString("en-IN") + " months, or " + (diff / 10).toFixed(1).replace(/\.0$/, "") + " decades.");
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        errEl.textContent = ""; resEl.textContent = "Result: -"; detEl.textContent = "";
+      });
+    });
+    $("ycBtn").addEventListener("click", calculate);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-panel] input"), function (el) {
+      el.addEventListener("keydown", function (e) { if (e.key === "Enter") calculate(); });
+    });
+  })();
+  </script>
+</body>
+</html>
