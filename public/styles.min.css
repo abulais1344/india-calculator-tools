@@ -851,3 +851,18 @@ label {
     padding-bottom: 430px;
   }
 }
+
+/* Live AdSense units: drop placeholder styling, collapse when no ad is served */
+.ad-container.ad-live {
+  display: block;
+  border: 0;
+  background: none;
+  padding: 0;
+  min-height: 0;
+  border-radius: 0;
+}
+
+.ad-container.ad-live:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
