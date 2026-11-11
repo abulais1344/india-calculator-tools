@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Calculator – Days Until Next Birthday &amp; Day You Were Born | CalcVerse</title>
+  <meta name="description" content="Find how many days are left until your next birthday, which day of the week you were born, the age you will turn, and the weekday of your next 5 birthdays. Free and instant.">
+
+  <link rel="canonical" href="https://calcverse.in/birthday-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Birthday Calculator – Days Until Next Birthday &amp; Day You Were Born | CalcVerse">
+  <meta property="og:description" content="Find how many days are left until your next birthday, which day of the week you were born, the age you will turn, and the weekday of your next 5 birthdays. Free and instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/birthday-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Birthday Calculator – Days Until Next Birthday &amp; Day You Were Born | CalcVerse">
+  <meta name="twitter:description" content="Find how many days are left until your next birthday, which day of the week you were born, the age you will turn, and the weekday of your next 5 birthdays. Free and instant.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many days are left until my birthday?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your date of birth in the birthday calculator. It counts the exact number of days from today to your next birthday, including leap years, and also shows the date and weekday of that birthday."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I find which day of the week I was born?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your date of birth and the calculator shows the weekday you were born on. For example, 15 August 2000 was a Tuesday."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When do people born on 29 February celebrate their birthday?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "29 February only exists in leap years. In other years most people celebrate on 28 February or 1 March. This calculator uses 28 February in non-leap years and shows the real 29 February date in leap years."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this birthday calculator free and private?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It is free, needs no login, and all calculations run in your browser. Your date of birth is not stored or sent anywhere."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Age Calculator", "item": "https://calcverse.in/age-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "Birthday Calculator", "item": "https://calcverse.in/birthday-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .bday-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }
+    .bday-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .bday-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .bday-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+    .bday-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .bday-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .bday-table th, .bday-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+    .bday-note { font-size: 0.9rem; color: #5b6f63; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="emi-calculator.html">EMI</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="income-tax-calculator.html">Income Tax</a>
+        <a href="salary-calculator.html">Salary</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Birthday Calculator</h1>
+        <p>Find out how many days are left until your next birthday, the age you will turn, and which day of the week you were born.</p>
+      </section>
+
+      <section class="card">
+        <h2>Calculate Your Birthday</h2>
+
+        <div class="field inline-row">
+          <div>
+            <label for="bdayDob">Date of Birth</label>
+            <input id="bdayDob" type="date" max="9999-12-31">
+          </div>
+          <div>
+            <label for="bdayFrom">Count From (Optional, default today)</label>
+            <input id="bdayFrom" type="date" max="9999-12-31">
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="bdayBtn" type="button">Calculate Birthday</button>
+        </div>
+
+        <p id="bdayError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div id="bdayHeadline" class="result-value">Next birthday: -</div>
+          <div class="bday-stats" id="bdayStats" hidden>
+            <div class="bday-stat"><div class="label">Days until birthday</div><div class="value" id="bdayDays">-</div></div>
+            <div class="bday-stat"><div class="label">Next birthday falls on</div><div class="value" id="bdayNextDay">-</div></div>
+            <div class="bday-stat"><div class="label">You will turn</div><div class="value" id="bdayTurning">-</div></div>
+            <div class="bday-stat"><div class="label">You were born on a</div><div class="value" id="bdayBornDay">-</div></div>
+            <div class="bday-stat"><div class="label">Current age</div><div class="value" id="bdayAge">-</div></div>
+            <div class="bday-stat"><div class="label">Days lived so far</div><div class="value" id="bdayLived">-</div></div>
+          </div>
+          <div class="bday-table-wrap" id="bdayUpcomingWrap" hidden>
+            <table class="bday-table">
+              <thead><tr><th>Year</th><th>Birthday</th><th>Day</th><th>Age</th></tr></thead>
+              <tbody id="bdayUpcoming"></tbody>
+            </table>
+          </div>
+          <p class="bday-note" id="bdayNote" hidden></p>
+        </div>
+        <button id="bdayCopyBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+        <p style="margin-top: 1rem;">Need your exact age in years, months and days for a form? Use the <a href="age-calculator.html">Age Calculator</a>.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How to Use the Birthday Calculator</h2>
+        <p>Enter your date of birth and press <strong>Calculate Birthday</strong>. The calculator instantly shows:</p>
+        <ul>
+          <li><strong>Days until your next birthday</strong>, counted exactly from today.</li>
+          <li><strong>The date and weekday</strong> of your next birthday, so you can plan a celebration or a day off.</li>
+          <li><strong>The age you will turn</strong> on that birthday.</li>
+          <li><strong>The day of the week you were born</strong>, such as Monday or Saturday.</li>
+          <li><strong>Your next 5 birthdays</strong> with the weekday each one falls on.</li>
+        </ul>
+        <p>You can also fill in the optional <strong>Count From</strong> date to see the countdown from any other day. This is handy when you are planning a party or booking travel in advance.</p>
+
+        <h2>Example</h2>
+        <p>Suppose you were born on <strong>15 August 2000</strong>. That was a <strong>Tuesday</strong>. Counting from 11 November 2026, your next birthday is on 15 August 2027, a Sunday. That is <strong>277 days away</strong>, and you will turn <strong>27</strong>. By 11 November 2026 you would have lived 9,584 days.</p>
+
+        <h2>Birthdays on 29 February</h2>
+        <p>If you were born on 29 February, your exact birthday only comes once every four years, in a leap year. In other years, most people celebrate on 28 February or 1 March. This calculator uses <strong>28 February</strong> in non-leap years and the real <strong>29 February</strong> in leap years. For example, someone born on 29 February 2004 (a Sunday) celebrates on 28 February 2027 and has a true birthday again on 29 February 2028, a Tuesday.</p>
+
+        <h2>How the Countdown Is Calculated</h2>
+        <p>The calculator takes your birth day and month and places them in the current year. If that date has already passed, it moves to next year. It then counts the calendar days between today and that date, allowing for months of different lengths and leap years. Because everything runs in your browser, the result is instant and your date of birth is never stored or sent anywhere.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How many days are left until my birthday?</h4>
+          <p>Enter your date of birth in the birthday calculator. It counts the exact number of days from today to your next birthday, including leap years, and also shows the date and weekday of that birthday.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I find which day of the week I was born?</h4>
+          <p>Enter your date of birth and the calculator shows the weekday you were born on. For example, 15 August 2000 was a Tuesday.</p>
+        </div>
+        <div class="faq-item">
+          <h4>When do people born on 29 February celebrate their birthday?</h4>
+          <p>29 February only exists in leap years. In other years most people celebrate on 28 February or 1 March. This calculator uses 28 February in non-leap years and shows the real 29 February date in leap years.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is this birthday calculator free and private?</h4>
+          <p>Yes. It is free, needs no login, and all calculations run in your browser. Your date of birth is not stored or sent anywhere.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>Popular Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+          <a class="btn secondary" href="percentage-calculator.html">Percentage Calculator</a>
+          <a class="btn secondary" href="marks-percentage-calculator.html">Marks to Percentage</a>
+          <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+          <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
+          <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var DAY = 86400000;
+    var WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    function $(id) { return document.getElementById(id); }
+    var dobEl = $("bdayDob"), fromEl = $("bdayFrom"), errEl = $("bdayError"), headEl = $("bdayHeadline");
+
+    // All dates are handled as UTC midnight so day counts are never off by DST or time zones.
+    function parse(v) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || "");
+      return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null;
+    }
+    function isLeap(y) { return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0; }
+    function birthdayIn(year, month, day) {
+      if (month === 1 && day === 29 && !isLeap(year)) day = 28;
+      return Date.UTC(year, month, day);
+    }
+    function fmt(t) { var d = new Date(t); return d.getUTCDate() + " " + MONTHS[d.getUTCMonth()] + " " + d.getUTCFullYear(); }
+    function weekday(t) { return WEEKDAYS[new Date(t).getUTCDay()]; }
+    function num(n) { return n.toLocaleString("en-IN"); }
+    function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
+    function todayUTC() { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+
+    function ageParts(dob, ref) {
+      var a = new Date(dob), b = new Date(ref);
+      var y = b.getUTCFullYear() - a.getUTCFullYear();
+      var m = b.getUTCMonth() - a.getUTCMonth();
+      var d = b.getUTCDate() - a.getUTCDate();
+      if (d < 0) { m -= 1; d += new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth(), 0)).getUTCDate(); }
+      if (m < 0) { y -= 1; m += 12; }
+      return plural(y, "year") + ", " + plural(m, "month") + ", " + plural(d, "day");
+    }
+
+    function reset(msg) {
+      errEl.textContent = msg || "";
+      headEl.textContent = "Next birthday: -";
+      $("bdayStats").hidden = true; $("bdayUpcomingWrap").hidden = true; $("bdayNote").hidden = true;
+    }
+
+    var lastText = "";
+    function calculate() {
+      var dob = parse(dobEl.value);
+      var ref = fromEl.value ? parse(fromEl.value) : todayUTC();
+      if (dob === null) return reset("Please select your date of birth.");
+      if (ref === null) return reset("Please enter a valid date.");
+      if (dob > ref) return reset("Date of birth must be on or before the count-from date.");
+      errEl.textContent = "";
+
+      var b = new Date(dob), month = b.getUTCMonth(), day = b.getUTCDate(), bornYear = b.getUTCFullYear();
+      var refYear = new Date(ref).getUTCFullYear();
+      var year = refYear, next = birthdayIn(year, month, day);
+      if (next < ref) { year += 1; next = birthdayIn(year, month, day); }
+      var daysLeft = Math.round((next - ref) / DAY);
+      var turning = year - bornYear;
+
+      if (daysLeft === 0) {
+        headEl.textContent = turning === 0 ? "Born today. Welcome to the world!" : "🎉 Happy birthday! You turn " + turning + " today.";
+      } else {
+        headEl.textContent = daysLeft + (daysLeft === 1 ? " day" : " days") + " until your next birthday";
+      }
+      $("bdayDays").textContent = daysLeft === 0 ? "Today!" : num(daysLeft) + (daysLeft >= 7 ? " (" + plural(Math.floor(daysLeft / 7), "week") + (daysLeft % 7 ? " " + plural(daysLeft % 7, "day") : "") + ")" : "");
+      $("bdayNextDay").textContent = weekday(next) + ", " + fmt(next);
+      $("bdayTurning").textContent = turning + (turning === 1 ? " year" : " years");
+      $("bdayBornDay").textContent = weekday(dob);
+      $("bdayAge").textContent = ageParts(dob, ref);
+      $("bdayLived").textContent = num(Math.round((ref - dob) / DAY)) + " days";
+      $("bdayStats").hidden = false;
+
+      var rows = "";
+      for (var i = 0; i < 5; i++) {
+        var y = year + i, t = birthdayIn(y, month, day);
+        rows += "<tr><td>" + y + "</td><td>" + fmt(t) + "</td><td>" + weekday(t) + "</td><td>" + (y - bornYear) + "</td></tr>";
+      }
+      $("bdayUpcoming").innerHTML = rows;
+      $("bdayUpcomingWrap").hidden = false;
+
+      var note = $("bdayNote");
+      if (month === 1 && day === 29) {
+        note.textContent = "Born on 29 February: in non-leap years this calculator uses 28 February. Some people celebrate on 1 March instead.";
+        note.hidden = false;
+      } else { note.hidden = true; }
+
+      lastText = "Born: " + fmt(dob) + " (" + weekday(dob) + ")\nNext birthday: " + weekday(next) + ", " + fmt(next) +
+        "\nDays left: " + daysLeft + "\nTurning: " + turning + "\nCurrent age: " + ageParts(dob, ref) + "\n- calcverse.in/birthday-calculator.html";
+    }
+
+    $("bdayBtn").addEventListener("click", calculate);
+    dobEl.addEventListener("change", function () { if (dobEl.value) calculate(); });
+    fromEl.addEventListener("change", function () { if (dobEl.value) calculate(); });
+    $("bdayCopyBtn").addEventListener("click", function () {
+      if (!lastText) { calculate(); }
+      if (!lastText || !navigator.clipboard) return;
+      var btn = this;
+      navigator.clipboard.writeText(lastText).then(function () {
+        btn.textContent = "✅ Copied";
+        setTimeout(function () { btn.textContent = "📋 Copy Result"; }, 1500);
+      }).catch(function () {});
+    });
+
+    // Allow links like birthday-calculator.html?dob=2000-08-15 (used by the Age Calculator).
+    try {
+      var q = new URLSearchParams(location.search).get("dob");
+      if (q && parse(q) !== null) { dobEl.value = q; calculate(); }
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>

@@ -93,8 +93,8 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="styles.min.css?v=20261111-2">
-  <script src="app.min.js?v=20261111-2" defer></script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -135,7 +135,7 @@
             <input id="dob" type="date" max="9999-12-31">
           </div>
           <div>
-            <label for="asOfDate">Calculate Age As Of (Optional)</label>
+            <label for="asOfDate">Age As On Date (Optional, e.g. exam cut-off)</label>
             <input id="asOfDate" type="date" max="9999-12-31">
           </div>
         </div>
@@ -151,6 +151,27 @@
           <div class="steps" id="ageExtra">Total months: - | Total days: -</div>
         </div>
         <button id="copyAgeResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <div class="age-next-tools" style="margin-top: 1.25rem;">
+          <p><strong>🎂 How many days until your next birthday?</strong> <a id="ageBirthdayLink" href="birthday-calculator.html">Open the Birthday Calculator</a> to see the countdown, the day you were born, and your next 5 birthdays.</p>
+          <p style="margin-top: 0.75rem;"><strong>Popular calculators:</strong></p>
+          <div class="calc-link-row">
+            <a class="btn secondary" href="percentage-calculator.html">Percentage</a>
+            <a class="btn secondary" href="marks-percentage-calculator.html">Marks to %</a>
+            <a class="btn secondary" href="emi-calculator.html">EMI</a>
+            <a class="btn secondary" href="salary-calculator.html">Salary</a>
+            <a class="btn secondary" href="income-tax-calculator.html">Income Tax</a>
+            <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill</a>
+          </div>
+        </div>
+        <script>
+          (function () {
+            var dob = document.getElementById("dob"), link = document.getElementById("ageBirthdayLink");
+            if (!dob || !link) return;
+            function sync() { link.href = "birthday-calculator.html" + (/^\d{4}-\d{2}-\d{2}$/.test(dob.value) ? "?dob=" + dob.value : ""); }
+            dob.addEventListener("change", sync); dob.addEventListener("input", sync);
+          })();
+        </script>
 
         <section class="explanation-section">
           <h3>How Age Is Calculated</h3>
@@ -211,6 +232,8 @@
 
       <h3>Related Calculators</h3>
       <div class="calc-link-row">
+        <a class="btn secondary" href="birthday-calculator.html">Birthday Calculator</a>
+        <a class="btn secondary" href="percentage-calculator.html">Percentage Calculator</a>
         <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
         <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
         <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
@@ -244,45 +267,8 @@
       <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
     </div>
   
-    <div class="container">
-      <section class="card content-block wordcount-extension">
-        <h2>Advanced Usage Notes and Planning Checklist</h2>
-        <p>This section is designed to help users go beyond one-time calculations and use the tool as part of real financial and decision planning. Many people run a calculator once and accept the output without testing assumptions. A better approach is to test at least three scenarios: conservative, realistic, and optimistic. This gives you a practical range instead of a single number. For example, if your input includes an expected return, interest rate, or periodic amount, small changes can alter long-term outcomes significantly. Scenario testing helps you avoid overconfidence and improves planning quality.</p>
-
-        <h2>How to Improve Accuracy</h2>
-        <p>Use recent, real data whenever possible. If you are entering salary-related values, use post-deduction realities rather than rounded headline numbers. If you are testing expense or savings calculations, include recurring costs that are often ignored, such as maintenance, inflation impact, fees, and annual irregular bills. Revisit your inputs monthly or quarterly, especially after salary revisions, tax updates, or major family changes. This keeps your estimates aligned with current reality rather than outdated assumptions.</p>
-
-        <h2>Common Mistakes to Avoid</h2>
-        <ul>
-          <li>Using outdated rates and old assumptions for long-term plans.</li>
-          <li>Relying on a single output without stress-testing key variables.</li>
-          <li>Ignoring taxes, deductions, or recurring charges while comparing options.</li>
-          <li>Choosing emotionally attractive scenarios instead of sustainable ones.</li>
-          <li>Not reviewing estimates periodically as financial conditions change.</li>
-        </ul>
-
-        <h2>Practical Decision Framework</h2>
-        <p>Use this simple framework: first calculate your baseline with current values. Second, run a conservative case that assumes lower returns or higher costs. Third, run an improved case to understand upside potential. If your plan works even in conservative assumptions, it is usually more resilient. If results are too sensitive to small changes, reduce risk by building larger buffers, reducing commitments, or improving monthly cash discipline before scaling your decision.</p>
-
-        <h2>How to Use With Other Tools</h2>
-        <p>Financial decisions are rarely isolated. Combine outputs from this tool with your EMI, salary, GST, and income tax calculations for a full-picture plan. For example, compare projected commitments with monthly in-hand income and tax-adjusted cash flow before finalizing a loan, investment, or spending decision. This cross-check prevents over-commitment and improves long-term consistency.</p>
-
-        <h2>Final Recommendation</h2>
-        <p>Use this calculator as a decision aid, not a one-click answer. Review assumptions, test alternatives, and update numbers regularly. When uncertain, choose the option that remains manageable under conservative assumptions. That discipline improves confidence, reduces financial stress, and makes long-term outcomes more predictable.</p>
-      </section>
-    </div>
 
 
-    <div class="container">
-      <section class="card content-block">
-        <h3>Try Other Calculators</h3>
-        <div class="calc-link-row">
-          <a class="btn secondary" href="/emi-calculator.html">EMI Calculator</a>
-          <a class="btn secondary" href="/gst-calculator.html">GST Calculator</a>
-          <a class="btn secondary" href="/sip-calculator.html">SIP Calculator</a>
-        </div>
-      </section>
-    </div>
 
 </main>
 
