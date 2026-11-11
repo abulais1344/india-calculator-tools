@@ -446,24 +446,24 @@
       } catch (e) {}
     }
 
-    var hero = primaryContainer.querySelector(".hero");
-    var titleAd = hero ? findNextAdSibling(hero, 2) : primaryContainer.querySelector('.ad-container[data-ad-slot="below-title"]');
-    claimOrInsert("below-title", titleAd, hero || primaryContainer.firstElementChild, "after");
-
+    // Keep ads light: at most 2 per page, never between inputs and result.
+    var MAX_ADS = 2;
+    var adCount = document.querySelectorAll(".ad-container").length;
     var resultBoxes = primaryContainer.querySelectorAll(".result-box");
     var resultAnchor = resultBoxes.length ? resultBoxes[resultBoxes.length - 1] : null;
-    var resultAd = resultAnchor ? findNextAdSibling(resultAnchor, 2) : null;
-    claimOrInsert("after-result", resultAd, resultAnchor, "after");
-
-    var existingAds = Array.prototype.slice.call(primaryContainer.querySelectorAll(".ad-container"));
-    var middleExisting = existingAds.length >= 3 ? existingAds[Math.floor(existingAds.length / 2)] : null;
-    var sections = primaryContainer.querySelectorAll("section");
-    var middleAnchor = sections.length ? sections[Math.floor(sections.length / 2)] : null;
-    claimOrInsert("middle-content", middleExisting, middleAnchor || primaryContainer, middleAnchor ? "after" : "append");
-
-    var footer = document.querySelector("footer.site-footer");
-    var bottomExisting = existingAds.length ? existingAds[existingAds.length - 1] : null;
-    claimOrInsert("bottom-page", bottomExisting, footer || main, footer ? "before" : "append");
+    if (resultAnchor && adCount < MAX_ADS) {
+      var hasAdAfterResult = Array.prototype.some.call(document.querySelectorAll(".ad-container"), function (el) {
+        return resultAnchor.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING;
+      });
+      if (!hasAdAfterResult) {
+        claimOrInsert("after-result", null, resultAnchor, "after");
+        adCount += 1;
+      }
+    }
+    if (adCount === 0) {
+      var footer = document.querySelector("footer.site-footer");
+      claimOrInsert("bottom-page", null, footer || main, footer ? "before" : "append");
+    }
   }
 
   function initGSTCalculator() {
