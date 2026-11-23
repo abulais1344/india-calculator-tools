@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Consumption Calculator – AC, Fan, Fridge Units per Hour &amp; Monthly Cost | CalcVerse</title>
+  <meta name="description" content="How many units does a 1.5 ton AC, fan, fridge or geyser use? Add your appliances, hours of use and electricity rate to see daily units, monthly units and your monthly electricity cost.">
+
+  <link rel="canonical" href="https://calcverse.in/electricity-consumption-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Electricity Consumption Calculator – AC, Fan, Fridge Units per Hour &amp; Monthly Cost | CalcVerse">
+  <meta property="og:description" content="Add your appliances and hours of use to see daily units, monthly units and monthly electricity cost.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/electricity-consumption-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Electricity Consumption Calculator – AC, Fan, Fridge Units per Hour &amp; Monthly Cost | CalcVerse">
+  <meta name="twitter:description" content="Add your appliances and hours of use to see daily units, monthly units and monthly electricity cost.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many units does a 1.5 ton AC consume per hour?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically about 1.1 to 1.5 units per hour. A 1.5 ton inverter AC averages around 1.1 units an hour once the room is cool, while an older non-inverter model draws about 1.5 units. Running 6 hours a day, that is roughly 200 to 270 units a month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many units does a ceiling fan use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A regular 75 W ceiling fan uses 0.075 units an hour, about 27 units a month at 12 hours a day. An energy-efficient BLDC fan of about 30 W uses less than half of that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many units does a fridge consume per day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical double-door frost-free fridge of about 250 litres uses around 1 unit a day, or about 30 units a month. The exact figure depends on its star rating, size and room temperature; the yearly units are printed on the BEE star label."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate electricity units for an appliance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Units (kWh) = watts × hours of use ÷ 1,000. For example, a 2,000 W geyser used for 30 minutes uses 2,000 × 0.5 ÷ 1,000 = 1 unit."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Electricity Bill Calculator", "item": "https://calcverse.in/electricity-bill-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "Electricity Consumption Calculator", "item": "https://calcverse.in/electricity-consumption-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .ap-table-wrap { overflow-x: auto; margin-top: 10px; }
+    .ap-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .ap-table th, .ap-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #e3ece6; vertical-align: middle; }
+    .ap-table input, .ap-table select { width: 100%; min-width: 60px; padding: 6px; }
+    .ap-table select { min-width: 190px; }
+    .ap-table td.ap-units { white-space: nowrap; font-weight: 600; }
+    .ap-remove { background: none; border: 0; color: #9b2c2c; font-size: 1.1rem; cursor: pointer; padding: 4px 8px; }
+    .ap-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+    .ap-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }
+    .ap-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .ap-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .ap-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+    .ref-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .ref-table th, .ref-table td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e3ece6; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="zakat-calculator.html">Zakat</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Electricity Consumption Calculator</h1>
+        <p>Find how many units your AC, fans, fridge, geyser and other appliances use, and what they add to your monthly electricity bill.</p>
+      </section>
+
+      <section class="card">
+        <h2>Add Your Appliances</h2>
+        <p style="font-size: 0.92rem;">Typical wattages are filled in automatically. For accuracy, enter the watts printed on your appliance's label or star sticker.</p>
+        <div class="ap-table-wrap">
+          <table class="ap-table">
+            <thead><tr><th>Appliance</th><th>Watts</th><th>Qty</th><th>Hours/day</th><th>Units/day</th><th></th></tr></thead>
+            <tbody id="apRows"></tbody>
+          </table>
+        </div>
+        <div class="ap-actions">
+          <button id="apAdd" type="button" class="secondary">+ Add appliance</button>
+          <label for="apRate" style="margin-left: auto;">Rate (₹ per unit)</label>
+          <input id="apRate" type="number" min="0" step="0.1" value="7" style="width: 90px;">
+        </div>
+
+        <div class="result-box">
+          <div id="apHeadline" class="result-value">Monthly units: -</div>
+          <div class="ap-stats">
+            <div class="ap-stat"><div class="label">Units per day</div><div class="value" id="apDay">-</div></div>
+            <div class="ap-stat"><div class="label">Units per month (30 days)</div><div class="value" id="apMonth">-</div></div>
+            <div class="ap-stat"><div class="label">Cost per month</div><div class="value" id="apCost">-</div></div>
+            <div class="ap-stat"><div class="label">Biggest user</div><div class="value" id="apTop">-</div></div>
+          </div>
+        </div>
+        <p style="margin-top: 1rem;">This estimates energy charges only. For your full bill with slabs and fixed charges, use the <a href="electricity-bill-calculator.html">Electricity Bill Calculator</a>. To cover these units with rooftop solar, see the <a id="apSolarLink" href="solar-panel-calculator.html">Solar Panel Calculator</a>.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Units per Hour for Common Appliances</h2>
+        <p>Typical values at ₹7 per unit. Monthly figures assume the usual daily hours shown.</p>
+        <div style="overflow-x: auto;">
+          <table class="ref-table">
+            <thead><tr><th>Appliance</th><th>Typical watts</th><th>Units per hour</th><th>Cost per hour</th><th>Usual use</th><th>Units per month</th></tr></thead>
+            <tbody>
+              <tr><td>Ceiling fan (regular)</td><td>75 W</td><td>0.075</td><td>₹0.53</td><td>12 h/day</td><td>27</td></tr>
+              <tr><td>Ceiling fan (BLDC)</td><td>30 W</td><td>0.03</td><td>₹0.21</td><td>12 h/day</td><td>11</td></tr>
+              <tr><td>1 ton inverter AC</td><td>~800 W avg</td><td>0.8</td><td>₹5.60</td><td>6 h/day</td><td>144</td></tr>
+              <tr><td>1.5 ton inverter AC</td><td>~1,100 W avg</td><td>1.1</td><td>₹7.70</td><td>6 h/day</td><td>198</td></tr>
+              <tr><td>1.5 ton non-inverter AC</td><td>~1,500 W avg</td><td>1.5</td><td>₹10.50</td><td>6 h/day</td><td>270</td></tr>
+              <tr><td>2 ton inverter AC</td><td>~1,500 W avg</td><td>1.5</td><td>₹10.50</td><td>6 h/day</td><td>270</td></tr>
+              <tr><td>Air cooler</td><td>180 W</td><td>0.18</td><td>₹1.26</td><td>8 h/day</td><td>43</td></tr>
+              <tr><td>Refrigerator (~250 L, double door)</td><td>~40 W avg</td><td>0.04</td><td>₹0.28</td><td>24 h/day</td><td>29</td></tr>
+              <tr><td>Geyser (15 L)</td><td>2,000 W</td><td>2.0</td><td>₹14.00</td><td>30 min/day</td><td>30</td></tr>
+              <tr><td>Room heater</td><td>2,000 W</td><td>2.0</td><td>₹14.00</td><td>3 h/day</td><td>180</td></tr>
+              <tr><td>LED bulb</td><td>9 W</td><td>0.009</td><td>₹0.06</td><td>6 h/day</td><td>1.6</td></tr>
+              <tr><td>LED TV (43")</td><td>80 W</td><td>0.08</td><td>₹0.56</td><td>4 h/day</td><td>9.6</td></tr>
+              <tr><td>Washing machine</td><td>500 W</td><td>0.5</td><td>₹3.50</td><td>1 h/day</td><td>15</td></tr>
+              <tr><td>Water pump (1 HP)</td><td>746 W</td><td>0.75</td><td>₹5.22</td><td>1 h/day</td><td>22</td></tr>
+              <tr><td>Induction cooktop</td><td>2,000 W</td><td>2.0</td><td>₹14.00</td><td>1 h/day</td><td>60</td></tr>
+              <tr><td>Iron</td><td>1,000 W</td><td>1.0</td><td>₹7.00</td><td>30 min/day</td><td>15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 0.75rem;">AC and fridge figures are average running power. Their compressors switch on and off, so they draw less on average than their rated maximum. Hot weather, low thermostat settings and old models push usage up.</p>
+
+        <h2>How to Calculate Units</h2>
+        <p><strong>Units (kWh) = watts × hours ÷ 1,000.</strong> One unit is 1,000 watts running for one hour.</p>
+        <p><strong>Example household:</strong> two 75 W fans for 12 hours (1.8 units), a 1.5 ton inverter AC for 6 hours (6.6 units), a fridge (about 1 unit), six LED bulbs for 6 hours (0.3 units), a TV for 4 hours (0.3 units) and a geyser for 30 minutes (1 unit) use about <strong>11 units a day</strong>, or <strong>330 units a month</strong>. At ₹7 per unit, that is about <strong>₹2,310 a month</strong> in energy charges, and the AC alone is 60% of it.</p>
+
+        <h2>Ways to Cut Your Bill</h2>
+        <ul>
+          <li><strong>Set the AC to 24–26°C.</strong> Each degree lower makes the compressor work noticeably harder.</li>
+          <li><strong>Choose inverter ACs and BLDC fans</strong> when replacing old ones. They use far less power for the same comfort.</li>
+          <li><strong>Check the BEE star label</strong> before buying. It shows yearly units, so you can compare models directly.</li>
+          <li><strong>Heat water only when needed.</strong> A geyser left on is one of the biggest hidden loads in winter.</li>
+          <li><strong>Consider rooftop solar.</strong> 1 kW of solar makes about 120 units a month, and the PM Surya Ghar subsidy covers up to ₹78,000.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How many units does a 1.5 ton AC consume per hour?</h4>
+          <p>Typically about 1.1 to 1.5 units per hour. A 1.5 ton inverter AC averages around 1.1 units an hour once the room is cool, while an older non-inverter model draws about 1.5 units. Running 6 hours a day, that is roughly 200 to 270 units a month.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many units does a ceiling fan use?</h4>
+          <p>A regular 75 W ceiling fan uses 0.075 units an hour, about 27 units a month at 12 hours a day. An energy-efficient BLDC fan of about 30 W uses less than half of that.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many units does a fridge consume per day?</h4>
+          <p>A typical double-door frost-free fridge of about 250 litres uses around 1 unit a day, or about 30 units a month. The exact figure depends on its star rating, size and room temperature; the yearly units are printed on the BEE star label.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I calculate electricity units for an appliance?</h4>
+          <p>Units (kWh) = watts × hours of use ÷ 1,000. For example, a 2,000 W geyser used for 30 minutes uses 2,000 × 0.5 ÷ 1,000 = 1 unit.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="/electricity/ac-electricity-cost-per-hour-india">AC Cost per Hour Guide</a>
+          <a class="btn secondary" href="ev-vs-petrol-calculator.html">EV vs Petrol</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    // [label, typical average watts, default hours/day]
+    var APPLIANCES = [
+      ["Ceiling fan (regular)", 75, 12], ["Ceiling fan (BLDC)", 30, 12],
+      ["1 ton inverter AC", 800, 6], ["1.5 ton inverter AC", 1100, 6], ["1.5 ton non-inverter AC", 1500, 6], ["2 ton inverter AC", 1500, 6],
+      ["Air cooler", 180, 8], ["Refrigerator (~250 L)", 40, 24], ["Refrigerator (single door)", 30, 24],
+      ["Geyser", 2000, 0.5], ["Room heater", 2000, 3], ["LED bulb", 9, 6], ["LED tube light", 20, 6],
+      ["LED TV", 80, 4], ["Laptop", 50, 6], ["Desktop computer", 150, 6], ["Wi-Fi router", 10, 24],
+      ["Washing machine", 500, 1], ["Water pump (1 HP)", 746, 1], ["Iron", 1000, 0.5],
+      ["Microwave", 1200, 0.25], ["Induction cooktop", 2000, 1], ["Mixer grinder", 750, 0.25], ["Other", 100, 1]
+    ];
+    var START = [[0, 2], [3, 1], [7, 1], [11, 6], [13, 1], [9, 1]]; // [appliance index, qty]
+    function $(id) { return document.getElementById(id); }
+    var body = $("apRows");
+
+    function num(el) { var v = parseFloat(el.value); return isFinite(v) && v > 0 ? v : 0; }
+    function fmt(n) { return n >= 10 ? n.toFixed(1) : n.toFixed(2); }
+
+    function addRow(idx, qty) {
+      var a = APPLIANCES[idx], tr = document.createElement("tr");
+      var opts = APPLIANCES.map(function (x, i) { return "<option value=\"" + i + "\"" + (i === idx ? " selected" : "") + ">" + x[0] + "</option>"; }).join("");
+      tr.innerHTML = "<td><select aria-label=\"Appliance\">" + opts + "</select></td>" +
+        "<td><input type=\"number\" min=\"0\" step=\"1\" aria-label=\"Watts\" value=\"" + a[1] + "\"></td>" +
+        "<td><input type=\"number\" min=\"0\" step=\"1\" aria-label=\"Quantity\" value=\"" + (qty || 1) + "\"></td>" +
+        "<td><input type=\"number\" min=\"0\" max=\"24\" step=\"0.25\" aria-label=\"Hours per day\" value=\"" + a[2] + "\"></td>" +
+        "<td class=\"ap-units\">-</td><td><button type=\"button\" class=\"ap-remove\" aria-label=\"Remove appliance\">✕</button></td>";
+      var sel = tr.querySelector("select"), ins = tr.querySelectorAll("input");
+      sel.addEventListener("change", function () { var p = APPLIANCES[+sel.value]; ins[0].value = p[1]; ins[2].value = p[2]; calculate(); });
+      Array.prototype.forEach.call(ins, function (el) { el.addEventListener("input", calculate); });
+      tr.querySelector(".ap-remove").addEventListener("click", function () { tr.remove(); calculate(); });
+      body.appendChild(tr);
+    }
+
+    function calculate() {
+      var rate = num($("apRate")), total = 0, top = null;
+      Array.prototype.forEach.call(body.querySelectorAll("tr"), function (tr) {
+        var ins = tr.querySelectorAll("input"), hours = Math.min(num(ins[2]), 24);
+        var units = num(ins[0]) * num(ins[1]) * hours / 1000;
+        tr.querySelector(".ap-units").textContent = fmt(units);
+        total += units;
+        if (!top || units > top.units) top = { units: units, name: APPLIANCES[+tr.querySelector("select").value][0] };
+      });
+      var month = total * 30;
+      $("apHeadline").textContent = "Monthly units: " + Math.round(month).toLocaleString("en-IN") + (rate ? " · about ₹" + Math.round(month * rate).toLocaleString("en-IN") + " a month" : "");
+      $("apDay").textContent = fmt(total) + " units";
+      $("apMonth").textContent = Math.round(month).toLocaleString("en-IN") + " units";
+      $("apCost").textContent = rate ? "₹" + Math.round(month * rate).toLocaleString("en-IN") : "-";
+      $("apTop").textContent = top && top.units > 0 ? top.name + " (" + Math.round(top.units / total * 100) + "%)" : "-";
+      $("apSolarLink").href = "solar-panel-calculator.html" + (month > 0 ? "?units=" + Math.round(month) : "");
+    }
+
+    START.forEach(function (s) { addRow(s[0], s[1]); });
+    $("apAdd").addEventListener("click", function () { addRow(APPLIANCES.length - 1, 1); calculate(); });
+    $("apRate").addEventListener("input", calculate);
+    calculate();
+  })();
+  </script>
+</body>
+</html>

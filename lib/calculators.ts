@@ -147,6 +147,12 @@ export const CALCULATORS: Calculator[] = [
 
   // Utility Calculators
   {
+    id: 'electricity-consumption',
+    name: 'Electricity Consumption Calculator',
+    path: '/electricity-consumption-calculator.html',
+    description: 'Units and monthly cost for AC, fan, fridge, geyser and other appliances',
+  },
+  {
     id: 'solar-panel',
     name: 'Solar Panel Calculator',
     path: '/solar-panel-calculator.html',
@@ -317,7 +323,7 @@ export const CALCULATOR_CATEGORIES = {
   loan: ['emi', 'home-loan', 'car-loan', 'personal-loan', 'loan-eligibility'],
   investment: ['sip', 'simple-interest', 'compound-interest', 'fd', 'rd', 'ppf', 'gratuity'],
   salary: ['salary', 'income-tax', 'gst'],
-  utility: ['electricity-bill', 'solar-panel', 'solar-subsidy', 'solar-generation', 'fuel-cost', 'cng-vs-petrol', 'ev-vs-petrol', 'discount', 'bmi', 'age'],
+  utility: ['electricity-bill', 'electricity-consumption', 'solar-panel', 'solar-subsidy', 'solar-generation', 'fuel-cost', 'cng-vs-petrol', 'ev-vs-petrol', 'discount', 'bmi', 'age'],
   generator: ['salary-slip', 'rent-receipt', 'gst-invoice'],
 };
 

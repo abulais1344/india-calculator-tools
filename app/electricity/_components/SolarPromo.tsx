@@ -14,6 +14,7 @@ export default function SolarPromo({ providerName }: { providerName?: string }) 
         <a href="/solar-panel-calculator.html" className="btn">Solar Panel Calculator</a>
         <a href="/solar-subsidy-calculator.html" className="btn secondary">Solar Subsidy Calculator</a>
         <a href="/solar-generation-calculator.html" className="btn secondary">Solar Units per kW</a>
+        <a href="/electricity-consumption-calculator.html" className="btn secondary">Appliance Units Calculator</a>
       </div>
     </div>
   );
