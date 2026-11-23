@@ -1119,3 +1119,11 @@ details.nav-dropdown[open] > .nav-dropdown-menu { display: grid; }
 }
 
 .nav-dropdown-toggle { touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
+
+/* iOS Safari clips (and flashes) content that overflows an element with backdrop-filter,
+   which hid the header "More" panel on iPhones. Use a solid header instead. */
+.site-header {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: #ffffff;
+}
