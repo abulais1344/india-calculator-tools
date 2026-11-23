@@ -68,6 +68,7 @@ const MORE_NAV = [
   { href: '/birthday-calculator.html', label: 'Birthday Calculator' },
   { href: '/birth-year-calculator.html', label: 'Birth Year Calculator' },
   { href: '/age-as-on-date-calculator.html', label: 'Age As On Date (Exams)' },
+  { href: '/school-admission-age-calculator.html', label: 'School Admission Age' },
   { href: '/age-calculator-hindi.html', label: 'एज कैलकुलेटर (हिंदी)' },
   { href: '/electricity-consumption-calculator.html', label: 'Appliance Units Calculator' },
   { href: '/solar-subsidy-calculator.html', label: 'Solar Subsidy' },
@@ -79,6 +80,8 @@ const MORE_NAV = [
   { href: '/cgpa-calculator.html', label: 'CGPA to Percentage' },
   { href: '/attendance-calculator.html', label: 'Attendance Calculator' },
   { href: '/land-area-converter.html', label: 'Land Area Converter' },
+  { href: '/brick-calculator.html', label: 'Brick & Cement Calculator' },
+  { href: '/tile-calculator.html', label: 'Tile Calculator' },
   { href: '/gst-calculator.html', label: 'GST Calculator' },
   { href: '/gst-invoice-generator.html', label: 'GST Invoice' },
   { href: '/rent-receipt-generator.html', label: 'Rent Receipt' },
@@ -93,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" href="/styles.min.css?v=20261124-6" />
+        <link rel="stylesheet" href="/styles.min.css?v=20261124-7" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525"

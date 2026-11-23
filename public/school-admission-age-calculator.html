@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Admission Age Calculator 2027-28 – Nursery, LKG, UKG, Class 1 | CalcVerse</title>
+  <meta name="description" content="Check which class your child is eligible for: Nursery, LKG, UKG or Class 1. Enter date of birth and the cut-off date (31 March by default) to see exact age and eligibility under the NEP 6+ rule.">
+  <link rel="canonical" href="https://calcverse.in/school-admission-age-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="School Admission Age Calculator 2027-28 – Nursery, LKG, UKG, Class 1 | CalcVerse">
+  <meta property="og:description" content="Find which class your child is eligible for using date of birth and the admission cut-off date.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/school-admission-age-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="School Admission Age Calculator 2027-28 – Nursery, LKG, UKG, Class 1 | CalcVerse">
+  <meta name="twitter:description" content="Find which class your child is eligible for using date of birth and the admission cut-off date.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is the minimum age for Class 1 admission in India?", "acceptedAnswer": {"@type": "Answer", "text": "Under NEP 2020, a child should be 6 years old to join Class 1, after three years of pre-school (Nursery at 3+, LKG at 4+, UKG at 5+). Delhi applies the 6+ rule from the 2026-27 session. Some states and schools still use 5+ or a different cut-off date, so always check the school's admission notice."}},
+      {"@type": "Question", "name": "What is the cut-off date for school admission age?", "acceptedAnswer": {"@type": "Answer", "text": "Most schools, including Delhi schools and Kendriya Vidyalayas, check age as on 31 March of the admission year. Some states and boards use other dates such as 1 June or 30 September. Enter your school's date in the calculator."}},
+      {"@type": "Question", "name": "My child turns 6 after 31 March. Can they join Class 1?", "acceptedAnswer": {"@type": "Answer", "text": "Not under a 6+ rule with a 31 March cut-off: the child must have completed 6 years on that date. Delhi allows school heads a relaxation of up to one month, and other states have their own rules, so ask the school."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Age Calculator", "item": "https://calcverse.in/age-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "School Admission Age Calculator", "item": "https://calcverse.in/school-admission-age-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-7">
+  <script src="app.min.js?v=20261124-7" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .sa-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-top: 10px; }
+    .sa-table th, .sa-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+    .sa-ok { color: #1d6b3a; font-weight: 700; }
+    .sa-no { color: #9b2c2c; font-weight: 600; }
+    .sa-best td { background: #eef7f1; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>School Admission Age Calculator</h1>
+        <p>Find which class your child can join, Nursery, LKG, UKG or Class 1, from their date of birth and the school's age cut-off date.</p>
+      </section>
+
+      <section class="card">
+        <h2>Check Your Child's Eligibility</h2>
+        <div class="field inline-row">
+          <div><label for="saDob">Child's date of birth</label><input id="saDob" type="date" max="9999-12-31"></div>
+          <div><label for="saYear">Admission session</label><select id="saYear"></select></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="saCutoff">Age is checked on (cut-off date)</label><input id="saCutoff" type="date" max="9999-12-31"></div>
+          <div><label for="saRule">Age rule</label>
+            <select id="saRule">
+              <option value="nep">NEP 2020: Nursery 3+, LKG 4+, UKG 5+, Class 1 6+</option>
+              <option value="old">Older rule: Nursery 2+, LKG 3+, UKG 4+, Class 1 5+</option>
+            </select>
+          </div>
+        </div>
+        <p id="saError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="saResult" class="result-value">Eligible class: -</div>
+          <div class="steps" id="saAge"></div>
+          <div style="overflow-x: auto;">
+            <table class="sa-table" id="saTableWrap" hidden><thead><tr><th>Class</th><th>Minimum age</th><th>Your child</th></tr></thead><tbody id="saTable"></tbody></table>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Age rules and cut-off dates differ by state, board and school, and some allow a short relaxation. Always confirm with the school's official admission notice.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Admission Age Under NEP 2020</h2>
+        <p>The National Education Policy 2020 sets a 5+3+3+4 structure: three years of pre-school before Class 1. The resulting minimum ages are:</p>
+        <div style="overflow-x: auto;">
+          <table class="sa-table">
+            <thead><tr><th>Class</th><th>Minimum age on cut-off date</th><th>For 2027-28 (cut-off 31 March 2027), born on or before</th></tr></thead>
+            <tbody>
+              <tr><td>Nursery / Pre-school 1</td><td>3 years</td><td>31 March 2024</td></tr>
+              <tr><td>LKG / Pre-school 2</td><td>4 years</td><td>31 March 2023</td></tr>
+              <tr><td>UKG / Pre-school 3</td><td>5 years</td><td>31 March 2022</td></tr>
+              <tr><td>Class 1</td><td>6 years</td><td>31 March 2021</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Delhi's Directorate of Education applies the 6+ rule for Class 1 from the 2026-27 session, and schools there may allow a relaxation of up to one month. Kendriya Vidyalayas also check age as on 31 March. Some states still use 5+ for Class 1 or a different cut-off date.</p>
+
+        <h2>Example</h2>
+        <p>A child born on <strong>10 May 2021</strong> will be <strong>5 years, 10 months and 21 days</strong> old on 31 March 2027. Under the NEP 6+ rule they can join <strong>UKG</strong> in 2027-28 and Class 1 in 2028-29. A child born on 31 March 2021 turns exactly 6 on the cut-off date and is eligible for Class 1 in 2027-28.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>What is the minimum age for Class 1 admission in India?</h4><p>Under NEP 2020, a child should be 6 years old to join Class 1, after three years of pre-school (Nursery at 3+, LKG at 4+, UKG at 5+). Delhi applies the 6+ rule from the 2026-27 session. Some states and schools still use 5+ or a different cut-off date, so always check the school's admission notice.</p></div>
+        <div class="faq-item"><h4>What is the cut-off date for school admission age?</h4><p>Most schools, including Delhi schools and Kendriya Vidyalayas, check age as on 31 March of the admission year. Some states and boards use other dates such as 1 June or 30 September. Enter your school's date in the calculator.</p></div>
+        <div class="faq-item"><h4>My child turns 6 after 31 March. Can they join Class 1?</h4><p>Not under a 6+ rule with a 31 March cut-off: the child must have completed 6 years on that date. Delhi allows school heads a relaxation of up to one month, and other states have their own rules, so ask the school.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Age Tools</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+          <a class="btn secondary" href="age-as-on-date-calculator.html">Age As On Date</a>
+          <a class="btn secondary" href="birthday-calculator.html">Birthday Calculator</a>
+          <a class="btn secondary" href="birth-year-calculator.html">Birth Year Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function parse(v) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ""); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null; }
+    function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
+    function ageParts(dob, ref) {
+      var a = new Date(dob), b = new Date(ref);
+      var y = b.getUTCFullYear() - a.getUTCFullYear(), m = b.getUTCMonth() - a.getUTCMonth(), d = b.getUTCDate() - a.getUTCDate();
+      if (d < 0) { m -= 1; d += new Date(Date.UTC(b.getUTCFullYear(), b.getUTCMonth(), 0)).getUTCDate(); }
+      if (m < 0) { y -= 1; m += 12; }
+      return { y: y, m: m, d: d };
+    }
+    var RULES = {
+      nep: [["Nursery", 3], ["LKG", 4], ["UKG", 5], ["Class 1", 6]],
+      old: [["Nursery", 2], ["LKG", 3], ["UKG", 4], ["Class 1", 5]]
+    };
+    // Admission sessions: current year and next two.
+    var cy = new Date().getFullYear(), sel = $("saYear");
+    for (var y = cy; y <= cy + 2; y++) { var o = document.createElement("option"); o.value = y; o.textContent = y + "-" + String(y + 1).slice(2); if (y === cy + 1) o.selected = true; sel.appendChild(o); }
+    function setCutoff() { $("saCutoff").value = sel.value + "-03-31"; }
+    setCutoff();
+
+    function calculate() {
+      var dob = parse($("saDob").value), cut = parse($("saCutoff").value), err = $("saError");
+      if (dob === null) { err.textContent = ""; $("saResult").textContent = "Eligible class: -"; $("saAge").textContent = ""; $("saTableWrap").hidden = true; return; }
+      if (cut === null) { err.textContent = "Please choose the cut-off date."; return; }
+      if (dob >= cut) { err.textContent = "The date of birth must be before the cut-off date."; return; }
+      err.textContent = "";
+      var a = ageParts(dob, cut), rules = RULES[$("saRule").value], best = null, rows = "";
+      rules.forEach(function (r) { if (a.y >= r[1]) best = r; });
+      rules.forEach(function (r) {
+        var ok = a.y >= r[1];
+        var short = "";
+        if (!ok) { var need = new Date(dob); need.setUTCFullYear(need.getUTCFullYear() + r[1]); var days = Math.ceil((need - cut) / 86400000); short = "Short by " + plural(days, "day"); }
+        rows += "<tr" + (best && best[0] === r[0] ? " class=\"sa-best\"" : "") + "><td>" + r[0] + "</td><td>" + r[1] + "+ years</td><td class=\"" + (ok ? "sa-ok\">Eligible" : "sa-no\">" + short) + "</td></tr>";
+      });
+      $("saTable").innerHTML = rows; $("saTableWrap").hidden = false;
+      $("saAge").textContent = "Age on " + new Date(cut).toUTCString().slice(5, 16) + ": " + plural(a.y, "year") + ", " + plural(a.m, "month") + ", " + plural(a.d, "day") + ".";
+      var session = $("saYear").selectedOptions[0].textContent;
+      if (!best) $("saResult").textContent = "Too young for " + rules[0][0] + " in " + session;
+      else if (best[0] === "Class 1" && a.y > best[1]) $("saResult").textContent = "Eligible for Class 1 or above in " + session;
+      else $("saResult").textContent = "Eligible for " + best[0] + " in " + session;
+    }
+    sel.addEventListener("change", function () { setCutoff(); calculate(); });
+    ["saDob", "saCutoff"].forEach(function (id) { $(id).addEventListener("change", calculate); $(id).addEventListener("input", calculate); });
+    $("saRule").addEventListener("change", calculate);
+  })();
+  </script>
+</body>
+</html>

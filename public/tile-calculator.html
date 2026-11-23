@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Calculator – How Many Tiles &amp; Boxes for Your Room | CalcVerse</title>
+  <meta name="description" content="Calculate how many floor or wall tiles and boxes you need for a room. Supports 1×1 ft, 2×2 ft, 600×600, 800×800 and 600×1200 mm tiles, wastage and price per sq ft.">
+  <link rel="canonical" href="https://calcverse.in/tile-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Tile Calculator – How Many Tiles &amp; Boxes for Your Room | CalcVerse">
+  <meta property="og:description" content="Calculate tiles, boxes and cost for your floor or wall.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/tile-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tile Calculator – How Many Tiles &amp; Boxes for Your Room | CalcVerse">
+  <meta name="twitter:description" content="Calculate tiles, boxes and cost for your floor or wall.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How many 2x2 tiles are needed for a 12x10 room?", "acceptedAnswer": {"@type": "Answer", "text": "A 12 × 10 ft room is 120 sq ft. Each 2 × 2 ft tile covers 4 sq ft, so you need 30 tiles, or 33 with 10% extra for cutting and breakage. At 4 tiles per box, that is 9 boxes."}},
+      {"@type": "Question", "name": "How many sq ft is a 600x600 mm tile?", "acceptedAnswer": {"@type": "Answer", "text": "A 600 × 600 mm tile covers about 3.875 sq ft (0.36 m²). An 800 × 800 mm tile covers about 6.89 sq ft, and a 600 × 1200 mm tile about 7.75 sq ft."}},
+      {"@type": "Question", "name": "How much extra tile should I buy?", "acceptedAnswer": {"@type": "Answer", "text": "Usually 5–10% extra for cutting and breakage, and 10–15% for diagonal layouts or rooms with many corners. Keep a few spare tiles for future repairs, since the same shade can be hard to find later."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Brick Calculator", "item": "https://calcverse.in/brick-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Tile Calculator", "item": "https://calcverse.in/tile-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-7">
+  <script src="app.min.js?v=20261124-7" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .tl-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+    .tl-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .tl-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .tl-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+    .tl-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .tl-table th, .tl-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Tile Calculator</h1>
+        <p>Find how many tiles and boxes you need for a floor or wall, and what they will cost.</p>
+      </section>
+
+      <section class="card">
+        <h2>Room and Tile Details</h2>
+        <div class="field inline-row">
+          <div><label for="tlLen">Length (ft)</label><input id="tlLen" type="number" min="0" step="any" value="12"></div>
+          <div><label for="tlWid">Width or height (ft)</label><input id="tlWid" type="number" min="0" step="any" value="10"></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="tlSize">Tile size</label>
+            <select id="tlSize">
+              <option value="1,1,0">1 × 1 ft (300 × 300 mm)</option>
+              <option value="2,2,0" selected>2 × 2 ft</option>
+              <option value="0.6,0.6,1">600 × 600 mm</option>
+              <option value="0.8,0.8,1">800 × 800 mm</option>
+              <option value="0.6,1.2,1">600 × 1200 mm</option>
+              <option value="0.3,0.45,1">300 × 450 mm (wall)</option>
+              <option value="0.3,0.6,1">300 × 600 mm (wall)</option>
+              <option value="custom">Custom size (inches)</option>
+            </select>
+          </div>
+          <div id="tlCustomWrap" hidden><label for="tlCw">Custom tile (inches): width × length</label>
+            <div style="display:flex; gap:8px;"><input id="tlCw" type="number" min="1" step="any" placeholder="24" aria-label="Tile width in inches"><input id="tlCl" type="number" min="1" step="any" placeholder="24" aria-label="Tile length in inches"></div>
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="tlWaste">Extra for cutting/breakage (%)</label><input id="tlWaste" type="number" min="0" max="30" step="1" value="10"></div>
+          <div><label for="tlBox">Tiles per box</label><input id="tlBox" type="number" min="1" step="1" value="4"></div>
+          <div><label for="tlPrice">Price per sq ft (₹, optional)</label><input id="tlPrice" type="number" min="0" step="any" placeholder="e.g. 55"></div>
+        </div>
+        <p id="tlError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="tlHeadline" class="result-value">Tiles needed: -</div>
+          <div class="tl-stats">
+            <div class="tl-stat"><div class="label">Area</div><div class="value" id="tlArea">-</div></div>
+            <div class="tl-stat"><div class="label">Tile covers</div><div class="value" id="tlEach">-</div></div>
+            <div class="tl-stat"><div class="label">Boxes</div><div class="value" id="tlBoxes">-</div></div>
+            <div class="tl-stat"><div class="label">Tile cost</div><div class="value" id="tlCost">-</div></div>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Tiles per box vary by brand and size; check the box label. Cost covers tiles only, not adhesive, grout or labour.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Tile Sizes and Coverage</h2>
+        <div style="overflow-x: auto;">
+          <table class="tl-table">
+            <thead><tr><th>Tile size</th><th>Area per tile</th><th>Tiles per 100 sq ft (no wastage)</th></tr></thead>
+            <tbody>
+              <tr><td>1 × 1 ft (300 × 300 mm)</td><td>1 sq ft</td><td>100</td></tr>
+              <tr><td>2 × 2 ft</td><td>4 sq ft</td><td>25</td></tr>
+              <tr><td>600 × 600 mm</td><td>3.875 sq ft</td><td>26</td></tr>
+              <tr><td>800 × 800 mm</td><td>6.89 sq ft</td><td>15</td></tr>
+              <tr><td>600 × 1200 mm</td><td>7.75 sq ft</td><td>13</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Example</h2>
+        <p>A <strong>12 × 10 ft</strong> room is 120 sq ft. With <strong>2 × 2 ft</strong> tiles (4 sq ft each) you need 30 tiles, or <strong>33 tiles</strong> with 10% extra. At 4 tiles per box, buy <strong>9 boxes</strong>.</p>
+        <h2>Tips</h2>
+        <ul>
+          <li>Add 5–10% extra for straight layouts and 10–15% for diagonal layouts or rooms with many corners.</li>
+          <li>For walls, subtract doors and windows from the area, or enter only the tiled height (for example 7 ft in a bathroom).</li>
+          <li>Buy all boxes from the same batch so the shade matches, and keep a few spares.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How many 2x2 tiles are needed for a 12x10 room?</h4><p>A 12 × 10 ft room is 120 sq ft. Each 2 × 2 ft tile covers 4 sq ft, so you need 30 tiles, or 33 with 10% extra for cutting and breakage. At 4 tiles per box, that is 9 boxes.</p></div>
+        <div class="faq-item"><h4>How many sq ft is a 600x600 mm tile?</h4><p>A 600 × 600 mm tile covers about 3.875 sq ft (0.36 m²). An 800 × 800 mm tile covers about 6.89 sq ft, and a 600 × 1200 mm tile about 7.75 sq ft.</p></div>
+        <div class="faq-item"><h4>How much extra tile should I buy?</h4><p>Usually 5–10% extra for cutting and breakage, and 10–15% for diagonal layouts or rooms with many corners. Keep a few spare tiles for future repairs, since the same shade can be hard to find later.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Construction &amp; Property Tools</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="brick-calculator.html">Brick Calculator</a>
+          <a class="btn secondary" href="land-area-converter.html">Land Area Converter</a>
+          <a class="btn secondary" href="electricity-consumption-calculator.html">Appliance Units Calculator</a>
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    function f(n, d) { return n.toLocaleString("en-IN", { maximumFractionDigits: d }); }
+    var M2FT = 10.7639104;
+    function tileSqft() {
+      var s = $("tlSize").value;
+      if (s === "custom") { var w = v("tlCw"), l = v("tlCl"); return w > 0 && l > 0 ? w * l / 144 : null; }
+      var p = s.split(",").map(Number);
+      return p[2] ? p[0] * p[1] * M2FT : p[0] * p[1];
+    }
+    function calculate() {
+      $("tlCustomWrap").hidden = $("tlSize").value !== "custom";
+      var L = v("tlLen"), W = v("tlWid"), each = tileSqft(), waste = v("tlWaste") || 0, box = v("tlBox"), price = v("tlPrice");
+      if (!(L > 0) || !(W > 0)) { $("tlError").textContent = "Enter the length and width."; return; }
+      if (!each) { $("tlError").textContent = "Enter the custom tile size in inches."; return; }
+      $("tlError").textContent = "";
+      var area = L * W, base = area / each, tiles = Math.ceil(base * (1 + waste / 100) - 1e-9);
+      $("tlHeadline").textContent = "Tiles needed: " + f(tiles, 0) + (waste ? " (incl. " + waste + "% extra)" : "");
+      $("tlArea").textContent = f(area, 2) + " sq ft (" + f(area / M2FT, 2) + " m²)";
+      $("tlEach").textContent = f(each, 3) + " sq ft";
+      $("tlBoxes").textContent = box > 0 ? f(Math.ceil(tiles / box), 0) + " boxes" : "-";
+      $("tlCost").textContent = price > 0 ? "₹" + f(Math.round(tiles * each * price), 0) : "-";
+    }
+    ["tlLen", "tlWid", "tlWaste", "tlBox", "tlPrice", "tlCw", "tlCl"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    $("tlSize").addEventListener("change", calculate);
+    calculate();
+  })();
+  </script>
+</body>
+</html>

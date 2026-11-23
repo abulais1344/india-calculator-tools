@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brick Calculator – Bricks, Cement Bags &amp; Sand for a Wall | CalcVerse</title>
+  <meta name="description" content="Calculate how many bricks, cement bags and how much sand (in cft) you need for a brick wall. Enter wall length, height and thickness (4.5 or 9 inch), brick size and mortar ratio.">
+  <link rel="canonical" href="https://calcverse.in/brick-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Brick Calculator – Bricks, Cement Bags &amp; Sand for a Wall | CalcVerse">
+  <meta property="og:description" content="Calculate bricks, cement bags and sand needed for a brick wall.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/brick-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brick Calculator – Bricks, Cement Bags &amp; Sand for a Wall | CalcVerse">
+  <meta name="twitter:description" content="Calculate bricks, cement bags and sand needed for a brick wall.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How many bricks are needed for a 10 x 10 ft wall?", "acceptedAnswer": {"@type": "Answer", "text": "For a 10 ft × 10 ft wall, 9 inches thick, using standard 230 × 110 × 75 mm bricks with 10 mm mortar joints, you need about 870 bricks, or about 910 with 5% wastage. A 4.5 inch wall needs about half as many."}},
+      {"@type": "Question", "name": "How many bricks are there in 1 cubic metre?", "acceptedAnswer": {"@type": "Answer", "text": "About 410 standard bricks (230 × 110 × 75 mm) or about 500 modular bricks (190 × 90 × 90 mm) per cubic metre of brickwork, including 10 mm mortar joints."}},
+      {"@type": "Question", "name": "How much cement is needed for brickwork?", "acceptedAnswer": {"@type": "Answer", "text": "For a 10 × 10 ft, 9 inch wall in 1:6 cement mortar, about 2.6 bags of cement (50 kg) and about 19 cft of sand. The calculator converts wet mortar volume to dry volume using a factor of 1.33."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Land Area Converter", "item": "https://calcverse.in/land-area-converter.html"},
+    {"@type": "ListItem", "position": 3, "name": "Brick Calculator", "item": "https://calcverse.in/brick-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-7">
+  <script src="app.min.js?v=20261124-7" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .bk-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+    .bk-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .bk-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .bk-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Brick Calculator</h1>
+        <p>Find how many bricks, cement bags and how much sand you need for a brick wall.</p>
+      </section>
+
+      <section class="card">
+        <h2>Wall Details</h2>
+        <div class="field inline-row">
+          <div><label for="bkUnit">Measure in</label><select id="bkUnit"><option value="ft">Feet</option><option value="m">Metres</option></select></div>
+          <div><label for="bkThick">Wall thickness</label>
+            <select id="bkThick"><option value="0.1143">4.5 inch (half brick)</option><option value="0.2286" selected>9 inch (one brick)</option><option value="0.3429">13.5 inch</option></select>
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="bkLen" id="bkLenL">Wall length (ft)</label><input id="bkLen" type="number" min="0" step="any" value="10"></div>
+          <div><label for="bkHt" id="bkHtL">Wall height (ft)</label><input id="bkHt" type="number" min="0" step="any" value="10"></div>
+          <div><label for="bkOpen" id="bkOpenL">Openings – doors/windows (sq ft)</label><input id="bkOpen" type="number" min="0" step="any" value="0"></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="bkSize">Brick size</label>
+            <select id="bkSize"><option value="0.23,0.11,0.075">Standard: 230 × 110 × 75 mm (9" × 4.5" × 3")</option><option value="0.19,0.09,0.09">Modular: 190 × 90 × 90 mm</option></select>
+          </div>
+          <div><label for="bkRatio">Mortar (cement : sand)</label>
+            <select id="bkRatio"><option value="4">1 : 4</option><option value="5">1 : 5</option><option value="6" selected>1 : 6</option></select>
+          </div>
+          <div><label for="bkWaste">Brick wastage (%)</label><input id="bkWaste" type="number" min="0" max="20" step="1" value="5"></div>
+        </div>
+        <p id="bkError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="bkHeadline" class="result-value">Bricks needed: -</div>
+          <div class="bk-stats">
+            <div class="bk-stat"><div class="label">Brickwork volume</div><div class="value" id="bkVol">-</div></div>
+            <div class="bk-stat"><div class="label">Cement (50 kg bags)</div><div class="value" id="bkCem">-</div></div>
+            <div class="bk-stat"><div class="label">Sand</div><div class="value" id="bkSand">-</div></div>
+            <div class="bk-stat"><div class="label">Mortar (dry)</div><div class="value" id="bkMortar">-</div></div>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Estimates for planning and ordering. Actual use varies with brick quality, joint thickness and workmanship, so confirm quantities with your mason or engineer.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How the Brick Calculator Works</h2>
+        <ol>
+          <li><strong>Wall volume</strong> = length × height × thickness, minus doors and windows.</li>
+          <li><strong>Bricks</strong> = wall volume ÷ volume of one brick with a 10 mm mortar joint on each side, plus wastage.</li>
+          <li><strong>Wet mortar</strong> = wall volume − volume of the bricks themselves. Dry mortar = wet mortar × 1.33 (allowing for voids and bulking).</li>
+          <li><strong>Cement</strong> = dry mortar × 1 ÷ (1 + sand ratio), at 1,440 kg per m³ and 50 kg per bag. <strong>Sand</strong> = dry mortar × sand ratio ÷ (1 + sand ratio).</li>
+        </ol>
+        <h2>Example</h2>
+        <p>A <strong>10 ft × 10 ft</strong> wall, <strong>9 inches</strong> thick, with standard bricks and 1:6 mortar has 2.12 m³ of brickwork. It needs about <strong>868 bricks</strong> (about 911 with 5% wastage), <strong>2.6 bags of cement</strong> and about <strong>19 cft of sand</strong>.</p>
+        <h2>Quick Reference</h2>
+        <ul>
+          <li>About <strong>410 standard bricks</strong> or <strong>500 modular bricks</strong> per m³ of brickwork.</li>
+          <li>A 4.5 inch wall is usually built in 1:4 mortar; 9 inch walls commonly use 1:6.</li>
+          <li>1 m³ = 35.31 cubic feet (cft).</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How many bricks are needed for a 10 x 10 ft wall?</h4><p>For a 10 ft × 10 ft wall, 9 inches thick, using standard 230 × 110 × 75 mm bricks with 10 mm mortar joints, you need about 870 bricks, or about 910 with 5% wastage. A 4.5 inch wall needs about half as many.</p></div>
+        <div class="faq-item"><h4>How many bricks are there in 1 cubic metre?</h4><p>About 410 standard bricks (230 × 110 × 75 mm) or about 500 modular bricks (190 × 90 × 90 mm) per cubic metre of brickwork, including 10 mm mortar joints.</p></div>
+        <div class="faq-item"><h4>How much cement is needed for brickwork?</h4><p>For a 10 × 10 ft, 9 inch wall in 1:6 cement mortar, about 2.6 bags of cement (50 kg) and about 19 cft of sand. The calculator converts wet mortar volume to dry volume using a factor of 1.33.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Construction &amp; Property Tools</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="tile-calculator.html">Tile Calculator</a>
+          <a class="btn secondary" href="land-area-converter.html">Land Area Converter</a>
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    function f(n, d) { return n.toLocaleString("en-IN", { maximumFractionDigits: d }); }
+    var M = 0.010, FT = 0.3048;
+    function units() {
+      var ft = $("bkUnit").value === "ft";
+      $("bkLenL").textContent = "Wall length (" + (ft ? "ft" : "m") + ")";
+      $("bkHtL").textContent = "Wall height (" + (ft ? "ft" : "m") + ")";
+      $("bkOpenL").textContent = "Openings – doors/windows (" + (ft ? "sq ft" : "sq m") + ")";
+    }
+    function calculate() {
+      var ft = $("bkUnit").value === "ft", k = ft ? FT : 1;
+      var L = v("bkLen"), H = v("bkHt"), O = v("bkOpen") || 0, T = parseFloat($("bkThick").value);
+      var b = $("bkSize").value.split(",").map(Number), r = +$("bkRatio").value, w = v("bkWaste") || 0;
+      if (!(L > 0) || !(H > 0)) { $("bkError").textContent = "Enter the wall length and height."; return; }
+      var area = L * H * k * k - O * k * k;
+      if (area <= 0) { $("bkError").textContent = "Openings cannot be larger than the wall."; return; }
+      $("bkError").textContent = "";
+      var V = area * T, withMortar = (b[0] + M) * (b[1] + M) * (b[2] + M), n = V / withMortar;
+      var wet = Math.max(V - n * b[0] * b[1] * b[2], 0), dry = wet * 1.33;
+      var cemBags = dry / (1 + r) * 1440 / 50, sand = dry * r / (1 + r);
+      $("bkHeadline").textContent = "Bricks needed: " + f(Math.ceil(n * (1 + w / 100)), 0) + (w ? " (incl. " + w + "% wastage)" : "");
+      $("bkVol").textContent = f(V, 2) + " m³ (" + f(V * 35.3147, 1) + " cft)";
+      $("bkCem").textContent = f(cemBags, 1) + " bags";
+      $("bkSand").textContent = f(sand * 35.3147, 1) + " cft (" + f(sand, 2) + " m³)";
+      $("bkMortar").textContent = f(dry, 3) + " m³";
+    }
+    $("bkUnit").addEventListener("change", function () { units(); calculate(); });
+    ["bkLen", "bkHt", "bkOpen", "bkWaste"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["bkThick", "bkSize", "bkRatio"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    units(); calculate();
+  })();
+  </script>
+</body>
+</html>

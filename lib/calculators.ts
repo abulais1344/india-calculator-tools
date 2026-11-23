@@ -261,6 +261,24 @@ export const CALCULATORS: Calculator[] = [
     description: 'Convert sq ft, acre, hectare, gaj, cent, gunta, marla, kanal and bigha',
   },
   {
+    id: 'school-admission-age',
+    name: 'School Admission Age Calculator',
+    path: '/school-admission-age-calculator.html',
+    description: 'Nursery, LKG, UKG and Class 1 eligibility by date of birth',
+  },
+  {
+    id: 'brick',
+    name: 'Brick Calculator',
+    path: '/brick-calculator.html',
+    description: 'Bricks, cement bags and sand for a brick wall',
+  },
+  {
+    id: 'tile',
+    name: 'Tile Calculator',
+    path: '/tile-calculator.html',
+    description: 'Tiles and boxes needed for a floor or wall',
+  },
+  {
     id: 'zakat',
     name: 'Zakat Calculator',
     path: '/zakat-calculator.html',
