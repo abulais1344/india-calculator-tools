@@ -63,6 +63,22 @@
           "@type": "Answer",
           "text": "Yes. Enter total round-trip distance to get a complete estimate."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "How much petrol is needed for 100 km?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the distance by your vehicle's mileage. A car giving 15 km per litre needs about 6.7 litres for 100 km (about ₹680 at ₹102 per litre), a car giving 20 km/l needs 5 litres, and a bike giving 45 km/l needs about 2.2 litres."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "₹100 petrol is how many litres?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the amount by the price per litre. At ₹102 per litre, ₹100 buys about 0.98 litres of petrol, which takes a 45 km/l bike about 44 km. At ₹95 per litre, ₹100 buys about 1.05 litres of diesel."
+        }
       }
     ]
   }
@@ -139,10 +155,69 @@
         <button id="copyFuelResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">Copy Result</button>
       </section>
 
+      <section class="card">
+        <h2>Rupees to Litres Converter</h2>
+        <p>How much fuel does your money buy, and how far will it take you?</p>
+        <div class="field inline-row">
+          <div>
+            <label for="fcAmount">Amount (₹)</label>
+            <input id="fcAmount" type="number" min="1" step="1" value="100">
+          </div>
+          <div>
+            <label for="fcPrice">Fuel price (₹ per litre)</label>
+            <input id="fcPrice" type="number" min="1" step="0.01" value="102">
+          </div>
+          <div>
+            <label for="fcMileage">Mileage (km per litre)</label>
+            <input id="fcMileage" type="number" min="1" step="0.1" value="45">
+          </div>
+        </div>
+        <div class="steps" id="fcResult" style="font-size: 1.05rem; font-weight: 600;"></div>
+        <p style="margin-top: 0.75rem; font-size: 0.92rem;">Default price is Delhi petrol in November 2026 (₹102/litre). Fuel prices differ by city and change, so enter your local price.</p>
+        <script>
+          (function () {
+            var a = document.getElementById("fcAmount"), p = document.getElementById("fcPrice"), m = document.getElementById("fcMileage"), out = document.getElementById("fcResult");
+            function calc() {
+              var amt = parseFloat(a.value), price = parseFloat(p.value), mil = parseFloat(m.value);
+              if (!(amt > 0) || !(price > 0)) { out.textContent = "Enter an amount and fuel price."; return; }
+              var litres = amt / price;
+              out.textContent = "₹" + amt.toLocaleString("en-IN") + " buys " + litres.toFixed(2) + " litres" +
+                (mil > 0 ? ", enough for about " + Math.round(litres * mil).toLocaleString("en-IN") + " km at " + mil + " km/l." : ".");
+            }
+            [a, p, m].forEach(function (el) { el.addEventListener("input", calc); });
+            calc();
+          })();
+        </script>
+      </section>
+
       <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How Much Petrol for 100, 300 and 500 km?</h2>
+        <p>Fuel needed = distance ÷ mileage. At ₹102 per litre of petrol:</p>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+            <thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e3ece6;">Distance</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e3ece6;">Car, 15 km/l</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e3ece6;">Car, 20 km/l</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e3ece6;">Bike, 45 km/l</th></tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border-bottom:1px solid #e3ece6;">100 km</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">6.7 L · ₹680</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">5 L · ₹510</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">2.2 L · ₹227</td></tr>
+              <tr><td style="padding:8px;border-bottom:1px solid #e3ece6;">300 km</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">20 L · ₹2,040</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">15 L · ₹1,530</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">6.7 L · ₹680</td></tr>
+              <tr><td style="padding:8px;border-bottom:1px solid #e3ece6;">500 km</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">33.3 L · ₹3,400</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">25 L · ₹2,550</td><td style="padding:8px;border-bottom:1px solid #e3ece6;">11.1 L · ₹1,133</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 0.75rem;">Use the calculator above with your own mileage and local price for an exact figure. Thinking of switching fuel? Compare running costs with the <a href="cng-vs-petrol-calculator.html">CNG vs Petrol Calculator</a> and the <a href="ev-vs-petrol-calculator.html">EV vs Petrol Calculator</a>.</p>
+      </section>
 
       <section class="card faq-section">
         <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How much petrol is needed for 100 km?</h4>
+          <p>Divide the distance by your vehicle's mileage. A car giving 15 km per litre needs about 6.7 litres for 100 km (about ₹680 at ₹102 per litre), a car giving 20 km/l needs 5 litres, and a bike giving 45 km/l needs about 2.2 litres.</p>
+        </div>
+        <div class="faq-item">
+          <h4>₹100 petrol is how many litres?</h4>
+          <p>Divide the amount by the price per litre. At ₹102 per litre, ₹100 buys about 0.98 litres of petrol, which takes a 45 km/l bike about 44 km. At ₹95 per litre, ₹100 buys about 1.05 litres of diesel.</p>
+        </div>
         <div class="faq-item">
           <h4>Should I use company mileage or real mileage?</h4>
           <p>Use your real-world mileage for better accuracy. Manufacturer mileage is usually tested in controlled conditions.</p>
@@ -159,11 +234,11 @@
 
       <h3>Related Calculators</h3>
       <div class="calc-link-row">
-        <a class="btn secondary" href="emi-calculator.html">EMI Calculator</a>
+        <a class="btn secondary" href="cng-vs-petrol-calculator.html">CNG vs Petrol</a>
+        <a class="btn secondary" href="ev-vs-petrol-calculator.html">EV vs Petrol</a>
+        <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+        <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
         <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
-        <a class="btn secondary" href="sip-calculator.html">SIP Calculator</a>
-        <a class="btn secondary" href="salary-calculator.html">Salary Calculator</a>
-        <a class="btn secondary" href="income-tax-calculator.html">Income Tax Calculator</a>
       </div>
 
       <section class="card content-block">

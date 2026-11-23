@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNG vs Petrol Calculator – Cost per km, Savings &amp; CNG Kit Payback | CalcVerse</title>
+  <meta name="description" content="Compare CNG and petrol running cost per km, monthly and yearly savings, and how many months a CNG kit or factory CNG car takes to pay back. Uses current Indian fuel prices you can edit.">
+
+  <link rel="canonical" href="https://calcverse.in/cng-vs-petrol-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="CNG vs Petrol Calculator – Cost per km, Savings &amp; CNG Kit Payback | CalcVerse">
+  <meta property="og:description" content="Compare CNG and petrol running cost per km, monthly savings and CNG kit payback.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/cng-vs-petrol-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CNG vs Petrol Calculator – Cost per km, Savings &amp; CNG Kit Payback | CalcVerse">
+  <meta name="twitter:description" content="Compare CNG and petrol running cost per km, monthly savings and CNG kit payback.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is CNG cheaper than petrol per km?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually yes, by around 40 to 50 percent. A car giving 15 km per litre on petrol at ₹102 costs about ₹6.80 per km, while the same class of car giving 22 km per kg on CNG at ₹81 costs about ₹3.68 per km."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a CNG kit take to pay back?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on how much you drive. At 1,200 km a month, a ₹55,000 kit saving about ₹3,700 a month pays back in roughly 15 months. If you drive only 400 km a month, it takes about three times as long."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does CNG reduce car performance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Engines produce somewhat less power on CNG, and the cylinder takes up boot space. Factory-fitted CNG cars are tuned for it and keep their warranty. Aftermarket kits must be fitted by an approved installer and endorsed on the RC with the RTO."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Fuel Cost Calculator", "item": "https://calcverse.in/fuel-cost-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "CNG vs Petrol Calculator", "item": "https://calcverse.in/cng-vs-petrol-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .cmp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }
+    .cmp-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .cmp-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .cmp-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="cng-vs-petrol-calculator.html">CNG vs Petrol</a>
+        <a href="ev-vs-petrol-calculator.html">EV vs Petrol</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>CNG vs Petrol Calculator</h1>
+        <p>Compare running cost per km, see how much CNG saves you each month, and find how long a CNG kit or factory CNG car takes to pay back.</p>
+      </section>
+
+      <section class="card">
+        <h2>Compare CNG and Petrol</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="cnKm">Distance driven per month (km)</label>
+            <input id="cnKm" type="number" min="1" step="10" value="1200">
+          </div>
+          <div>
+            <label for="cnExtra">Extra cost of CNG (₹)</label>
+            <input id="cnExtra" type="number" min="0" step="1000" value="55000">
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div>
+            <label for="cnPetrolMileage">Petrol mileage (km per litre)</label>
+            <input id="cnPetrolMileage" type="number" min="1" step="0.1" value="15">
+          </div>
+          <div>
+            <label for="cnPetrolPrice">Petrol price (₹ per litre)</label>
+            <input id="cnPetrolPrice" type="number" min="1" step="0.01" value="102">
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div>
+            <label for="cnCngMileage">CNG mileage (km per kg)</label>
+            <input id="cnCngMileage" type="number" min="1" step="0.1" value="22">
+          </div>
+          <div>
+            <label for="cnCngPrice">CNG price (₹ per kg)</label>
+            <input id="cnCngPrice" type="number" min="1" step="0.01" value="81">
+          </div>
+        </div>
+        <p style="font-size: 0.9rem;">"Extra cost" is the price of a CNG kit (about ₹45,000–₹65,000 fitted) or the extra you pay for a factory CNG model. Default prices are Delhi petrol (Nov 2026) and Delhi CNG (mid-2026). Enter your local prices for accuracy.</p>
+        <p id="cnError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div id="cnHeadline" class="result-value">Monthly saving with CNG: -</div>
+          <div class="cmp-stats">
+            <div class="cmp-stat"><div class="label">Petrol cost per km</div><div class="value" id="cnPetrolKm">-</div></div>
+            <div class="cmp-stat"><div class="label">CNG cost per km</div><div class="value" id="cnCngKm">-</div></div>
+            <div class="cmp-stat"><div class="label">Petrol per month</div><div class="value" id="cnPetrolMonth">-</div></div>
+            <div class="cmp-stat"><div class="label">CNG per month</div><div class="value" id="cnCngMonth">-</div></div>
+            <div class="cmp-stat"><div class="label">Saving per year</div><div class="value" id="cnYear">-</div></div>
+            <div class="cmp-stat"><div class="label">Payback of extra cost</div><div class="value" id="cnPayback">-</div></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Example: Daily Office Commute</h2>
+        <p>You drive <strong>1,200 km a month</strong> (about 40 km a day). On petrol your car gives 15 km per litre at ₹102, which costs <strong>₹6.80 per km</strong> or ₹8,160 a month. On CNG it gives 22 km per kg at ₹81, which costs <strong>₹3.68 per km</strong> or ₹4,418 a month. You save about <strong>₹3,742 a month</strong>, so a ₹55,000 kit pays for itself in about <strong>15 months</strong>.</p>
+
+        <h2>When CNG Makes Sense</h2>
+        <ul>
+          <li><strong>You drive a lot.</strong> The more kilometres per month, the faster the kit or CNG premium pays back. Taxi and daily commuters benefit most.</li>
+          <li><strong>CNG is easily available on your routes.</strong> CNG stations are common in Delhi-NCR, Mumbai, Pune, Gujarat and some other cities, but scarce in many areas, and queues can be long.</li>
+          <li><strong>You can spare the boot space.</strong> The cylinder takes up much of the boot in most cars, although some newer models use twin smaller cylinders.</li>
+        </ul>
+
+        <h2>Things to Keep in Mind</h2>
+        <ul>
+          <li>Engines make a little less power on CNG, which you notice on hills and when fully loaded.</li>
+          <li>An aftermarket kit must be fitted by an approved installer and recorded on your RC by the RTO. An unendorsed kit can cause problems with insurance claims.</li>
+          <li>The CNG cylinder needs periodic hydro-testing, and the kit needs regular servicing. Budget a small amount for this.</li>
+          <li>CNG prices change from time to time and differ by city, so check your local rate before deciding.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>Is CNG cheaper than petrol per km?</h4>
+          <p>Usually yes, by around 40 to 50 percent. A car giving 15 km per litre on petrol at ₹102 costs about ₹6.80 per km, while the same class of car giving 22 km per kg on CNG at ₹81 costs about ₹3.68 per km.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How long does a CNG kit take to pay back?</h4>
+          <p>It depends on how much you drive. At 1,200 km a month, a ₹55,000 kit saving about ₹3,700 a month pays back in roughly 15 months. If you drive only 400 km a month, it takes about three times as long.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Does CNG reduce car performance?</h4>
+          <p>Engines produce somewhat less power on CNG, and the cylinder takes up boot space. Factory-fitted CNG cars are tuned for it and keep their warranty. Aftermarket kits must be fitted by an approved installer and endorsed on the RC with the RTO.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Fuel &amp; Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="ev-vs-petrol-calculator.html">EV vs Petrol Calculator</a>
+          <a class="btn secondary" href="fuel-cost-calculator.html">Fuel Cost Calculator</a>
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    function rupees(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
+    function perKm(n) { return "₹" + n.toFixed(2); }
+    var ids = ["cnKm", "cnExtra", "cnPetrolMileage", "cnPetrolPrice", "cnCngMileage", "cnCngPrice"];
+
+    function calculate() {
+      var km = v("cnKm"), extra = v("cnExtra") || 0, pm = v("cnPetrolMileage"), pp = v("cnPetrolPrice"), cm = v("cnCngMileage"), cp = v("cnCngPrice");
+      if (!(km > 0) || !(pm > 0) || !(pp > 0) || !(cm > 0) || !(cp > 0)) { $("cnError").textContent = "Please fill in distance, mileage and prices."; return; }
+      $("cnError").textContent = "";
+      var pKm = pp / pm, cKm = cp / cm, pMonth = km * pKm, cMonth = km * cKm, save = pMonth - cMonth;
+      $("cnPetrolKm").textContent = perKm(pKm);
+      $("cnCngKm").textContent = perKm(cKm);
+      $("cnPetrolMonth").textContent = rupees(pMonth);
+      $("cnCngMonth").textContent = rupees(cMonth);
+      $("cnYear").textContent = save > 0 ? rupees(save * 12) : "No saving";
+      if (save <= 0) {
+        $("cnHeadline").textContent = "CNG costs more than petrol with these numbers";
+        $("cnPayback").textContent = "Never";
+        return;
+      }
+      $("cnHeadline").textContent = "CNG saves you " + rupees(save) + " a month (" + Math.round(save / pMonth * 100) + "% less)";
+      var months = extra > 0 ? extra / save : 0;
+      $("cnPayback").textContent = extra > 0 ? (months < 24 ? Math.ceil(months) + " months" : (months / 12).toFixed(1) + " years") : "No extra cost";
+    }
+    ids.forEach(function (id) { $(id).addEventListener("input", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

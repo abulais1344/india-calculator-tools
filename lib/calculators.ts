@@ -237,6 +237,18 @@ export const CALCULATORS: Calculator[] = [
     description: 'Calculate fuel cost for your journey',
   },
   {
+    id: 'cng-vs-petrol',
+    name: 'CNG vs Petrol Calculator',
+    path: '/cng-vs-petrol-calculator.html',
+    description: 'CNG vs petrol cost per km, savings and CNG kit payback',
+  },
+  {
+    id: 'ev-vs-petrol',
+    name: 'EV vs Petrol Calculator',
+    path: '/ev-vs-petrol-calculator.html',
+    description: 'Electric car or scooter running cost vs petrol',
+  },
+  {
     id: 'discount',
     name: 'Discount Calculator',
     path: '/discount-calculator.html',
@@ -299,7 +311,7 @@ export const CALCULATOR_CATEGORIES = {
   loan: ['emi', 'home-loan', 'car-loan', 'personal-loan', 'loan-eligibility'],
   investment: ['sip', 'simple-interest', 'compound-interest', 'fd', 'rd', 'ppf', 'gratuity'],
   salary: ['salary', 'income-tax', 'gst'],
-  utility: ['electricity-bill', 'solar-panel', 'solar-subsidy', 'solar-generation', 'fuel-cost', 'discount', 'bmi', 'age'],
+  utility: ['electricity-bill', 'solar-panel', 'solar-subsidy', 'solar-generation', 'fuel-cost', 'cng-vs-petrol', 'ev-vs-petrol', 'discount', 'bmi', 'age'],
   generator: ['salary-slip', 'rent-receipt', 'gst-invoice'],
 };
 
