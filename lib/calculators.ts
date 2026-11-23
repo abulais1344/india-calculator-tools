@@ -279,6 +279,36 @@ export const CALCULATORS: Calculator[] = [
     description: 'Tiles and boxes needed for a floor or wall',
   },
   {
+    id: 'inverter-battery',
+    name: 'Inverter Battery Backup Calculator',
+    path: '/inverter-battery-calculator.html',
+    description: 'Battery backup hours, inverter VA and battery Ah needed',
+  },
+  {
+    id: 'ac-tonnage',
+    name: 'AC Tonnage Calculator',
+    path: '/ac-tonnage-calculator.html',
+    description: 'Right AC size (1, 1.5, 2 ton) for your room',
+  },
+  {
+    id: 'gold-price',
+    name: 'Gold Price Calculator',
+    path: '/gold-price-calculator.html',
+    description: 'Gold jewellery price with purity, making charges and GST',
+  },
+  {
+    id: 'hijri-date',
+    name: 'Hijri Date Converter',
+    path: '/hijri-date-converter.html',
+    description: 'Gregorian to Hijri and back, Ramadan and Eid dates',
+  },
+  {
+    id: 'date-calculator',
+    name: 'Date Calculator',
+    path: '/date-calculator.html',
+    description: 'Days between dates, add days and day of the week',
+  },
+  {
     id: 'zakat',
     name: 'Zakat Calculator',
     path: '/zakat-calculator.html',

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Calculator – Days Between Dates, Add Days &amp; Day of the Week | CalcVerse</title>
+  <meta name="description" content="Count days between two dates (with weeks, months and working days), add or subtract days, weeks or months from a date, and find the day of the week for any date. Free date calculator.">
+  <link rel="canonical" href="https://calcverse.in/date-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Date Calculator – Days Between Dates, Add Days &amp; Day of the Week | CalcVerse">
+  <meta property="og:description" content="Count days between dates, add or subtract days, and find the day of the week.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/date-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Date Calculator – Days Between Dates, Add Days &amp; Day of the Week | CalcVerse">
+  <meta name="twitter:description" content="Count days between dates, add or subtract days, and find the day of the week.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I count the days between two dates?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract the earlier date from the later one. For example, from 24 November 2026 to 31 March 2027 is 127 days (128 if you count both the start and end dates)."}},
+      {"@type": "Question", "name": "What date is 100 days from today?", "acceptedAnswer": {"@type": "Answer", "text": "Use the Add or Subtract tab: choose the start date, enter 100 days, and the calculator shows the resulting date and weekday. For example, 100 days after 24 November 2026 is Thursday, 4 March 2027."}},
+      {"@type": "Question", "name": "How are working days counted?", "acceptedAnswer": {"@type": "Answer", "text": "Working days count Monday to Friday (or Monday to Saturday if you choose a 6-day week) between the two dates, including both dates. Public holidays are not removed, so subtract those separately."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Age Calculator", "item": "https://calcverse.in/age-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Date Calculator", "item": "https://calcverse.in/date-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-8">
+  <script src="app.min.js?v=20261124-8" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .x-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .x-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .dc-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+    .dc-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
+    .dc-stat .label { font-size: 0.85rem; color: #5b6f63; }
+    .dc-stat .value { font-size: 1.1rem; font-weight: 700; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Date Calculator</h1>
+        <p>Count the days between two dates, add or subtract days from a date, and find the day of the week for any date.</p>
+      </section>
+
+      <section class="card">
+        <div class="x-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" data-mode="between" aria-pressed="true">Days between dates</button>
+          <button type="button" data-mode="add" aria-pressed="false">Add or subtract</button>
+          <button type="button" data-mode="weekday" aria-pressed="false">Day of the week</button>
+        </div>
+
+        <div data-panel="between">
+          <div class="field inline-row">
+            <div><label for="dcFrom">Start date</label><input id="dcFrom" type="date" max="9999-12-31"></div>
+            <div><label for="dcTo">End date</label><input id="dcTo" type="date" max="9999-12-31"></div>
+          </div>
+          <div class="field inline-row">
+            <div><label><input id="dcInclude" type="checkbox"> Include the end date (count both days)</label></div>
+            <div><label for="dcWork">Working week</label><select id="dcWork"><option value="5">Monday–Friday</option><option value="6">Monday–Saturday</option></select></div>
+          </div>
+        </div>
+
+        <div data-panel="add" hidden>
+          <div class="field inline-row">
+            <div><label for="dcStart">Start date</label><input id="dcStart" type="date" max="9999-12-31"></div>
+            <div><label for="dcOp">Add or subtract</label><select id="dcOp"><option value="1">Add (+)</option><option value="-1">Subtract (−)</option></select></div>
+          </div>
+          <div class="field inline-row">
+            <div><label for="dcNum">Amount</label><input id="dcNum" type="number" min="0" step="1" value="100"></div>
+            <div><label for="dcUnit">Unit</label><select id="dcUnit"><option value="d">Days</option><option value="w">Weeks</option><option value="m">Months</option><option value="y">Years</option></select></div>
+          </div>
+        </div>
+
+        <div data-panel="weekday" hidden>
+          <div class="field"><label for="dcDay">Date</label><input id="dcDay" type="date" max="9999-12-31"></div>
+        </div>
+
+        <p id="dcError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="dcResult" class="result-value">-</div>
+          <div class="dc-stats" id="dcStats" hidden>
+            <div class="dc-stat"><div class="label">Weeks and days</div><div class="value" id="dcWeeks">-</div></div>
+            <div class="dc-stat"><div class="label">Months and days</div><div class="value" id="dcMonths">-</div></div>
+            <div class="dc-stat"><div class="label">Working days</div><div class="value" id="dcWorkdays">-</div></div>
+            <div class="dc-stat"><div class="label">Hours</div><div class="value" id="dcHours">-</div></div>
+          </div>
+          <div class="steps" id="dcDetail"></div>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How to Use the Date Calculator</h2>
+        <ul>
+          <li><strong>Days between dates:</strong> pick two dates to see the number of days, weeks, months and working days between them, for example days left until an exam, a notice period or a due date.</li>
+          <li><strong>Add or subtract:</strong> find the date a number of days, weeks, months or years before or after a date, for example "90 days from today" for a deadline or a warranty end date.</li>
+          <li><strong>Day of the week:</strong> find which weekday any date falls on, past or future.</li>
+        </ul>
+        <h2>Examples</h2>
+        <ul>
+          <li>From <strong>24 November 2026</strong> to <strong>31 March 2027</strong> is <strong>127 days</strong> (18 weeks and 1 day), with 92 weekdays counting both dates.</li>
+          <li><strong>100 days</strong> after 24 November 2026 is <strong>Thursday, 4 March 2027</strong>.</li>
+          <li>Adding 1 month to 31 January gives the last day of February (28 or 29 February), because February has no 31st.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How do I count the days between two dates?</h4><p>Subtract the earlier date from the later one. For example, from 24 November 2026 to 31 March 2027 is 127 days (128 if you count both the start and end dates).</p></div>
+        <div class="faq-item"><h4>What date is 100 days from today?</h4><p>Use the Add or Subtract tab: choose the start date, enter 100 days, and the calculator shows the resulting date and weekday. For example, 100 days after 24 November 2026 is Thursday, 4 March 2027.</p></div>
+        <div class="faq-item"><h4>How are working days counted?</h4><p>Working days count Monday to Friday (or Monday to Saturday if you choose a 6-day week) between the two dates, including both dates. Public holidays are not removed, so subtract those separately.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Date &amp; Age Tools</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+          <a class="btn secondary" href="birthday-calculator.html">Birthday Calculator</a>
+          <a class="btn secondary" href="hijri-date-converter.html">Hijri Date Converter</a>
+          <a class="btn secondary" href="attendance-calculator.html">Attendance Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var DAY = 86400000, WD = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var GM = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    function $(id) { return document.getElementById(id); }
+    function parse(v) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ""); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null; }
+    function iso(t) { return new Date(t).toISOString().slice(0, 10); }
+    function gText(t) { var d = new Date(t); return WD[d.getUTCDay()] + ", " + d.getUTCDate() + " " + GM[d.getUTCMonth()] + " " + d.getUTCFullYear(); }
+    function plural(n, w) { return n.toLocaleString("en-IN") + " " + w + (n === 1 ? "" : "s"); }
+    function today() { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+    function addMonths(t, n) {
+      var d = new Date(t), y = d.getUTCFullYear(), m = d.getUTCMonth() + n, day = d.getUTCDate();
+      var ty = y + Math.floor(m / 12), tm = ((m % 12) + 12) % 12, last = new Date(Date.UTC(ty, tm + 1, 0)).getUTCDate();
+      return Date.UTC(ty, tm, Math.min(day, last));
+    }
+    function monthsDays(a, b) {
+      var A = new Date(a), B = new Date(b), m = (B.getUTCFullYear() - A.getUTCFullYear()) * 12 + B.getUTCMonth() - A.getUTCMonth();
+      if (addMonths(a, m) > b) m--;
+      return plural(m, "month") + ", " + plural(Math.round((b - addMonths(a, m)) / DAY), "day");
+    }
+    var mode = "between";
+    $("dcFrom").value = iso(today()); $("dcTo").value = iso(today() + 127 * DAY); $("dcStart").value = iso(today()); $("dcDay").value = iso(today());
+    function fail(m) { $("dcError").textContent = m; $("dcResult").textContent = "-"; $("dcStats").hidden = true; $("dcDetail").textContent = ""; }
+    function calculate() {
+      $("dcError").textContent = ""; $("dcStats").hidden = true; $("dcDetail").textContent = "";
+      if (mode === "between") {
+        var a = parse($("dcFrom").value), b = parse($("dcTo").value);
+        if (a === null || b === null) return fail("Choose both dates.");
+        var sign = b < a ? -1 : 1, lo = Math.min(a, b), hi = Math.max(a, b), inc = $("dcInclude").checked ? 1 : 0;
+        var days = Math.round((hi - lo) / DAY) + inc, wk = +$("dcWork").value, work = 0;
+        for (var t = lo; t <= hi; t += DAY) { var g = new Date(t).getUTCDay(); if (g !== 0 && (wk === 6 || g !== 6)) work++; }
+        $("dcResult").textContent = plural(days, "day") + (sign < 0 ? " (end date is before start date)" : "");
+        $("dcWeeks").textContent = plural(Math.floor(days / 7), "week") + (days % 7 ? ", " + plural(days % 7, "day") : "");
+        $("dcMonths").textContent = monthsDays(lo, hi + inc * DAY);
+        $("dcWorkdays").textContent = work.toLocaleString("en-IN") + " (" + (wk === 6 ? "Mon–Sat" : "Mon–Fri") + ", both dates)";
+        $("dcHours").textContent = (days * 24).toLocaleString("en-IN");
+        $("dcStats").hidden = false;
+        $("dcDetail").textContent = gText(lo) + " → " + gText(hi) + ".";
+      } else if (mode === "add") {
+        var s = parse($("dcStart").value), n = parseInt($("dcNum").value, 10), op = +$("dcOp").value, u = $("dcUnit").value;
+        if (s === null) return fail("Choose a start date.");
+        if (!(n >= 0)) return fail("Enter a whole number.");
+        var r = u === "d" ? s + op * n * DAY : u === "w" ? s + op * n * 7 * DAY : addMonths(s, op * n * (u === "y" ? 12 : 1));
+        var unit = { d: "day", w: "week", m: "month", y: "year" }[u];
+        $("dcResult").textContent = gText(r);
+        $("dcDetail").textContent = gText(s) + (op > 0 ? " + " : " − ") + plural(n, unit) + " = " + gText(r) + ".";
+      } else {
+        var d = parse($("dcDay").value);
+        if (d === null) return fail("Choose a date.");
+        var diff = Math.round((d - today()) / DAY);
+        $("dcResult").textContent = gText(d);
+        $("dcDetail").textContent = diff === 0 ? "That is today." : diff > 0 ? plural(diff, "day") + " from today." : plural(-diff, "day") + " ago.";
+      }
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        calculate();
+      });
+    });
+    ["dcFrom", "dcTo", "dcStart", "dcNum", "dcDay"].forEach(function (id) { $(id).addEventListener("input", calculate); $(id).addEventListener("change", calculate); });
+    ["dcInclude", "dcWork", "dcOp", "dcUnit"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AC Tonnage Calculator – 1, 1.5 or 2 Ton AC for Your Room Size | CalcVerse</title>
+  <meta name="description" content="Which AC size do you need: 1 ton, 1.5 ton or 2 ton? Enter room size, ceiling height, sun exposure and number of people to get the recommended AC tonnage for Indian summers.">
+  <link rel="canonical" href="https://calcverse.in/ac-tonnage-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="AC Tonnage Calculator – 1, 1.5 or 2 Ton AC for Your Room Size | CalcVerse">
+  <meta property="og:description" content="Find the right AC tonnage for your room size and conditions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/ac-tonnage-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AC Tonnage Calculator – 1, 1.5 or 2 Ton AC for Your Room Size | CalcVerse">
+  <meta name="twitter:description" content="Find the right AC tonnage for your room size and conditions.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Which AC is best for a 150 sq ft room?", "acceptedAnswer": {"@type": "Answer", "text": "As a rule of thumb, a 1.5 ton AC for a 150 sq ft room with a normal 10 ft ceiling. Rooms up to about 130 sq ft usually need 1 ton, and about 195–260 sq ft need 2 tons. Top-floor rooms, west-facing walls and more people push the size up."}},
+      {"@type": "Question", "name": "What does 1 ton mean in an AC?", "acceptedAnswer": {"@type": "Answer", "text": "One ton of cooling removes 12,000 BTU of heat per hour (about 3.5 kW). It has nothing to do with the AC's weight."}},
+      {"@type": "Question", "name": "Is a bigger AC better?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. An oversized AC cools quickly but switches on and off often and removes less humidity; an undersized AC runs constantly and struggles on hot days. Choose the size that matches your room, and prefer an inverter AC with a good star rating."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Electricity Consumption Calculator", "item": "https://calcverse.in/electricity-consumption-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "AC Tonnage Calculator", "item": "https://calcverse.in/ac-tonnage-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-8">
+  <script src="app.min.js?v=20261124-8" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .x-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .x-table th, .x-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>AC Tonnage Calculator</h1>
+        <p>Find whether you need a 1 ton, 1.5 ton or 2 ton AC for your room, based on size, ceiling height, sunlight and people.</p>
+      </section>
+
+      <section class="card">
+        <h2>Room Details</h2>
+        <div class="field inline-row">
+          <div><label for="acLen">Room length (ft)</label><input id="acLen" type="number" min="1" step="any" value="12"></div>
+          <div><label for="acWid">Room width (ft)</label><input id="acWid" type="number" min="1" step="any" value="12"></div>
+          <div><label for="acHt">Ceiling height (ft)</label><input id="acHt" type="number" min="7" max="20" step="0.5" value="10"></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="acSun">Sun and heat</label>
+            <select id="acSun"><option value="1">Normal room</option><option value="1.15">Gets afternoon sun / west-facing</option><option value="1.25">Top floor or under a roof</option><option value="1.4">Top floor and strong sun</option></select>
+          </div>
+          <div><label for="acPeople">People usually in the room</label><input id="acPeople" type="number" min="1" max="20" step="1" value="2"></div>
+          <div><label for="acKitchen">Room type</label><select id="acKitchen"><option value="0">Bedroom / living room</option><option value="0.5">Kitchen or room with heat-producing equipment</option></select></div>
+        </div>
+        <div class="result-box">
+          <div id="acResult" class="result-value">Recommended: -</div>
+          <div class="steps" id="acDetail"></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">This is a rule-of-thumb estimate. Large windows, poor insulation or very hot cities may need more; a dealer's site survey gives the best answer. Running cost for your chosen AC: <a href="electricity-consumption-calculator.html">Appliance Units Calculator</a>.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>AC Size by Room Size (10 ft ceiling, normal room)</h2>
+        <div style="overflow-x: auto;">
+          <table class="x-table">
+            <thead><tr><th>Room size</th><th>Example</th><th>AC size</th></tr></thead>
+            <tbody>
+              <tr><td>Up to 90 sq ft</td><td>9 × 10 ft</td><td>0.75 ton</td></tr>
+              <tr><td>90–130 sq ft</td><td>10 × 12 ft</td><td>1 ton</td></tr>
+              <tr><td>130–195 sq ft</td><td>12 × 14 ft</td><td>1.5 ton</td></tr>
+              <tr><td>195–260 sq ft</td><td>14 × 16 ft</td><td>2 ton</td></tr>
+              <tr><td>260–325 sq ft</td><td>16 × 18 ft</td><td>2.5 ton</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>How the Calculator Works</h2>
+        <ul>
+          <li>Starts from about <strong>1 ton per 130 sq ft</strong> for a normal room with a 10 ft ceiling, a common rule of thumb for Indian summers.</li>
+          <li>Scales up for higher ceilings, afternoon sun and top-floor rooms (up to +40%).</li>
+          <li>Adds about 0.05 ton (600 BTU per hour) for each person beyond two, and half a ton for a kitchen.</li>
+          <li>Rounds up to the nearest size sold: 0.75, 1, 1.5, 2, 2.5 or 3 ton.</li>
+        </ul>
+        <h2>Example</h2>
+        <p>A <strong>12 × 12 ft</strong> bedroom (144 sq ft) with a 10 ft ceiling and 2 people needs about 1.1 ton, so a <strong>1.5 ton AC</strong>. The same room on the top floor needs about 1.4 ton, which is still 1.5 ton.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>Which AC is best for a 150 sq ft room?</h4><p>As a rule of thumb, a 1.5 ton AC for a 150 sq ft room with a normal 10 ft ceiling. Rooms up to about 130 sq ft usually need 1 ton, and about 195–260 sq ft need 2 tons. Top-floor rooms, west-facing walls and more people push the size up.</p></div>
+        <div class="faq-item"><h4>What does 1 ton mean in an AC?</h4><p>One ton of cooling removes 12,000 BTU of heat per hour (about 3.5 kW). It has nothing to do with the AC's weight.</p></div>
+        <div class="faq-item"><h4>Is a bigger AC better?</h4><p>Not always. An oversized AC cools quickly but switches on and off often and removes less humidity; an undersized AC runs constantly and struggles on hot days. Choose the size that matches your room, and prefer an inverter AC with a good star rating.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="electricity-consumption-calculator.html">Appliance Units Calculator</a>
+          <a class="btn secondary" href="inverter-battery-calculator.html">Inverter Battery Calculator</a>
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    var SIZES = [0.75, 1, 1.5, 2, 2.5, 3];
+    function calculate() {
+      var L = v("acLen"), W = v("acWid"), H = v("acHt") || 10, sun = +$("acSun").value, ppl = Math.max(v("acPeople") || 1, 1), kit = +$("acKitchen").value;
+      if (!(L > 0) || !(W > 0)) { $("acResult").textContent = "Recommended: -"; $("acDetail").textContent = "Enter the room length and width."; return; }
+      var area = L * W, tons = area / 130 * (H / 10) * sun + Math.max(ppl - 2, 0) * 0.05 + kit;
+      var pick = SIZES.filter(function (s) { return s >= tons - 0.02; })[0];
+      $("acResult").textContent = pick ? "Recommended: " + pick + " ton AC" : "Recommended: more than 3 tons – use 2 ACs or a ducted/commercial system";
+      $("acDetail").textContent = Math.round(area) + " sq ft room needs about " + tons.toFixed(2) + " ton (" + Math.round(tons * 12000).toLocaleString("en-IN") + " BTU/hour) of cooling.";
+    }
+    ["acLen", "acWid", "acHt", "acPeople"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["acSun", "acKitchen"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

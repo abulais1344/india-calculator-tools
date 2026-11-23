@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Price Calculator – Jewellery Price with Making Charges &amp; GST | CalcVerse</title>
+  <meta name="description" content="Calculate the final price of gold jewellery: weight in grams or tola, 24K/22K/18K purity, today's rate, making charges and 3% GST. Also converts tola to grams.">
+  <link rel="canonical" href="https://calcverse.in/gold-price-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Gold Price Calculator – Jewellery Price with Making Charges &amp; GST | CalcVerse">
+  <meta property="og:description" content="Calculate gold jewellery price with purity, making charges and GST.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/gold-price-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gold Price Calculator – Jewellery Price with Making Charges &amp; GST | CalcVerse">
+  <meta name="twitter:description" content="Calculate gold jewellery price with purity, making charges and GST.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How is the price of gold jewellery calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Price = (gold rate for the purity × weight) + making charges + GST. For 10 g of 22K gold at a 24K rate of ₹13,500 per gram, the gold value is about ₹1,23,660; with 12% making charges and 3% GST on the total, the bill is about ₹1,42,654."}},
+      {"@type": "Question", "name": "How much GST is charged on gold jewellery?", "acceptedAnswer": {"@type": "Answer", "text": "3% GST applies to gold. According to CBIC guidance, 3% applies to the whole jewellery value even when making charges are shown separately, but some jewellers charge 5% GST on making charges. Check how your invoice is billed."}},
+      {"@type": "Question", "name": "How many grams are in 1 tola?", "acceptedAnswer": {"@type": "Answer", "text": "1 tola = 11.6638 grams. Jewellers often round it to 11.66 g; in some places a 10 g 'tola' is used for convenience."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Zakat Calculator", "item": "https://calcverse.in/zakat-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Gold Price Calculator", "item": "https://calcverse.in/gold-price-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-8">
+  <script src="app.min.js?v=20261124-8" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .x-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .x-table th, .x-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+    .x-table td:last-child { text-align: right; white-space: nowrap; }
+    .x-table tr.total td { font-weight: 700; border-top: 2px solid #c4d8cb; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Gold Price Calculator</h1>
+        <p>Work out the final price of gold jewellery, coins or bars, with purity, making charges and GST.</p>
+      </section>
+
+      <section class="card">
+        <h2>Calculate Gold Price</h2>
+        <div class="field inline-row">
+          <div><label for="gdWeight">Weight</label><input id="gdWeight" type="number" min="0" step="any" value="10"></div>
+          <div><label for="gdUnit">Unit</label><select id="gdUnit"><option value="1">Grams</option><option value="11.6638">Tola (11.66 g)</option></select></div>
+          <div><label for="gdPurity">Purity</label>
+            <select id="gdPurity"><option value="1">24K (99.9%)</option><option value="0.916" selected>22K (91.6%)</option><option value="0.75">18K (75%)</option><option value="0.585">14K (58.5%)</option></select>
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="gdRate">Today's 24K gold rate (₹ per gram)</label><input id="gdRate" type="number" min="1" step="any" value="13500"></div>
+          <div><label for="gdOverride">Or your jeweller's rate for this purity (₹/g, optional)</label><input id="gdOverride" type="number" min="1" step="any" placeholder="e.g. 22K board rate"></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="gdMaking">Making charges</label><input id="gdMaking" type="number" min="0" step="any" value="12"></div>
+          <div><label for="gdMakingType">Making charge type</label><select id="gdMakingType"><option value="pct">% of gold value</option><option value="pergram">₹ per gram</option><option value="flat">Flat ₹</option></select></div>
+          <div><label for="gdGst">GST</label><select id="gdGst"><option value="all3">3% on gold + making</option><option value="split">3% on gold, 5% on making</option><option value="none">No GST (estimate only)</option></select></div>
+        </div>
+        <p style="font-size: 0.9rem;">Default rate is approximate (November 2026). Enter today's rate from your jeweller or a bullion site.</p>
+        <p id="gdError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="gdResult" class="result-value">Total price: -</div>
+          <div style="overflow-x: auto;"><table class="x-table" style="margin-top: 10px;"><tbody id="gdTable"></tbody></table></div>
+        </div>
+        <p style="margin-top: 1rem;">Paying zakat on gold? Use the <a href="zakat-calculator.html">Zakat Calculator</a>.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How Gold Jewellery Price Is Calculated</h2>
+        <ol>
+          <li><strong>Gold value</strong> = weight × rate for that purity. 22K gold is 91.6% pure, so its rate is about 91.6% of the 24K rate (jewellers' board rates can differ slightly).</li>
+          <li><strong>Making charges</strong> are added: usually 8–25% of the gold value, or a fixed amount per gram, depending on the design.</li>
+          <li><strong>GST</strong> of 3% is added. CBIC guidance treats jewellery as one supply taxed at 3% on the whole value, but some jewellers bill 5% on making charges separately, so check your invoice.</li>
+        </ol>
+        <h2>Example</h2>
+        <p><strong>10 g of 22K jewellery</strong> at a 24K rate of ₹13,500/g: gold value ₹1,23,660 + 12% making ₹14,839 = ₹1,38,499, plus 3% GST ₹4,155 = <strong>₹1,42,654</strong>.</p>
+        <h2>Tips When Buying Gold</h2>
+        <ul>
+          <li>Buy only <strong>BIS hallmarked</strong> jewellery with a 6-digit HUID code, and check it on the BIS Care app.</li>
+          <li>Ask for the gold rate, weight, making charges and GST to be shown separately on the bill.</li>
+          <li>Making charges are usually lost when you sell or exchange, so plain designs and coins hold value better.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How is the price of gold jewellery calculated?</h4><p>Price = (gold rate for the purity × weight) + making charges + GST. For 10 g of 22K gold at a 24K rate of ₹13,500 per gram, the gold value is about ₹1,23,660; with 12% making charges and 3% GST on the total, the bill is about ₹1,42,654.</p></div>
+        <div class="faq-item"><h4>How much GST is charged on gold jewellery?</h4><p>3% GST applies to gold. According to CBIC guidance, 3% applies to the whole jewellery value even when making charges are shown separately, but some jewellers charge 5% GST on making charges. Check how your invoice is billed.</p></div>
+        <div class="faq-item"><h4>How many grams are in 1 tola?</h4><p>1 tola = 11.6638 grams. Jewellers often round it to 11.66 g; in some places a 10 g "tola" is used for convenience.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="zakat-calculator.html">Zakat Calculator</a>
+          <a class="btn secondary" href="hijri-date-converter.html">Hijri Date Converter</a>
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+          <a class="btn secondary" href="land-area-converter.html">Land Area Converter</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    function r(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
+    function calculate() {
+      var w = v("gdWeight"), unit = +$("gdUnit").value, purity = +$("gdPurity").value, rate24 = v("gdRate"), ov = v("gdOverride");
+      var mk = v("gdMaking") || 0, mt = $("gdMakingType").value, gst = $("gdGst").value;
+      if (!(w > 0)) { $("gdError").textContent = "Enter the gold weight."; return; }
+      if (!(rate24 > 0) && !(ov > 0)) { $("gdError").textContent = "Enter today's gold rate."; return; }
+      $("gdError").textContent = "";
+      var grams = w * unit, rate = ov > 0 ? ov : rate24 * purity, gold = grams * rate;
+      var making = mt === "pct" ? gold * mk / 100 : mt === "pergram" ? grams * mk : mk;
+      var gGold = gst === "none" ? 0 : gold * 0.03, gMake = gst === "none" ? 0 : making * (gst === "split" ? 0.05 : 0.03);
+      var total = gold + making + gGold + gMake;
+      $("gdResult").textContent = "Total price: " + r(total);
+      $("gdTable").innerHTML =
+        "<tr><td>Weight</td><td>" + grams.toFixed(3).replace(/\.?0+$/, "") + " g" + (unit !== 1 ? " (" + w + " tola)" : "") + "</td></tr>" +
+        "<tr><td>Rate used</td><td>" + r(rate) + "/g" + (ov > 0 ? " (your rate)" : "") + "</td></tr>" +
+        "<tr><td>Gold value</td><td>" + r(gold) + "</td></tr>" +
+        "<tr><td>Making charges</td><td>" + r(making) + "</td></tr>" +
+        "<tr><td>GST" + (gst === "split" ? " (3% + 5%)" : gst === "all3" ? " (3%)" : "") + "</td><td>" + r(gGold + gMake) + "</td></tr>" +
+        "<tr class=\"total\"><td>Total</td><td>" + r(total) + "</td></tr>";
+    }
+    ["gdWeight", "gdRate", "gdOverride", "gdMaking"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["gdUnit", "gdPurity", "gdMakingType", "gdGst"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

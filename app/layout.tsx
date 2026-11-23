@@ -69,8 +69,12 @@ const MORE_NAV = [
   { href: '/birth-year-calculator.html', label: 'Birth Year Calculator' },
   { href: '/age-as-on-date-calculator.html', label: 'Age As On Date (Exams)' },
   { href: '/school-admission-age-calculator.html', label: 'School Admission Age' },
+  { href: '/date-calculator.html', label: 'Date Calculator' },
+  { href: '/hijri-date-converter.html', label: 'Hijri Date Converter' },
   { href: '/age-calculator-hindi.html', label: 'एज कैलकुलेटर (हिंदी)' },
   { href: '/electricity-consumption-calculator.html', label: 'Appliance Units Calculator' },
+  { href: '/ac-tonnage-calculator.html', label: 'AC Tonnage Calculator' },
+  { href: '/inverter-battery-calculator.html', label: 'Inverter Battery Backup' },
   { href: '/solar-subsidy-calculator.html', label: 'Solar Subsidy' },
   { href: '/fuel-cost-calculator.html', label: 'Fuel Cost' },
   { href: '/cng-vs-petrol-calculator.html', label: 'CNG vs Petrol' },
@@ -82,6 +86,7 @@ const MORE_NAV = [
   { href: '/land-area-converter.html', label: 'Land Area Converter' },
   { href: '/brick-calculator.html', label: 'Brick & Cement Calculator' },
   { href: '/tile-calculator.html', label: 'Tile Calculator' },
+  { href: '/gold-price-calculator.html', label: 'Gold Price Calculator' },
   { href: '/gst-calculator.html', label: 'GST Calculator' },
   { href: '/gst-invoice-generator.html', label: 'GST Invoice' },
   { href: '/rent-receipt-generator.html', label: 'Rent Receipt' },
@@ -96,7 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" href="/styles.min.css?v=20261124-7" />
+        <link rel="stylesheet" href="/styles.min.css?v=20261124-8" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525"

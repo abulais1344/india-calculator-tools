@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hijri Date Converter – Islamic Date Today &amp; Hijri to English Date | CalcVerse</title>
+  <meta name="description" content="Convert English (Gregorian) dates to Hijri (Islamic) dates and back. See today's Islamic date and expected dates of Ramadan, Eid al-Fitr and Eid al-Adha, with adjustment for moon sighting in India.">
+  <link rel="canonical" href="https://calcverse.in/hijri-date-converter.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Hijri Date Converter – Islamic Date Today &amp; Hijri to English Date | CalcVerse">
+  <meta property="og:description" content="Convert Gregorian dates to Hijri and back, with Ramadan and Eid dates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/hijri-date-converter.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hijri Date Converter – Islamic Date Today &amp; Hijri to English Date | CalcVerse">
+  <meta name="twitter:description" content="Convert Gregorian dates to Hijri and back, with Ramadan and Eid dates.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "When does Ramadan 2027 start?", "acceptedAnswer": {"@type": "Answer", "text": "By the Umm al-Qura calendar, 1 Ramadan 1448 falls on 8 February 2027, and Eid al-Fitr (1 Shawwal) on 9 March 2027. In India the dates depend on local moon sighting and are often one day later."}},
+      {"@type": "Question", "name": "Why do Hijri dates in India differ from Saudi Arabia?", "acceptedAnswer": {"@type": "Answer", "text": "Each Islamic month begins with the sighting of the new crescent moon. India's moon-sighting committees often see the moon a day after Saudi Arabia, so Indian Hijri dates are frequently one day behind the Umm al-Qura calendar. Use the adjustment option to match your local calendar."}},
+      {"@type": "Question", "name": "How many days are in a Hijri year?", "acceptedAnswer": {"@type": "Answer", "text": "A Hijri year has 354 or 355 days, about 11 days fewer than the Gregorian year, so Ramadan and Eid move about 11 days earlier each year."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Date Calculator", "item": "https://calcverse.in/date-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Hijri Date Converter", "item": "https://calcverse.in/hijri-date-converter.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-8">
+  <script src="app.min.js?v=20261124-8" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .x-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .x-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .x-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .x-table th, .x-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+    .hj-today { font-size: 1.1rem; font-weight: 700; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Hijri Date Converter</h1>
+        <p>Convert between English (Gregorian) and Islamic (Hijri) dates, and see when Ramadan and Eid are expected.</p>
+        <div class="hj-today" id="hjToday"></div>
+      </section>
+
+      <section class="card">
+        <div class="x-tabs" role="group" aria-label="Conversion direction">
+          <button type="button" data-mode="g2h" aria-pressed="true">English → Hijri</button>
+          <button type="button" data-mode="h2g" aria-pressed="false">Hijri → English</button>
+        </div>
+        <div data-panel="g2h">
+          <div class="field"><label for="hjG">English date</label><input id="hjG" type="date" max="9999-12-31"></div>
+        </div>
+        <div data-panel="h2g" hidden>
+          <div class="field inline-row">
+            <div><label for="hjD">Day</label><input id="hjD" type="number" min="1" max="30" step="1" value="1"></div>
+            <div><label for="hjM">Month</label><select id="hjM"></select></div>
+            <div><label for="hjY">Year (AH)</label><input id="hjY" type="number" min="1300" max="1600" step="1" value="1448"></div>
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="hjCal">Calendar</label><select id="hjCal"><option value="islamic-umalqura">Umm al-Qura (Saudi Arabia)</option><option value="islamic-civil">Tabular / civil Islamic calendar</option></select></div>
+          <div><label for="hjAdj">Adjust for local moon sighting</label><select id="hjAdj"><option value="-2">−2 days</option><option value="-1">−1 day (common in India)</option><option value="0" selected>No adjustment</option><option value="1">+1 day</option><option value="2">+2 days</option></select></div>
+        </div>
+        <p id="hjError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="hjResult" class="result-value">-</div>
+          <div class="steps" id="hjDetail"></div>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Upcoming Islamic Dates</h2>
+        <p>Expected dates by the selected calendar and adjustment. Actual dates in India are announced after the moon is sighted.</p>
+        <div style="overflow-x: auto;"><table class="x-table"><thead><tr><th>Occasion</th><th>Hijri date</th><th>Expected English date</th></tr></thead><tbody id="hjEvents"></tbody></table></div>
+
+        <h2>About the Hijri Calendar</h2>
+        <p>The Hijri (Islamic) calendar is a lunar calendar of 12 months with 29 or 30 days each, so a year has 354 or 355 days. It begins from the Hijrah, the migration of the Prophet Muhammad ﷺ from Makkah to Madinah in 622 CE. Because it is about 11 days shorter than the Gregorian year, Ramadan and Eid move about 11 days earlier every year.</p>
+        <p>This converter uses calendars built into your browser: <strong>Umm al-Qura</strong>, the official calendar of Saudi Arabia, and the <strong>tabular (civil)</strong> calendar. In India, months begin after local moon sighting, which often falls one day later than Umm al-Qura, so use the −1 day adjustment to match most Indian calendars.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>When does Ramadan 2027 start?</h4><p>By the Umm al-Qura calendar, 1 Ramadan 1448 falls on 8 February 2027, and Eid al-Fitr (1 Shawwal) on 9 March 2027. In India the dates depend on local moon sighting and are often one day later.</p></div>
+        <div class="faq-item"><h4>Why do Hijri dates in India differ from Saudi Arabia?</h4><p>Each Islamic month begins with the sighting of the new crescent moon. India's moon-sighting committees often see the moon a day after Saudi Arabia, so Indian Hijri dates are frequently one day behind the Umm al-Qura calendar. Use the adjustment option to match your local calendar.</p></div>
+        <div class="faq-item"><h4>How many days are in a Hijri year?</h4><p>A Hijri year has 354 or 355 days, about 11 days fewer than the Gregorian year, so Ramadan and Eid move about 11 days earlier each year.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="zakat-calculator.html">Zakat Calculator</a>
+          <a class="btn secondary" href="gold-price-calculator.html">Gold Price Calculator</a>
+          <a class="btn secondary" href="date-calculator.html">Date Calculator</a>
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var DAY = 86400000;
+    var MONTHS = ["Muharram", "Safar", "Rabi al-Awwal", "Rabi al-Thani", "Jumada al-Ula", "Jumada al-Akhirah", "Rajab", "Sha'ban", "Ramadan", "Shawwal", "Dhu al-Qadah", "Dhu al-Hijjah"];
+    var WD = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var GM = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    function $(id) { return document.getElementById(id); }
+    var supported = true;
+    try { new Intl.DateTimeFormat("en-u-ca-islamic-umalqura", { timeZone: "UTC" }).format(new Date()); } catch (e) { supported = false; }
+    var cache = {};
+    function hijri(t, cal) {
+      // Hijri parts for UTC midnight t, after the moon-sighting adjustment.
+      var adj = +$("hjAdj").value, key = cal + (t + adj * DAY);
+      if (cache[key]) return cache[key];
+      var p = {};
+      new Intl.DateTimeFormat("en-u-ca-" + cal, { day: "numeric", month: "numeric", year: "numeric", timeZone: "UTC" })
+        .formatToParts(new Date(t + adj * DAY)).forEach(function (x) { p[x.type] = x.value; });
+      return (cache[key] = { d: parseInt(p.day, 10), m: parseInt(p.month, 10), y: parseInt(p.year, 10) });
+    }
+    function hText(h) { return h.d + " " + MONTHS[h.m - 1] + " " + h.y + " AH"; }
+    function gText(t) { var d = new Date(t); return WD[d.getUTCDay()] + ", " + d.getUTCDate() + " " + GM[d.getUTCMonth()] + " " + d.getUTCFullYear(); }
+    function toGreg(y, m, d, cal) {
+      // 1 Muharram of year y falls near Gregorian year 621.5774 + 0.970224 * y; search around it.
+      var g = 621.5774 + 0.970224 * y, est = Date.UTC(Math.floor(g), 0, 1) + Math.round((g % 1) * 365.25) * DAY;
+      var start = est - 45 * DAY;
+      for (var t = start; t < start + 445 * DAY; t += DAY) { var h = hijri(t, cal); if (h.y === y && h.m === m && h.d === d) return t; }
+      return null;
+    }
+    function today() { var n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+    var mode = "g2h", mSel = $("hjM");
+    MONTHS.forEach(function (n, i) { var o = document.createElement("option"); o.value = i + 1; o.textContent = (i + 1) + ". " + n; if (i === 8) o.selected = true; mSel.appendChild(o); });
+    $("hjG").value = new Date(today()).toISOString().slice(0, 10);
+
+    function calculate() {
+      if (!supported) { $("hjError").textContent = "Your browser does not support Islamic calendars. Please update your browser."; return; }
+      cache = {};
+      var cal = $("hjCal").value, err = $("hjError");
+      var th = hijri(today(), cal); $("hjToday").textContent = "Today: " + hText(th) + " · " + gText(today());
+      if (mode === "g2h") {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec($("hjG").value);
+        if (!m) { err.textContent = "Choose a date."; return; }
+        err.textContent = "";
+        var t = Date.UTC(+m[1], +m[2] - 1, +m[3]);
+        $("hjResult").textContent = hText(hijri(t, cal));
+        $("hjDetail").textContent = gText(t) + " = " + hText(hijri(t, cal)) + ". Islamic dates begin at sunset, so the evening before already counts as this Hijri date.";
+      } else {
+        var y = parseInt($("hjY").value, 10), mo = +mSel.value, d = parseInt($("hjD").value, 10);
+        if (!(y >= 1300 && y <= 1600) || !(d >= 1 && d <= 30)) { err.textContent = "Enter a day from 1 to 30 and a year between 1300 and 1600 AH."; $("hjResult").textContent = "-"; $("hjDetail").textContent = ""; return; }
+        var g = toGreg(y, mo, d, cal);
+        if (g === null) { err.textContent = MONTHS[mo - 1] + " " + y + " has only 29 days in this calendar. Try day 29."; $("hjResult").textContent = "-"; $("hjDetail").textContent = ""; return; }
+        err.textContent = "";
+        $("hjResult").textContent = gText(g);
+        $("hjDetail").textContent = d + " " + MONTHS[mo - 1] + " " + y + " AH = " + gText(g) + ".";
+      }
+      // Upcoming events within the next ~13 months.
+      var events = [["Start of Ramadan", 9, 1], ["Eid al-Fitr", 10, 1], ["Day of Arafah", 12, 9], ["Eid al-Adha", 12, 10], ["Islamic New Year", 1, 1], ["Ashura", 1, 10]];
+      var rows = [], from = today();
+      events.forEach(function (e) {
+        for (var yy = th.y; yy <= th.y + 1; yy++) { var g2 = toGreg(yy, e[1], e[2], cal); if (g2 !== null && g2 >= from) { rows.push([g2, e[0], e[2] + " " + MONTHS[e[1] - 1] + " " + yy]); break; } }
+      });
+      rows.sort(function (a, b) { return a[0] - b[0]; });
+      $("hjEvents").innerHTML = rows.map(function (r) { return "<tr><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + gText(r[0]) + "</td></tr>"; }).join("");
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        calculate();
+      });
+    });
+    ["hjG", "hjD", "hjY"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["hjM", "hjCal", "hjAdj"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

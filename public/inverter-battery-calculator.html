@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inverter Battery Backup Calculator – Backup Time, VA &amp; Battery Ah | CalcVerse</title>
+  <meta name="description" content="How many hours will my inverter battery last? Calculate backup time from battery Ah and load in watts, or find the inverter VA and battery Ah you need for your fans, lights, TV and fridge.">
+  <link rel="canonical" href="https://calcverse.in/inverter-battery-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Inverter Battery Backup Calculator – Backup Time, VA &amp; Battery Ah | CalcVerse">
+  <meta property="og:description" content="Calculate inverter battery backup time, or the inverter VA and battery Ah you need.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/inverter-battery-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inverter Battery Backup Calculator – Backup Time, VA &amp; Battery Ah | CalcVerse">
+  <meta name="twitter:description" content="Calculate inverter battery backup time, or the inverter VA and battery Ah you need.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How long will a 150Ah inverter battery last?", "acceptedAnswer": {"@type": "Answer", "text": "A 150Ah, 12V battery running a 300 W load (for example 3 fans and 5 LED lights) lasts about 4.8 hours, using backup hours = Ah × volts × 0.8 ÷ load watts. At 500 W it lasts under 3 hours."}},
+      {"@type": "Question", "name": "What size inverter do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Add up the watts of everything you want to run at the same time and divide by 0.8 (typical power factor). A 600 W load needs about a 750 VA inverter; choose the next standard size up, such as 900 VA or 1100 VA."}},
+      {"@type": "Question", "name": "Can an inverter run an AC or geyser?", "acceptedAnswer": {"@type": "Answer", "text": "Usually not a normal home inverter. ACs, geysers, irons and induction cooktops draw 1,000–2,000 W or more and would drain the battery in minutes. Use the inverter for fans, lights, TV, router and the fridge."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Electricity Consumption Calculator", "item": "https://calcverse.in/electricity-consumption-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Inverter Battery Calculator", "item": "https://calcverse.in/inverter-battery-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-8">
+  <script src="app.min.js?v=20261124-8" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .x-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .x-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .x-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .x-table th, .x-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Inverter Battery Backup Calculator</h1>
+        <p>Find how many hours your inverter battery will last, or what inverter VA and battery Ah you need for your home.</p>
+      </section>
+
+      <section class="card">
+        <div class="x-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" data-mode="backup" aria-pressed="true">Backup time</button>
+          <button type="button" data-mode="size" aria-pressed="false">What size do I need?</button>
+        </div>
+        <div class="field inline-row">
+          <div><label for="ivLoad">Total load running together (watts)</label><input id="ivLoad" type="number" min="1" step="1" value="300"></div>
+          <div data-panel="backup"><label for="ivAh">Battery capacity (Ah)</label><input id="ivAh" type="number" min="1" step="1" value="150"></div>
+          <div data-panel="size" hidden><label for="ivHours">Backup needed (hours)</label><input id="ivHours" type="number" min="0.5" step="0.5" value="4"></div>
+        </div>
+        <div class="field inline-row">
+          <div><label for="ivBatt">Number of 12V batteries</label><select id="ivBatt"><option value="1">1 (12V system)</option><option value="2">2 (24V system)</option><option value="4">4 (48V system)</option></select></div>
+          <div><label for="ivEff">Usable efficiency</label><select id="ivEff"><option value="0.8" selected>80% – typical lead-acid / tubular</option><option value="0.9">90% – lithium battery</option><option value="0.7">70% – old battery</option></select></div>
+        </div>
+        <p style="font-size: 0.9rem;">Typical loads: ceiling fan 75 W (BLDC 30 W), LED bulb 9 W, tube light 20 W, LED TV 80 W, Wi-Fi router 10 W, fridge 100–150 W while running. Find yours with the <a href="electricity-consumption-calculator.html">Appliance Units Calculator</a>.</p>
+        <p id="ivError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="ivResult" class="result-value">Result: -</div>
+          <div class="steps" id="ivDetail"></div>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How the Calculation Works</h2>
+        <ul>
+          <li><strong>Backup hours</strong> = battery Ah × battery voltage × efficiency ÷ load in watts. Battery voltage is 12V per battery (24V for two).</li>
+          <li><strong>Inverter size (VA)</strong> = load watts ÷ 0.8 power factor, rounded up to a standard size.</li>
+          <li><strong>Battery Ah needed</strong> = load watts × hours ÷ (voltage × efficiency).</li>
+        </ul>
+        <h2>Backup Time for a 150Ah, 12V Battery</h2>
+        <div style="overflow-x: auto;">
+          <table class="x-table">
+            <thead><tr><th>Load</th><th>Example</th><th>Approx. backup</th></tr></thead>
+            <tbody>
+              <tr><td>100 W</td><td>1 fan + 3 LED bulbs</td><td>14.4 hours</td></tr>
+              <tr><td>200 W</td><td>2 fans + 4 bulbs + router</td><td>7.2 hours</td></tr>
+              <tr><td>300 W</td><td>3 fans + 5 bulbs + TV</td><td>4.8 hours</td></tr>
+              <tr><td>500 W</td><td>4 fans + bulbs + TV + fridge</td><td>2.9 hours</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Real backup is usually a little lower, especially as batteries age or in hot weather. Switching to BLDC fans roughly doubles backup time for the same battery.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How long will a 150Ah inverter battery last?</h4><p>A 150Ah, 12V battery running a 300 W load (for example 3 fans and 5 LED lights) lasts about 4.8 hours, using backup hours = Ah × volts × 0.8 ÷ load watts. At 500 W it lasts under 3 hours.</p></div>
+        <div class="faq-item"><h4>What size inverter do I need?</h4><p>Add up the watts of everything you want to run at the same time and divide by 0.8 (typical power factor). A 600 W load needs about a 750 VA inverter; choose the next standard size up, such as 900 VA or 1100 VA.</p></div>
+        <div class="faq-item"><h4>Can an inverter run an AC or geyser?</h4><p>Usually not a normal home inverter. ACs, geysers, irons and induction cooktops draw 1,000–2,000 W or more and would drain the battery in minutes. Use the inverter for fans, lights, TV, router and the fridge.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="electricity-consumption-calculator.html">Appliance Units Calculator</a>
+          <a class="btn secondary" href="ac-tonnage-calculator.html">AC Tonnage Calculator</a>
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function v(id) { var x = parseFloat($(id).value); return isFinite(x) ? x : null; }
+    var SIZES = [500, 600, 700, 800, 900, 1100, 1400, 1600, 2000, 2500, 3500, 5000], AH = [100, 120, 135, 150, 165, 180, 200, 220];
+    var mode = "backup";
+    function hm(h) { var H = Math.floor(h), M = Math.round((h - H) * 60); if (M === 60) { H++; M = 0; } return H + " h " + M + " min"; }
+    function calculate() {
+      var load = v("ivLoad"), n = +$("ivBatt").value, eff = +$("ivEff").value, volt = 12 * n;
+      if (!(load > 0)) { $("ivError").textContent = "Enter the total load in watts."; return; }
+      $("ivError").textContent = "";
+      var va = load / 0.8, std = SIZES.filter(function (s) { return s >= va; })[0];
+      var vaText = "Inverter needed for " + load + " W: at least " + Math.ceil(va) + " VA" + (std ? " (standard size: " + std + " VA)" : " (consider a larger or 3-phase system)") + ".";
+      if (mode === "backup") {
+        var ah = v("ivAh");
+        if (!(ah > 0)) { $("ivError").textContent = "Enter the battery capacity in Ah."; return; }
+        var h = ah * volt * eff / load;
+        $("ivResult").textContent = "Backup: about " + hm(h);
+        $("ivDetail").textContent = ah + " Ah × " + volt + " V × " + eff + " ÷ " + load + " W = " + h.toFixed(1) + " hours. " + vaText;
+      } else {
+        var hrs = v("ivHours");
+        if (!(hrs > 0)) { $("ivError").textContent = "Enter the backup hours you need."; return; }
+        var need = load * hrs / (volt * eff), per = AH.filter(function (a) { return a >= need; })[0];
+        $("ivResult").textContent = "You need about " + Math.ceil(need) + " Ah at " + volt + " V";
+        $("ivDetail").textContent = (per ? "Choose " + n + " × " + per + " Ah battery" + (n > 1 ? "s" : "") + ". " : "That is more than one standard battery per slot; use more batteries (higher voltage) or reduce the load. ") + vaText;
+      }
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        calculate();
+      });
+    });
+    ["ivLoad", "ivAh", "ivHours"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["ivBatt", "ivEff"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>
