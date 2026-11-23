@@ -4,6 +4,15 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+
+  // Serve the static homepage at "/" directly (it declares "/" as canonical),
+  // and send the old /home.html and /index.html addresses there permanently.
+  rewrites: async () => ({
+    beforeFiles: [{ source: '/', destination: '/home.html' }],
+  }),
+  redirects: async () => [
+    { source: '/home.html', destination: '/', permanent: true },
+  ],
   
   headers: async () => [
     {
