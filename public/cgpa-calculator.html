@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA to Percentage Calculator – CBSE, AICTE &amp; SGPA to CGPA | CalcVerse</title>
+  <meta name="description" content="Convert CGPA to percentage (CBSE × 9.5, AICTE (CGPA − 0.75) × 10, or × 10), percentage to CGPA, and SGPA of all semesters to overall CGPA with credits. Free and instant.">
+  <link rel="canonical" href="https://calcverse.in/cgpa-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="CGPA to Percentage Calculator – CBSE, AICTE &amp; SGPA to CGPA | CalcVerse">
+  <meta property="og:description" content="Convert CGPA to percentage, percentage to CGPA, and SGPA to CGPA with credits.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/cgpa-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CGPA to Percentage Calculator – CBSE, AICTE &amp; SGPA to CGPA | CalcVerse">
+  <meta name="twitter:description" content="Convert CGPA to percentage, percentage to CGPA, and SGPA to CGPA with credits.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I convert CGPA to percentage?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your board or university. CBSE uses CGPA × 9.5, so 8.4 CGPA is 79.8%. Many engineering colleges use the AICTE formula (CGPA − 0.75) × 10, which gives 76.5% for 8.4. Some universities, such as Anna University, use CGPA × 10. Always use the formula printed on your marksheet or published by your university."}},
+      {"@type": "Question", "name": "How is CGPA calculated from SGPA?", "acceptedAnswer": {"@type": "Answer", "text": "CGPA is the credit-weighted average of your semester SGPAs: multiply each semester's SGPA by its total credits, add them up, and divide by the total credits of all semesters. If every semester has the same credits, it is simply the average of the SGPAs."}},
+      {"@type": "Question", "name": "What is 9 CGPA in percentage?", "acceptedAnswer": {"@type": "Answer", "text": "85.5% using the CBSE formula (9 × 9.5), 82.5% using the AICTE formula ((9 − 0.75) × 10), or 90% where the university multiplies by 10."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Percentage Calculator", "item": "https://calcverse.in/percentage-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "CGPA Calculator", "item": "https://calcverse.in/cgpa-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-1">
+  <script src="app.min.js?v=20261124-1" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .cg-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .cg-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .cg-sem { display: grid; grid-template-columns: 2.2rem 1fr 1fr 2rem; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .cg-sem input { width: 100%; }
+    .cg-sem .rm { background: none; border: 0; color: #9b2c2c; font-size: 1.1rem; cursor: pointer; }
+    .cg-head { font-size: 0.85rem; color: #5b6f63; font-weight: 600; }
+    .cg-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    .cg-table th, .cg-table td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e3ece6; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>CGPA to Percentage Calculator</h1>
+        <p>Convert CGPA to percentage and back, or combine your semester SGPAs into an overall CGPA.</p>
+      </section>
+
+      <section class="card">
+        <div class="cg-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" data-mode="toPct" aria-pressed="true">CGPA → %</button>
+          <button type="button" data-mode="toCgpa" aria-pressed="false">% → CGPA</button>
+          <button type="button" data-mode="sgpa" aria-pressed="false">SGPA → CGPA</button>
+        </div>
+
+        <div data-panel="toPct">
+          <h2>Convert CGPA to Percentage</h2>
+          <div class="field inline-row">
+            <div><label for="cgValue">Your CGPA (out of 10)</label><input id="cgValue" type="number" min="0" max="10" step="0.01" placeholder="Example: 8.4"></div>
+            <div><label for="cgFormula">Formula</label>
+              <select id="cgFormula">
+                <option value="cbse">CBSE: CGPA × 9.5</option>
+                <option value="aicte">AICTE: (CGPA − 0.75) × 10</option>
+                <option value="x10">CGPA × 10 (e.g. Anna University)</option>
+                <option value="custom">Custom multiplier</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" id="cgCustomWrap" hidden><label for="cgCustom">Multiplier given by your university</label><input id="cgCustom" type="number" min="1" max="12" step="0.01" value="9.5"></div>
+        </div>
+
+        <div data-panel="toCgpa" hidden>
+          <h2>Convert Percentage to CGPA</h2>
+          <div class="field inline-row">
+            <div><label for="pcValue">Your percentage</label><input id="pcValue" type="number" min="0" max="100" step="0.01" placeholder="Example: 80"></div>
+            <div><label for="pcFormula">Formula</label>
+              <select id="pcFormula">
+                <option value="cbse">CBSE: % ÷ 9.5</option>
+                <option value="aicte">AICTE: % ÷ 10 + 0.75</option>
+                <option value="x10">% ÷ 10</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div data-panel="sgpa" hidden>
+          <h2>SGPA to CGPA</h2>
+          <p style="font-size: 0.92rem;">Enter each semester's SGPA and its total credits (from your marksheet). Leave credits blank if all semesters have equal credits.</p>
+          <div class="cg-sem cg-head"><span>Sem</span><span>SGPA</span><span>Credits</span><span></span></div>
+          <div id="sgRows"></div>
+          <button id="sgAdd" type="button" class="secondary">+ Add semester</button>
+        </div>
+
+        <div class="field" style="margin-top: 12px;"><button id="cgBtn" type="button">Calculate</button></div>
+        <p id="cgError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="cgResult" class="result-value">Result: -</div>
+          <div class="steps" id="cgDetail"></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Universities use different formulas. For official forms, use the conversion printed on your marksheet or published by your university or board.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>CGPA to Percentage Formulas</h2>
+        <ul>
+          <li><strong>CBSE (Class 10 grading):</strong> Percentage = CGPA × 9.5. NIT Delhi also uses 9.5.</li>
+          <li><strong>AICTE formula:</strong> Percentage = (CGPA − 0.75) × 10, used by many engineering and management colleges.</li>
+          <li><strong>CGPA × 10:</strong> used by some universities, such as Anna University.</li>
+        </ul>
+        <h2>Quick Conversion Table</h2>
+        <div style="overflow-x: auto;">
+          <table class="cg-table">
+            <thead><tr><th>CGPA</th><th>CBSE (× 9.5)</th><th>AICTE</th><th>× 10</th></tr></thead>
+            <tbody>
+              <tr><td>10</td><td>95%</td><td>92.5%</td><td>100%</td></tr>
+              <tr><td>9.5</td><td>90.25%</td><td>87.5%</td><td>95%</td></tr>
+              <tr><td>9</td><td>85.5%</td><td>82.5%</td><td>90%</td></tr>
+              <tr><td>8.5</td><td>80.75%</td><td>77.5%</td><td>85%</td></tr>
+              <tr><td>8</td><td>76%</td><td>72.5%</td><td>80%</td></tr>
+              <tr><td>7.5</td><td>71.25%</td><td>67.5%</td><td>75%</td></tr>
+              <tr><td>7</td><td>66.5%</td><td>62.5%</td><td>70%</td></tr>
+              <tr><td>6.5</td><td>61.75%</td><td>57.5%</td><td>65%</td></tr>
+              <tr><td>6</td><td>57%</td><td>52.5%</td><td>60%</td></tr>
+              <tr><td>5.5</td><td>52.25%</td><td>47.5%</td><td>55%</td></tr>
+              <tr><td>5</td><td>47.5%</td><td>42.5%</td><td>50%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>How CGPA Is Calculated From SGPA</h2>
+        <p><strong>CGPA = Σ (SGPA × credits) ÷ Σ credits.</strong> For example, SGPAs of 8.2 (22 credits), 7.8 (24 credits) and 8.6 (20 credits) give (180.4 + 187.2 + 172) ÷ 66 = <strong>8.18 CGPA</strong>. If every semester had the same credits, it would simply be the average.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How do I convert CGPA to percentage?</h4><p>It depends on your board or university. CBSE uses CGPA × 9.5, so 8.4 CGPA is 79.8%. Many engineering colleges use the AICTE formula (CGPA − 0.75) × 10, which gives 76.5% for 8.4. Some universities, such as Anna University, use CGPA × 10. Always use the formula printed on your marksheet or published by your university.</p></div>
+        <div class="faq-item"><h4>How is CGPA calculated from SGPA?</h4><p>CGPA is the credit-weighted average of your semester SGPAs: multiply each semester's SGPA by its total credits, add them up, and divide by the total credits of all semesters. If every semester has the same credits, it is simply the average of the SGPAs.</p></div>
+        <div class="faq-item"><h4>What is 9 CGPA in percentage?</h4><p>85.5% using the CBSE formula (9 × 9.5), 82.5% using the AICTE formula ((9 − 0.75) × 10), or 90% where the university multiplies by 10.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Student Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="attendance-calculator.html">Attendance Calculator</a>
+          <a class="btn secondary" href="marks-percentage-calculator.html">Marks to Percentage</a>
+          <a class="btn secondary" href="percentage-calculator.html">Percentage Calculator</a>
+          <a class="btn secondary" href="cbse-best-of-5-calculator.html">CBSE Best of 5</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function num(v) { var x = parseFloat(v); return isFinite(x) ? x : null; }
+    function r2(x) { return Math.round(x * 100) / 100; }
+    var mode = "toPct", res = $("cgResult"), det = $("cgDetail"), err = $("cgError");
+    function fail(m) { err.textContent = m; res.textContent = "Result: -"; det.textContent = ""; }
+    function ok(a, b) { err.textContent = ""; res.textContent = a; det.textContent = b || ""; }
+
+    $("cgFormula").addEventListener("change", function () { $("cgCustomWrap").hidden = this.value !== "custom"; calculate(); });
+
+    function addSem(sg, cr) {
+      var n = $("sgRows").children.length + 1, row = document.createElement("div");
+      row.className = "cg-sem";
+      row.innerHTML = "<span>" + n + "</span><input type=\"number\" min=\"0\" max=\"10\" step=\"0.01\" aria-label=\"SGPA semester " + n + "\" value=\"" + (sg || "") + "\"><input type=\"number\" min=\"0\" step=\"0.5\" aria-label=\"Credits semester " + n + "\" placeholder=\"optional\" value=\"" + (cr || "") + "\"><button type=\"button\" class=\"rm\" aria-label=\"Remove semester\">✕</button>";
+      row.querySelector(".rm").addEventListener("click", function () {
+        row.remove();
+        Array.prototype.forEach.call($("sgRows").children, function (r, i) { r.firstChild.textContent = i + 1; });
+      });
+      $("sgRows").appendChild(row);
+    }
+    for (var i = 0; i < 4; i++) addSem();
+    $("sgAdd").addEventListener("click", function () { addSem(); });
+
+    function calculate() {
+      if (mode === "toPct") {
+        var c = num($("cgValue").value), f = $("cgFormula").value;
+        if (c === null || c < 0 || c > 10) return fail("Enter a CGPA between 0 and 10.");
+        var p, how;
+        if (f === "cbse") { p = c * 9.5; how = c + " × 9.5"; }
+        else if (f === "aicte") { p = (c - 0.75) * 10; how = "(" + c + " − 0.75) × 10"; }
+        else if (f === "x10") { p = c * 10; how = c + " × 10"; }
+        else { var m = num($("cgCustom").value); if (!m) return fail("Enter your university's multiplier."); p = c * m; how = c + " × " + m; }
+        p = Math.max(0, Math.min(p, 100));
+        return ok(c + " CGPA = " + r2(p) + "%", how + " = " + r2(p) + "%");
+      }
+      if (mode === "toCgpa") {
+        var pc = num($("pcValue").value), g = $("pcFormula").value;
+        if (pc === null || pc < 0 || pc > 100) return fail("Enter a percentage between 0 and 100.");
+        var cg = g === "cbse" ? pc / 9.5 : g === "aicte" ? pc / 10 + 0.75 : pc / 10;
+        cg = Math.min(cg, 10);
+        return ok(pc + "% = " + r2(cg) + " CGPA", g === "cbse" ? pc + " ÷ 9.5" : g === "aicte" ? pc + " ÷ 10 + 0.75" : pc + " ÷ 10");
+      }
+      var tot = 0, cred = 0, n = 0, any = false, missing = false;
+      Array.prototype.forEach.call($("sgRows").children, function (r) {
+        var ins = r.querySelectorAll("input"), s = num(ins[0].value), k = num(ins[1].value);
+        if (s === null) return;
+        if (s < 0 || s > 10) { missing = "range"; return; }
+        n++; if (k !== null && k > 0) any = true; else missing = missing || true;
+        var w = k !== null && k > 0 ? k : 1; tot += s * w; cred += w;
+      });
+      if (missing === "range") return fail("Each SGPA must be between 0 and 10.");
+      if (!n) return fail("Enter at least one semester SGPA.");
+      if (any && missing === true) return fail("Enter credits for every semester, or leave all credit boxes blank.");
+      var cgpa = tot / cred;
+      ok("Overall CGPA: " + r2(cgpa), any ? "Credit-weighted average of " + n + " semesters (" + cred + " credits)." : "Simple average of " + n + " semesters.");
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        fail(""); res.textContent = "Result: -";
+      });
+    });
+    $("cgBtn").addEventListener("click", calculate);
+    document.addEventListener("keydown", function (e) { if (e.key === "Enter" && e.target.tagName === "INPUT") calculate(); });
+  })();
+  </script>
+</body>
+</html>

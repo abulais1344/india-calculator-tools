@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Calculator – How Many Classes Can I Miss for 75%? | CalcVerse</title>
+  <meta name="description" content="Check your attendance percentage, how many more classes you must attend to reach 75% (or any target), and how many classes you can safely skip. Free attendance calculator for college students.">
+  <link rel="canonical" href="https://calcverse.in/attendance-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Attendance Calculator – How Many Classes Can I Miss for 75%? | CalcVerse">
+  <meta property="og:description" content="Find classes needed to reach 75% attendance, or how many you can safely skip.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/attendance-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Attendance Calculator – How Many Classes Can I Miss for 75%? | CalcVerse">
+  <meta name="twitter:description" content="Find classes needed to reach 75% attendance, or how many you can safely skip.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How do I calculate my attendance percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Attendance % = classes attended ÷ total classes held × 100. For example, 30 classes attended out of 45 is 66.67%."}},
+      {"@type": "Question", "name": "How many classes do I need to attend to reach 75%?", "acceptedAnswer": {"@type": "Answer", "text": "Use: classes needed = (0.75 × total − attended) ÷ 0.25, rounded up. With 30 out of 45, you need to attend the next 15 classes in a row to reach exactly 75% (45 out of 60)."}},
+      {"@type": "Question", "name": "How many classes can I skip and stay above 75%?", "acceptedAnswer": {"@type": "Answer", "text": "Use: classes you can skip = attended ÷ 0.75 − total, rounded down. With 40 out of 45, you can miss the next 8 classes and still have at least 75% (40 out of 53)."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Percentage Calculator", "item": "https://calcverse.in/percentage-calculator.html"},
+    {"@type": "ListItem", "position": 3, "name": "Attendance Calculator", "item": "https://calcverse.in/attendance-calculator.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-1">
+  <script src="app.min.js?v=20261124-1" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .at-status { margin-top: 10px; padding: 10px 12px; border-radius: 10px; font-weight: 600; }
+    .at-status.ok { background: #e7f6ec; color: #1d6b3a; }
+    .at-status.no { background: #fdecec; color: #9b2c2c; }
+    .at-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .at-presets button { padding: 6px 12px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Attendance Calculator</h1>
+        <p>Find your attendance percentage, how many classes you must attend to reach 75%, or how many you can safely skip.</p>
+      </section>
+
+      <section class="card">
+        <h2>Check Your Attendance</h2>
+        <div class="field inline-row">
+          <div><label for="atAttended">Classes attended</label><input id="atAttended" type="number" min="0" step="1" placeholder="Example: 30"></div>
+          <div><label for="atTotal">Total classes held</label><input id="atTotal" type="number" min="1" step="1" placeholder="Example: 45"></div>
+        </div>
+        <div class="field inline-row">
+          <div>
+            <label for="atTarget">Required attendance (%)</label>
+            <input id="atTarget" type="number" min="1" max="100" step="1" value="75">
+            <div class="at-presets"><button type="button" class="secondary" data-t="65">65%</button><button type="button" class="secondary" data-t="75">75%</button><button type="button" class="secondary" data-t="80">80%</button><button type="button" class="secondary" data-t="85">85%</button></div>
+          </div>
+          <div><label for="atLeft">Classes left this semester (optional)</label><input id="atLeft" type="number" min="0" step="1" placeholder="Example: 30"></div>
+        </div>
+        <p id="atError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="atResult" class="result-value">Attendance: -</div>
+          <div id="atStatus" class="at-status" hidden></div>
+          <div class="steps" id="atDetail"></div>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>How the Attendance Calculator Works</h2>
+        <ul>
+          <li><strong>Attendance %</strong> = attended ÷ total × 100.</li>
+          <li><strong>Classes needed to reach the target</strong> (if you are below it): attend the next <em>x</em> classes in a row, where <em>x</em> = (target × total − 100 × attended) ÷ (100 − target), rounded up.</li>
+          <li><strong>Classes you can skip</strong> (if you are above it): <em>y</em> = (100 × attended ÷ target) − total, rounded down.</li>
+        </ul>
+        <h2>Examples at 75%</h2>
+        <ul>
+          <li><strong>30 out of 45 (66.67%)</strong>: attend the next <strong>15 classes</strong> in a row to reach 45 out of 60 = 75%.</li>
+          <li><strong>40 out of 45 (88.89%)</strong>: you can skip the next <strong>8 classes</strong> and stay at 40 out of 53 = 75.47%.</li>
+        </ul>
+        <p>Most Indian universities and AICTE colleges require at least 75% attendance to sit for exams, sometimes with medical relaxation. Check your own college's rule.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How do I calculate my attendance percentage?</h4><p>Attendance % = classes attended ÷ total classes held × 100. For example, 30 classes attended out of 45 is 66.67%.</p></div>
+        <div class="faq-item"><h4>How many classes do I need to attend to reach 75%?</h4><p>Use: classes needed = (0.75 × total − attended) ÷ 0.25, rounded up. With 30 out of 45, you need to attend the next 15 classes in a row to reach exactly 75% (45 out of 60).</p></div>
+        <div class="faq-item"><h4>How many classes can I skip and stay above 75%?</h4><p>Use: classes you can skip = attended ÷ 0.75 − total, rounded down. With 40 out of 45, you can miss the next 8 classes and still have at least 75% (40 out of 53).</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Student Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="cgpa-calculator.html">CGPA to Percentage</a>
+          <a class="btn secondary" href="marks-percentage-calculator.html">Marks to Percentage</a>
+          <a class="btn secondary" href="percentage-calculator.html">Percentage Calculator</a>
+          <a class="btn secondary" href="age-as-on-date-calculator.html">Age As On Date (Exams)</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function int(id) { var v = $(id).value.trim(); return /^\d+$/.test(v) ? parseInt(v, 10) : null; }
+    function pct(a, t) { return (a / t * 100).toFixed(2).replace(/\.00$/, ""); }
+    var res = $("atResult"), st = $("atStatus"), det = $("atDetail"), err = $("atError");
+    function calculate() {
+      var a = int("atAttended"), t = int("atTotal"), target = parseFloat($("atTarget").value), left = int("atLeft");
+      if (a === null || t === null) { err.textContent = ""; res.textContent = "Attendance: -"; st.hidden = true; det.textContent = ""; return; }
+      function bad(m) { err.textContent = m; res.textContent = "Attendance: -"; st.hidden = true; det.textContent = ""; }
+      if (t < 1) return bad("Total classes must be at least 1.");
+      if (a > t) return bad("Classes attended cannot be more than total classes.");
+      if (!(target > 0 && target <= 100)) return bad("Required attendance must be between 1 and 100.");
+      err.textContent = "";
+      var cur = a / t * 100;
+      res.textContent = "Attendance: " + pct(a, t) + "% (" + a + " of " + t + ")";
+      st.hidden = false;
+      var extra = "";
+      if (left !== null && left > 0) {
+        var best = (a + left) / (t + left) * 100;
+        extra = " If you attend all " + left + " remaining classes, you will finish at " + pct(a + left, t + left) + "%." + (best < target ? " That is still below " + target + "%." : "");
+      }
+      if (cur >= target) {
+        var skip = target === 100 ? 0 : Math.floor(100 * a / target - t + 1e-9);
+        st.className = "at-status ok";
+        st.textContent = skip > 0 ? "You can skip the next " + skip + " class" + (skip === 1 ? "" : "es") + " and stay at or above " + target + "%." : "You are at or above " + target + "%, but missing even one more class would take you below it.";
+        det.textContent = skip > 0 ? "After skipping " + skip + ": " + a + " of " + (t + skip) + " = " + pct(a, t + skip) + "%." + extra : extra.trim();
+      } else {
+        st.className = "at-status no";
+        if (target >= 100) { st.textContent = "You can no longer reach 100% because you have already missed classes."; det.textContent = extra.trim(); return; }
+        var need = Math.ceil((target * t - 100 * a) / (100 - target) - 1e-9);
+        st.textContent = "Attend the next " + need + " class" + (need === 1 ? "" : "es") + " in a row to reach " + target + "%.";
+        det.textContent = "After that: " + (a + need) + " of " + (t + need) + " = " + pct(a + need, t + need) + "%." + (left !== null && left > 0 && need > left ? " That is more than the " + left + " classes left." : "") + extra;
+      }
+    }
+    ["atAttended", "atTotal", "atTarget", "atLeft"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-t]"), function (b) { b.addEventListener("click", function () { $("atTarget").value = b.getAttribute("data-t"); calculate(); }); });
+  })();
+  </script>
+</body>
+</html>

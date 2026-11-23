@@ -55,6 +55,37 @@ export const metadata: Metadata = {
   },
 };
 
+// Keep in sync with buildHeaderNavigation() in public/app.js and public/app.min.js.
+const PRIMARY_NAV = [
+  { href: '/age-calculator.html', label: 'Age' },
+  { href: '/electricity-bill-calculator.html', label: 'Electricity' },
+  { href: '/solar-panel-calculator.html', label: 'Solar' },
+  { href: '/zakat-calculator.html', label: 'Zakat' },
+];
+
+const MORE_NAV = [
+  { href: '/', label: 'Home' },
+  { href: '/birthday-calculator.html', label: 'Birthday Calculator' },
+  { href: '/birth-year-calculator.html', label: 'Birth Year Calculator' },
+  { href: '/age-as-on-date-calculator.html', label: 'Age As On Date (Exams)' },
+  { href: '/age-calculator-hindi.html', label: 'एज कैलकुलेटर (हिंदी)' },
+  { href: '/electricity-consumption-calculator.html', label: 'Appliance Units Calculator' },
+  { href: '/solar-subsidy-calculator.html', label: 'Solar Subsidy' },
+  { href: '/fuel-cost-calculator.html', label: 'Fuel Cost' },
+  { href: '/cng-vs-petrol-calculator.html', label: 'CNG vs Petrol' },
+  { href: '/ev-vs-petrol-calculator.html', label: 'EV vs Petrol' },
+  { href: '/percentage-calculator.html', label: 'Percentage Calculator' },
+  { href: '/marks-percentage-calculator.html', label: 'Marks to Percentage' },
+  { href: '/cgpa-calculator.html', label: 'CGPA to Percentage' },
+  { href: '/attendance-calculator.html', label: 'Attendance Calculator' },
+  { href: '/land-area-converter.html', label: 'Land Area Converter' },
+  { href: '/gst-calculator.html', label: 'GST Calculator' },
+  { href: '/gst-invoice-generator.html', label: 'GST Invoice' },
+  { href: '/rent-receipt-generator.html', label: 'Rent Receipt' },
+  { href: '/salary-slip-generator.html', label: 'Salary Slip' },
+  { href: '/blog/', label: 'Blog' },
+];
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -62,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" href="/styles.min.css?v=20261111-3" />
+        <link rel="stylesheet" href="/styles.min.css?v=20261124-1" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525"
@@ -87,12 +118,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <img src="/images/logo-wide.png" alt="CalcVerse" className="logo-img" />
             </a>
             <nav className="site-nav" aria-label="Primary Navigation">
-              <a href="/">Home</a>
-              <a href="/gst-calculator.html">GST Calculator</a>
-              <a href="/rent-receipt-generator.html">Rent Receipt</a>
-              <a href="/salary-slip-generator.html">Salary Slip</a>
-              <a href="/blog/">Blog</a>
-              <a href="/index.html#more-calculators">More</a>
+              {PRIMARY_NAV.map(item => (
+                <a key={item.href} href={item.href}>{item.label}</a>
+              ))}
+              <details className="nav-dropdown nav-dropdown--panel">
+                <summary className="nav-dropdown-toggle">More</summary>
+                <div className="nav-dropdown-menu">
+                  {MORE_NAV.map(item => (
+                    <a key={item.href} href={item.href}>{item.label}</a>
+                  ))}
+                </div>
+              </details>
             </nav>
           </div>
         </header>

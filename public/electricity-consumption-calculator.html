@@ -69,8 +69,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
-  <script src="app.min.js?v=20261111-3" defer></script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-1">
+  <script src="app.min.js?v=20261124-1" defer></script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
   <style>
     .ap-table-wrap { overflow-x: auto; margin-top: 10px; }
@@ -85,6 +85,22 @@
     .ap-stat { background: #fff; border: 1px solid #dfe9e2; border-radius: 10px; padding: 12px; }
     .ap-stat .label { font-size: 0.85rem; color: #5b6f63; }
     .ap-stat .value { font-size: 1.15rem; font-weight: 700; margin-top: 4px; }
+    @media (max-width: 600px) {
+      .ap-table thead { display: none; }
+      .ap-table, .ap-table tbody { display: block; }
+      .ap-table tr { display: grid; grid-template-columns: 1fr 1fr 1fr 2.2rem; gap: 6px 8px; padding: 10px 0; border-bottom: 1px solid #e3ece6; }
+      .ap-table td { border: 0; padding: 0; }
+      .ap-table td:nth-child(1) { grid-column: 1 / 4; }
+      .ap-table td:nth-child(6) { grid-column: 4; grid-row: 1; text-align: right; }
+      .ap-table td:nth-child(5) { grid-column: 1 / 5; font-size: 0.9rem; }
+      .ap-table td:nth-child(2)::before { content: "Watts"; }
+      .ap-table td:nth-child(3)::before { content: "Qty"; }
+      .ap-table td:nth-child(4)::before { content: "Hours/day"; }
+      .ap-table td:nth-child(5)::before { content: "Units/day: "; font-weight: 400; }
+      .ap-table td:nth-child(2)::before, .ap-table td:nth-child(3)::before, .ap-table td:nth-child(4)::before { display: block; font-size: 0.8rem; color: #5b6f63; margin-bottom: 2px; }
+      .ap-table select { min-width: 0; }
+      .ap-actions label { margin-left: 0 !important; }
+    }
     .ref-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
     .ref-table th, .ref-table td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e3ece6; white-space: nowrap; }
   </style>
@@ -230,6 +246,7 @@
       <div class="footer-links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
         <a href="/sitemap.xml">Sitemap</a>
       </div>
     </div>

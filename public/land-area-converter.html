@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Land Area Converter – Sq Ft, Acre, Bigha, Gunta, Cent, Gaj &amp; Hectare | CalcVerse</title>
+  <meta name="description" content="Convert land area between square feet, square metre, gaj (sq yard), acre, hectare, cent, gunta, ground, marla, kanal, katha and bigha (state-wise). Free Indian land measurement converter.">
+  <link rel="canonical" href="https://calcverse.in/land-area-converter.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Land Area Converter – Sq Ft, Acre, Bigha, Gunta, Cent, Gaj &amp; Hectare | CalcVerse">
+  <meta property="og:description" content="Convert land area between sq ft, acre, hectare, gaj, cent, gunta, marla, kanal, katha and state-wise bigha.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/land-area-converter.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Land Area Converter – Sq Ft, Acre, Bigha, Gunta, Cent, Gaj &amp; Hectare | CalcVerse">
+  <meta name="twitter:description" content="Convert land area between sq ft, acre, hectare, gaj, cent, gunta, marla, kanal, katha and state-wise bigha.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How many square feet are in 1 acre?", "acceptedAnswer": {"@type": "Answer", "text": "1 acre = 43,560 square feet = 4,840 square yards (gaj) = 4,046.86 square metres = 100 cents = 40 guntas."}},
+      {"@type": "Question", "name": "How many square feet are in 1 bigha?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the state. Commonly cited values are about 14,400 sq ft in West Bengal and Assam, 17,424 sq ft in Gujarat, 27,000 sq ft in Uttar Pradesh, 27,220 sq ft in Bihar, 9,070 sq ft in Punjab and 8,712 sq ft in Himachal Pradesh. Sizes can differ even within a state, so confirm with local land records."}},
+      {"@type": "Question", "name": "How many square feet is 1 gunta and 1 cent?", "acceptedAnswer": {"@type": "Answer", "text": "1 gunta = 1,089 sq ft (1/40 acre), used in Karnataka, Maharashtra and Telangana. 1 cent = 435.6 sq ft (1/100 acre), used in Kerala, Tamil Nadu and Andhra Pradesh."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+    {"@type": "ListItem", "position": 2, "name": "Land Area Converter", "item": "https://calcverse.in/land-area-converter.html"}]}
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261124-1">
+  <script src="app.min.js?v=20261124-1" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .la-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .la-table th, .la-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; }
+    .la-table td:first-child { font-weight: 700; white-space: nowrap; }
+    .la-table tr.la-from td { background: #eef7f1; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Land Area Converter</h1>
+        <p>Convert between square feet, gaj, acre, hectare, cent, gunta, marla, kanal, katha and bigha, all at once.</p>
+      </section>
+
+      <section class="card">
+        <h2>Convert Land Area</h2>
+        <div class="field inline-row">
+          <div><label for="laValue">Area</label><input id="laValue" type="number" min="0" step="any" value="1"></div>
+          <div><label for="laFrom">Unit</label><select id="laFrom"></select></div>
+        </div>
+        <div class="field inline-row">
+          <div>
+            <label for="laBigha">Bigha size (state)</label>
+            <select id="laBigha">
+              <option value="14400">West Bengal – 14,400 sq ft</option>
+              <option value="14400">Assam – 14,400 sq ft</option>
+              <option value="17424">Gujarat – 17,424 sq ft</option>
+              <option value="27000">Uttar Pradesh – about 27,000 sq ft</option>
+              <option value="27220">Bihar – 27,220 sq ft</option>
+              <option value="9070">Punjab – 9,070 sq ft</option>
+              <option value="8712">Himachal Pradesh – 8,712 sq ft</option>
+              <option value="custom">Custom size</option>
+            </select>
+          </div>
+          <div id="laCustomWrap" hidden><label for="laCustom">1 bigha = ? sq ft</label><input id="laCustom" type="number" min="1" step="any" placeholder="From your land records"></div>
+        </div>
+        <p id="laError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="laHeadline" class="result-value">-</div>
+          <div style="overflow-x: auto; margin-top: 10px;">
+            <table class="la-table"><thead><tr><th>Unit</th><th>Value</th></tr></thead><tbody id="laTable"></tbody></table>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.92rem;">Bigha, and in some places marla and katha, vary by state and even district. For buying or selling land, confirm the local size with the revenue office or your land records.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Standard Land Units in India</h2>
+        <div style="overflow-x: auto;">
+          <table class="la-table">
+            <thead><tr><th>Unit</th><th>In square feet</th><th>Where it is used</th></tr></thead>
+            <tbody>
+              <tr><td>1 square metre</td><td>10.764</td><td>All India (official metric unit)</td></tr>
+              <tr><td>1 square yard (gaj)</td><td>9</td><td>North India plots</td></tr>
+              <tr><td>1 ankanam</td><td>72</td><td>Andhra Pradesh, Telangana</td></tr>
+              <tr><td>1 marla</td><td>272.25</td><td>Punjab, Haryana, J&amp;K</td></tr>
+              <tr><td>1 cent</td><td>435.6</td><td>Kerala, Tamil Nadu, Andhra Pradesh, Karnataka</td></tr>
+              <tr><td>1 katha</td><td>720</td><td>West Bengal</td></tr>
+              <tr><td>1 gunta / guntha</td><td>1,089</td><td>Karnataka, Maharashtra, Telangana</td></tr>
+              <tr><td>1 ground</td><td>2,400</td><td>Tamil Nadu (Chennai)</td></tr>
+              <tr><td>1 kanal</td><td>5,445</td><td>Punjab, Haryana, Himachal, J&amp;K</td></tr>
+              <tr><td>1 acre</td><td>43,560</td><td>All India</td></tr>
+              <tr><td>1 hectare</td><td>1,07,639</td><td>All India (official), 2.471 acres</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Useful Equivalents</h2>
+        <ul>
+          <li>1 acre = 100 cents = 40 guntas = 4,840 gaj = 4,046.86 sq m</li>
+          <li>1 kanal = 20 marla; 1 bigha (West Bengal) = 20 katha</li>
+          <li>1 hectare = 2.471 acres = 10,000 sq m</li>
+        </ul>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><h4>How many square feet are in 1 acre?</h4><p>1 acre = 43,560 square feet = 4,840 square yards (gaj) = 4,046.86 square metres = 100 cents = 40 guntas.</p></div>
+        <div class="faq-item"><h4>How many square feet are in 1 bigha?</h4><p>It depends on the state. Commonly cited values are about 14,400 sq ft in West Bengal and Assam, 17,424 sq ft in Gujarat, 27,000 sq ft in Uttar Pradesh, 27,220 sq ft in Bihar, 9,070 sq ft in Punjab and 8,712 sq ft in Himachal Pradesh. Sizes can differ even within a state, so confirm with local land records.</p></div>
+        <div class="faq-item"><h4>How many square feet is 1 gunta and 1 cent?</h4><p>1 gunta = 1,089 sq ft (1/40 acre), used in Karnataka, Maharashtra and Telangana. 1 cent = 435.6 sq ft (1/100 acre), used in Kerala, Tamil Nadu and Andhra Pradesh.</p></div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="zakat-calculator.html">Zakat Calculator</a>
+          <a class="btn secondary" href="gst-calculator.html">GST Calculator</a>
+          <a class="btn secondary" href="age-calculator.html">Age Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    var UNITS = [
+      ["sqft", "Square feet", 1], ["sqm", "Square metre", 10.7639104], ["gaj", "Square yard (gaj)", 9],
+      ["ankanam", "Ankanam", 72], ["marla", "Marla", 272.25], ["cent", "Cent", 435.6], ["katha", "Katha (West Bengal)", 720],
+      ["gunta", "Gunta / guntha", 1089], ["ground", "Ground", 2400], ["kanal", "Kanal", 5445],
+      ["bigha", "Bigha", null], ["acre", "Acre", 43560], ["hectare", "Hectare", 107639.104]
+    ];
+    var from = $("laFrom");
+    UNITS.forEach(function (u) { var o = document.createElement("option"); o.value = u[0]; o.textContent = u[1]; if (u[0] === "acre") o.selected = true; from.appendChild(o); });
+    function bighaSize() { var v = $("laBigha").value; if (v === "custom") { var c = parseFloat($("laCustom").value); return c > 0 ? c : null; } return parseFloat(v); }
+    function size(u) { return u[0] === "bigha" ? bighaSize() : u[2]; }
+    function fmt(n) {
+      if (n === 0) return "0";
+      var a = Math.abs(n), d = a >= 1000 ? 2 : a >= 1 ? 4 : 6;
+      return n.toLocaleString("en-IN", { maximumFractionDigits: d });
+    }
+    function calculate() {
+      var v = parseFloat($("laValue").value), f = UNITS.filter(function (u) { return u[0] === from.value; })[0];
+      $("laCustomWrap").hidden = $("laBigha").value !== "custom";
+      if (!(v >= 0)) { $("laError").textContent = "Enter an area."; return; }
+      var fs = size(f);
+      if (!fs) { $("laError").textContent = "Enter the bigha size in sq ft for your area."; $("laTable").innerHTML = ""; $("laHeadline").textContent = "-"; return; }
+      $("laError").textContent = "";
+      var sqft = v * fs, rows = "";
+      UNITS.forEach(function (u) {
+        var s = size(u);
+        rows += "<tr" + (u[0] === f[0] ? " class=\"la-from\"" : "") + "><td>" + u[1] + "</td><td>" + (s ? fmt(sqft / s) : "Enter bigha size") + "</td></tr>";
+      });
+      $("laTable").innerHTML = rows;
+      $("laHeadline").textContent = fmt(v) + " " + f[1].toLowerCase() + " = " + fmt(sqft) + " sq ft";
+    }
+    ["laValue", "laCustom"].forEach(function (id) { $(id).addEventListener("input", calculate); });
+    ["laFrom", "laBigha"].forEach(function (id) { $(id).addEventListener("change", calculate); });
+    calculate();
+  })();
+  </script>
+</body>
+</html>

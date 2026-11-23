@@ -243,6 +243,24 @@ export const CALCULATORS: Calculator[] = [
     description: 'Calculate fuel cost for your journey',
   },
   {
+    id: 'cgpa',
+    name: 'CGPA to Percentage Calculator',
+    path: '/cgpa-calculator.html',
+    description: 'CGPA to percentage (CBSE, AICTE), percentage to CGPA and SGPA to CGPA',
+  },
+  {
+    id: 'attendance',
+    name: 'Attendance Calculator',
+    path: '/attendance-calculator.html',
+    description: 'Classes needed for 75% attendance or how many you can skip',
+  },
+  {
+    id: 'land-area',
+    name: 'Land Area Converter',
+    path: '/land-area-converter.html',
+    description: 'Convert sq ft, acre, hectare, gaj, cent, gunta, marla, kanal and bigha',
+  },
+  {
     id: 'zakat',
     name: 'Zakat Calculator',
     path: '/zakat-calculator.html',
@@ -318,7 +336,7 @@ export function getRelatedCalculators(currentId: string, limit: number = 5): Cal
  * Category mappings for better organization
  */
 export const CALCULATOR_CATEGORIES = {
-  percentage: ['percentage', 'marks-percentage', 'hsc-percentage', 'ssc-percentage', 'cbse-best-of-5'],
+  percentage: ['percentage', 'marks-percentage', 'cgpa', 'attendance', 'hsc-percentage', 'ssc-percentage', 'cbse-best-of-5'],
   exam: ['neet-marks', 'mht-cet-percentile'],
   loan: ['emi', 'home-loan', 'car-loan', 'personal-loan', 'loan-eligibility'],
   investment: ['sip', 'simple-interest', 'compound-interest', 'fd', 'rd', 'ppf', 'gratuity'],
