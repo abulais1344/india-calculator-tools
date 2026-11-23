@@ -959,3 +959,34 @@ details.nav-dropdown[open] > .nav-dropdown-menu { display: grid; }
   .nav-dropdown--panel.is-open .nav-dropdown-menu,
   details.nav-dropdown--panel[open] .nav-dropdown-menu { display: grid; }
 }
+
+/* Touch screens: open/close the More panel ONLY by tap (is-open / details[open]).
+   Hover and focus states fire inconsistently on phones and made the panel flash open then close. */
+@media (max-width: 759px), (hover: none) {
+  .site-nav .nav-dropdown--panel .nav-dropdown-menu,
+  .site-nav .nav-dropdown--panel:hover .nav-dropdown-menu,
+  .site-nav .nav-dropdown--panel:focus-within .nav-dropdown-menu {
+    display: grid;
+    max-height: 0;
+    opacity: 0;
+    padding: 0 6px;
+    pointer-events: none;
+    overflow: hidden;
+    transform: none;
+    transition: none;
+    border-width: 0;
+  }
+  .site-nav .nav-dropdown--panel.is-open .nav-dropdown-menu,
+  .site-nav details.nav-dropdown--panel[open] .nav-dropdown-menu {
+    max-height: 70vh;
+    opacity: 1;
+    padding: 8px;
+    pointer-events: auto;
+    overflow-y: auto;
+    border-width: 1px;
+    z-index: 60;
+  }
+}
+@media (min-width: 760px) and (hover: none) {
+  .site-nav .nav-dropdown--panel .nav-dropdown-menu { left: auto; right: 0; width: 600px; }
+}
