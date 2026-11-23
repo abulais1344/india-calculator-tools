@@ -93,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" href="/styles.min.css?v=20261124-2" />
+        <link rel="stylesheet" href="/styles.min.css?v=20261124-3" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525"
@@ -155,7 +155,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "document.addEventListener('click',function(e){document.querySelectorAll('details.nav-dropdown[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});",
+              "(function(){var last=0;document.addEventListener('click',function(e){var s=e.target.closest&&e.target.closest('summary.nav-dropdown-toggle');if(s){e.preventDefault();var n=Date.now();if(n-last<350)return;last=n;var d=s.parentElement;if(d.open)d.removeAttribute('open');else d.setAttribute('open','');}});document.addEventListener('pointerdown',function(e){document.querySelectorAll('details.nav-dropdown[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});})();",
           }}
         />
       </body>

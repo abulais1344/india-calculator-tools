@@ -332,6 +332,13 @@
         event.preventDefault();
         event.stopPropagation();
 
+        // iOS can deliver a second click right after the first; ignore it so the panel doesn't open and instantly close.
+        var now = Date.now();
+        if (now - (dropdown._lastToggle || 0) < 350) {
+          return;
+        }
+        dropdown._lastToggle = now;
+
         var shouldOpen = !dropdown.classList.contains("is-open");
         closeDropdowns();
 
@@ -342,7 +349,8 @@
       });
     });
 
-    document.addEventListener("click", function (event) {
+    // pointerdown (not click): iOS Safari does not fire click for taps on non-interactive areas.
+    document.addEventListener("pointerdown", function (event) {
       if (!event.target.closest(".nav-dropdown")) {
         closeDropdowns();
       }

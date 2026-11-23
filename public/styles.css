@@ -1117,3 +1117,5 @@ details.nav-dropdown[open] > .nav-dropdown-menu { display: grid; }
 @media (min-width: 760px) and (hover: none) {
   .site-nav .nav-dropdown--panel .nav-dropdown-menu { left: auto; right: 0; width: 600px; }
 }
+
+.nav-dropdown-toggle { touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
