@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Subsidy Calculator 2026 – PM Surya Ghar Subsidy for 1, 2, 3 kW | CalcVerse</title>
+  <meta name="description" content="Calculate your PM Surya Ghar rooftop solar subsidy: ₹30,000 per kW for the first 2 kW and ₹18,000 for the 3rd kW, up to ₹78,000. Includes special category states, state top-ups and your cost after subsidy.">
+
+  <link rel="canonical" href="https://calcverse.in/solar-subsidy-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Solar Subsidy Calculator 2026 – PM Surya Ghar Subsidy for 1, 2, 3 kW | CalcVerse">
+  <meta property="og:description" content="Calculate your PM Surya Ghar rooftop solar subsidy and your cost after subsidy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/solar-subsidy-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solar Subsidy Calculator 2026 – PM Surya Ghar Subsidy for 1, 2, 3 kW | CalcVerse">
+  <meta name="twitter:description" content="Calculate your PM Surya Ghar rooftop solar subsidy and your cost after subsidy.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much is the PM Surya Ghar subsidy for a 3 kW solar system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "₹78,000 in most states: ₹30,000 per kW for the first 2 kW (₹60,000) plus ₹18,000 for the third kW. In special category states it is ₹85,800. This is the maximum central subsidy; systems larger than 3 kW get the same ₹78,000."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is eligible for the PM Surya Ghar subsidy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Indian households with a valid residential electricity connection and a suitable roof, installing a grid-connected rooftop system through a registered vendor on the national portal (pmsuryaghar.gov.in), and who have not already taken a solar subsidy for the same connection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do states give extra solar subsidy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some states add their own subsidy on top of the central amount, and the rates change from time to time. Check your state's renewable energy agency or DISCOM website, then enter the extra amount in this calculator."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Solar Panel Calculator", "item": "https://calcverse.in/solar-panel-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "Solar Subsidy Calculator", "item": "https://calcverse.in/solar-subsidy-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .sol-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .sol-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .sol-table th, .sol-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Solar Subsidy Calculator (PM Surya Ghar)</h1>
+        <p>Find the central subsidy for your rooftop solar system, add any state subsidy, and see what you will actually pay.</p>
+      </section>
+
+      <section class="card">
+        <h2>Calculate Your Solar Subsidy</h2>
+        <div class="field inline-row">
+          <div>
+            <label for="subKw">System size (kW)</label>
+            <input id="subKw" type="number" min="0.5" max="100" step="0.5" value="3">
+          </div>
+          <div>
+            <label for="subState">Location</label>
+            <select id="subState">
+              <option value="general">Most states</option>
+              <option value="special">North-East, J&amp;K, Ladakh, Himachal, Uttarakhand, A&amp;N, Lakshadweep</option>
+            </select>
+          </div>
+        </div>
+        <div class="field inline-row">
+          <div>
+            <label for="subCost">Installed cost per kW (₹)</label>
+            <input id="subCost" type="number" min="10000" step="1000" value="60000">
+          </div>
+          <div>
+            <label for="subStateExtra">State subsidy, if any (₹ total)</label>
+            <input id="subStateExtra" type="number" min="0" step="1000" placeholder="Optional, e.g. 20000">
+          </div>
+        </div>
+        <div class="field">
+          <button id="subBtn" type="button">Calculate Subsidy</button>
+        </div>
+        <p id="subError" class="error-text" role="alert" aria-live="polite"></p>
+
+        <div class="result-box">
+          <div id="subResult" class="result-value">Central subsidy: -</div>
+          <div class="steps" id="subDetail"></div>
+        </div>
+        <p style="margin-top: 1rem;">Not sure what size you need? Use the <a href="solar-panel-calculator.html">Solar Panel Calculator</a> with your electricity bill.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>PM Surya Ghar Subsidy Rates</h2>
+        <p>PM Surya Ghar Muft Bijli Yojana gives central financial assistance to households installing grid-connected rooftop solar:</p>
+        <div class="sol-table-wrap">
+          <table class="sol-table">
+            <thead><tr><th>Capacity</th><th>Most states</th><th>Special category states</th></tr></thead>
+            <tbody>
+              <tr><td>First 2 kW</td><td>₹30,000 per kW</td><td>₹33,000 per kW</td></tr>
+              <tr><td>3rd kW</td><td>₹18,000</td><td>₹19,800</td></tr>
+              <tr><td>Maximum (3 kW and above)</td><td>₹78,000</td><td>₹85,800</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Special category states and UTs are the North-Eastern states, Himachal Pradesh, Uttarakhand, Jammu &amp; Kashmir, Ladakh, Andaman &amp; Nicobar and Lakshadweep. Group housing societies and RWAs can get ₹18,000 per kW for common facilities, which this calculator does not cover.</p>
+
+        <h2>Examples</h2>
+        <div class="sol-table-wrap">
+          <table class="sol-table">
+            <thead><tr><th>System</th><th>Cost at ₹60,000/kW</th><th>Central subsidy</th><th>You pay</th></tr></thead>
+            <tbody>
+              <tr><td>1 kW</td><td>₹60,000</td><td>₹30,000</td><td>₹30,000</td></tr>
+              <tr><td>2 kW</td><td>₹1,20,000</td><td>₹60,000</td><td>₹60,000</td></tr>
+              <tr><td>3 kW</td><td>₹1,80,000</td><td>₹78,000</td><td>₹1,02,000</td></tr>
+              <tr><td>5 kW</td><td>₹3,00,000</td><td>₹78,000</td><td>₹2,22,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How to Apply</h2>
+        <ol>
+          <li>Register on the national portal <strong>pmsuryaghar.gov.in</strong> with your state, DISCOM and electricity consumer number.</li>
+          <li>Apply for rooftop solar and wait for feasibility approval from your DISCOM.</li>
+          <li>Get the system installed by a vendor registered with your DISCOM.</li>
+          <li>After installation, submit the plant details and apply for the net meter. The DISCOM inspects it and issues a commissioning certificate.</li>
+          <li>Submit your bank details and a cancelled cheque on the portal. The subsidy is paid directly into your bank account.</li>
+        </ol>
+        <p>Rates and procedures can change, and the scheme currently runs until 31 March 2027. Always confirm on the official portal before you buy.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How much is the PM Surya Ghar subsidy for a 3 kW solar system?</h4>
+          <p>₹78,000 in most states: ₹30,000 per kW for the first 2 kW (₹60,000) plus ₹18,000 for the third kW. In special category states it is ₹85,800. This is the maximum central subsidy; systems larger than 3 kW get the same ₹78,000.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Who is eligible for the PM Surya Ghar subsidy?</h4>
+          <p>Indian households with a valid residential electricity connection and a suitable roof, installing a grid-connected rooftop system through a registered vendor on the national portal (pmsuryaghar.gov.in), and who have not already taken a solar subsidy for the same connection.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Do states give extra solar subsidy?</h4>
+          <p>Some states add their own subsidy on top of the central amount, and the rates change from time to time. Check your state's renewable energy agency or DISCOM website, then enter the extra amount in this calculator.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="solar-generation-calculator.html">Solar Generation Calculator</a>
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function rupees(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
+    function num(id) { var v = parseFloat($(id).value); return isFinite(v) ? v : null; }
+    function subsidy(kw, special) {
+      var first = special ? 33000 : 30000, third = special ? 19800 : 18000;
+      return first * Math.min(kw, 2) + third * Math.max(0, Math.min(kw, 3) - 2);
+    }
+    function calculate() {
+      var kw = num("subKw"), cost = num("subCost"), extra = num("subStateExtra") || 0;
+      var special = $("subState").value === "special";
+      if (kw === null || kw <= 0) { $("subError").textContent = "Please enter the system size in kW."; return; }
+      if (cost === null || cost <= 0) { $("subError").textContent = "Please enter the installed cost per kW."; return; }
+      $("subError").textContent = "";
+      var gross = kw * cost, central = Math.min(subsidy(kw, special), gross), state = Math.min(Math.max(extra, 0), gross - central);
+      var net = gross - central - state;
+      $("subResult").textContent = "Central subsidy: " + rupees(central);
+      $("subDetail").textContent = "System cost " + rupees(gross) + " − central subsidy " + rupees(central) +
+        (state ? " − state subsidy " + rupees(state) : "") + " = you pay " + rupees(net) + " (" + Math.round((central + state) / gross * 100) + "% covered)." +
+        (kw > 3 ? " The central subsidy is capped at 3 kW." : "");
+    }
+    $("subBtn").addEventListener("click", calculate);
+    ["subKw", "subCost", "subStateExtra"].forEach(function (id) { $(id).addEventListener("keydown", function (e) { if (e.key === "Enter") calculate(); }); });
+    $("subState").addEventListener("change", calculate);
+  })();
+  </script>
+</body>
+</html>

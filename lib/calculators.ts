@@ -147,6 +147,24 @@ export const CALCULATORS: Calculator[] = [
 
   // Utility Calculators
   {
+    id: 'solar-panel',
+    name: 'Solar Panel Calculator',
+    path: '/solar-panel-calculator.html',
+    description: 'Rooftop solar size, cost, PM Surya Ghar subsidy, savings and payback',
+  },
+  {
+    id: 'solar-subsidy',
+    name: 'Solar Subsidy Calculator',
+    path: '/solar-subsidy-calculator.html',
+    description: 'PM Surya Ghar central subsidy for 1, 2 and 3 kW systems',
+  },
+  {
+    id: 'solar-generation',
+    name: 'Solar Generation Calculator',
+    path: '/solar-generation-calculator.html',
+    description: 'Units per day and month from a rooftop solar system',
+  },
+  {
     id: 'electricity-bill',
     name: 'Electricity Bill Calculator',
     path: '/electricity-bill-calculator.html',
@@ -281,7 +299,7 @@ export const CALCULATOR_CATEGORIES = {
   loan: ['emi', 'home-loan', 'car-loan', 'personal-loan', 'loan-eligibility'],
   investment: ['sip', 'simple-interest', 'compound-interest', 'fd', 'rd', 'ppf', 'gratuity'],
   salary: ['salary', 'income-tax', 'gst'],
-  utility: ['electricity-bill', 'fuel-cost', 'discount', 'bmi', 'age'],
+  utility: ['electricity-bill', 'solar-panel', 'solar-subsidy', 'solar-generation', 'fuel-cost', 'discount', 'bmi', 'age'],
   generator: ['salary-slip', 'rent-receipt', 'gst-invoice'],
 };
 

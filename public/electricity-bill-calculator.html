@@ -124,6 +124,16 @@
           <div class="result-item"><span>Total Bill Estimate</span><span class="result-value" id="elecTotalBill" style="color: #1f7a4f; font-weight: bold;">-</span></div>
         </div>
         <button id="copyElectricityResultBtn" type="button" class="secondary copy-btn" style="margin-top: 1rem;">📋 Copy Result</button>
+
+        <p style="margin-top: 1.25rem;"><strong>☀️ Want to cut this bill?</strong> One kW of rooftop solar makes about 120 units a month, and the PM Surya Ghar subsidy pays up to ₹78,000. <a id="elecSolarLink" href="solar-panel-calculator.html">See how much solar you need, the cost after subsidy and your savings</a>.</p>
+        <script>
+          (function () {
+            var u = document.getElementById("elecUnits"), a = document.getElementById("elecSolarLink");
+            if (!u || !a) return;
+            function sync() { var v = parseFloat(u.value); a.href = "solar-panel-calculator.html" + (v > 0 ? "?units=" + Math.round(v) : ""); }
+            u.addEventListener("input", sync); u.addEventListener("change", sync);
+          })();
+        </script>
       </section>
 
       <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>

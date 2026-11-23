@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Schema from '@/app/components/Schema';
 import FAQSection from '@/app/components/FAQSection';
 import RelatedCalculators from '@/app/components/RelatedCalculators';
+import SolarPromo from './SolarPromo';
 import { Calculator } from '@/types';
 import { getElectricityProviderFaqs, getElectricityGuideLinks, getElectricityProviderContent } from '@/lib/electricity-content';
 import { getCanonicalUrl } from '@/lib/seo-utils';
@@ -122,6 +123,8 @@ export default function ElectricityProviderPage({ provider }: ElectricityProvide
         <h2>Interactive Bill Calculator</h2>
         <ProviderBillCalculator providerName={provider.name} baseUnitRate={provider.unitRate} />
       </div>
+
+      <SolarPromo providerName={provider.name} />
 
       <div className="card content-block">
         <h2>Use This Before the Official Bill Arrives</h2>

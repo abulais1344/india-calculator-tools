@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Schema from '@/app/components/Schema';
 import FAQSection from '@/app/components/FAQSection';
 import RelatedCalculators from '@/app/components/RelatedCalculators';
+import SolarPromo from './SolarPromo';
 import { FAQItem } from '@/types';
 import { getCanonicalUrl } from '@/lib/seo-utils';
 import { getCalculatorById } from '@/lib/calculators';
@@ -93,6 +94,8 @@ export default function ElectricityGuidePage({
           </div>
         ))}
       </div>
+
+      <SolarPromo />
 
       <div className="card content-block">
         <h2>Use This Guide for Better Bill Planning</h2>

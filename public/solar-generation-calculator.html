@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Generation Calculator – 1 kW Solar Units per Day &amp; Month | CalcVerse</title>
+  <meta name="description" content="How many units does a 1 kW, 3 kW or 5 kW solar system generate in India? Calculate daily, monthly and yearly solar units, or the kW and number of panels you need for your monthly units.">
+
+  <link rel="canonical" href="https://calcverse.in/solar-generation-calculator.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta property="og:title" content="Solar Generation Calculator – 1 kW Solar Units per Day &amp; Month | CalcVerse">
+  <meta property="og:description" content="Calculate daily, monthly and yearly units from a rooftop solar system, or the kW you need for your monthly units.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcverse.in/solar-generation-calculator.html">
+  <meta property="og:site_name" content="CalcVerse">
+  <meta property="og:image" content="https://calcverse.in/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solar Generation Calculator – 1 kW Solar Units per Day &amp; Month | CalcVerse">
+  <meta name="twitter:description" content="Calculate daily, monthly and yearly units from a rooftop solar system, or the kW you need for your monthly units.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many units does a 1 kW solar panel generate per day in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About 4 units (kWh) per day on average, which is roughly 120 units a month and 1,400 to 1,500 units a year. It is higher in sunny states like Rajasthan and Gujarat and lower in winter, monsoon and hilly areas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many units does a 3 kW solar system generate per month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About 360 units a month at the Indian average of 4 units per kW per day, or about 12 units a day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many solar panels are needed for 1 kW?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Two 550 W panels make 1.1 kW, which is the common way to build a 1 kW home system. With older 330 W panels you would need about 3 to 4 panels."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcverse.in/"},
+      {"@type": "ListItem", "position": 2, "name": "Solar Panel Calculator", "item": "https://calcverse.in/solar-panel-calculator.html"},
+      {"@type": "ListItem", "position": 3, "name": "Solar Generation Calculator", "item": "https://calcverse.in/solar-generation-calculator.html"}
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="styles.min.css?v=20261111-3">
+  <script src="app.min.js?v=20261111-3" defer></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9017334089053525" crossorigin="anonymous"></script>
+  <style>
+    .sg-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .sg-tabs button[aria-pressed="false"] { background: #fff; color: inherit; border: 1px solid #c4d8cb; }
+    .sol-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .sol-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .sol-table th, .sol-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e3ece6; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="/" class="brand"><img src="images/logo-wide.png" alt="CalcVerse" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="/">Home</a>
+        <a href="electricity-bill-calculator.html">Electricity</a>
+        <a href="solar-panel-calculator.html">Solar</a>
+        <a href="fuel-cost-calculator.html">Fuel Cost</a>
+        <a href="age-calculator.html">Age</a>
+        <a href="percentage-calculator.html">Percentage</a>
+        <a href="gst-calculator.html">GST</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Solar Generation Calculator</h1>
+        <p>See how many units a rooftop solar system generates per day, month and year, or how many kW and panels you need for your monthly units.</p>
+      </section>
+
+      <section class="card">
+        <div class="sg-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" data-mode="fromKw" aria-pressed="true">kW → Units</button>
+          <button type="button" data-mode="fromUnits" aria-pressed="false">Units → kW Needed</button>
+        </div>
+
+        <div data-panel="fromKw">
+          <h2>How many units will my solar system generate?</h2>
+          <div class="field inline-row">
+            <div>
+              <label for="sgKw">System size (kW)</label>
+              <input id="sgKw" type="number" min="0.5" step="0.5" value="3">
+            </div>
+          </div>
+        </div>
+        <div data-panel="fromUnits" hidden>
+          <h2>How much solar do I need?</h2>
+          <div class="field inline-row">
+            <div>
+              <label for="sgUnits">Monthly electricity units (kWh)</label>
+              <input id="sgUnits" type="number" min="1" step="1" placeholder="Example: 300">
+            </div>
+          </div>
+        </div>
+
+        <div class="field inline-row">
+          <div>
+            <label for="sgGen">Generation per kW per day (units)</label>
+            <select id="sgGen">
+              <option value="3.5">3.5 – hilly / North India winter</option>
+              <option value="4" selected>4 – India average</option>
+              <option value="4.5">4.5 – sunny (South, Maharashtra)</option>
+              <option value="5">5 – very sunny (Rajasthan, Gujarat)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="sgBtn" type="button">Calculate</button>
+        </div>
+        <p id="sgError" class="error-text" role="alert" aria-live="polite"></p>
+        <div class="result-box">
+          <div id="sgResult" class="result-value">Result: -</div>
+          <div class="steps" id="sgDetail"></div>
+        </div>
+        <p style="margin-top: 1rem;">Want cost, subsidy and savings too? Use the <a href="solar-panel-calculator.html">Solar Panel Calculator</a>.</p>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+      <section class="card content-block">
+        <h2>Solar Generation by System Size (India Average)</h2>
+        <p>At the Indian average of about 4 units per kW per day:</p>
+        <div class="sol-table-wrap">
+          <table class="sol-table">
+            <thead><tr><th>System</th><th>Units per day</th><th>Units per month</th><th>Units per year</th><th>550 W panels</th></tr></thead>
+            <tbody>
+              <tr><td>1 kW</td><td>4</td><td>120</td><td>1,460</td><td>2</td></tr>
+              <tr><td>2 kW</td><td>8</td><td>240</td><td>2,920</td><td>4</td></tr>
+              <tr><td>3 kW</td><td>12</td><td>360</td><td>4,380</td><td>6</td></tr>
+              <tr><td>4 kW</td><td>16</td><td>480</td><td>5,840</td><td>8</td></tr>
+              <tr><td>5 kW</td><td>20</td><td>600</td><td>7,300</td><td>10</td></tr>
+              <tr><td>10 kW</td><td>40</td><td>1,200</td><td>14,600</td><td>19</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Why Solar Output Varies</h2>
+        <ul>
+          <li><strong>Location:</strong> western and southern India get more strong sunshine than the hills and the North-East.</li>
+          <li><strong>Season:</strong> output is highest in March to May and lowest in the monsoon. In North India, winter haze also cuts generation.</li>
+          <li><strong>Shade and angle:</strong> even partial shade from a tank or tree lowers output. Panels should face south and be kept clean of dust.</li>
+          <li><strong>Panel age:</strong> panels lose a little output each year, usually under 1%.</li>
+        </ul>
+        <p>Over a full year these effects average out, which is why about <strong>4 units per kW per day</strong> is the common planning figure.</p>
+      </section>
+
+      <section class="card faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h4>How many units does a 1 kW solar panel generate per day in India?</h4>
+          <p>About 4 units (kWh) per day on average, which is roughly 120 units a month and 1,400 to 1,500 units a year. It is higher in sunny states like Rajasthan and Gujarat and lower in winter, monsoon and hilly areas.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many units does a 3 kW solar system generate per month?</h4>
+          <p>About 360 units a month at the Indian average of 4 units per kW per day, or about 12 units a day.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How many solar panels are needed for 1 kW?</h4>
+          <p>Two 550 W panels make 1.1 kW, which is the common way to build a 1 kW home system. With older 330 W panels you would need about 3 to 4 panels.</p>
+        </div>
+      </section>
+
+      <section class="card content-block">
+        <h3>More Energy Calculators</h3>
+        <div class="calc-link-row">
+          <a class="btn secondary" href="solar-panel-calculator.html">Solar Panel Calculator</a>
+          <a class="btn secondary" href="solar-subsidy-calculator.html">Solar Subsidy Calculator</a>
+          <a class="btn secondary" href="electricity-bill-calculator.html">Electricity Bill Calculator</a>
+        </div>
+      </section>
+
+      <div class="ad-container ad-live"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9017334089053525" data-ad-slot="3210837798" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <small>© 2026 CalcVerse</small>
+      <div class="footer-trust-strip" aria-label="Footer trust signals">
+        <span class="footer-trust-item">&#10003; 100% Free</span>
+        <span class="footer-trust-item">&#128274; No Login</span>
+        <span class="footer-trust-item">&#128737; No Data Stored</span>
+        <span class="footer-trust-item">&#9889; In-Browser Calculations</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function $(id) { return document.getElementById(id); }
+    function n(v) { return Math.round(v).toLocaleString("en-IN"); }
+    var mode = "fromKw";
+    function calculate() {
+      var gen = parseFloat($("sgGen").value), err = $("sgError");
+      if (mode === "fromKw") {
+        var kw = parseFloat($("sgKw").value);
+        if (!isFinite(kw) || kw <= 0) { err.textContent = "Please enter the system size in kW."; return; }
+        err.textContent = "";
+        $("sgResult").textContent = (kw * gen).toFixed(1).replace(/\.0$/, "") + " units a day · " + n(kw * gen * 30) + " a month";
+        $("sgDetail").textContent = "About " + n(kw * gen * 365) + " units a year from " + kw + " kW, using about " + Math.ceil(kw * 1000 / 550) + " panels of 550 W.";
+      } else {
+        var units = parseFloat($("sgUnits").value);
+        if (!isFinite(units) || units <= 0) { err.textContent = "Please enter your monthly units."; return; }
+        err.textContent = "";
+        var exact = units / (gen * 30), kw2 = Math.max(1, Math.ceil(exact * 2) / 2);
+        $("sgResult").textContent = "You need about " + kw2 + " kW of solar";
+        $("sgDetail").textContent = units + " units ÷ (" + gen + " × 30) = " + exact.toFixed(2) + " kW, rounded up to " + kw2 + " kW. That is about " +
+          Math.ceil(kw2 * 1000 / 550) + " panels of 550 W and " + n(kw2 * 100) + " sq ft of shadow-free roof.";
+      }
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (btn) {
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-mode");
+        Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"), function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-panel]"), function (p) { p.hidden = p.getAttribute("data-panel") !== mode; });
+        $("sgResult").textContent = "Result: -"; $("sgDetail").textContent = ""; $("sgError").textContent = "";
+      });
+    });
+    $("sgBtn").addEventListener("click", calculate);
+    $("sgGen").addEventListener("change", function () { if ($("sgKw").value || $("sgUnits").value) calculate(); });
+    ["sgKw", "sgUnits"].forEach(function (id) { $(id).addEventListener("keydown", function (e) { if (e.key === "Enter") calculate(); }); });
+  })();
+  </script>
+</body>
+</html>
