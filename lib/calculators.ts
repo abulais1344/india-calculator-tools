@@ -237,6 +237,12 @@ export const CALCULATORS: Calculator[] = [
     description: 'Calculate fuel cost for your journey',
   },
   {
+    id: 'zakat',
+    name: 'Zakat Calculator',
+    path: '/zakat-calculator.html',
+    description: 'Zakat on cash, gold, silver and business assets with gold or silver nisab',
+  },
+  {
     id: 'cng-vs-petrol',
     name: 'CNG vs Petrol Calculator',
     path: '/cng-vs-petrol-calculator.html',
