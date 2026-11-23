@@ -13,6 +13,7 @@ import {
   generateHowToSchema,
   generateBreadcrumbSchema,
   getCanonicalUrl,
+  isIndexablePercentageTotal,
 } from '@/lib/seo-utils';
 import { PERCENTAGE_FAQS } from '@/lib/faq-data';
 import { getRelatedCalculators, getCalculatorById } from '@/lib/calculators';
@@ -54,6 +55,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical,
     },
+    // Unusual totals stay reachable for visitors but are kept out of search results.
+    ...(isIndexablePercentageTotal(total) ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       title,
       description,
@@ -287,7 +290,7 @@ export default async function PercentageCalculatorPage({ params }: PageProps) {
           {[
             { obtained: obtained + 2, total },
             { obtained: obtained - 2, total },
-            { obtained, total: total + 10 },
+            { obtained: obtained + 10, total },
             { obtained: 438, total: 600 },
           ]
             .filter(
@@ -295,6 +298,7 @@ export default async function PercentageCalculatorPage({ params }: PageProps) {
                 calc.obtained > 0 &&
                 calc.total > 0 &&
                 calc.obtained <= calc.total &&
+                isIndexablePercentageTotal(calc.total) &&
                 !(calc.obtained === obtained && calc.total === total)
             )
             .map(calc => {

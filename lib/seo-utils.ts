@@ -221,6 +221,19 @@ export function getGradeClassification(percentage: number): {
  * Extract numbers from URL path
  * e.g., "438-out-of-600" => { obtained: 438, total: 600 }
  */
+/**
+ * Real exam totals used by Indian boards and entrance exams. Only percentage
+ * pages with these totals are indexed and cross-linked, so crawlers cannot
+ * follow an endless chain of made-up totals (e.g. 1072-out-of-2200).
+ */
+export const INDEXABLE_PERCENTAGE_TOTALS = new Set([
+  100, 150, 200, 250, 300, 400, 450, 500, 550, 600, 625, 650, 700, 720, 750, 800, 900, 1000, 1100, 1200,
+]);
+
+export function isIndexablePercentageTotal(total: number): boolean {
+  return INDEXABLE_PERCENTAGE_TOTALS.has(total);
+}
+
 export function parsePercentageUrlSlug(slug: string): { obtained: number; total: number } | null {
   const pattern = /^(\d+)-out-of-(\d+)$/;
   const match = slug.match(pattern);
