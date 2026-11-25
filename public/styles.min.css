@@ -1000,3 +1000,17 @@ details.nav-dropdown[open] > .nav-dropdown-menu { display: grid; }
   backdrop-filter: none;
   background: #ffffff;
 }
+
+/* iOS Safari: native date inputs ignore width:100% and can overflow their card; text is centred. */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 2.75em;
+  box-sizing: border-box;
+  text-align: left;
+}
+input[type="date"]::-webkit-date-and-time-value { text-align: left; }
