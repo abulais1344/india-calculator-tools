@@ -261,7 +261,7 @@ export default function ElectricityHubPage() {
       <section id="core-guides" className="card content-block" style={{ borderLeft: '4px solid #0891b2', background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.08) 0%, rgba(34, 211, 238, 0.06) 100%)' }}>
         <h2>📚 Core Electricity Guides</h2>
         <div className="grid calculator-grid">
-          {guideLinks.slice(0, 12).map(link => (
+          {guideLinks.map(link => (
             <article key={link.path} className="card">
               <h3>{link.name}</h3>
               <p style={{ fontSize: '0.9em' }}>{link.description}</p>
@@ -273,13 +273,6 @@ export default function ElectricityHubPage() {
             </article>
           ))}
         </div>
-        {guideLinks.length > 12 && (
-          <div style={{ marginTop: '24px', textAlign: 'center' }}>
-            <Link href="/electricity/all-guides" className="btn" style={{ display: 'inline-block' }}>
-              View All {guideLinks.length} Guides →
-            </Link>
-          </div>
-        )}
       </section>
 
       <section id="electricity-faqs" className="card content-block" style={{ borderLeft: '4px solid #6366f1', background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 100%)' }}>

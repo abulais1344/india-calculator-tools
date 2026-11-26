@@ -3,15 +3,27 @@
     {
       "source": "/(.*)\\.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
-        { "key": "Pragma", "value": "no-cache" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400" },
-        { "key": "Pragma", "value": "no-cache" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        }
       ]
     }
   ],
@@ -114,6 +126,121 @@
     {
       "source": "/wbsedcl-electricity-rate-per-unit.html",
       "destination": "/electricity/wbsedcl-bill-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/age-calculation-for-govt-forms.html",
+      "destination": "/blog/age-calculation-for-govt-forms.html",
+      "permanent": true
+    },
+    {
+      "source": "/become-crorepati-5000-monthly-sip.html",
+      "destination": "/blog/become-crorepati-5000-monthly-sip.html",
+      "permanent": true
+    },
+    {
+      "source": "/best-sip-amount-by-age-india.html",
+      "destination": "/blog/best-sip-amount-by-age-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/cbse-best-of-5-explained.html",
+      "destination": "/blog/cbse-best-of-5-explained.html",
+      "permanent": true
+    },
+    {
+      "source": "/ctc-to-in-hand-salary-guide-india-2026.html",
+      "destination": "/blog/ctc-to-in-hand-salary-guide-india-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/fixed-vs-floating-interest-rate.html",
+      "destination": "/blog/fixed-vs-floating-interest-rate.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-calculate-emi.html",
+      "destination": "/blog/how-to-calculate-emi.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-calculate-percentage-of-marks.html",
+      "destination": "/blog/how-to-calculate-percentage-of-marks.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-reduce-emi.html",
+      "destination": "/blog/how-to-reduce-emi.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-save-income-tax.html",
+      "destination": "/blog/how-to-save-income-tax.html",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-save-money-every-month-low-salary.html",
+      "destination": "/blog/how-to-save-money-every-month-low-salary.html",
+      "permanent": true
+    },
+    {
+      "source": "/hsc-percentage-calculation-guide.html",
+      "destination": "/blog/hsc-percentage-calculation-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/invest-10000-per-month-india.html",
+      "destination": "/blog/invest-10000-per-month-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/jusco-electricity-bill-calculator-guide.html",
+      "destination": "/blog/jusco-electricity-bill-calculator-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/mp-poorv-kshetra-electricity-bill-calculator-guide.html",
+      "destination": "/blog/mp-poorv-kshetra-electricity-bill-calculator-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/old-vs-new-tax-regime.html",
+      "destination": "/blog/old-vs-new-tax-regime.html",
+      "permanent": true
+    },
+    {
+      "source": "/percentage-calculation-guide.html",
+      "destination": "/blog/percentage-calculation-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/sip-vs-fd-india-2026.html",
+      "destination": "/blog/sip-vs-fd-india-2026.html",
+      "permanent": true
+    },
+    {
+      "source": "/sip-vs-fd-vs-rd.html",
+      "destination": "/blog/sip-vs-fd-vs-rd.html",
+      "permanent": true
+    },
+    {
+      "source": "/sip-vs-fd.html",
+      "destination": "/blog/sip-vs-fd.html",
+      "permanent": true
+    },
+    {
+      "source": "/tax-saving-tips.html",
+      "destination": "/blog/tax-saving-tips.html",
+      "permanent": true
+    },
+    {
+      "source": "/electricity/all-guides",
+      "destination": "/electricity",
+      "permanent": true
+    },
+    {
+      "source": "/electricity/how-to-check-electricity-meter-reading-and-calculate-bill",
+      "destination": "/electricity/how-electricity-bill-is-calculated",
       "permanent": true
     },
     {
